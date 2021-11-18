@@ -1,0 +1,156 @@
+[
+  {
+    "key": "group_5fca62513c6c4",
+    "title": "Page Builder",
+    "fields": [
+      {
+        "key": "field_5fca625a514ef",
+        "label": "Layouts",
+        "name": "layouts",
+        "type": "flexible_content",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "layouts": {
+          "layout_5fca627e28cf4": {
+            "key": "layout_5fca627e28cf4",
+            "name": "misc_content",
+            "label": "Misc Content",
+            "display": "block",
+            "sub_fields": [
+              {
+                "key": "field_5fca628a514f1",
+                "label": "Content",
+                "name": "content",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                  "width": "",
+                  "class": "",
+                  "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 1,
+                "delay": 0
+              },
+              {
+                "key": "field_5fca629a514f2",
+                "label": "Container max-width",
+                "name": "container_max-width",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                  "width": "",
+                  "class": "",
+                  "id": ""
+                },
+                "choices": {
+                  "sm": "Small",
+                  "md": "Medium",
+                  "lg": "Large",
+                  "xl": "Extra-Large",
+                  "false": "No Max Width"
+                },
+                "default_value": "md",
+                "allow_null": 0,
+                "multiple": 0,
+                "ui": 0,
+                "return_format": "value",
+                "ajax": 0,
+                "placeholder": ""
+              }
+            ],
+            "min": "",
+            "max": ""
+          }
+        },
+        "button_label": "Add Layout",
+        "min": "",
+        "max": ""
+      },
+      {
+        "key": "field_5fca6271514f0",
+        "label": "Page Configuration",
+        "name": "page_configuration",
+        "type": "group",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "layout": "block",
+        "sub_fields": [
+          {
+            "key": "field_5fca62d4e44ab",
+            "label": "Hide header items",
+            "name": "hide_header_items",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+              "width": "",
+              "class": "",
+              "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+          },
+          {
+            "key": "field_5fca6328e44ac",
+            "label": "Hide Footer",
+            "name": "hide_footer",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+              "width": "",
+              "class": "",
+              "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+          }
+        ]
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "post_type",
+          "operator": "==",
+          "value": "page"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": ["the_content"],
+    "active": true,
+    "description": ""
+  }
+]

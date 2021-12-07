@@ -6,6 +6,7 @@ import CustomButton from "../custom-button/custom-button.component"
 
 export const Wrapper = styled(SectionWrapper)`
   padding: 0;
+  max-height: 900px;
 `
 
 export const LeftImage = styled(CustomImage)`
@@ -14,9 +15,6 @@ export const LeftImage = styled(CustomImage)`
   object-fit: cover;
 `
 
-export const CustomGrid = styled(Grid)`
-  height: 100vh;
-`
 export const RightGrid = styled(Grid)`
   background-color: black;
 `

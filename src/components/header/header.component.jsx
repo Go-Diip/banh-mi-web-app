@@ -4,6 +4,7 @@ import { Container, Grid } from "@mui/material"
 import { graphql, useStaticQuery } from "gatsby"
 import MenuIcon from "@mui/icons-material/Menu"
 import CustomButton from "../custom-button/custom-button.component"
+import CommonSlider from "../common-slider/common-slider.component"
 
 const Header = () => {
   const staticQuery = useStaticQuery(graphql`
@@ -18,9 +19,16 @@ const Header = () => {
 
   return (
     <S.Wrapper>
-      <S.CustomGrid container>
+      <Grid container>
         <Grid item xs={12} md={6}>
-          <S.LeftImage img={staticQuery.hero} />
+          <CommonSlider
+            haveIcon
+            images={[
+              { image: staticQuery.hero },
+              { image: staticQuery.hero },
+              { image: staticQuery.hero },
+            ]}
+          />
         </Grid>
         <S.RightGrid item xs={12} md={6}>
           <S.CustomContainer>
@@ -40,7 +48,7 @@ const Header = () => {
             e
           </S.CustomContainer>
         </S.RightGrid>
-      </S.CustomGrid>
+      </Grid>
     </S.Wrapper>
   )
 }

@@ -3,8 +3,9 @@ import * as S from "./common-slider.styles"
 import Slider from "react-slick"
 import "../../../node_modules/slick-carousel/slick/slick-theme.css"
 import "../../../node_modules/slick-carousel/slick/slick.css"
-import CustomImage from "../custom-image/custom-image.component"
-const CommonSlider = ({ images }) => {
+import { Container } from "@mui/material"
+
+const CommonSlider = ({ images, haveIcon }) => {
   const sliderSettings = {
     dots: true,
     infinite: true,
@@ -15,6 +16,11 @@ const CommonSlider = ({ images }) => {
   }
   return (
     <S.Wrapper>
+      {haveIcon && (
+        <Container maxWidth="xl">
+          <S.Icon />
+        </Container>
+      )}
       <Slider {...sliderSettings}>
         {images.map(({ image }, index) => (
           <S.SlideImage key={`image-slide-${index}`} img={image} />

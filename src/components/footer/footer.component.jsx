@@ -39,7 +39,6 @@ const Footer = ({ className }) => {
           </Grid>
         </Grid>
       </Container>
-      <div>Footer here</div>
     </S.Wrapper>
   )
 }

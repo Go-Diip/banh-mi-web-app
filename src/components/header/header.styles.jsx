@@ -67,7 +67,7 @@ export const Subtitle = styled.h2`
 
 export const CustomContainer = styled(Container)`
   height: 100%;
-  overflow: auto;
+  //overflow: auto;
 `
 
 export const Button = styled(CustomButton)`

@@ -4,7 +4,7 @@ const theme = createTheme({
   navHeight: 74,
   sectionPadding: "padding-top: 1.5em; padding-bottom: 1.5em;",
   fonts: {
-    primary: "DM Sans, sans-serif",
+    primary: "Kanit, sans-serif",
     secondary: "Bebas Neue, sans-serif",
   },
   layout: {
@@ -41,7 +41,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: `"DM Sans", "Open Sans", "Arial", sans-serif`,
+    fontFamily: `"Kanit", "Open Sans", "Arial", sans-serif`,
   },
 })
 

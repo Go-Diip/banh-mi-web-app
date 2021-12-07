@@ -66,8 +66,8 @@ module.exports = {
           fonts: {
             google: [
               {
-                family: `DM Sans`,
-                variants: [`400`, `500`, `700`],
+                family: `Kanit`,
+                variants: [`400`, `500`, `600`, `700`],
               },
               {
                 family: `Bebas Neue`,

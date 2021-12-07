@@ -10,13 +10,15 @@ export const CustomButton = styled(Button)`
       ? theme.palette[color].main
       : theme.palette.primary.main};
   padding: 0.5em 1.5em;
-  border: 1px solid transparent;
-  font-size: ${({ theme }) => theme.typography.pxToRem(14)};
-  font-weight: 600 !important;
-  border-radius: 4px;
+  border: 2px solid transparent;
+  font-size: ${({ theme }) => theme.typography.pxToRem(18)};
+  line-height: 27px;
+  letter-spacing: 0.22em;
+  font-weight: 500 !important;
+  border-radius: 25px;
 
   ${({ theme }) => theme.breakpoints.up("md")} {
-    padding: 0.5em 3em;
+    padding: 0.5em 1.5em;
   }
   &.light {
     background-color: white;
@@ -36,7 +38,7 @@ export const CustomButton = styled(Button)`
 
   &.lightBorder {
     color: white;
-    border: 1px white solid;
+    border: 1px ${({ theme }) => theme.palette.primary.light} solid;
     background-color: transparent;
   }
 
@@ -48,8 +50,7 @@ export const CustomButton = styled(Button)`
           : theme.palette.primary.main,
         0.1
       )};
-    //border: 1px solid ${({ theme }) =>
-      darken(theme.palette.primary.main, 0.1)};
+    border: 1px solid ${({ theme }) => darken(theme.palette.primary.main, 0.1)};
   }
 
   &.Mui-disabled {

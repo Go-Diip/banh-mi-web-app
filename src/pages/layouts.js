@@ -29,6 +29,10 @@ const Layouts = () => {
       <MiscContent content={`<p>Some content Here</p>`} />
       <LayoutTitle>ReservationGrid</LayoutTitle>
       <ReservationGrid
+        title="reservaciones"
+        numDesc="Para grupos de mas 10 personas, por favor comunicate al "
+        num="0981244567"
+        button={{ title: "reservas", url: "/", target: "_blank" }}
         images={[
           { image: staticQuery.hero },
           { image: staticQuery.hero },

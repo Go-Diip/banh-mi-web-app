@@ -67,7 +67,7 @@ module.exports = {
             google: [
               {
                 family: `Kanit`,
-                variants: [`400`, `500`, `600`, `700`],
+                variants: [`300`, `400`, `500`, `600`, `700`],
               },
               {
                 family: `Bebas Neue`,

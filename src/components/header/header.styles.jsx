@@ -2,7 +2,7 @@ import styled from "styled-components"
 import SectionWrapper from "../section-wrapper/section-wrapper.component"
 import CustomImage from "../custom-image/custom-image.component"
 import { Container, Grid } from "@mui/material"
-import CustomButton from "../custom-button/custom-button.component"
+import MenuIcon from "@mui/icons-material/Menu"
 
 export const Wrapper = styled(SectionWrapper)`
   padding: 0;
@@ -17,10 +17,10 @@ export const LeftImage = styled(CustomImage)`
 
 export const RightGrid = styled(Grid)`
   background-color: black;
+  position: relative;
 `
 
 export const LeftWrapper = styled.div`
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -34,18 +34,6 @@ export const LeftWrapper = styled.div`
   }
 `
 
-export const MenuWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  span {
-    font-size: 14px;
-    color: #ffffff;
-    margin-top: -10px;
-  }
-`
 export const MiddleWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -63,16 +51,10 @@ export const Subtitle = styled.h2`
   margin-bottom: 2em;
 `
 
-export const CustomContainer = styled(Container)`
-  height: 100%;
-  //overflow: auto;
-`
-
-export const Button = styled(CustomButton)`
-  margin-bottom: 2em;
-`
-
-export const LocationText = styled.span`
-  color: #ffffff;
-  font-size: 32px;
+export const Icon = styled(MenuIcon)`
+  position: absolute;
+  color: white;
+  z-index: 2;
+  top: 30px;
+  right: 30px;
 `

@@ -2,7 +2,6 @@ import React from "react"
 import * as S from "./header.styles.jsx"
 import { Container, Grid } from "@mui/material"
 import { graphql, useStaticQuery } from "gatsby"
-import MenuIcon from "@mui/icons-material/Menu"
 import CustomButton from "../custom-button/custom-button.component"
 import CommonSlider from "../common-slider/common-slider.component"
 
@@ -31,22 +30,20 @@ const Header = () => {
           />
         </Grid>
         <S.RightGrid item xs={12} md={6}>
-          <S.CustomContainer>
+          <S.Icon />
+          <Container maxWidth="xl">
             <S.LeftWrapper>
-              <S.MenuWrapper>
-                <MenuIcon />
-                <span>MENÚ</span>
-              </S.MenuWrapper>
               <S.MiddleWrapper>
                 <S.Title>Banh Mi</S.Title>
                 <S.Subtitle>Gastronomía Asíatica</S.Subtitle>
-                <S.Button>Reservas</S.Button>
-                <S.Button>Pedir Online</S.Button>
+                <CustomButton className="lightBorder">Reservas</CustomButton>
+                <CustomButton className="lightBorder">
+                  Pedir Online
+                </CustomButton>
               </S.MiddleWrapper>
-              <S.LocationText>Quito, Ecuador</S.LocationText>
             </S.LeftWrapper>
             e
-          </S.CustomContainer>
+          </Container>
         </S.RightGrid>
       </Grid>
     </S.Wrapper>

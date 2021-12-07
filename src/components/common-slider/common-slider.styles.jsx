@@ -22,7 +22,7 @@ export const Wrapper = styled.div`
 
 export const SlideImage = styled(CustomImage)`
   width: 100%;
-  height: 100%;
+  height: 800px;
   object-fit: cover;
 `
 

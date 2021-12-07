@@ -3,7 +3,7 @@ import { Typography } from "@mui/material"
 
 export const Wrapper = styled.footer`
   color: ${({ theme }) => theme.palette.text.secondary};
-  padding: 4em 0 0;
+  padding: 4em 0;
   background-color: ${({ theme }) => theme.palette.primary.dark};
 
   ${({ theme }) => theme.breakpoints.down("sm")} {

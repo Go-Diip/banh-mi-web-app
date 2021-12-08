@@ -30,10 +30,10 @@ const Header = () => {
           <S.ImageBg img={staticQuery.hero} />
         </Grid>
         <S.RightGrid item xs={12} md={6}>
-          <S.Icon />
-          <S.Pepper />
-          {/*<S.BigPepper />*/}
-          <Container maxWidth="xl">
+          <S.BigPepper />
+          <S.CustomContainer maxWidth="xl">
+            <S.Icon />
+            <S.Pepper />
             <S.LeftWrapper>
               <S.MiddleWrapper>
                 <LogoVertical />
@@ -50,7 +50,7 @@ const Header = () => {
               </S.MiddleWrapper>
             </S.LeftWrapper>
             e
-          </Container>
+          </S.CustomContainer>
         </S.RightGrid>
       </S.GeneralGrid>
     </S.Wrapper>

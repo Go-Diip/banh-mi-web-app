@@ -28,10 +28,9 @@ export const RightGrid = styled(Grid)`
 export const LeftWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 3em 0;
-  position: relative;
+  height: 100%;
 
   svg {
     fill: #ffffff;
@@ -82,8 +81,22 @@ export const Pepper = styled(PepperIcon)`
 `
 
 export const BigPepper = styled(PepperBg)`
+  position: relative;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  opacity: 0.07;
+  height: 100%;
+`
+
+export const CustomContainer = styled(Container)`
   position: absolute;
   z-index: 2;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
 `
 
 export const ImageBg = styled(CustomImage)`

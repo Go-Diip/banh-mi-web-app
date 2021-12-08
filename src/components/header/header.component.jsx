@@ -39,11 +39,11 @@ const Header = () => {
                 <S.Subtitle>Gastronomía Asíatica</S.Subtitle>
                 <CustomButton
                   style={{ marginBottom: "1em" }}
-                  className="lightBorder"
+                  className="lightBorder moreWidth"
                 >
                   Reservas
                 </CustomButton>
-                <CustomButton className="lightBorder">
+                <CustomButton className="lightBorder moreWidth">
                   Pedir Online
                 </CustomButton>
               </S.MiddleWrapper>

@@ -42,6 +42,10 @@ export const CustomButton = styled(Button)`
     background-color: transparent;
   }
 
+  &.moreWidth {
+    min-width: 250px;
+  }
+
   &:not(.light):not(.darkBorder):hover {
     background-color: ${({ theme, color }) =>
       darken(

@@ -5,7 +5,7 @@ import PoweredByIcon from "../../assets/poweredby.svg"
 
 export const Wrapper = styled(SectionWrapper)`
   padding: 0;
-  max-height: 900px;
+  min-height: 900px;
   color: ${({ theme }) => theme.palette.text.secondary};
   background-color: ${({ theme }) => theme.palette.primary.dark};
 `

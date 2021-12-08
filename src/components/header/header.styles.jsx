@@ -4,10 +4,11 @@ import CustomImage from "../custom-image/custom-image.component"
 import { Container, Grid } from "@mui/material"
 import MenuIcon from "@mui/icons-material/Menu"
 import PepperIcon from "../../assets/pepper.svg"
+import PepperBg from "../../assets/pepperBg.svg"
 
 export const Wrapper = styled(SectionWrapper)`
   padding: 0;
-  max-height: 900px;
+  min-height: 900px;
 `
 
 export const LeftImage = styled(CustomImage)`
@@ -30,6 +31,7 @@ export const LeftWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 3em 0;
+  position: relative;
 
   svg {
     fill: #ffffff;
@@ -77,4 +79,18 @@ export const Pepper = styled(PepperIcon)`
   position: absolute;
   top: 30px;
   left: 30px;
+`
+
+export const BigPepper = styled(PepperBg)`
+  position: absolute;
+  z-index: 2;
+`
+
+export const ImageBg = styled(CustomImage)`
+  width: 100%;
+  height: 100%;
+`
+
+export const GeneralGrid = styled(Grid)`
+  min-height: 900px;
 `

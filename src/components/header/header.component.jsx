@@ -19,19 +19,20 @@ const Header = () => {
 
   return (
     <S.Wrapper>
-      <Grid container>
+      <S.GeneralGrid container>
         <Grid item xs={12} md={6}>
-          <CommonSlider
-            images={[
-              { image: staticQuery.hero },
-              { image: staticQuery.hero },
-              { image: staticQuery.hero },
-            ]}
-          />
+          {/*<CommonSlider*/}
+          {/*  images={[*/}
+          {/*    { image: staticQuery.hero },*/}
+          {/*    { image: staticQuery.hero },*/}
+          {/*    { image: staticQuery.hero },*/}
+          {/*  ]}*/}
+          <S.ImageBg img={staticQuery.hero} />
         </Grid>
         <S.RightGrid item xs={12} md={6}>
           <S.Icon />
           <S.Pepper />
+          {/*<S.BigPepper />*/}
           <Container maxWidth="xl">
             <S.LeftWrapper>
               <S.MiddleWrapper>
@@ -51,7 +52,7 @@ const Header = () => {
             e
           </Container>
         </S.RightGrid>
-      </Grid>
+      </S.GeneralGrid>
     </S.Wrapper>
   )
 }

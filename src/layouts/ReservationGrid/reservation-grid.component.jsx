@@ -5,7 +5,7 @@ import { Grid } from "@mui/material"
 import Pepper from "../../assets/pepper.svg"
 import CustomButton from "../../components/custom-button/custom-button.component"
 
-const ReservationGrid = ({ images, title, numDesc, num, button }) => {
+const ReservationGrid = ({ images, title, numDesc, number, button }) => {
   return (
     <S.Wrapper>
       <Grid container>
@@ -17,10 +17,10 @@ const ReservationGrid = ({ images, title, numDesc, num, button }) => {
             <S.ContentWrapper>
               <Pepper />
               {title && <S.Title>{title}</S.Title>}
-              {numDesc && num && (
+              {numDesc && number && (
                 <S.Desc>
                   {numDesc}
-                  <S.Number href="">{num}</S.Number>
+                  <S.Number href="">{number}</S.Number>
                 </S.Desc>
               )}
               <CustomButton className="lightBorder" href={button?.url}>

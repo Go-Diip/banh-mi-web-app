@@ -49,7 +49,6 @@ const Header = () => {
                 </CustomButton>
               </S.MiddleWrapper>
             </S.LeftWrapper>
-            e
           </S.CustomContainer>
         </S.RightGrid>
       </S.GeneralGrid>

@@ -31,6 +31,7 @@ const Header = () => {
         </Grid>
         <S.RightGrid item xs={12} md={6}>
           <S.Icon />
+          <S.Pepper />
           <Container maxWidth="xl">
             <S.LeftWrapper>
               <S.MiddleWrapper>

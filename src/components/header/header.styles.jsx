@@ -3,6 +3,7 @@ import SectionWrapper from "../section-wrapper/section-wrapper.component"
 import CustomImage from "../custom-image/custom-image.component"
 import { Container, Grid } from "@mui/material"
 import MenuIcon from "@mui/icons-material/Menu"
+import PepperIcon from "../../assets/pepper.svg"
 
 export const Wrapper = styled(SectionWrapper)`
   padding: 0;
@@ -65,4 +66,15 @@ export const Icon = styled(MenuIcon)`
   z-index: 2;
   top: 30px;
   right: 30px;
+  width: 32px;
+  height: 32px;
+`
+
+export const Pepper = styled(PepperIcon)`
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  position: absolute;
+  top: 30px;
+  left: 30px;
 `

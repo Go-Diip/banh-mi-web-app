@@ -4,6 +4,7 @@ import { Container, Grid } from "@mui/material"
 import { graphql, useStaticQuery } from "gatsby"
 import CustomButton from "../custom-button/custom-button.component"
 import CommonSlider from "../common-slider/common-slider.component"
+import LogoVertical from "../../assets/logoVertical.svg"
 
 const Header = () => {
   const staticQuery = useStaticQuery(graphql`
@@ -21,7 +22,6 @@ const Header = () => {
       <Grid container>
         <Grid item xs={12} md={6}>
           <CommonSlider
-            haveIcon
             images={[
               { image: staticQuery.hero },
               { image: staticQuery.hero },
@@ -34,9 +34,14 @@ const Header = () => {
           <Container maxWidth="xl">
             <S.LeftWrapper>
               <S.MiddleWrapper>
-                <S.Title>Banh Mi</S.Title>
+                <LogoVertical />
                 <S.Subtitle>Gastronomía Asíatica</S.Subtitle>
-                <CustomButton className="lightBorder">Reservas</CustomButton>
+                <CustomButton
+                  style={{ marginBottom: "1em" }}
+                  className="lightBorder"
+                >
+                  Reservas
+                </CustomButton>
                 <CustomButton className="lightBorder">
                   Pedir Online
                 </CustomButton>

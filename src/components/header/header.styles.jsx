@@ -18,6 +18,9 @@ export const LeftImage = styled(CustomImage)`
 export const RightGrid = styled(Grid)`
   background-color: black;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 
 export const LeftWrapper = styled.div`
@@ -40,15 +43,20 @@ export const MiddleWrapper = styled.div`
   justify-content: center;
   align-items: center;
   color: #ffffff;
+
+  svg {
+    height: 178px;
+  }
 `
 
-export const Title = styled.h1`
-  font-size: 90px;
-`
-
-export const Subtitle = styled.h2`
-  font-size: 48px;
-  margin-bottom: 2em;
+export const Subtitle = styled.span`
+  font-weight: 100;
+  font-size: 24px;
+  line-height: 36px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #ffffff;
+  padding: 2em 0;
 `
 
 export const Icon = styled(MenuIcon)`

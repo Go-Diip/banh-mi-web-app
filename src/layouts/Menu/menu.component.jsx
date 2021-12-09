@@ -10,7 +10,11 @@ const Menu = ({ images }) => {
         <Grid item xs={12} md={6}>
           <CommonSlider images={images} />
         </Grid>
-        <Grid item xs={12} md={6}></Grid>
+        <Grid item xs={12} md={6}>
+          <S.RightWrapper>
+            <S.Pepper />
+          </S.RightWrapper>
+        </Grid>
       </Grid>
     </S.Wrapper>
   )

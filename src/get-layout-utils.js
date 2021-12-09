@@ -1,6 +1,7 @@
 import React from "react"
 import MiscContent from "./layouts/MiscContent"
 import ReservationGrid from "./layouts/ReservationGrid"
+import AboutUsSection from "./layouts/AboutUsSection"
 
 export const getPageLayout = layout => {
   const layoutName = layout?.fieldGroupName?.split("_").pop().trim()
@@ -10,5 +11,7 @@ export const getPageLayout = layout => {
       return <MiscContent {...layout} />
     case "ReservationGrid":
       return <ReservationGrid {...layout} />
+    case "AboutUsSection":
+      return <AboutUsSection {...layout} />
   }
 }

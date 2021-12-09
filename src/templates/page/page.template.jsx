@@ -51,6 +51,9 @@ export const query = graphql`
           ... on WpPage_Pagebuilder_Layouts_ReservationGrid {
             ...ReservationGrid
           }
+          ... on WpPage_Pagebuilder_Layouts_AboutUsSection {
+            ...AboutUsSection
+          }
         }
         pageConfiguration {
           hideFooter

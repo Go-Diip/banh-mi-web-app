@@ -36,6 +36,17 @@ export const CustomButton = styled(Button)`
     }
   }
 
+  &.transparentMenuButton {
+    background-color: transparent;
+    border: 1px solid transparent;
+    color: black;
+    border-radius: 50%;
+    &:hover {
+      background-color: ${({ theme }) => theme.palette.primary.main};
+      color: white;
+    }
+  }
+
   &.lightBorder {
     color: white;
     border: 1px ${({ theme }) => theme.palette.primary.light} solid;
@@ -46,7 +57,7 @@ export const CustomButton = styled(Button)`
     min-width: 250px;
   }
 
-  &:not(.light):not(.darkBorder):hover {
+  &:not(.light):not(.darkBorder):not(.transparentMenuButton):hover {
     background-color: ${({ theme, color }) =>
       darken(
         theme.palette[color]

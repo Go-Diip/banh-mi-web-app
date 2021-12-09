@@ -1,10 +1,15 @@
-import React from "react"
+import React, { useState } from "react"
 import * as S from "./menu.styles"
 import { Container, Grid } from "@mui/material"
 import CommonSlider from "../../components/common-slider/common-slider.component"
 import parse from "html-react-parser"
 
 const Menu = ({ images, menuOptions }) => {
+  const [toggleState, setToggleState] = useState(0)
+  const toggleTab = index => {
+    setToggleState(index)
+  }
+
   return (
     <S.Wrapper>
       <Grid container>
@@ -17,7 +22,15 @@ const Menu = ({ images, menuOptions }) => {
             <Container>
               <S.NavWrapper>
                 {menuOptions.map(({ option }, index) => (
-                  <S.NavButton key={`image-slide-${index}`}>
+                  <S.NavButton
+                    className={
+                      toggleState === index
+                        ? "activeMenuButton"
+                        : "transparentMenuButton"
+                    }
+                    key={`image-slide-${index}`}
+                    onClick={() => toggleTab(index)}
+                  >
                     {parse(option.title)}
                   </S.NavButton>
                 ))}

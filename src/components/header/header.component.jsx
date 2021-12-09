@@ -9,7 +9,7 @@ import LogoVertical from "../../assets/logoVertical.svg"
 const Header = () => {
   const staticQuery = useStaticQuery(graphql`
     query {
-      hero: file(relativePath: { eq: "hero.jpg" }) {
+      hero: file(relativePath: { eq: "hero2.jpg" }) {
         childImageSharp {
           gatsbyImageData(layout: FULL_WIDTH, quality: 100)
         }

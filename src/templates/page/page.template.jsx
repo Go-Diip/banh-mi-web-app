@@ -54,6 +54,9 @@ export const query = graphql`
           ... on WpPage_Pagebuilder_Layouts_AboutUsSection {
             ...AboutUsSection
           }
+          ... on WpPage_Pagebuilder_Layouts_Menu {
+            ...Menu
+          }
         }
         pageConfiguration {
           hideFooter

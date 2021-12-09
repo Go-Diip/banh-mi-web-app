@@ -192,6 +192,7 @@ export const GlobalStyles = createGlobalStyle`
     min-height: 100vh;
     flex-direction: column;
   }
+
   
   ${wordpress}
   ${snipcart}

@@ -23,7 +23,7 @@ export const Pepper = styled(PepperMenu)`
 `
 
 export const NavWrapper = styled.div`
-  padding: 2em 0;
+  padding: 1em 0;
   overflow-x: auto;
   overflow-y: hidden;
   white-space: nowrap;
@@ -35,7 +35,7 @@ export const NavWrapper = styled.div`
     height: 3px;
   }
   &::-webkit-scrollbar-thumb {
-    background-color: red;
+    background: rgba(194, 49, 44, 0.41);
   }
 `
 

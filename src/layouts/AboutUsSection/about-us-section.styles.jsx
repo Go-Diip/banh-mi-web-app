@@ -54,7 +54,7 @@ export const PepperIcon = styled(Pepper)`
   height: 226px;
   opacity: 0.2;
   position: absolute;
-  top: -415px;
+  top: -460px;
   left: 0;
   right: 0;
   bottom: 0;

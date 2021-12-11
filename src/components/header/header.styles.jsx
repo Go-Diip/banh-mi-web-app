@@ -1,109 +1,22 @@
+import { AppBar, IconButton } from "@mui/material"
 import styled from "styled-components"
-import SectionWrapper from "../section-wrapper/section-wrapper.component"
-import CustomImage from "../custom-image/custom-image.component"
-import { Container, Grid } from "@mui/material"
-import MenuIcon from "@mui/icons-material/Menu"
-import PepperIcon from "../../assets/pepper.svg"
-import PepperBg from "../../assets/pepperBg.svg"
 
-export const Wrapper = styled(SectionWrapper)`
-  padding: 0;
-  min-height: 900px;
-`
+export const CustomAppBar = styled(AppBar)``
 
-export const LeftImage = styled(CustomImage)`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-`
-
-export const RightGrid = styled(Grid)`
-  background-color: black;
-  position: relative;
+export const MainNav = styled.div`
   display: flex;
-  justify-content: center;
   align-items: center;
+  background-color: transparent;
+  padding: 1em 0;
 `
 
-export const LeftWrapper = styled.div`
+export const MainNavContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
+  justify-content: flex-end;
+`
 
-  svg {
-    fill: #ffffff;
-    width: 75px;
-    height: 75px;
+export const NavWrapper = styled.div`
+  .MuiAppBar-colorPrimary {
+    background-color: transparent;
   }
-`
-
-export const MiddleWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #ffffff;
-
-  svg {
-    height: 178px;
-  }
-`
-
-export const Subtitle = styled.span`
-  font-weight: 100;
-  font-size: 24px;
-  line-height: 36px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: #ffffff;
-  padding: 2em 0;
-`
-
-export const Icon = styled(MenuIcon)`
-  position: absolute;
-  color: white;
-  z-index: 2;
-  top: 30px;
-  right: 30px;
-  width: 32px;
-  height: 32px;
-`
-
-export const Pepper = styled(PepperIcon)`
-  width: 60px;
-  height: 60px;
-  object-fit: cover;
-  position: absolute;
-  top: 30px;
-  left: 30px;
-`
-
-export const BigPepper = styled(PepperBg)`
-  position: relative;
-  z-index: 1;
-  top: 0;
-  right: 0;
-  opacity: 0.07;
-  height: 100%;
-`
-
-export const CustomContainer = styled(Container)`
-  position: absolute;
-  z-index: 2;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-`
-
-export const ImageBg = styled(CustomImage)`
-  width: 100%;
-  height: 100%;
-`
-
-export const GeneralGrid = styled(Grid)`
-  min-height: 900px;
 `

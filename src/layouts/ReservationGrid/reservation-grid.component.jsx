@@ -6,7 +6,6 @@ import RowGrid from "../../components/row-grid/row-grid.component"
 import theme from "../../gatsby-theme-material-ui-top-layout/theme"
 
 const ReservationGrid = ({ image, title, numDesc, number, button }) => {
-  console.log(title)
   return (
     <RowGrid image={image} bgColor={theme.palette.primary.dark}>
       <S.TopWrapper>

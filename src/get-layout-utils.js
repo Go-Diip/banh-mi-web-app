@@ -3,6 +3,7 @@ import MiscContent from "./layouts/MiscContent"
 import ReservationGrid from "./layouts/ReservationGrid"
 import AboutUsSection from "./layouts/AboutUsSection"
 import Menu from "./layouts/Menu"
+import Hero from "./layouts/Hero"
 
 export const getPageLayout = layout => {
   const layoutName = layout?.fieldGroupName?.split("_").pop().trim()
@@ -16,5 +17,7 @@ export const getPageLayout = layout => {
       return <AboutUsSection {...layout} />
     case "Menu":
       return <Menu {...layout} />
+    case "Hero":
+      return <Hero {...layout} />
   }
 }

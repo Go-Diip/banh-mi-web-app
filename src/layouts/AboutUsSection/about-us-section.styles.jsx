@@ -1,14 +1,7 @@
 import styled from "styled-components"
-import SectionWrapper from "../../components/section-wrapper/section-wrapper.component"
 import CustomImage from "../../components/custom-image/custom-image.component"
 import Pepper from "../../assets/pepper.svg"
 import { Container, Typography } from "@mui/material"
-
-export const Wrapper = styled(SectionWrapper)`
-  padding: 0;
-  background-color: #eba440;
-  min-height: 700px;
-`
 
 export const LeftImage = styled(CustomImage)`
   width: 100%;
@@ -20,7 +13,6 @@ export const Title = styled.h2`
   font-size: 18px;
   line-height: 27px;
   letter-spacing: 0.22em;
-  color: #091211;
 `
 
 export const Description = styled(Typography)`
@@ -29,7 +21,6 @@ export const Description = styled(Typography)`
   font-size: 16px;
   line-height: 22px;
   letter-spacing: -0.01em;
-  color: #091211;
   text-align: left;
   max-width: 514px;
   margin: 0 auto;
@@ -41,12 +32,12 @@ export const Chefs = styled(Typography)`
   font-size: 16px;
   line-height: 24px;
   text-transform: uppercase;
-  color: #091211;
 `
 
 export const ContentWrapper = styled.div`
   height: 100%;
   position: relative;
+  color: ${({ theme }) => theme.palette.text.secondary};
 `
 
 export const PepperIcon = styled(Pepper)`

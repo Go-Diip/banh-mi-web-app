@@ -6,15 +6,14 @@ export const query = graphql`
     title
     numDesc
     number
-    images {
-      image {
-        altText
-        sourceUrl
-        title
-        localFile {
-          childImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH, quality: 100)
-          }
+
+    image {
+      altText
+      sourceUrl
+      title
+      localFile {
+        childImageSharp {
+          gatsbyImageData(layout: FULL_WIDTH, quality: 100)
         }
       }
     }

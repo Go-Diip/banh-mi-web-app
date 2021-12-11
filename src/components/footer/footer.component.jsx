@@ -8,6 +8,7 @@ import InstagramIcon from "@mui/icons-material/Instagram"
 import GoogleIcon from "../../assets/google.svg"
 import FacebookIcon from "../../assets/facebook.svg"
 import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined"
+import CustomButton from "../custom-button/custom-button.component"
 
 const Footer = ({ className }) => {
   return (
@@ -53,10 +54,13 @@ const Footer = ({ className }) => {
                 </S.Text>
               </Grid>
               <Grid item xs={12} md={6}>
-                <S.Text>
-                  {parse("Phone <br>")}
-                  <a href="tel: 2126771913">(212)677-1913</a>
-                </S.Text>
+                <CustomButton className="lightBorder">
+                  ordena online
+                </CustomButton>
+                <S.PhoneWrapper>
+                  <S.PhoneDescription>Teléfono</S.PhoneDescription>
+                  <S.Phone href="tel:(212) 677-1913">(212) 677-1913</S.Phone>
+                </S.PhoneWrapper>
               </Grid>
             </Grid>
           </Grid>

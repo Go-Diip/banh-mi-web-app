@@ -2,11 +2,17 @@ import styled from "styled-components"
 import SectionWrapper from "../../components/section-wrapper/section-wrapper.component"
 import { Grid, Typography } from "@mui/material"
 import PoweredByIcon from "../../assets/poweredby.svg"
+import Pepper from "../../assets/pepperBg.svg"
 
 export const Wrapper = styled(SectionWrapper)`
   padding: 0;
   color: ${({ theme }) => theme.palette.text.secondary};
   background-color: ${({ theme }) => theme.palette.primary.dark};
+`
+
+export const TopWrapper = styled.div`
+  height: 100%;
+  position: relative;
 `
 
 export const ContentWrapper = styled.div`
@@ -17,6 +23,13 @@ export const ContentWrapper = styled.div`
   max-width: 248px;
 `
 
+export const TextWrapper = styled.div`
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
 export const Title = styled.h2`
   margin-top: 1em;
   font-style: normal;
@@ -24,6 +37,7 @@ export const Title = styled.h2`
   font-size: ${({ theme }) => theme.typography.pxToRem(18)};
   line-height: 27px;
   letter-spacing: 0.22em;
+  color: ${({ theme }) => theme.palette.text.secondary};
 `
 
 export const Desc = styled(Typography)`
@@ -49,4 +63,13 @@ export const RightGrid = styled(Grid)`
 
 export const PoweredIcon = styled(PoweredByIcon)`
   margin-top: 0.5em;
+`
+
+export const PepperBg = styled(Pepper)`
+  position: absolute;
+  right: 0;
+  left: 0;
+  opacity: 0.05;
+  width: 100%;
+  height: 100%;
 `

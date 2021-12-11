@@ -6,7 +6,6 @@ export const query = graphql`
     title
     numDesc
     number
-
     image {
       altText
       sourceUrl

@@ -21,5 +21,3 @@ export const Image = styled(CustomImage)`
 export const CustomContainer = styled(Container)`
   height: 100%;
 `
-
-export const CustomGrid = styled(Grid)``

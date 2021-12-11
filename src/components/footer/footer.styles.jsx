@@ -77,3 +77,8 @@ export const Phone = styled.a`
   font-size: 2rem;
   color: rgba(246, 250, 244, 1);
 `
+
+export const PhoneContainer = styled.div`
+  max-width: 300px;
+  margin: auto;
+`

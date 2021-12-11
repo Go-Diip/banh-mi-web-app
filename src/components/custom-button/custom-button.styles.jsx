@@ -25,17 +25,6 @@ export const CustomButton = styled(Button)`
     color: ${({ theme }) => theme.palette.primary.main};
   }
 
-  &.darkBorder {
-    color: black;
-    border: 1px black solid;
-    background-color: transparent;
-
-    &:hover {
-      background-color: black;
-      color: white;
-    }
-  }
-
   &.transparentMenuButton {
     background-color: transparent;
     border: 1px solid transparent;
@@ -51,6 +40,17 @@ export const CustomButton = styled(Button)`
     color: white;
     border: 1px ${({ theme }) => theme.palette.primary.light} solid;
     background-color: transparent;
+  }
+
+  &.darkBorder {
+    color: black;
+    border: 1px solid black;
+    background-color: transparent;
+    &:hover {
+      border: 1px ${({ theme }) => theme.palette.primary.main} solid;
+      background-color: ${({ theme }) => theme.palette.primary.main};
+      color: white;
+    }
   }
 
   &.moreWidth {

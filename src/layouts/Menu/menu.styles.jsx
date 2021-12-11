@@ -1,8 +1,7 @@
 import styled from "styled-components"
 import SectionWrapper from "../../components/section-wrapper/section-wrapper.component"
 import PepperMenu from "../../assets/menuPepper.svg"
-import CustomImage from "../../components/custom-image/custom-image.component"
-import CustomButton from "../../components/custom-button/custom-button.component"
+import PepperIcon from "../../assets/pepperBlack.svg"
 
 export const Wrapper = styled(SectionWrapper)`
   padding: 0;
@@ -22,30 +21,27 @@ export const Pepper = styled(PepperMenu)`
   transform: translateX(-50%);
 `
 
-export const NavWrapper = styled.div`
-  padding: 1em 0;
-  overflow-x: auto;
-  overflow-y: hidden;
-  white-space: nowrap;
-
-  &::-webkit-scrollbar {
-    height: 3px;
-  }
-  &::-webkit-scrollbar-track {
-    height: 3px;
-  }
-  &::-webkit-scrollbar-thumb {
-    background: rgba(194, 49, 44, 0.41);
-  }
+export const ContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 `
 
-export const NavButton = styled(CustomButton)`
-  border-radius: 50%;
-  width: 86px;
-  height: 86px;
-  font-size: 13px;
-  line-height: 19px;
-  letter-spacing: 0.09em;
-  color: #f6faf4;
-  margin-right: 2em;
+export const PepperBlack = styled(PepperIcon)`
+  color: red;
+  width: 38px;
+  height: 38px;
+`
+
+export const Title = styled.span`
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 27px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #091211;
+  padding: 2em 0;
 `

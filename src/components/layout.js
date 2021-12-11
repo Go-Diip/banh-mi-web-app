@@ -13,13 +13,14 @@ import Header from "../components/header/header.component"
 import { AppContainer } from "../styles/app.styles"
 import Footer from "./footer/footer.component"
 
-const Layout = ({ seo, children }) => {
+const Layout = ({ seo, children, showHeader = true, showFooter = true }) => {
   return (
     <>
       {seo && <SEO data={seo} />}
-      <Header />
+      {showHeader && <Header />}
+
       <AppContainer>{children}</AppContainer>
-      <Footer />
+      {showFooter && <Footer />}
     </>
   )
 }

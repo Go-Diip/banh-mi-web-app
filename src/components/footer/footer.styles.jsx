@@ -1,9 +1,10 @@
 import styled from "styled-components"
 import { Typography } from "@mui/material"
+import PoweredIcon from "../../assets/poweredby.svg"
 
 export const Wrapper = styled.footer`
   color: ${({ theme }) => theme.palette.text.secondary};
-  padding: 4em 0;
+  padding: 4em 0 2em;
   background-color: ${({ theme }) => theme.palette.primary.dark};
 
   ${({ theme }) => theme.breakpoints.down("sm")} {
@@ -26,4 +27,37 @@ export const Text = styled(Typography)`
     text-decoration: none;
     color: ${({ theme }) => theme.palette.text.secondary};
   }
+
+  strong {
+    font-weight: 500;
+  }
+`
+
+export const LogoWrapper = styled.div`
+  display: flex;
+  padding: 1em 0 2em;
+  svg {
+    fill: #f6faf4;
+    width: 30px;
+    height: 30px;
+    margin-right: 1em;
+  }
+`
+
+export const ExternalLink = styled.a`
+  text-decoration: none;
+`
+
+export const Line = styled.div`
+  margin: 2em 0 1em;
+  height: 1px;
+  background-color: rgba(246, 250, 244, 0.28);
+`
+
+export const PoweredWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`
+export const PoweredBy = styled(PoweredIcon)`
+  width: 107px;
 `

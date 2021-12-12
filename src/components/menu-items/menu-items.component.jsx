@@ -6,7 +6,9 @@ const MenuItems = ({ items, title }) => {
   console.log(items)
   return (
     <Container>
-      <h1>{title}</h1>
+      <S.TitleWrapper>
+        <S.CategoryTitle>{title}</S.CategoryTitle>
+      </S.TitleWrapper>
       <Grid container spacing={4}>
         {items.map(({ product }, index) => (
           <Grid item xs={6}>

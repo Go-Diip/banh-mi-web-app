@@ -25,9 +25,11 @@ export const MenuCategory = styled.span`
   color: #091211;
   border-radius: 50%;
   margin: 0 1em;
-  max-width: 100px;
   text-align: center;
   cursor: pointer;
+  &.active {
+    color: ${({ theme }) => theme.palette.primary.main};
+  }
 `
 
 export const ItemsWrapper = styled.div`

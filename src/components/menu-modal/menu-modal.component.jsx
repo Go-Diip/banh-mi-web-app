@@ -75,6 +75,7 @@ const MenuModal = ({}) => {
           <S.ItemsWrapper>
             {postsCategories.map(({ node }, index) => (
               <S.MenuCategory
+                className={node.slug === category && "active"}
                 onClick={() => handleChangeCategories(node)}
                 key={`item-select-${index}`}
               >

@@ -26,3 +26,19 @@ export const ProductWrapper = styled.div`
 export const CategoryWrapper = styled.div`
   max-width: 600px;
 `
+
+export const CategoryTitle = styled.span`
+  color: ${({ theme }) => theme.palette.primary.main};
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 27px;
+  text-transform: uppercase;
+`
+
+export const TitleWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 2em;
+`

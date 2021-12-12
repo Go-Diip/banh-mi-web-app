@@ -20,7 +20,7 @@ export const ProductDescription = styled.span`
 export const ProductWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 1em 0;
+  padding: 1em 0 0;
 `
 
 export const CategoryWrapper = styled.div`

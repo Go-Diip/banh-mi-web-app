@@ -16,7 +16,11 @@ const MenuItems = ({ items, title }) => {
               <S.ProductTitle>
                 {product.title} {product.price}
               </S.ProductTitle>
-              <S.ProductDescription>{product.description}</S.ProductDescription>
+              {product.description && (
+                <S.ProductDescription>
+                  {product.description}
+                </S.ProductDescription>
+              )}
             </S.ProductWrapper>
           </Grid>
         ))}

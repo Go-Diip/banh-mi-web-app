@@ -1,6 +1,7 @@
 import styled from "styled-components"
-import CustomButton from "../custom-button/custom-button.component"
 import PepperMenu from "../../assets/menuPepper.svg"
+import LArrow from "../../assets/leftArrow.svg"
+import RArrow from "../../assets/rightArrow.svg"
 
 export const Wrapper = styled.div`
   width: 95vw;
@@ -45,4 +46,20 @@ export const ItemsWrapper = styled.div`
   justify-content: center;
   align-items: center;
   padding: 4em 0;
+`
+
+export const LeftArrow = styled(LArrow)`
+  cursor: pointer;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+`
+
+export const RightArrow = styled(RArrow)`
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(0, -50%);
 `

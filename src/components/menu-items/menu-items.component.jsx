@@ -9,7 +9,7 @@ const MenuItems = ({ items, title }) => {
       <S.TitleWrapper>
         <S.CategoryTitle>{title}</S.CategoryTitle>
       </S.TitleWrapper>
-      <Grid container spacing={4}>
+      <Grid container spacing={2}>
         {items.map(({ product }, index) => (
           <Grid item xs={6}>
             <S.ProductWrapper>

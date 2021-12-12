@@ -37,8 +37,10 @@ const MenuModal = ({}) => {
   const articles = staticQuery.allWpProduct.nodes
   const postsCategories = staticQuery.allWpProductCategory.edges
 
-  const [category, setCategory] = useState("burguers")
-  const [categoryTitle, setCategoryTitle] = useState("Banh Mi Burguers")
+  const [category, setCategory] = useState(postsCategories[0].node.slug)
+  const [categoryTitle, setCategoryTitle] = useState(
+    postsCategories[0].node.name
+  )
 
   const handleChangeCategories = node => {
     setCategory(node.slug)

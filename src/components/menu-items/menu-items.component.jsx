@@ -3,10 +3,9 @@ import * as S from "./menu-items.styles"
 import { Container } from "@mui/material"
 
 const MenuItems = ({ items, title }) => {
-  console.log(items)
   return (
     <Container>
-      <h1>Menu Title</h1>
+      <h1>{title}</h1>
     </Container>
   )
 }

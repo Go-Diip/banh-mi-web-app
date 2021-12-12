@@ -38,9 +38,11 @@ const MenuModal = ({}) => {
   const postsCategories = staticQuery.allWpProductCategory.edges
 
   const [category, setCategory] = useState("burguers")
+  const [categoryTitle, setCategoryTitle] = useState("Banh Mi Burguers")
 
   const handleChangeCategories = node => {
     setCategory(node.slug)
+    setCategoryTitle(node.name)
   }
   const [articlesToShow, setArticlesToShow] = useState([])
 
@@ -80,7 +82,7 @@ const MenuModal = ({}) => {
               </S.MenuCategory>
             ))}
           </S.ItemsWrapper>
-          <MenuItems items={articlesToShow} title="title" />
+          <MenuItems items={articlesToShow} title={categoryTitle} />
         </Container>
       </S.MenuWrapper>
     </S.Wrapper>

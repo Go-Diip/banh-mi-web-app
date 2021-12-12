@@ -1,6 +1,7 @@
 import React from "react"
 import * as S from "./menu-items.styles"
 import { Container, Grid } from "@mui/material"
+import parse from "html-react-parser"
 
 const MenuItems = ({ items, title }) => {
   console.log(items)
@@ -18,7 +19,7 @@ const MenuItems = ({ items, title }) => {
               </S.ProductTitle>
               {product.description && (
                 <S.ProductDescription>
-                  {product.description}
+                  {parse(product.description)}
                 </S.ProductDescription>
               )}
             </S.ProductWrapper>

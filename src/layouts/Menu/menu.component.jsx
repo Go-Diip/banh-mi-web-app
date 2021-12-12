@@ -15,11 +15,11 @@ const Menu = ({ image }) => {
 
   return (
     <RowGrid image={image} bgColor={theme.palette.primary.light}>
-      <S.RightWrapper>
+      <S.RightWrapper id="menu">
         <S.Pepper />
         <Container style={{ height: "100%" }}>
           <S.ContentWrapper>
-            <S.PepperBlack />
+            <S.BlackPepper />
             <S.Title>MENU</S.Title>
             <CustomButton className="darkBorder">Ver menu</CustomButton>
           </S.ContentWrapper>

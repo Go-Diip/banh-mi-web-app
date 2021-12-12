@@ -20,3 +20,9 @@ export const NavWrapper = styled.div`
     background-color: transparent;
   }
 `
+
+export const MenuButton = styled(IconButton)`
+  svg {
+    fill: #f6faf4;
+  }
+`

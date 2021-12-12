@@ -8,7 +8,7 @@ import { Container } from "@mui/material"
 const AboutUsSection = ({ title, description, chefs, leftImage }) => {
   return (
     <RowGrid image={leftImage} bgColor={theme.palette.primary.main}>
-      <S.ContentWrapper>
+      <S.ContentWrapper id="about-us">
         <S.PepperIcon />
         <Container style={{ height: "100%" }}>
           <S.TextWrapper>

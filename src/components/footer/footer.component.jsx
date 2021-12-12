@@ -13,8 +13,7 @@ import FooterBanner from "../footer-banner/footer-banner.component"
 const Footer = ({ className }) => {
   return (
     <>
-      {" "}
-      <FooterBanner />
+      <FooterBanner id="contact" />
       <S.Wrapper className={className}>
         <Container maxWidth="xl">
           <Grid container spacing={4}>

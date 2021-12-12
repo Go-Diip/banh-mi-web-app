@@ -8,7 +8,7 @@ import theme from "../../gatsby-theme-material-ui-top-layout/theme"
 const ReservationGrid = ({ image, title, numDesc, number, button }) => {
   return (
     <RowGrid image={image} bgColor={theme.palette.primary.dark}>
-      <S.TopWrapper>
+      <S.TopWrapper id="reservation">
         <S.PepperBg />
         <S.TextWrapper>
           <S.ContentWrapper>

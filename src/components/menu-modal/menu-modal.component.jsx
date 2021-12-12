@@ -73,6 +73,7 @@ const MenuModal = ({}) => {
   return (
     <S.Wrapper>
       <S.MenuWrapper>
+        <S.Pepper />
         <Container>
           <S.ItemsWrapper>
             {postsCategories.map(({ node }, index) => (

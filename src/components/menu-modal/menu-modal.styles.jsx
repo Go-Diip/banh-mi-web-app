@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import CustomButton from "../custom-button/custom-button.component"
+import PepperMenu from "../../assets/menuPepper.svg"
 
 export const Wrapper = styled.div`
   width: 95vw;
@@ -14,6 +15,13 @@ export const Wrapper = styled.div`
 export const MenuWrapper = styled.div`
   height: 100%;
   position: relative;
+`
+
+export const Pepper = styled(PepperMenu)`
+  position: absolute;
+  bottom: 0;
+  left: 70%;
+  transform: translateX(-70%);
 `
 
 export const MenuCategory = styled.span`

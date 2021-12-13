@@ -34,7 +34,9 @@ const ReservationsWidget = () => {
     setCurrentStep(newValue)
   }
 
-  const onSubmit = data => {}
+  const onSubmit = data => {
+    console.log("data", data)
+  }
   return (
     <FormProvider {...methods}>
       <S.Wrapper>
@@ -47,14 +49,29 @@ const ReservationsWidget = () => {
             onChange={handleChange}
             aria-label="Reservation "
           >
-            <Tab label="1. Reserva una mesa" />
-            <Tab label="2. Datos Personales" />
-            <Tab label="3. Finalizar" />
+            <Tab
+              label="1. Reserva una mesa"
+              disabled={currentStep <= STEPS.SELECT_TABLE}
+            />
+            <Tab
+              label="2. Datos Personales"
+              disabled={currentStep <= STEPS.PERSONAL_DATA}
+            />
+            <Tab
+              label="3. Finalizar"
+              disabled={currentStep <= STEPS.FINALIZE}
+            />
           </S.StepperTabs>
           <form onSubmit={methods.handleSubmit(onSubmit)}>
-            {currentStep === STEPS.SELECT_TABLE && <StepOne />}
-            {currentStep === STEPS.PERSONAL_DATA && <StepTwo />}
-            {currentStep === STEPS.FINALIZE && <StepThree />}
+            {currentStep === STEPS.SELECT_TABLE && (
+              <StepOne setCurrentStep={setCurrentStep} />
+            )}
+            {currentStep === STEPS.PERSONAL_DATA && (
+              <StepTwo setCurrentStep={setCurrentStep} />
+            )}
+            {currentStep === STEPS.FINALIZE && (
+              <StepThree setCurrentStep={setCurrentStep} />
+            )}
           </form>
         </S.MainWrapper>
       </S.Wrapper>

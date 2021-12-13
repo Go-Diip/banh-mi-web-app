@@ -26,6 +26,11 @@ const theme = createTheme({
     tertiary: {
       main: "#2C9ED0",
     },
+    inputs: {
+      main: "#091211",
+      light: "#091211",
+      dark: "#091211",
+    },
     text: {
       primary: "#091211",
       secondary: "#f6faf4",
@@ -33,7 +38,7 @@ const theme = createTheme({
       tertiary: "#1A2933",
       disabled: "#10355A",
       hint: "#10355A",
-      light: "#FFFFFF",
+      light: "rgba(9, 18, 17, 0.75)",
     },
     alternate: {
       main: "rgb(247, 249, 250)",

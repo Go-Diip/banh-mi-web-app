@@ -5,6 +5,14 @@ export const Wrapper = styled.div`
     color: ${({ theme }) => theme.palette.text.primary};
   }
 
+  .MuiInputBase-root {
+    border-radius: 0;
+  }
+
+  //.MuiIconButton-root {
+  //  display: none;
+  //}
+
   ${({ theme }) => theme.breakpoints.up("lg")} {
     .MuiGrid-item {
       &:first-child {
@@ -15,12 +23,16 @@ export const Wrapper = styled.div`
       }
 
       &:nth-child(2) {
+        fieldset {
+          border-left-color: transparent;
+          border-right-color: transparent;
+        }
       }
     }
 
     .continueBtn {
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
+      border-top-left-radius: 0 !important;
+      border-bottom-left-radius: 0 !important;
     }
   } ;
 `

@@ -1,15 +1,19 @@
 import styled from "styled-components"
 import CustomBgImage from "../custom-bg-image/custom-bg-image.component"
 import { Tabs } from "@mui/material"
+import Typography from "@mui/material/Typography"
 
 export const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  min-height: 600px;
-  height: 100vh;
+  background-color: #f7f7f7;
+
+  ${({ theme }) => theme.breakpoints.up("md")} {
+    min-height: 600px;
+    height: 100vh;
+  }
 
   .MuiInputBase-root {
-    border-radius: 0;
     min-height: 68px;
   }
 
@@ -20,6 +24,11 @@ export const Wrapper = styled.div`
     color: white;
     border-radius: 4px;
     background-color: ${({ theme }) => theme.palette.primary.main};
+    display: flex;
+    align-items: center;
+    svg {
+      margin-left: 0.25em;
+    }
   }
 
   //.MuiInputBase-input {
@@ -51,8 +60,18 @@ export const StepperTabs = styled(Tabs)`
     color: ${({ theme }) => theme.palette.text.primary};
     opacity: 0.5;
     text-transform: unset;
+    &:not(.Mui-selected) {
+      border-bottom: 1px solid rgba(9, 18, 17, 0.25);
+    }
     &.Mui-selected {
       opacity: 1;
+      color: ${({ theme }) => theme.palette.text.primary} !important;
     }
   }
+`
+
+export const Subtitle = styled(Typography)`
+  font-size: ${({ theme }) => theme.typography.pxToRem(18)};
+  font-weight: 500;
+  margin-bottom: 1em;
 `

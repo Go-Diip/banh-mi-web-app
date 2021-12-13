@@ -4,6 +4,11 @@ import { Link } from "react-scroll"
 
 export const MenuWrapper = styled.div`
   height: 100vh;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 4;
+  background-color: white;
 `
 export const Wrapper = styled.div`
   position: relative;

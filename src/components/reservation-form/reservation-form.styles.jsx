@@ -43,6 +43,6 @@ export const Image = styled(CustomImage)`
 `
 
 export const RightWrapper = styled.div`
-  max-width: 80%;
-  margin: auto;
+  max-width: 90%;
+  margin-left: auto;
 `

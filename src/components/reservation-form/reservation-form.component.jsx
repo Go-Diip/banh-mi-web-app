@@ -42,8 +42,8 @@ const ReservationForm = () => {
           Banh Mi offers seasonally inspired menus featuring the highest quality
           seafood and meats available from the local Gulf coast and beyond.
         </S.Description>
-        <Grid container spacing={4}>
-          <Grid item xs={12} md={6}>
+        <Grid container>
+          <Grid item xs={12} md={7}>
             <Box component="form" noValidate autoComplete="off">
               <S.CustomTextField
                 id="outlined-basic"
@@ -180,7 +180,7 @@ const ReservationForm = () => {
               </CustomButton>
             </Box>
           </Grid>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={5}>
             <S.RightWrapper>
               <S.Image img={staticQuery.menu} />
               <S.Description>

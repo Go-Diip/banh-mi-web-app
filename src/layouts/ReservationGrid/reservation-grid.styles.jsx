@@ -38,6 +38,7 @@ export const Title = styled.h2`
   line-height: 27px;
   letter-spacing: 0.22em;
   color: ${({ theme }) => theme.palette.text.secondary};
+  text-transform: uppercase;
 `
 
 export const Desc = styled(Typography)`

@@ -9,6 +9,7 @@ import GoogleIcon from "../../assets/google.svg"
 import FacebookIcon from "../../assets/facebook.svg"
 import CustomButton from "../custom-button/custom-button.component"
 import FooterBanner from "../footer-banner/footer-banner.component"
+import FooterForm from "../footer-form/footer-form.component"
 
 const Footer = ({ className }) => {
   return (
@@ -30,6 +31,7 @@ const Footer = ({ className }) => {
                   <FacebookIcon />
                 </S.ExternalLink>
               </S.LogoWrapper>
+              <FooterForm />
             </Grid>
             <Grid item xs={12} md={8}>
               <Grid container>

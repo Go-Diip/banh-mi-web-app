@@ -5,7 +5,7 @@ const theme = createTheme({
   sectionPadding: "padding-top: 1.5em; padding-bottom: 1.5em;",
   fonts: {
     primary: "Kanit, sans-serif",
-    secondary: "Bebas Neue, sans-serif",
+    secondary: "Montserrat, sans-serif",
   },
   layout: {
     contentWidth: 1236,
@@ -46,7 +46,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: `"Kanit", "Open Sans", "Arial", sans-serif`,
+    fontFamily: `"Kanit","Montserrat", "Open Sans", "Arial", sans-serif`,
   },
 })
 

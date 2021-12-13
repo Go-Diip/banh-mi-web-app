@@ -29,8 +29,7 @@ export const ContentWrapper = styled.div`
   height: 100%;
 `
 
-export const PepperBlack = styled(PepperIcon)`
-  color: red;
+export const BlackPepper = styled(PepperIcon)`
   width: 38px;
   height: 38px;
 `

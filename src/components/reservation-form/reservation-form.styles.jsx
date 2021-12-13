@@ -4,7 +4,7 @@ import CustomImage from "../custom-image/custom-image.component"
 
 export const Wrapper = styled.div`
   width: 50vw;
-  height: 95vh;
+  height: 90vh;
   position: absolute;
   top: 50%;
   left: 50%;

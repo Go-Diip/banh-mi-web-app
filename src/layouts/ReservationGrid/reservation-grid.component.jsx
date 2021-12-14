@@ -9,9 +9,6 @@ import ReservationForm from "../../components/reservation-form/reservation-form.
 import parse from "html-react-parser"
 
 const ReservationGrid = ({ image, title, numDesc, number, button }) => {
-  const [open, setOpen] = React.useState(false)
-  const handleOpen = () => setOpen(true)
-  const handleClose = () => setOpen(false)
   return (
     <RowGrid image={image} bgColor={theme.palette.primary.dark}>
       <S.TopWrapper id="reservation">
@@ -27,25 +24,13 @@ const ReservationGrid = ({ image, title, numDesc, number, button }) => {
                 <S.Number href="tel:+59399 770 2994">099 770 2994</S.Number>
               </S.Desc>
             )}
-            <CustomButton
-              className="lightBorder"
-              onClick={handleOpen}
-              href="/reservations/"
-            >
+            <CustomButton className="lightBorder" href="/reservations/">
               {button?.title}
             </CustomButton>
             <S.PoweredIcon />
           </S.ContentWrapper>
         </S.TextWrapper>
       </S.TopWrapper>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <ReservationForm />
-      </Modal>
     </RowGrid>
   )
 }

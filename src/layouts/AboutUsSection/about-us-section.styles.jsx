@@ -13,6 +13,7 @@ export const Title = styled.h2`
   font-size: 18px;
   line-height: 27px;
   letter-spacing: 0.22em;
+  text-transform: capitalize;
 `
 
 export const Description = styled(Typography)`

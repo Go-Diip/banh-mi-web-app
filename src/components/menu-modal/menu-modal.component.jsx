@@ -25,25 +25,23 @@ const MenuModal = ({}) => {
         }
       }
       allWpProductCategory {
-        edges {
-          node {
-            name
-            slug
-          }
+        nodes {
+          name
+          slug
         }
       }
     }
   `)
-  const articles = staticQuery.allWpProduct.nodes
-  const postsCategories = staticQuery.allWpProductCategory.edges
 
-  const [category, setCategory] = useState(postsCategories[0].node.slug)
-  const [categoryTitle, setCategoryTitle] = useState(
-    postsCategories[0].node.name
-  )
+  const articles = staticQuery.allWpProduct.nodes
+  const postsCategories = staticQuery.allWpProductCategory.nodes
+
+  const [category, setCategory] = useState(postsCategories[0])
+  const currentCategoryIndex = postsCategories.indexOf(category)
+  const [categoryTitle, setCategoryTitle] = useState(postsCategories[0].name)
 
   const handleChangeCategories = node => {
-    setCategory(node.slug)
+    setCategory(node)
     setCategoryTitle(node.name)
   }
   const [articlesToShow, setArticlesToShow] = useState([])
@@ -56,12 +54,13 @@ const MenuModal = ({}) => {
 
   useEffect(() => {
     let filteredPosts = []
-    if (category) {
+
+    if (category && category.slug) {
       articles.map(item => {
         item.productCategories.nodes.map(({ slug }) => {
-          if (slug === category) {
+          if (slug === category.slug) {
             filteredPosts.push(item)
-          } else if (category === "all") {
+          } else if (category.slug === "all") {
             filteredPosts = articles
           }
         })
@@ -74,17 +73,33 @@ const MenuModal = ({}) => {
     <S.Wrapper>
       <S.MenuWrapper>
         <S.Pepper />
-        <S.LeftArrow />
-        <S.RightArrow />
+        <S.LeftArrow
+          onClick={() =>
+            setCategory(
+              currentCategoryIndex > 0
+                ? postsCategories[currentCategoryIndex - 1]
+                : postsCategories[postsCategories.length - 1]
+            )
+          }
+        />
+        <S.RightArrow
+          onClick={() =>
+            setCategory(
+              currentCategoryIndex < postsCategories.length - 1
+                ? postsCategories[currentCategoryIndex + 1]
+                : postsCategories[0]
+            )
+          }
+        />
         <Container>
           <S.ItemsWrapper>
-            {postsCategories.map(({ node }, index) => (
+            {postsCategories.map((item, index) => (
               <S.MenuCategory
-                className={node.slug === category && "active"}
-                onClick={() => handleChangeCategories(node)}
+                className={item.slug === category.slug && "active"}
+                onClick={() => handleChangeCategories(item)}
                 key={`item-select-${index}`}
               >
-                {node.name}
+                {item.name}
               </S.MenuCategory>
             ))}
           </S.ItemsWrapper>

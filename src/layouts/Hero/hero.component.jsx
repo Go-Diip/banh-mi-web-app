@@ -15,7 +15,9 @@ const Hero = ({ image, logo, title, reservationButton, orderButton }) => {
             <S.Logo img={logo} />
             <S.Title>{title}</S.Title>
             <S.ButtonWrapper>
-              <S.Button className="lightBorder">Reservas</S.Button>
+              <S.Button className="lightBorder" href="/reservations/">
+                Reservas
+              </S.Button>
               <S.Button className="lightBorder">ordena online</S.Button>
             </S.ButtonWrapper>
           </S.ContentWrapper>

@@ -15,7 +15,7 @@ export const CustomButton = styled(Button)`
   line-height: 27px;
   letter-spacing: 0.22em;
   font-weight: 500 !important;
-  border-radius: 25px;
+  border-radius: 5px;
 
   ${({ theme }) => theme.breakpoints.up("md")} {
     padding: 0.5em 1.5em;
@@ -40,6 +40,8 @@ export const CustomButton = styled(Button)`
     color: white;
     border: 1px white solid;
     background-color: transparent;
+    border-radius: 25px;
+
     &:hover {
       background-color: white;
       color: ${({ theme }) => theme.palette.primary.main};

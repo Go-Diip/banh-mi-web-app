@@ -5,12 +5,11 @@ import Container from "@mui/material/Container"
 import { Spin as Hamburger } from "hamburger-react"
 import FullMenu from "./full-menu/full-menu.component"
 
-const Header = ({ isTransparent }) => {
+const Header = ({}) => {
   const [isActiveMenu, setIsActiveMenu] = useState(false)
 
-  const handleToggleMenu = () => {
+  const handleCloseMenu = () => {
     setIsActiveMenu(!isActiveMenu)
-    console.log(isActiveMenu)
   }
 
   return (
@@ -19,14 +18,18 @@ const Header = ({ isTransparent }) => {
         <S.MainNav>
           <Container maxWidth="xl">
             <S.MainNavContainer>
-              <S.MenuButton onClick={handleToggleMenu}>
-                <Hamburger color={isActiveMenu ? "#091211" : "#F6FAF4"} />
+              <S.MenuButton>
+                <Hamburger
+                  toggled={isActiveMenu}
+                  toggle={setIsActiveMenu}
+                  color={isActiveMenu ? "#091211" : "#F6FAF4"}
+                />
               </S.MenuButton>
             </S.MainNavContainer>
           </Container>
         </S.MainNav>
       </S.CustomAppBar>
-      <FullMenu isActive={isActiveMenu} />
+      <FullMenu closeOpenMenu={handleCloseMenu} isActive={isActiveMenu} />
     </S.NavWrapper>
   )
 }

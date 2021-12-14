@@ -25,9 +25,9 @@ const Menu = ({ image }) => {
         <Container style={{ height: "100%" }}>
           <S.ContentWrapper>
             <S.BlackPepper />
-            <S.Title>MENU</S.Title>
+            <S.Title>MENÚ</S.Title>
             <CustomButton className="darkBorder" onClick={handleOpen}>
-              Ver menu
+              Ver menú
             </CustomButton>
             <Modal
               open={open}

@@ -13,14 +13,14 @@ export const Title = styled.h2`
   font-size: 18px;
   line-height: 27px;
   letter-spacing: 0.22em;
+  text-transform: capitalize;
 `
 
 export const Description = styled(Typography)`
-  font-style: normal;
-  font-weight: 300;
-  font-size: 16px;
-  line-height: 22px;
-  letter-spacing: -0.01em;
+  font-size: 14px;
+  font-weight: 200;
+  line-height: 18px;
+  letter-spacing: 0;
   text-align: left;
   max-width: 514px;
   margin: 0 auto;

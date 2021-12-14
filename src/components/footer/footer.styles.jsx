@@ -62,10 +62,6 @@ export const PoweredBy = styled(PoweredIcon)`
   width: 107px;
 `
 
-export const PhoneDescription = styled.span`
-  color: rgba(246, 250, 244, 0.4);
-`
-
 export const PhoneWrapper = styled.div`
   display: flex;
   flex-direction: column;

@@ -60,10 +60,7 @@ const Footer = ({ className }) => {
                       ordena online
                     </CustomButton>
                     <S.PhoneWrapper>
-                      <S.PhoneDescription>Teléfono</S.PhoneDescription>
-                      <S.Phone href="tel:(212) 677-1913">
-                        (212) 677-1913
-                      </S.Phone>
+                      <S.Phone href="tel:+59399 770 2994">099 770 2994</S.Phone>
                     </S.PhoneWrapper>
                   </S.PhoneContainer>
                 </Grid>

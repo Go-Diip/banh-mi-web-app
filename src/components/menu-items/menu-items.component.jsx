@@ -4,7 +4,6 @@ import { Container, Grid } from "@mui/material"
 import parse from "html-react-parser"
 
 const MenuItems = ({ items, title }) => {
-  console.log(items)
   return (
     <Container>
       <S.TitleWrapper>

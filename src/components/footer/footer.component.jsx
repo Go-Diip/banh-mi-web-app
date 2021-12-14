@@ -38,7 +38,7 @@ const Footer = ({ className }) => {
                 <Grid item xs={12} md={3}>
                   <S.Text>
                     {parse(
-                      "<a href='https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.google.com%2Fmaps%2Fdir%2F%3Fapi%3D1%26destination%3D-0.20677640851923%252C-78.48461151123%26fbclid%3DIwAR104bOPflJjwmppIrkznUjURnUJxyxqGa2mpXfbDufm2PHJeP3zBagGHJg&h=AT0tPKDGrIiEk-9Xcnb-BFmhsDyv3Q3WpcgALUr4D_7PxlN0bi25fig1wSzZ56qG_3EQzjMdsuPHrGjwfsZECkUplP-9OmtpoXqihbeVwUYBHWJCMotBkc3VyACrXjnPMLIxQ8ijZP0PC-5AZMoXsg' target='_blank'><strong>Dirección:</strong><br>" +
+                      "<a href='https://goo.gl/maps/LKy1qzYiUFz4cQkS7' target='_blank'><strong>Dirección:</strong><br>" +
                         "Andalucia N24-234 y Cordero</a>"
                     )}
                   </S.Text>

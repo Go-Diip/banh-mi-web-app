@@ -76,5 +76,6 @@ export const Phone = styled.a`
 
 export const PhoneContainer = styled.div`
   max-width: 300px;
-  margin: auto;
+  margin-left: auto;
+  text-align: center;
 `

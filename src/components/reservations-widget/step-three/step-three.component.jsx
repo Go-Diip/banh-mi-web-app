@@ -7,26 +7,27 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
 import { useFormContext } from "react-hook-form"
 
 const StepThree = () => {
-  const { register } = useFormContext()
+  const { register, getValues } = useFormContext()
+  const values = getValues(["name", "seats", "date", "time", "area"])
   return (
     <Grid container spacing={4}>
       <Grid item xs={12} md={6}>
         <S.Title>Tu Reserva</S.Title>
         <S.ReviewBox>
           <label>Reservador por</label>
-          <Typography>Nombre de la reserva</Typography>
+          <Typography>{values[0]}</Typography>
         </S.ReviewBox>
         <S.ReviewBox>
           <label>Puestos reservados</label>
-          <Typography>5</Typography>
+          <Typography>{values[1]}</Typography>
         </S.ReviewBox>
         <S.ReviewBox>
           <label>Reservado para el</label>
-          <Typography>Fecha de la reserva / Hora</Typography>
+          <Typography>{`${values[2]} a las ${values[3]}`}</Typography>
         </S.ReviewBox>
         <S.ReviewBox>
           <label>Lugar</label>
-          <Typography>Lugar</Typography>
+          <Typography>{values[4]}</Typography>
         </S.ReviewBox>
         <NotesField>
           <Typography sx={{ fontWeight: "300" }}>

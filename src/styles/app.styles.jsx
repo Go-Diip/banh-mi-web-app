@@ -192,6 +192,10 @@ export const GlobalStyles = createGlobalStyle`
     min-height: 100vh;
     flex-direction: column;
   }
+  
+  .Mui-disabled {
+    opacity: 0.4;
+  }
 
   
   ${wordpress}

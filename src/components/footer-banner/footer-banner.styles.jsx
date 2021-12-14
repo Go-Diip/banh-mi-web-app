@@ -29,7 +29,7 @@ export const TextWrapper = styled.div`
 
 export const BannerTitle = styled.span`
   font-weight: 600;
-  font-size: 18px;
+  font-size: ${({ theme }) => theme.typography.pxToRem(18)};
   line-height: 27px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -37,7 +37,7 @@ export const BannerTitle = styled.span`
 `
 
 export const BannerDescription = styled(Typography)`
-  font-size: 14px;
+  font-size: ${({ theme }) => theme.typography.pxToRem(14)};
   font-weight: 200;
   line-height: 18px;
   letter-spacing: 0;

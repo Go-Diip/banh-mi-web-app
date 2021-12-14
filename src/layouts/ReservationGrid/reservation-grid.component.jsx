@@ -6,6 +6,7 @@ import RowGrid from "../../components/row-grid/row-grid.component"
 import theme from "../../gatsby-theme-material-ui-top-layout/theme"
 import { Modal } from "@mui/material"
 import ReservationForm from "../../components/reservation-form/reservation-form.component"
+import parse from "html-react-parser"
 
 const ReservationGrid = ({ image, title, numDesc, number, button }) => {
   const [open, setOpen] = React.useState(false)
@@ -21,14 +22,15 @@ const ReservationGrid = ({ image, title, numDesc, number, button }) => {
             {title && <S.Title>{title}</S.Title>}
             {numDesc && number && (
               <S.Desc>
-                {numDesc}
-                <S.Number href="">{number}</S.Number>
+                {parse(numDesc + "<br>")}
+
+                <S.Number href="tel:+59399 770 2994">099 770 2994</S.Number>
               </S.Desc>
             )}
             <CustomButton
               className="lightBorder"
               onClick={handleOpen}
-              href={button?.url}
+              href="/reservations/"
             >
               {button?.title}
             </CustomButton>

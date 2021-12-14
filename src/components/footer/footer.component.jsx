@@ -4,7 +4,7 @@ import * as S from "./footer.styles"
 import { Container, Grid } from "@mui/material"
 import Logo from "../../assets/logo.svg"
 import parse from "html-react-parser"
-import InstagramIcon from "@mui/icons-material/Instagram"
+import InstagramIcon from "../../assets/instagram.svg"
 import GoogleIcon from "../../assets/google.svg"
 import FacebookIcon from "../../assets/facebook.svg"
 import CustomButton from "../custom-button/custom-button.component"
@@ -21,13 +21,22 @@ const Footer = ({ className }) => {
             <Grid item xs={12} md={4}>
               <Logo />
               <S.LogoWrapper>
-                <S.ExternalLink href="/" target="_blank">
+                <S.ExternalLink
+                  href="https://www.instagram.com/banhmisanducheria/"
+                  target="_blank"
+                >
                   <InstagramIcon />
                 </S.ExternalLink>
-                <S.ExternalLink href="/" target="_blank">
+                <S.ExternalLink
+                  href="https://www.google.com/maps/u…BHXLpACIQoip6BAgyEAM"
+                  target="_blank"
+                >
                   <GoogleIcon />
                 </S.ExternalLink>
-                <S.ExternalLink href="/" target="_blank">
+                <S.ExternalLink
+                  href="https://www.facebook.com/banhmisanducheria"
+                  target="_blank"
+                >
                   <FacebookIcon />
                 </S.ExternalLink>
               </S.LogoWrapper>

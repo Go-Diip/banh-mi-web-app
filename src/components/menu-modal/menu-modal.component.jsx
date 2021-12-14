@@ -4,7 +4,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import { Container } from "@mui/material"
 import MenuItems from "../menu-items/menu-items.component"
 
-const MenuModal = ({}) => {
+const MenuModal = ({ close }) => {
   const staticQuery = useStaticQuery(graphql`
     query {
       allWpProduct {
@@ -73,6 +73,7 @@ const MenuModal = ({}) => {
     <S.Wrapper>
       <S.MenuWrapper>
         <S.Pepper />
+        <S.Close onClick={close} />
         <S.LeftArrow
           onClick={() =>
             setCategory(

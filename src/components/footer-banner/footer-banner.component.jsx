@@ -32,7 +32,7 @@ const FooterBanner = () => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <ReservationForm />
+        <ReservationForm close={handleClose} />
       </Modal>
     </S.Wrapper>
   )

@@ -4,20 +4,19 @@ import {
   Container,
   Grid,
   Box,
-  TextField,
   InputAdornment,
   FormControl,
   MenuItem,
   InputLabel,
-  Select,
 } from "@mui/material"
 import Logo from "../../assets/logo-red.svg"
 import MailOutlineIcon from "@mui/icons-material/MailOutline"
 import PhoneOutlinedIcon from "@mui/icons-material/PhoneOutlined"
 import CustomButton from "../custom-button/custom-button.component"
 import { graphql, useStaticQuery } from "gatsby"
+import CancelIcon from "@mui/icons-material/Cancel"
 
-const ReservationForm = () => {
+const ReservationForm = ({ close }) => {
   const [age, setAge] = React.useState("")
 
   const handleChange = event => {
@@ -37,7 +36,10 @@ const ReservationForm = () => {
   return (
     <S.Wrapper>
       <Container>
-        <Logo />
+        <S.TopWrapper>
+          <Logo />
+          <CancelIcon onClick={close} />
+        </S.TopWrapper>
         <S.Description>
           Banh Mi offers seasonally inspired menus featuring the highest quality
           seafood and meats available from the local Gulf coast and beyond.

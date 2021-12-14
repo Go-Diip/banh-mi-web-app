@@ -2,6 +2,7 @@ import styled from "styled-components"
 import PepperMenu from "../../assets/menuPepper.svg"
 import LArrow from "../../assets/leftArrow.svg"
 import RArrow from "../../assets/rightArrow.svg"
+import CancelIcon from "@mui/icons-material/Cancel"
 
 export const Wrapper = styled.div`
   width: 95vw;
@@ -62,4 +63,12 @@ export const RightArrow = styled(RArrow)`
   right: 0;
   top: 50%;
   transform: translate(0, -50%);
+`
+
+export const Close = styled(CancelIcon)`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border: ${({ theme }) => theme.palette.primary.main};
+  cursor: pointer;
 `

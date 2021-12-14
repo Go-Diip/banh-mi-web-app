@@ -46,3 +46,13 @@ export const RightWrapper = styled.div`
   max-width: 90%;
   margin-left: auto;
 `
+
+export const TopWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  svg {
+    cursor: pointer;
+    fill: ${({ theme }) => theme.palette.primary.main};
+  }
+`

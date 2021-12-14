@@ -35,7 +35,7 @@ const Menu = ({ image }) => {
               aria-labelledby="modal-modal-title"
               aria-describedby="modal-modal-description"
             >
-              <MenuModal />
+              <MenuModal close={handleClose} />
             </Modal>
           </S.ContentWrapper>
         </Container>

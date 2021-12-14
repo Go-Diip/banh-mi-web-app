@@ -17,23 +17,37 @@ import EmailIcon from "@mui/icons-material/Email"
 import { STEPS } from "../reservations-widget.component"
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
 import { useFormContext } from "react-hook-form"
+import { validateEmail } from "../../../utils"
+
+const inputNames = ["name", "phone", "email", "area"]
 
 const StepTwo = ({ setCurrentStep }) => {
-  const { register } = useFormContext()
+  const { register, trigger } = useFormContext()
+  const handleNext = () => {
+    trigger(inputNames).then(res => {
+      if (res) {
+        setCurrentStep(STEPS.FINALIZE)
+      }
+    })
+  }
   return (
     <S.Wrapper>
       <Grid container spacing={4}>
         <Grid item xs={12} md={7}>
           <Subtitle>Datos</Subtitle>
           <WidgetTextField
-            name="name"
+            name={inputNames[0]}
             label="Nombre"
+            isRequired
             placeholder="tu nombre completo"
+            autoComplete="given-name"
           />
           <WidgetTextField
-            name="telefono"
+            name={inputNames[1]}
             label="Teléfono"
+            isRequired
             placeholder="tu teléfono"
+            autoComplete="tel"
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
@@ -44,10 +58,14 @@ const StepTwo = ({ setCurrentStep }) => {
           />
 
           <WidgetTextField
-            name="correo"
+            name={inputNames[2]}
+            isRequired
             label="Correo electrónico"
             placeholder="tu correo electrónico"
             type="email"
+            autoComplete="email"
+            validate={validateEmail}
+            customError="Correo electrónico inválido"
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
@@ -66,7 +84,7 @@ const StepTwo = ({ setCurrentStep }) => {
           >
             <RadioGroup
               aria-label="gender"
-              {...register("ambiente")}
+              {...register(inputNames[3])}
               defaultValue="restaurante"
             >
               <S.CustomRadioButton
@@ -85,7 +103,7 @@ const StepTwo = ({ setCurrentStep }) => {
             fullWidth
             className="continueBtn"
             type="button"
-            onClick={() => setCurrentStep(STEPS.FINALIZE)}
+            onClick={handleNext}
           >
             Continuar
             <ArrowForwardIcon />

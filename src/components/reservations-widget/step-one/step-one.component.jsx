@@ -1,13 +1,24 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import * as S from "./step-one.styles.jsx"
-import { Button, Grid, TextField } from "@mui/material"
+import { Button, Grid, InputAdornment, TextField } from "@mui/material"
 import WidgetSelect from "../widget-select/widget-select.component"
 import { DatePicker, LocalizationProvider, TimePicker } from "@mui/lab"
 import DateAdapter from "@mui/lab/AdapterMoment"
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
 import { STEPS } from "../reservations-widget.component"
+import CalendarTodayIcon from "@mui/icons-material/CalendarToday"
+import AccessTimeIcon from "@mui/icons-material/AccessTime"
+import moment from "moment"
+import { useFormContext } from "react-hook-form"
 
+const MIN_DATE = moment(new Date())
+const MAX_DATE = moment(MIN_DATE).add(2, "week")
+const MIN_TIME = moment("9:00", "HH:mm")
+const MAX_TIME = moment("20:00", "HH:mm")
 const StepOne = ({ setCurrentStep }) => {
+  const { register, setValue } = useFormContext()
+  const [selectedDate, setSelectedDate] = useState(MIN_DATE)
+  const [selectedTime, setSelectedTime] = useState(MIN_TIME)
   const peopleOptions = [
     "1 persona",
     "2 personas",
@@ -20,15 +31,24 @@ const StepOne = ({ setCurrentStep }) => {
     "9 personas",
     "10 personas",
   ]
+
+  useEffect(() => {
+    setValue("date", moment(selectedDate).format("MMM DD, YYYY"))
+  }, [selectedDate])
+
+  useEffect(() => {
+    setValue("time", moment(selectedTime).format("HH:mm"))
+  }, [selectedTime])
+
   return (
     <S.Wrapper>
       <Grid container>
         <Grid item xs={12} md>
           <WidgetSelect
             options={peopleOptions}
-            name="people"
+            name="seats"
             label="Personas"
-            // defaultValue={peopleOptions[0]}
+            defaultValue={peopleOptions[0]}
             isRequired
           />
         </Grid>
@@ -36,11 +56,28 @@ const StepOne = ({ setCurrentStep }) => {
           <LocalizationProvider dateAdapter={DateAdapter}>
             <DatePicker
               label="Fecha"
-              inputFormat="MM/DD"
-              views={["day", "month"]}
+              inputFormat="MMM DD"
+              autoOk
+              value={selectedDate}
+              onChange={date => setSelectedDate(date)}
+              minDate={MIN_DATE}
+              maxDate={MAX_DATE}
+              variant="inline"
+              inputVariant="outlined"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <CalendarTodayIcon />
+                  </InputAdornment>
+                ),
+              }}
+              disablePast={true}
+              InputAdornmentProps={{ position: "start" }}
               // value={value}
               // onChange={handleChange}
-              renderInput={params => <TextField {...params} />}
+              renderInput={params => (
+                <TextField {...register("date")} {...params} />
+              )}
             />
           </LocalizationProvider>
         </Grid>
@@ -48,8 +85,20 @@ const StepOne = ({ setCurrentStep }) => {
           <LocalizationProvider dateAdapter={DateAdapter}>
             <TimePicker
               label="Hora"
-              // value={value}
-              // onChange={handleChange}
+              autoOk
+              minutesStep={30}
+              value={selectedTime}
+              maxTime={MAX_TIME}
+              minTime={MIN_TIME}
+              onChange={time => setSelectedTime(time)}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <AccessTimeIcon />
+                  </InputAdornment>
+                ),
+              }}
+              InputAdornmentProps={{ position: "start" }}
               renderInput={params => <TextField {...params} />}
             />
           </LocalizationProvider>

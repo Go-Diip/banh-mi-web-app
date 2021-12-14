@@ -18,9 +18,7 @@ const WidgetTextField = ({
 
   const getError = error => {
     if (error) {
-      return error.type === "required"
-        ? "This is a required field"
-        : customError
+      return error.type === "required" ? "Campo requerido" : customError
     }
     return ""
   }

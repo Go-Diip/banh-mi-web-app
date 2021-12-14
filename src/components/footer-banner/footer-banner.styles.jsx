@@ -37,8 +37,10 @@ export const BannerTitle = styled.span`
 `
 
 export const BannerDescription = styled(Typography)`
-  font-weight: 300;
-  font-size: 24px;
-  line-height: 120%;
+  font-size: 14px;
+  font-weight: 200;
+  line-height: 18px;
+  letter-spacing: 0;
   color: #f6faf4;
+  max-width: 200px;
 `

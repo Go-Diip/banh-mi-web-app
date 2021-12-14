@@ -21,7 +21,7 @@ const FooterBanner = () => {
               mas de 12 personas
             </S.BannerDescription>
           </S.TextWrapper>
-          <CustomButton className="lightBorder" onClick={handleOpen}>
+          <CustomButton className="lightRed" onClick={handleOpen}>
             Contáctanos
           </CustomButton>
         </S.BannerWrapper>

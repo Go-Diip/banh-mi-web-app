@@ -46,9 +46,9 @@ const Footer = ({ className }) => {
                 <Grid item xs={12} md={3}>
                   <S.Text>
                     {parse(
-                      "Atención:<br>" +
+                      "<strong>Atención:</strong><br>" +
                         "Martes a Sábado<br>" +
-                        "Horario:<br>" +
+                        "<strong>Horario:</strong><br>" +
                         "12:30-15:30 y 19:00-22:30<br>" +
                         "Lunes y Domingos: Cerrado"
                     )}

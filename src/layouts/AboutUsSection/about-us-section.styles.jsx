@@ -2,6 +2,7 @@ import styled from "styled-components"
 import CustomImage from "../../components/custom-image/custom-image.component"
 import Pepper from "../../assets/pepper.svg"
 import { Container, Typography } from "@mui/material"
+import CustomBgImage from "../../components/custom-bg-image/custom-bg-image.component"
 
 export const LeftImage = styled(CustomImage)`
   width: 100%;
@@ -63,5 +64,9 @@ export const TextWrapper = styled.div`
 `
 
 export const CustomContainer = styled(Container)`
+  height: 100%;
+`
+
+export const BgImage = styled(CustomBgImage)`
   height: 100%;
 `

@@ -104,7 +104,10 @@ const MenuModal = ({ close }) => {
               </S.MenuCategory>
             ))}
           </S.ItemsWrapper>
-          <MenuItems items={articlesToShow} title={categoryTitle} />
+          <MenuItems
+            items={articlesToShow}
+            title={postsCategories[currentCategoryIndex].name}
+          />
         </Container>
       </S.MenuWrapper>
     </S.Wrapper>

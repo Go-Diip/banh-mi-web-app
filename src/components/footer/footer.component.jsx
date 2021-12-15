@@ -21,7 +21,7 @@ const Footer = ({ className }) => {
           <Grid container spacing={4}>
             <Grid item xs={12} md={6}>
               <S.FormWrapper>
-                <Logo />
+                <S.FooterLogo />
                 <FooterForm />
               </S.FormWrapper>
             </Grid>
@@ -38,11 +38,11 @@ const Footer = ({ className }) => {
                 <Grid item xs={12} md={3}>
                   <S.Text>
                     {parse(
-                      "<strong>Atención:</strong><br>" +
+                      "<strong>Horario:</strong><br>" +
                         "Martes a Sábado<br>" +
-                        "<strong>Horario:</strong><br>" +
                         "12:30-15:30 y 19:00-22:30<br>" +
-                        "Lunes y Domingos: Cerrado"
+                        "---" +
+                        "Lunes y Domingos: cerrados"
                     )}
                   </S.Text>
                 </Grid>

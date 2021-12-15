@@ -40,7 +40,6 @@ export const CustomButton = styled(Button)`
     color: white;
     border: 1px white solid;
     background-color: transparent;
-    border-radius: 25px;
 
     &:hover {
       background-color: white;

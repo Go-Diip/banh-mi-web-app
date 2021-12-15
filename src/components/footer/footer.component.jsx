@@ -41,7 +41,7 @@ const Footer = ({ className }) => {
                       "<strong>Horario:</strong><br>" +
                         "Martes a Sábado<br>" +
                         "12:30-15:30 y 19:00-22:30<br>" +
-                        "---" +
+                        "---<br>" +
                         "Lunes y Domingos: cerrados"
                     )}
                   </S.Text>

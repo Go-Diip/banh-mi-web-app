@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import * as S from "./header.styles.jsx"
-import { Box, useScrollTrigger, useTheme, Fade } from "@mui/material"
 import Container from "@mui/material/Container"
 import { Spin as Hamburger } from "hamburger-react"
 import FullMenu from "./full-menu/full-menu.component"

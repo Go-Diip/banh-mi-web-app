@@ -15,10 +15,16 @@ const FullMenu = ({ isActive, closeOpenMenu }) => {
     }
   `)
 
+  const sliderImages = [
+    { image: staticQuery.menu },
+    { image: staticQuery.menu },
+    { image: staticQuery.menu },
+    { image: staticQuery.menu },
+  ]
   return (
     <Fade in={isActive} mountOnEnter unmountOnExit>
       <S.MenuWrapper>
-        <RowGrid image={staticQuery.menu}>
+        <RowGrid isSlider sliderImages={sliderImages} image={staticQuery.menu}>
           <S.Wrapper>
             <S.Pepper />
             <S.ItemsWrapper>

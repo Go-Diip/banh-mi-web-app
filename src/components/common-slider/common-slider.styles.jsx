@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   position: relative;
 
   .slick-dots {
-    bottom: 10px;
+    bottom: 110px;
   }
 
   .slick-dots li.slick-active button::before {

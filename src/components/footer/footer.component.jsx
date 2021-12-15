@@ -7,6 +7,7 @@ import parse from "html-react-parser"
 import InstagramIcon from "../../assets/instagram.svg"
 import GoogleIcon from "../../assets/google.svg"
 import FacebookIcon from "../../assets/facebook.svg"
+import TripIcon from "../../assets/trip.svg"
 import CustomButton from "../custom-button/custom-button.component"
 import FooterBanner from "../footer-banner/footer-banner.component"
 import FooterForm from "../footer-form/footer-form.component"
@@ -18,31 +19,11 @@ const Footer = ({ className }) => {
       <S.Wrapper className={className}>
         <Container maxWidth="xl">
           <Grid container spacing={4}>
-            <Grid item xs={12} md={4}>
+            <Grid item xs={12} md={6}>
               <Logo />
-              <S.LogoWrapper>
-                <S.ExternalLink
-                  href="https://www.instagram.com/banhmisanducheria/"
-                  target="_blank"
-                >
-                  <InstagramIcon />
-                </S.ExternalLink>
-                <S.ExternalLink
-                  href="https://www.google.com/maps/u…BHXLpACIQoip6BAgyEAM"
-                  target="_blank"
-                >
-                  <GoogleIcon />
-                </S.ExternalLink>
-                <S.ExternalLink
-                  href="https://www.facebook.com/banhmisanducheria"
-                  target="_blank"
-                >
-                  <FacebookIcon />
-                </S.ExternalLink>
-              </S.LogoWrapper>
               <FooterForm />
             </Grid>
-            <Grid item xs={12} md={8}>
+            <Grid item xs={12} md={6}>
               <Grid container>
                 <Grid item xs={12} md={3}>
                   <S.Text>
@@ -78,6 +59,32 @@ const Footer = ({ className }) => {
           </Grid>
           <S.Line />
           <S.PoweredWrapper>
+            <S.LogoWrapper>
+              <S.ExternalLink
+                href="https://www.instagram.com/banhmisanducheria/"
+                target="_blank"
+              >
+                <InstagramIcon />
+              </S.ExternalLink>
+              <S.ExternalLink
+                href="https://www.google.com/maps/u…BHXLpACIQoip6BAgyEAM"
+                target="_blank"
+              >
+                <GoogleIcon />
+              </S.ExternalLink>
+              <S.ExternalLink
+                href="https://www.facebook.com/banhmisanducheria"
+                target="_blank"
+              >
+                <FacebookIcon />
+              </S.ExternalLink>
+              <S.ExternalLink
+                href="https://www.facebook.com/banhmisanducheria"
+                target="_blank"
+              >
+                <TripIcon />
+              </S.ExternalLink>
+            </S.LogoWrapper>
             <S.PoweredBy />
           </S.PoweredWrapper>
         </Container>

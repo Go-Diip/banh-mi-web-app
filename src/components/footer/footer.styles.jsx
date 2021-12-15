@@ -35,7 +35,6 @@ export const Text = styled(Typography)`
 
 export const LogoWrapper = styled.div`
   display: flex;
-  padding: 1em 0 2em;
   svg {
     fill: #f6faf4;
     width: 30px;
@@ -56,7 +55,7 @@ export const Line = styled.div`
 
 export const PoweredWrapper = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
 `
 export const PoweredBy = styled(PoweredIcon)`
   width: 107px;

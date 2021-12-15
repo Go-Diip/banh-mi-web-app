@@ -11,13 +11,13 @@ export const MiddlePepper = styled(Pepper)`
   position: absolute;
   height: 100%;
   top: 0;
-  right: 100px;
-  opacity: 0.3;
+  right: 225px;
+  opacity: 0.2;
 `
 
 export const BannerWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   height: 100%;
   padding: 4em 0;

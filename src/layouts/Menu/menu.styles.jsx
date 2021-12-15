@@ -47,9 +47,21 @@ export const Title = styled.span`
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: #091211;
-  padding: 2em 0;
+  padding: 2em 0 0;
 `
 
 export const BgImage = styled(CustomBgImage)`
   height: 100%;
+`
+
+export const MenuDescription = styled.span`
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: -0.01em;
+  color: #091211;
+  padding: 2em 0;
+  max-width: 332px;
+  text-align: center;
 `

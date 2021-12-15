@@ -39,6 +39,9 @@ const Menu = ({ image }) => {
             <S.ContentWrapper>
               <S.BlackPepper />
               <S.Title>MENÚ</S.Title>
+              <S.MenuDescription>
+                Para grupos de mas 10 personas, por favor comunicate al
+              </S.MenuDescription>
               <CustomButton className="darkBorder" onClick={handleOpen}>
                 Ver menú
               </CustomButton>

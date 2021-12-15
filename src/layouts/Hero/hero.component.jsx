@@ -2,26 +2,36 @@ import React from "react"
 import * as S from "./hero.styles"
 import RowGrid from "../../components/row-grid/row-grid.component"
 import theme from "../../gatsby-theme-material-ui-top-layout/theme"
+import { graphql, useStaticQuery } from "gatsby"
+import { Container } from "@mui/material"
+import CustomButton from "../../components/custom-button/custom-button.component"
 
-const Hero = ({ image, logo, title, reservationButton, orderButton }) => {
+const Hero = ({ title }) => {
+  const staticQuery = useStaticQuery(graphql`
+    query {
+      hero: file(relativePath: { eq: "hero3.jpg" }) {
+        childImageSharp {
+          gatsbyImageData(layout: FULL_WIDTH, quality: 100)
+        }
+      }
+    }
+  `)
   return (
-    <RowGrid image={image} bgColor={theme.palette.primary.dark}>
+    <S.Wrapper img={staticQuery.hero}>
       <S.TopWrapper>
-        <S.PepperBg />
-        <S.TextWrapper>
+        <S.Icon />
+        <S.Logo />
+        <S.ButtonWrapper>
           <S.ContentWrapper>
-            <S.Logo img={logo} />
             <S.Title>{title}</S.Title>
-            <S.ButtonWrapper>
-              <S.Button className="lightBorder" href="/reservations/">
-                Reservas
-              </S.Button>
-              <S.Button className="lightBorder">ordena online</S.Button>
-            </S.ButtonWrapper>
+            <S.Button className="lightBorder" href="/reservations/">
+              reservas
+            </S.Button>
+            <S.Button className="lightBorder">ordena online</S.Button>
           </S.ContentWrapper>
-        </S.TextWrapper>
+        </S.ButtonWrapper>
       </S.TopWrapper>
-    </RowGrid>
+    </S.Wrapper>
   )
 }
 

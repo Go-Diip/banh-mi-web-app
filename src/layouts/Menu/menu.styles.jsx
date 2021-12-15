@@ -1,13 +1,8 @@
 import styled from "styled-components"
 import SectionWrapper from "../../components/section-wrapper/section-wrapper.component"
-import PepperMenu from "../../assets/menuPepper.svg"
+import PepperMenu from "../../assets/redPepper.svg"
 import PepperIcon from "../../assets/pepperBlack.svg"
-
-export const Wrapper = styled(SectionWrapper)`
-  padding: 0;
-  background-color: #f6faf4;
-  min-height: 700px;
-`
+import CustomBgImage from "../../components/custom-bg-image/custom-bg-image.component"
 
 export const RightWrapper = styled.div`
   height: 100%;
@@ -16,9 +11,18 @@ export const RightWrapper = styled.div`
 
 export const Pepper = styled(PepperMenu)`
   position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: -75px;
+  left: -125px;
+  width: 100%;
+  height: 100%;
+  opacity: 0.1;
+`
+
+export const TopWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
 `
 
 export const ContentWrapper = styled.div`
@@ -43,4 +47,8 @@ export const Title = styled.span`
   text-transform: uppercase;
   color: #091211;
   padding: 2em 0;
+`
+
+export const BgImage = styled(CustomBgImage)`
+  height: 100%;
 `

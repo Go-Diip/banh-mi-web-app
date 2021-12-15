@@ -39,9 +39,10 @@ export const BlackPepper = styled(PepperIcon)`
 `
 
 export const Title = styled.span`
+  font-family: ${({ theme }) => theme.fonts.tertiary};
   font-style: normal;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 32px;
   line-height: 27px;
   letter-spacing: 0.22em;
   text-transform: uppercase;

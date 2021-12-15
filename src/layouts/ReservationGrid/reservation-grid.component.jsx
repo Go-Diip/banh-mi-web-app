@@ -3,9 +3,6 @@ import * as S from "./reservation-grid.styles"
 import Pepper from "../../assets/pepper.svg"
 import CustomButton from "../../components/custom-button/custom-button.component"
 import RowGrid from "../../components/row-grid/row-grid.component"
-import theme from "../../gatsby-theme-material-ui-top-layout/theme"
-import { Modal } from "@mui/material"
-import ReservationForm from "../../components/reservation-form/reservation-form.component"
 import parse from "html-react-parser"
 import { graphql, useStaticQuery } from "gatsby"
 
@@ -20,7 +17,7 @@ const ReservationGrid = ({ image, title, numDesc, number, button }) => {
     }
   `)
   return (
-    <RowGrid image={image} bgColor={theme.palette.primary.dark}>
+    <RowGrid image={image}>
       <S.BgImage img={staticQuery.black}>
         <S.TopWrapper id="reservation">
           <S.PepperBg />

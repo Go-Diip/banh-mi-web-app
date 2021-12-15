@@ -78,3 +78,10 @@ export const PhoneContainer = styled.div`
   margin-left: auto;
   text-align: center;
 `
+
+export const FormWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+`

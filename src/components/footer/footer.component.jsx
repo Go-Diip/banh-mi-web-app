@@ -20,8 +20,10 @@ const Footer = ({ className }) => {
         <Container maxWidth="xl">
           <Grid container spacing={4}>
             <Grid item xs={12} md={6}>
-              <Logo />
-              <FooterForm />
+              <S.FormWrapper>
+                <Logo />
+                <FooterForm />
+              </S.FormWrapper>
             </Grid>
             <Grid item xs={12} md={6}>
               <Grid container>

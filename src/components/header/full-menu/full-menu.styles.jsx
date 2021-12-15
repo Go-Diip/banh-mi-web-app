@@ -33,6 +33,7 @@ export const SLink = styled(Link)`
 `
 
 export const MenuItem = styled.span`
+  transition: 0.3s all ease;
   font-weight: 300;
   font-size: 24px;
   line-height: 36px;
@@ -40,4 +41,7 @@ export const MenuItem = styled.span`
   text-transform: uppercase;
   color: #091211;
   cursor: pointer;
+  &:hover {
+    color: ${({ theme }) => theme.palette.primary.main};
+  }
 `

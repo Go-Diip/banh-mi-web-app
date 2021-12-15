@@ -3,6 +3,7 @@ import SectionWrapper from "../../components/section-wrapper/section-wrapper.com
 import { Grid, Typography } from "@mui/material"
 import PoweredByIcon from "../../assets/poweredby.svg"
 import Pepper from "../../assets/pepperBg.svg"
+import CustomBgImage from "../../components/custom-bg-image/custom-bg-image.component"
 
 export const Wrapper = styled(SectionWrapper)`
   padding: 0;
@@ -72,5 +73,9 @@ export const PepperBg = styled(Pepper)`
   left: 0;
   opacity: 0.05;
   width: 100%;
+  height: 100%;
+`
+
+export const BgImage = styled(CustomBgImage)`
   height: 100%;
 `

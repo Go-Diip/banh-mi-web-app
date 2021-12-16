@@ -6,9 +6,18 @@ export const Wrapper = styled.div`
 `
 
 export const TitleWrapper = styled.div`
-  background-color: ${({ theme }) => theme.palette.primary.main};
+  background-color: black;
   text-align: center;
   padding: 7em 0 5em;
+  h1 {
+    font-family: ${({ theme }) => theme.fonts.tertiary};
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 27px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: white;
+  }
 `
 
 export const MenuWrapper = styled.div`

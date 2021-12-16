@@ -38,6 +38,12 @@ const MenuItems = ({ items, title }) => {
                       title === "Bebidas Soft"
                         ? "center"
                         : "left",
+                    marginBottom:
+                      title === "Postres" ||
+                      title === "Porciones" ||
+                      title === "Bebidas Soft"
+                        ? "0"
+                        : "0.5em",
                   }}
                 >
                   {product.title} {product.price}

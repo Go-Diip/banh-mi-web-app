@@ -4,6 +4,7 @@ import ReservationGrid from "./layouts/ReservationGrid"
 import AboutUsSection from "./layouts/AboutUsSection"
 import Menu from "./layouts/Menu"
 import Hero from "./layouts/Hero"
+import FullMenu from "./layouts/FullMenu"
 
 export const getPageLayout = layout => {
   const layoutName = layout?.fieldGroupName?.split("_").pop().trim()
@@ -19,5 +20,7 @@ export const getPageLayout = layout => {
       return <Menu {...layout} />
     case "Hero":
       return <Hero {...layout} />
+    case "FullMenu":
+      return <FullMenu {...layout} />
   }
 }

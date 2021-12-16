@@ -60,6 +60,9 @@ export const query = graphql`
           ... on WpPage_Pagebuilder_Layouts_Hero {
             ...Hero
           }
+          ... on WpPage_Pagebuilder_Layouts_FullMenu {
+            ...FullMenu
+          }
         }
         pageConfiguration {
           hideFooter

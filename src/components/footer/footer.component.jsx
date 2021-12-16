@@ -87,7 +87,11 @@ const Footer = ({ className }) => {
                 <TripIcon />
               </S.ExternalLink>
             </S.LogoWrapper>
-            <S.PoweredBy />
+            <S.RightWrapper>
+              <S.WorkText>Trabaja con Nosotros</S.WorkText>
+              <S.VerticalLine />
+              <S.PoweredBy />
+            </S.RightWrapper>
           </S.PoweredWrapper>
         </Container>
       </S.Wrapper>

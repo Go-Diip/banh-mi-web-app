@@ -62,9 +62,32 @@ export const PoweredWrapper = styled.div`
   justify-content: space-between;
 `
 export const PoweredBy = styled(PoweredIcon)`
-  width: 107px;
+  width: 125px;
+`
+export const RightWrapper = styled.div`
+  display: flex;
+  align-items: center;
 `
 
+export const WorkText = styled.span`
+  transition: 0.3s all ease;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 18px;
+  color: #f6faf4;
+  cursor: pointer;
+  &:hover {
+    color: ${({ theme }) => theme.palette.primary.main};
+  }
+`
+
+export const VerticalLine = styled.div`
+  width: 1px;
+  height: 35px;
+  background-color: rgba(246, 250, 244, 0.25);
+  margin: 0 0 0 1em;
+`
 export const PhoneWrapper = styled.div`
   display: flex;
   flex-direction: column;

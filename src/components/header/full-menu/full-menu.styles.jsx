@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import PepperIcon from "../../../assets/pepperBlack.svg"
 import { Link } from "react-scroll"
+import CustomLink from "../../custom-link/custom-link.component"
 
 export const MenuWrapper = styled.div`
   height: 100vh;
@@ -29,6 +30,10 @@ export const ItemsWrapper = styled.div`
 `
 
 export const SLink = styled(Link)`
+  margin: 1em 0;
+`
+
+export const CSLink = styled(CustomLink)`
   margin: 1em 0;
 `
 

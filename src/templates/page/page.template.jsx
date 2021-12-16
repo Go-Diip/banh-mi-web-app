@@ -67,6 +67,7 @@ export const query = graphql`
         pageConfiguration {
           hideFooter
           hideHeaderItems
+          isHome
         }
       }
     }
@@ -76,7 +77,11 @@ const PageTemplate = ({ data }) => {
   const { seo, slug, pageBuilder, title } = data.wpPage
   const layouts = pageBuilder.layouts || []
   return (
-    <Layout {...pageBuilder.pageConfiguration} seo={seo}>
+    <Layout
+      {...pageBuilder.pageConfiguration}
+      isHome={pageBuilder.pageConfiguration.isHome}
+      seo={seo}
+    >
       {layouts.map(layout => getPageLayout(layout))}
     </Layout>
   )

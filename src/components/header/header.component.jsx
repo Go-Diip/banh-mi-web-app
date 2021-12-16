@@ -4,7 +4,7 @@ import Container from "@mui/material/Container"
 import { Spin as Hamburger } from "hamburger-react"
 import FullMenu from "./full-menu/full-menu.component"
 
-const Header = ({}) => {
+const Header = ({ isHome }) => {
   const [isActiveMenu, setIsActiveMenu] = useState(false)
 
   const handleCloseMenu = () => {
@@ -28,7 +28,11 @@ const Header = ({}) => {
           </Container>
         </S.MainNav>
       </S.CustomAppBar>
-      <FullMenu closeOpenMenu={handleCloseMenu} isActive={isActiveMenu} />
+      <FullMenu
+        isHome={isHome}
+        closeOpenMenu={handleCloseMenu}
+        isActive={isActiveMenu}
+      />
     </S.NavWrapper>
   )
 }

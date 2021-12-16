@@ -22,12 +22,12 @@ export const Icon = styled(PepperIcon)`
 export const Logo = styled(WhiteLogo)`
   position: absolute;
   top: 200px;
-  right: 30px;
+  right: 90px;
 `
 
 export const ButtonWrapper = styled.div`
   position: absolute;
-  right: 30px;
+  right: 90px;
   top: 350px;
 `
 

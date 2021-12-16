@@ -3,8 +3,10 @@ import * as S from "./full-menu.styles"
 import { graphql, useStaticQuery } from "gatsby"
 import { Container } from "@mui/material"
 import MenuItems from "../../components/menu-items/menu-items.component"
+import VegIcon from "../../assets/veg.svg"
+import PepperIcon from "../../assets/chili.svg"
 
-const FullMenu = ({}) => {
+const FullMenu = ({ title }) => {
   const staticQuery = useStaticQuery(graphql`
     query {
       allWpProduct {
@@ -88,8 +90,26 @@ const FullMenu = ({}) => {
   }, [category])
   return (
     <S.Wrapper>
+      <S.TitleWrapper>{title && <h1>{title}</h1>}</S.TitleWrapper>
       <S.MenuWrapper>
         <Container>
+          <S.OptionsWrapper>
+            <S.IconsWrapper>
+              <S.OptionWrapper>
+                <VegIcon />
+                <S.Description>Opciones Veganas</S.Description>
+              </S.OptionWrapper>
+              <S.OptionWrapper>
+                <PepperIcon />
+                <S.Description>Escoge tu nivel de picante</S.Description>
+              </S.OptionWrapper>
+            </S.IconsWrapper>
+            <S.Line />
+            <S.DescWrapper>
+              <S.Description>Todos nuestros incluyen IVA</S.Description>
+            </S.DescWrapper>
+            <S.Line />
+          </S.OptionsWrapper>
           <S.ItemsWrapper>
             {newProductCategories.map((item, index) => (
               <S.MenuCategory

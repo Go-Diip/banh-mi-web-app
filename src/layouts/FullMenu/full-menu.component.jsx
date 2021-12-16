@@ -35,9 +35,27 @@ const FullMenu = ({}) => {
   const products = staticQuery.allWpProduct.nodes
   const productCategories = staticQuery.allWpProductCategory.nodes
 
-  const [category, setCategory] = useState(productCategories[0])
-  const currentCategoryIndex = productCategories.indexOf(category)
-  const [categoryTitle, setCategoryTitle] = useState(productCategories[0].name)
+  let newProductCategories = []
+  newProductCategories.push(productCategories[5])
+  newProductCategories.push(productCategories[9])
+  newProductCategories.push(productCategories[8])
+  newProductCategories.push(productCategories[7])
+  newProductCategories.push(productCategories[6])
+  newProductCategories.push(productCategories[12])
+  newProductCategories.push(productCategories[1])
+  newProductCategories.push(productCategories[0])
+  newProductCategories.push(productCategories[10])
+  newProductCategories.push(productCategories[11])
+  newProductCategories.push(productCategories[2])
+  newProductCategories.push(productCategories[4])
+  newProductCategories.push(productCategories[3])
+  newProductCategories.push(productCategories[13])
+
+  const [category, setCategory] = useState(newProductCategories[0])
+  const currentCategoryIndex = newProductCategories.indexOf(category)
+  const [categoryTitle, setCategoryTitle] = useState(
+    newProductCategories[0].name
+  )
 
   const handleChangeCategories = node => {
     setCategory(node)
@@ -73,7 +91,7 @@ const FullMenu = ({}) => {
       <S.MenuWrapper>
         <Container>
           <S.ItemsWrapper>
-            {productCategories.map((item, index) => (
+            {newProductCategories.map((item, index) => (
               <S.MenuCategory
                 className={item.slug === category.slug && "active"}
                 onClick={() => handleChangeCategories(item)}
@@ -85,7 +103,7 @@ const FullMenu = ({}) => {
           </S.ItemsWrapper>
           <MenuItems
             items={productsToShow}
-            title={productCategories[currentCategoryIndex].name}
+            title={newProductCategories[currentCategoryIndex].name}
           />
         </Container>
       </S.MenuWrapper>

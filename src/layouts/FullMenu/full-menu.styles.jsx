@@ -1,4 +1,6 @@
 import styled from "styled-components"
+import ArrowBackIcon from "@mui/icons-material/ArrowBack"
+import CustomLink from "../../components/custom-link/custom-link.component"
 
 export const Wrapper = styled.div`
   background-color: #f6faf4;
@@ -6,7 +8,7 @@ export const Wrapper = styled.div`
 `
 
 export const TitleWrapper = styled.div`
-  background-color: black;
+  background-color: ${({ theme }) => theme.palette.primary.main};
   text-align: center;
   padding: 7em 0 5em;
   h1 {
@@ -81,4 +83,30 @@ export const OptionWrapper = styled.div`
 export const IconsWrapper = styled.div`
   display: flex;
   justify-content: space-around;
+`
+
+export const BarWrapper = styled.div`
+  padding: 1em 0;
+  background-color: black;
+`
+
+export const Link = styled(CustomLink)``
+
+export const ArrowIcon = styled(ArrowBackIcon)`
+  color: #f6faf4;
+`
+
+export const HomeText = styled.span`
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 27px;
+  text-transform: uppercase;
+  color: #f6faf4;
+`
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  margin-left: 80px;
 `

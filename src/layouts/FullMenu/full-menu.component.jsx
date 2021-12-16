@@ -5,6 +5,7 @@ import { Container } from "@mui/material"
 import MenuItems from "../../components/menu-items/menu-items.component"
 import VegIcon from "../../assets/veg.svg"
 import PepperIcon from "../../assets/chili.svg"
+import CustomLink from "../../components/custom-link/custom-link.component"
 
 const FullMenu = ({ title }) => {
   const staticQuery = useStaticQuery(graphql`
@@ -91,6 +92,16 @@ const FullMenu = ({ title }) => {
   return (
     <S.Wrapper>
       <S.TitleWrapper>{title && <h1>{title}</h1>}</S.TitleWrapper>
+      <S.BarWrapper>
+        <Container maxWidth="xl">
+          <S.Link url="/">
+            <S.ButtonWrapper>
+              <S.ArrowIcon />
+              <S.HomeText>home</S.HomeText>
+            </S.ButtonWrapper>
+          </S.Link>
+        </Container>
+      </S.BarWrapper>
       <S.MenuWrapper>
         <Container>
           <S.OptionsWrapper>

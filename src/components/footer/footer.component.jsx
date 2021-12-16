@@ -2,7 +2,6 @@ import React from "react"
 
 import * as S from "./footer.styles"
 import { Container, Grid } from "@mui/material"
-import Logo from "../../assets/logo.svg"
 import parse from "html-react-parser"
 import InstagramIcon from "../../assets/instagram.svg"
 import GoogleIcon from "../../assets/google.svg"
@@ -11,8 +10,14 @@ import TripIcon from "../../assets/trip.svg"
 import CustomButton from "../custom-button/custom-button.component"
 import FooterBanner from "../footer-banner/footer-banner.component"
 import FooterForm from "../footer-form/footer-form.component"
+import { Modal } from "@mui/material"
+import ReservationForm from "../reservation-form/reservation-form.component"
+import FooterModal from "../footer-modal/footer-modal.component"
 
 const Footer = ({ className }) => {
+  const [open, setOpen] = React.useState(false)
+  const handleOpen = () => setOpen(true)
+  const handleClose = () => setOpen(false)
   return (
     <>
       <FooterBanner id="contact" />
@@ -88,13 +93,21 @@ const Footer = ({ className }) => {
               </S.ExternalLink>
             </S.LogoWrapper>
             <S.RightWrapper>
-              <S.WorkText>Trabaja con Nosotros</S.WorkText>
+              <S.WorkText onClick={handleOpen}>Trabaja con Nosotros</S.WorkText>
               <S.VerticalLine />
               <S.PoweredBy />
             </S.RightWrapper>
           </S.PoweredWrapper>
         </Container>
       </S.Wrapper>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <FooterModal close={handleClose} />
+      </Modal>
     </>
   )
 }

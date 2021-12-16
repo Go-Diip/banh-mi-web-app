@@ -46,4 +46,5 @@ export const TitleWrapper = styled.div`
 export const MenuWrapper = styled.div`
   max-width: 500px;
   margin: auto;
+  padding-top: 2em;
 `

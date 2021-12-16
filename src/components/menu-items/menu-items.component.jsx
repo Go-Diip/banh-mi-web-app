@@ -11,11 +11,35 @@ const MenuItems = ({ items, title }) => {
         <S.TitleWrapper>
           <S.CategoryTitle>{title}</S.CategoryTitle>
         </S.TitleWrapper>
-        <Grid container spacing={8}>
+        <Grid
+          container
+          spacing={
+            title === "Postres" ||
+            (title === "Porciones" || title === "Bebidas Soft" ? 2 : 8)
+          }
+        >
           {newItems.map(({ product }, index) => (
-            <Grid item xs={6}>
+            <Grid
+              item
+              xs={
+                title === "Postres" ||
+                title === "Porciones" ||
+                title === "Bebidas Soft"
+                  ? 12
+                  : 6
+              }
+            >
               <S.ProductWrapper>
-                <S.ProductTitle>
+                <S.ProductTitle
+                  style={{
+                    textAlign:
+                      title === "Postres" ||
+                      title === "Porciones" ||
+                      title === "Bebidas Soft"
+                        ? "center"
+                        : "left",
+                  }}
+                >
                   {product.title} {product.price}
                 </S.ProductTitle>
                 {product.description && (

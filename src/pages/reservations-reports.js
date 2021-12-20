@@ -37,7 +37,7 @@ const ReservationsReport = () => {
     },
     {
       name: "area",
-      label: "Area",
+      label: "Ambiente",
       options: {
         filter: true,
         sort: false,

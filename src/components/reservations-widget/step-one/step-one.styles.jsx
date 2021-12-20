@@ -17,6 +17,12 @@ export const Wrapper = styled.div`
     }
   }
 
+  ${({ theme }) => theme.breakpoints.down("md")} {
+    .MuiFormControl-root {
+      margin-bottom: 1.5em;
+    }
+  }
+
   //.MuiIconButton-root {
   //  display: none;
   //}

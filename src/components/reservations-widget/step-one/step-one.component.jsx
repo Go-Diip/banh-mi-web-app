@@ -83,6 +83,7 @@ const StepOne = ({ setCurrentStep }) => {
               renderInput={params => (
                 <TextField
                   className="date"
+                  fullWidth
                   onClick={() => setDateOpen(true)}
                   {...register("date")}
                   {...params}
@@ -114,6 +115,7 @@ const StepOne = ({ setCurrentStep }) => {
               InputAdornmentProps={{ position: "start" }}
               renderInput={params => (
                 <TextField
+                  fullWidth
                   className="time"
                   onClick={() => setTimeOpen(true)}
                   {...params}

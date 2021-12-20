@@ -7,6 +7,11 @@ import { Tab } from "@mui/material"
 import StepOne from "./step-one/step-one.component"
 import StepTwo from "./step-two/step-two.component"
 import StepThree from "./step-three/step-three.component"
+import {
+  getReservations,
+  getReservations2,
+  setReservation,
+} from "../../services/reservations"
 
 export const STEPS = {
   SELECT_TABLE: 0,
@@ -35,7 +40,16 @@ const ReservationsWidget = () => {
   }
 
   const onSubmit = data => {
-    console.log("data", data)
+    console.log("submit data", data)
+    setReservation({
+      name: data.name,
+      email: data.email,
+      phone: data.phone,
+      area: data.area,
+      date: data.date,
+      seats: parseInt(data.seats),
+      notes: data.notes
+    })
   }
   return (
     <FormProvider {...methods}>

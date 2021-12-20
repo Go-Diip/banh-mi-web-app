@@ -40,8 +40,8 @@ const WidgetSelect = ({
             >
               {/*<option aria-label="None" value="" disabled />*/}
               {options?.map(option => (
-                <option value={option.id ?? option}>
-                  {option.name ?? option}
+                <option value={option.value ?? option}>
+                  {option.label ?? option}
                 </option>
               ))}
             </Select>

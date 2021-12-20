@@ -10,6 +10,7 @@ import CalendarTodayIcon from "@mui/icons-material/CalendarToday"
 import AccessTimeIcon from "@mui/icons-material/AccessTime"
 import moment from "moment"
 import { useFormContext } from "react-hook-form"
+import { getReservations } from "../../../services/reservations"
 
 const MIN_DATE = moment(new Date())
 const MAX_DATE = moment(MIN_DATE).add(2, "week")
@@ -21,17 +22,59 @@ const StepOne = ({ setCurrentStep }) => {
   const [selectedTime, setSelectedTime] = useState(MIN_TIME)
   const [dateOpen, setDateOpen] = useState(false)
   const [timeOpen, setTimeOpen] = useState(false)
+  // const peopleOptions = [
+  //   "1 persona",
+  //   "2 personas",
+  //   "3 personas",
+  //   "4 personas",
+  //   "5 personas",
+  //   "6 personas",
+  //   "7 personas",
+  //   "8 personas",
+  //   "9 personas",
+  //   "10 personas",
+  // ]
   const peopleOptions = [
-    "1 persona",
-    "2 personas",
-    "3 personas",
-    "4 personas",
-    "5 personas",
-    "6 personas",
-    "7 personas",
-    "8 personas",
-    "9 personas",
-    "10 personas",
+    {
+      value: 1,
+      label: "1 Persona",
+    },
+    {
+      value: 2,
+      label: "2 Personas",
+    },
+    {
+      value: 3,
+      label: "3 Personas",
+    },
+    {
+      value: 4,
+      label: "4 Personas",
+    },
+    {
+      value: 5,
+      label: "5 Personas",
+    },
+    {
+      value: 6,
+      label: "6 Personas",
+    },
+    {
+      value: 7,
+      label: "7 Personas",
+    },
+    {
+      value: 8,
+      label: "8 Personas",
+    },
+    {
+      value: 9,
+      label: "9 Personas",
+    },
+    {
+      value: 10,
+      label: "10 Personas",
+    },
   ]
 
   useEffect(() => {
@@ -41,6 +84,10 @@ const StepOne = ({ setCurrentStep }) => {
   useEffect(() => {
     setValue("time", moment(selectedTime).format("HH:mm"))
   }, [selectedTime])
+
+  // useEffect(() => {
+  //   getReservations()
+  // }, [])
 
   return (
     <S.Wrapper>

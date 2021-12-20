@@ -9,6 +9,14 @@ export const Wrapper = styled.div`
     border-radius: 0;
   }
 
+  .date,
+  .time {
+    .MuiInputBase-root,
+    input {
+      cursor: pointer;
+    }
+  }
+
   //.MuiIconButton-root {
   //  display: none;
   //}

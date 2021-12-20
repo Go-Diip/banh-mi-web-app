@@ -19,6 +19,8 @@ const StepOne = ({ setCurrentStep }) => {
   const { register, setValue } = useFormContext()
   const [selectedDate, setSelectedDate] = useState(MIN_DATE)
   const [selectedTime, setSelectedTime] = useState(MIN_TIME)
+  const [dateOpen, setDateOpen] = useState(false)
+  const [timeOpen, setTimeOpen] = useState(false)
   const peopleOptions = [
     "1 persona",
     "2 personas",
@@ -58,6 +60,9 @@ const StepOne = ({ setCurrentStep }) => {
               label="Fecha"
               inputFormat="MMM DD"
               autoOk
+              open={dateOpen}
+              onOpen={() => setDateOpen(true)}
+              onClose={() => setDateOpen(false)}
               value={selectedDate}
               onChange={date => setSelectedDate(date)}
               minDate={MIN_DATE}
@@ -76,7 +81,12 @@ const StepOne = ({ setCurrentStep }) => {
               // value={value}
               // onChange={handleChange}
               renderInput={params => (
-                <TextField {...register("date")} {...params} />
+                <TextField
+                  className="date"
+                  onClick={() => setDateOpen(true)}
+                  {...register("date")}
+                  {...params}
+                />
               )}
             />
           </LocalizationProvider>
@@ -84,6 +94,9 @@ const StepOne = ({ setCurrentStep }) => {
         <Grid item xs={12} md>
           <LocalizationProvider dateAdapter={DateAdapter}>
             <TimePicker
+              onOpen={() => setTimeOpen(true)}
+              onClose={() => setTimeOpen(false)}
+              open={timeOpen}
               label="Hora"
               autoOk
               minutesStep={30}
@@ -99,7 +112,13 @@ const StepOne = ({ setCurrentStep }) => {
                 ),
               }}
               InputAdornmentProps={{ position: "start" }}
-              renderInput={params => <TextField {...params} />}
+              renderInput={params => (
+                <TextField
+                  className="time"
+                  onClick={() => setTimeOpen(true)}
+                  {...params}
+                />
+              )}
             />
           </LocalizationProvider>
         </Grid>

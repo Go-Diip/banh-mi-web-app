@@ -1,10 +1,10 @@
 import React from "react"
 import * as S from "./step-two.styles.jsx"
+
+import { Controller } from "react-hook-form"
 import {
   Button,
   FormControl,
-  FormControlLabel,
-  FormLabel,
   Grid,
   InputAdornment,
   Radio,
@@ -17,12 +17,12 @@ import EmailIcon from "@mui/icons-material/Email"
 import { STEPS } from "../reservations-widget.component"
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
 import { useFormContext } from "react-hook-form"
-import { validateEmail } from "../../../utils"
+import { validateEmail, validatePhone } from "../../../utils"
 
 const inputNames = ["name", "phone", "email", "area"]
 
 const StepTwo = ({ setCurrentStep }) => {
-  const { register, trigger } = useFormContext()
+  const { register, trigger, control } = useFormContext()
   const handleNext = () => {
     trigger(inputNames).then(res => {
       if (res) {
@@ -30,6 +30,7 @@ const StepTwo = ({ setCurrentStep }) => {
       }
     })
   }
+
   return (
     <S.Wrapper>
       <Grid container spacing={4}>
@@ -47,7 +48,10 @@ const StepTwo = ({ setCurrentStep }) => {
             label="Teléfono"
             isRequired
             placeholder="tu teléfono"
+            validate={validatePhone}
             autoComplete="tel"
+            type="number"
+            customError="Por favor ingresa un número válido de 10 digitos"
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
@@ -82,22 +86,30 @@ const StepTwo = ({ setCurrentStep }) => {
             margin="normal"
             sx={{ marginBottom: "1.5em" }}
           >
-            <RadioGroup
-              aria-label="gender"
-              {...register(inputNames[3])}
+            <Controller
+              render={({ field: { onChange, onBlur, value, name, ref } }) => (
+                <RadioGroup
+                  onBlur={onBlur} // notify when input is touched
+                  onChange={onChange}
+                  value={value}
+                  aria-label="area"
+                >
+                  <S.CustomRadioButton
+                    value="restaurante"
+                    control={<Radio />}
+                    label="Restaurante"
+                  />
+                  <S.CustomRadioButton
+                    value="segundo piso"
+                    control={<Radio />}
+                    label="Segundo Piso"
+                  />
+                </RadioGroup>
+              )}
               defaultValue="restaurante"
-            >
-              <S.CustomRadioButton
-                value="restaurante"
-                control={<Radio />}
-                label="Restaurante"
-              />
-              <S.CustomRadioButton
-                value="other"
-                control={<Radio />}
-                label="Segundo Piso"
-              />
-            </RadioGroup>
+              name="area"
+              control={control}
+            />
           </FormControl>
           <Button
             fullWidth

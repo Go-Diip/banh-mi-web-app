@@ -7,10 +7,15 @@ export const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   background-color: #f7f7f7;
+  margin-top: -${({ theme }) => theme.navHeight}px;
 
   ${({ theme }) => theme.breakpoints.up("md")} {
     min-height: 600px;
     height: 100vh;
+  }
+
+  ${({ theme }) => theme.breakpoints.down("md")} {
+    min-height: 100vh;
   }
 
   .MuiInputBase-root {

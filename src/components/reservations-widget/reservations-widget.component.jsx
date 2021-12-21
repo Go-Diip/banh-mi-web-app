@@ -50,7 +50,8 @@ const ReservationsWidget = () => {
       area: data.area,
       date: new Date(stringDate),
       seats: parseInt(data.seats),
-      notes: data.notes
+      notes: data.notes,
+      status: 'Pendiente'
     })
   }
   return (

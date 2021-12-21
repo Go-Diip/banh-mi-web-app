@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react"
-import MUIDataTable from "mui-datatables"
 import { getReservations } from "../services/reservations"
+import LoadableMuiDataTable from "../components/loadable-mui-data-table/loadable-mui-data-table"
 
 const ReservationsReport = () => {
-
-
   const [data, setData] = useState([])
 
   console.log("data", data)
@@ -12,7 +10,6 @@ const ReservationsReport = () => {
   useEffect(() => {
     getReservations().then(res => setData(res))
   }, [])
-
 
   const columns = [
     {
@@ -64,6 +61,14 @@ const ReservationsReport = () => {
       },
     },
     {
+      name: "status",
+      label: "Estado",
+      options: {
+        filter: true,
+        sort: true,
+      },
+    },
+    {
       name: "notes",
       label: "Notas",
       options: {
@@ -81,7 +86,7 @@ const ReservationsReport = () => {
   }
 
   return (
-    <MUIDataTable
+    <LoadableMuiDataTable
       title={"Reservations"}
       data={data}
       columns={columns}

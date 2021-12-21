@@ -7,11 +7,8 @@ import { Tab } from "@mui/material"
 import StepOne from "./step-one/step-one.component"
 import StepTwo from "./step-two/step-two.component"
 import StepThree from "./step-three/step-three.component"
-import {
-  getReservations,
-  setReservation,
-  updateReservationStatus,
-} from "../../services/reservations"
+import { setReservation } from "../../services/reservations"
+import { STATUSES } from "../reservations-reporter/reservations-reporter.component"
 
 export const STEPS = {
   SELECT_TABLE: 0,
@@ -53,8 +50,9 @@ const ReservationsWidget = () => {
       area: data.area,
       date: new Date(stringDate),
       seats: parseInt(data.seats),
+      table: "-",
       notes: data.notes,
-      status: "Pendiente",
+      status: STATUSES.pending,
     })
   }
   return (

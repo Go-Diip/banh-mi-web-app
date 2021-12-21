@@ -3,6 +3,12 @@ import { getReservations } from "../../services/reservations"
 import * as S from "./reservations-reporter.styles"
 import LoadableMuiDataTable from "../../components/loadable-mui-data-table/loadable-mui-data-table"
 
+export const STATUSES = {
+  approved: "Aprobado",
+  pending: "Pendiente",
+  canceled: "Cancelado",
+}
+
 const ReservationsReporter = () => {
   const [data, setData] = useState([])
 
@@ -15,15 +21,15 @@ const ReservationsReporter = () => {
   const handleCellprops = (cellValue, rowIndex, columnIndex) => {
     console.log("cellValue", cellValue)
     switch (cellValue) {
-      case "Pendiente":
+      case STATUSES.pending:
         return {
           className: "pending",
         }
-      case "Aprobado":
+      case STATUSES.approved:
         return {
           className: "approved",
         }
-      case "Cancelado":
+      case STATUSES.canceled:
         return {
           className: "canceled",
         }
@@ -58,6 +64,14 @@ const ReservationsReporter = () => {
     {
       name: "seats",
       label: "Puestos",
+      options: {
+        filter: true,
+        sort: true,
+      },
+    },
+    {
+      name: "table",
+      label: "Mesa",
       options: {
         filter: true,
         sort: true,

@@ -23,7 +23,7 @@ const ReservationGrid = ({ image, title, numDesc, number, button }) => {
         <S.TopWrapper id="reservation">
           <S.PepperBg />
           <S.TextWrapper>
-            <Fade direction="left">
+            <Fade direction="left" triggerOnce>
               <S.ContentWrapper>
                 <Pepper />
                 {title && <S.Title>{title}</S.Title>}

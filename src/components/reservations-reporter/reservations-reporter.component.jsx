@@ -19,6 +19,9 @@ import { useForm } from "react-hook-form"
 import Spinner from "../spinner/spinner.component"
 import CloseIcon from "@mui/icons-material/Close"
 import { emailTypes, sendEmail } from "../../utils"
+import { auth } from "../../services/firebase"
+import { navigate } from "gatsby"
+
 
 export const STATUSES = {
   approved: "Aprobado",
@@ -28,7 +31,7 @@ export const STATUSES = {
 
 const ReservationsReporter = () => {
   const { register, handleSubmit } = useForm()
-
+  const [user, setUser] = useState(null)
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   const [selectedDataIndex, setSelectedDataIndex] = useState(null)
@@ -38,12 +41,31 @@ const ReservationsReporter = () => {
   console.log("data", data)
 
   useEffect(() => {
-    setIsLoading(true)
-    getReservations().then(res => {
-      setIsLoading(false)
-      setData(res)
+    const unsubscribe = auth.onAuthStateChanged(userAuth => {
+      const user = {
+        uid: userAuth?.uid,
+        email: userAuth?.email,
+      }
+      if (userAuth) {
+        console.log("userAuth", userAuth)
+        setUser(user)
+      } else {
+        setUser(null)
+        navigate("/login/")
+      }
     })
+    return unsubscribe
   }, [])
+
+  useEffect(() => {
+    if (user) {
+      setIsLoading(true)
+      getReservations().then(res => {
+        setIsLoading(false)
+        setData(res)
+      })
+    }
+  }, [user])
 
   const handleCellprops = (cellValue, rowIndex, columnIndex) => {
     console.log("cellValue", cellValue)

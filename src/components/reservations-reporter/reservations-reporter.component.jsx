@@ -194,9 +194,6 @@ const ReservationsReporter = () => {
 
     updateReservationStatus(reservationData.id, formData).then(response => {
       console.log("responseUpdate", response)
-      setIsLoading(false)
-      setIsOpenDialog(false)
-
       if (reservationData.status === STATUSES.approved) {
         sendEmail(
           reservationData.email,
@@ -216,6 +213,8 @@ const ReservationsReporter = () => {
       }
 
       setData(newData)
+      setIsLoading(false)
+      setIsOpenDialog(false)
     })
   }
 

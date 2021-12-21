@@ -219,7 +219,7 @@ export const sendEmail = (email, name, table, emailType) => {
   const Mailgun = require("mailgun.js")
   const mailgun = new Mailgun(formData)
   const mg = mailgun.client({
-    username: "valladarespaul@gmail.com",
+    username: process.env.GATSBY_MAILGUN_USERNAME,
     key: process.env.GATSBY_MAILGUN_API_KEY,
   })
 

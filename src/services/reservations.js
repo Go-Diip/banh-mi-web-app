@@ -19,5 +19,6 @@ export const setReservation = async data => {
 
 export const updateReservationStatus = async (id, status) => {
   const snapshot = await firestore.collection("reservations").doc(id);
-  const res = await snapshot.update({status: status});
+  const res = await snapshot.update(status);
+  return res
 }

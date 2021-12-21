@@ -5,6 +5,47 @@ import CryptoJS from "crypto-js"
 
 export const isBrowser = () => typeof window !== "undefined"
 
+export const emailTypes = {
+  CUSTOMER_NOTIFICATION: "Customer Notification",
+  CUSTOMER_CONFIRMATION: "Customer Confirmation",
+  CUSTOMER_CANCELED: "Customer Canceled",
+  CLIENT_NOTIFICATION: "Client Notification",
+}
+
+export const getEmailData = (mail, name, table, emailType) => {
+  console.log("emailType", emailType)
+  switch (emailType) {
+    case emailTypes.CUSTOMER_NOTIFICATION:
+      return {
+        from: "Banhmi <no-reply@banhmi.com>",
+        to: [mail],
+        subject: "Reservación Recibida",
+        html: `<p>Some text customer notification</p>`,
+      }
+    case emailTypes.CUSTOMER_CONFIRMATION:
+      return {
+        from: "Banhmi <no-reply@banhmi.com>",
+        to: [mail],
+        subject: "Reservación Confirmada",
+        html: `<p>Some Text Confirmation</p> ${table}`,
+      }
+    case emailTypes.CUSTOMER_CANCELED:
+      return {
+        from: "Banhmi <no-reply@banhmi.com>",
+        to: [mail],
+        subject: "Reservación Cancelada",
+        html: `<p>Some Text Canceled</p>`,
+      }
+    case emailTypes.CLIENT_NOTIFICATION:
+      return {
+        from: "Banhmi <no-reply@banhmi.com>",
+        to: "valladarespaul@gmail.com",
+        subject: "Nueva Reservación",
+        html: `<p>Some Text Nueva Reservacion</p>`,
+      }
+  }
+}
+
 export const getLocalStorageItem = key => {
   if (isBrowser()) {
     return window.localStorage.getItem(key)
@@ -172,3 +213,28 @@ export const validateEmail = email => {
 }
 
 export const validatePhone = number => number?.match(/\d/g)?.length === 10
+
+export const sendEmail = (email, name, table, emailType) => {
+  const formData = require("form-data")
+  const Mailgun = require("mailgun.js")
+  const mailgun = new Mailgun(formData)
+  const mg = mailgun.client({
+    username: "valladarespaul@gmail.com",
+    key: process.env.GATSBY_MAILGUN_API_KEY,
+  })
+
+  // mg.messages.create('mg.godiip.com', {
+  //   from: "Excited User <mailgun@sandbox-123.mailgun.org>",
+  //   to: ["valladarespaul@gmail.com"],
+  //   subject: "Hello",
+  //   text: "Testing some Mailgun awesomness!",
+  //   html: "<h1>Testing some Mailgun awesomness!</h1>"
+  // })
+  //   .then(msg => console.log(msg)) // logs response data
+  //   .catch(err => console.log(err)); // logs any error
+
+  mg.messages
+    .create("mg.godiip.com", getEmailData(email, name, table, emailType))
+    .then(msg => console.log(msg)) // logs response data
+    .catch(err => console.log(err)) // logs any error
+}

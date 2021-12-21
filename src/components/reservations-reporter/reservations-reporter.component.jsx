@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react"
-import { getReservations } from "../../services/reservations"
+import {
+  getReservations,
+  updateReservationStatus,
+} from "../../services/reservations"
 import * as S from "./reservations-reporter.styles"
 import LoadableMuiDataTable from "../../components/loadable-mui-data-table/loadable-mui-data-table"
 import {
@@ -15,6 +18,7 @@ import CustomButton from "../custom-button/custom-button.component"
 import { useForm } from "react-hook-form"
 import Spinner from "../spinner/spinner.component"
 import CloseIcon from "@mui/icons-material/Close"
+import { emailTypes, sendEmail } from "../../utils"
 
 export const STATUSES = {
   approved: "Aprobado",
@@ -158,16 +162,39 @@ const ReservationsReporter = () => {
 
   const handleDataUpdate = formData => {
     setIsLoading(true)
-    console.log("data", formData)
-
-    //TODO update data in firebase, then send notification to customer, update local data in promise and remove loading element
-
+    console.log("formData", formData)
     let newData = data
+    const reservationData = newData[selectedDataIndex]
+    console.log("selectedIndexTable", reservationData)
+
     newData[selectedDataIndex].table = formData.table
     newData[selectedDataIndex].status = formData.status
-    setData(newData)
-    setIsLoading(false)
-    setIsOpenDialog(false)
+
+    updateReservationStatus(reservationData.id, formData).then(response => {
+      console.log("responseUpdate", response)
+      setIsLoading(false)
+      setIsOpenDialog(false)
+
+      if (reservationData.status === STATUSES.approved) {
+        sendEmail(
+          reservationData.email,
+          reservationData.name,
+          reservationData.table,
+          emailTypes.CUSTOMER_CONFIRMATION
+        )
+      }
+
+      if (reservationData.status === STATUSES.canceled) {
+        sendEmail(
+          reservationData.email,
+          reservationData.name,
+          reservationData.table,
+          emailTypes.CUSTOMER_CANCELED
+        )
+      }
+
+      setData(newData)
+    })
   }
 
   return (

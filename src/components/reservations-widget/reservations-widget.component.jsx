@@ -9,6 +9,7 @@ import StepTwo from "./step-two/step-two.component"
 import StepThree from "./step-three/step-three.component"
 import { setReservation } from "../../services/reservations"
 import { STATUSES } from "../reservations-reporter/reservations-reporter.component"
+import { emailTypes, sendEmail } from "../../utils"
 
 export const STEPS = {
   SELECT_TABLE: 0,
@@ -41,8 +42,6 @@ const ReservationsWidget = () => {
     const stringDate = `${data.date} ${data.time}`
     const phoneFormatted = `+593${data.phone.substring(1)}`
 
-    // updateReservationStatus("epsUEV89SBPM4AwIxkcL", "Aprobado")
-
     setReservation({
       name: data.name,
       email: data.email,
@@ -53,6 +52,15 @@ const ReservationsWidget = () => {
       table: "-",
       notes: data.notes,
       status: STATUSES.pending,
+    }).then(r => {
+      sendEmail(
+        data.email,
+        data.name,
+        data.table,
+        emailTypes.CUSTOMER_NOTIFICATION
+      )
+
+      sendEmail(null, data.name, data.table, emailTypes.CLIENT_NOTIFICATION)
     })
   }
   return (

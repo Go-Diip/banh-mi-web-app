@@ -5,6 +5,7 @@ import RowGrid from "../../components/row-grid/row-grid.component"
 import theme from "../../gatsby-theme-material-ui-top-layout/theme"
 import { Container } from "@mui/material"
 import { graphql, useStaticQuery } from "gatsby"
+import { Fade } from "react-awesome-reveal"
 
 const AboutUsSection = ({ title, description, chefs, leftImage }) => {
   const staticQuery = useStaticQuery(graphql`
@@ -23,11 +24,13 @@ const AboutUsSection = ({ title, description, chefs, leftImage }) => {
           <S.PepperIcon />
           <Container style={{ height: "100%" }}>
             <S.TextWrapper>
-              {title && <S.Title>{title}</S.Title>}
-              {description && (
-                <S.Description>{parse(description)}</S.Description>
-              )}
-              {chefs && <S.Chefs>{parse(chefs)}</S.Chefs>}
+              <Fade>
+                {title && <S.Title>{title}</S.Title>}
+                {description && (
+                  <S.Description>{parse(description)}</S.Description>
+                )}
+                {chefs && <S.Chefs>{parse(chefs)}</S.Chefs>}
+              </Fade>
             </S.TextWrapper>
           </Container>
         </S.ContentWrapper>

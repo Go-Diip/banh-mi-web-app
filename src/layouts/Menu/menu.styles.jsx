@@ -62,6 +62,12 @@ export const MenuDescription = styled.span`
   letter-spacing: -0.01em;
   color: #091211;
   padding: 2em 0;
-  max-width: 332px;
   text-align: center;
+`
+
+export const FadeWrapper = styled.div`
+  max-width: 332px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `

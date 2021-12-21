@@ -58,4 +58,8 @@ export const CustomParallax = styled(Parallax)`
   .react-parallax-content {
     height: 100%;
   }
+
+  .react-parallax-bgimage {
+    object-fit: cover;
+  }
 `

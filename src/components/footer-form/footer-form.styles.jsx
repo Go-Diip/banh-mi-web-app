@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { CircularProgress } from "@mui/material"
+import { CircularProgress, TextField } from "@mui/material"
 import Box from "@mui/system/Box"
 
 export const Wrapper = styled.div`
@@ -38,4 +38,14 @@ export const CustomSpinner = styled(CircularProgress)`
     theme.palette ? theme.palette.primary.main : `black`};
   width: 60px !important;
   height: 60px !important;
+`
+
+export const CustomTextField = styled(TextField)`
+  input {
+    color: ${({ theme }) => theme.palette.primary.light};
+  }
+
+  .MuiInput-root:before {
+    border-bottom-color: ${({ theme }) => theme.palette.primary.light};
+  }
 `

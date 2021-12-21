@@ -25,7 +25,7 @@ const theme = createTheme({
       dark: "#eba440",
     },
     tertiary: {
-      main: "#2C9ED0",
+      main: "#f6faf4",
     },
     inputs: {
       main: "#091211",

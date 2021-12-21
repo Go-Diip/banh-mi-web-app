@@ -41,9 +41,10 @@ const FooterForm = ({}) => {
         )}
         {!successMessage ? (
           <>
-            <TextField
+            <S.CustomTextField
               required
               // inputRef={register}
+              color="tertiary"
               id="yourEmail"
               label="Email"
               variant="standard"

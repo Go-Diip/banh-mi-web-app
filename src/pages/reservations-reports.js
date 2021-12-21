@@ -82,7 +82,7 @@ const ReservationsReport = () => {
     filterType: "multiselect",
     responsive: "standard",
     count: data.length,
-    selectableRows: "none",
+    // selectableRows: "none",
   }
 
   return (

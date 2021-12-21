@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   position: relative;
 
   .slick-dots {
-    bottom: 110px;
+    bottom: 40px;
   }
 
   .slick-dots li.slick-active button::before {
@@ -22,7 +22,7 @@ export const Wrapper = styled.div`
 
 export const SlideImage = styled(CustomImage)`
   width: 100%;
-  height: 800px;
+  height: 100vh;
   object-fit: cover;
 `
 

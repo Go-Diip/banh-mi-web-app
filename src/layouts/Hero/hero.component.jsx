@@ -20,16 +20,16 @@ const Hero = ({ title }) => {
     <S.Wrapper img={staticQuery.hero}>
       <S.TopWrapper>
         <S.Icon />
-        <S.Logo />
-        <S.ButtonWrapper>
+        <S.CustomContainer maxWidth="xl">
           <S.ContentWrapper>
+            <S.Logo />
             <S.Title>{title}</S.Title>
             <S.Button className="lightBorder" href="/reservations/">
               reservas
             </S.Button>
             <S.Button className="lightBorder">ordena online</S.Button>
           </S.ContentWrapper>
-        </S.ButtonWrapper>
+        </S.CustomContainer>
       </S.TopWrapper>
     </S.Wrapper>
   )

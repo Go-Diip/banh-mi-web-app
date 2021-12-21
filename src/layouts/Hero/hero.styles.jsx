@@ -3,6 +3,7 @@ import CustomBgImage from "../../components/custom-bg-image/custom-bg-image.comp
 import PepperIcon from "../../assets/pepper2.svg"
 import WhiteLogo from "../../assets/logo4.svg"
 import CustomButton from "../../components/custom-button/custom-button.component"
+import { Container } from "@mui/material"
 
 export const Wrapper = styled(CustomBgImage)`
   height: 100vh;
@@ -19,21 +20,13 @@ export const Icon = styled(PepperIcon)`
   left: 20px;
 `
 
-export const Logo = styled(WhiteLogo)`
-  position: absolute;
-  top: 200px;
-  right: 90px;
-`
-
-export const ButtonWrapper = styled.div`
-  position: absolute;
-  right: 90px;
-  top: 350px;
-`
+export const Logo = styled(WhiteLogo)``
 
 export const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  max-width: 450px;
+  margin-left: auto;
 `
 
 export const Button = styled(CustomButton)`
@@ -48,5 +41,13 @@ export const Title = styled.h1`
   letter-spacing: 0.16em;
   text-transform: uppercase;
   margin-bottom: 3em;
+  text-align: right;
   color: #ffffff;
+`
+
+export const CustomContainer = styled(Container)`
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `

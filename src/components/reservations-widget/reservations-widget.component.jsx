@@ -41,12 +41,14 @@ const ReservationsWidget = () => {
 
   const onSubmit = data => {
     console.log("submit data", data)
+    const stringDate = `${data.date} ${data.time}`
+
     setReservation({
       name: data.name,
       email: data.email,
       phone: data.phone,
       area: data.area,
-      date: data.date,
+      date: new Date(stringDate),
       seats: parseInt(data.seats),
       notes: data.notes
     })

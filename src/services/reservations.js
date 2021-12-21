@@ -1,28 +1,17 @@
 import { firestore } from "./firebase"
+import moment from "moment"
 
 export const getReservations = async () => {
   const snapshot = await firestore.collection("reservations").get()
-   snapshot.docs.forEach(doc => console.log(doc.data()))
+
+  return snapshot.docs.map(doc => ({
+    ...doc.data(),
+    date: moment.unix(doc.data().date.seconds).format("DD/MM/YYYY kk:mm")
+  }))
 }
 
-// export const getReservations2 = async () => {
-//   const snapshot = await firestore.collection("reservations").get()
-//
-//   if (!snapshot || !snapshot.docs) {
-//     return [];
-//   }
-//
-//   return snapshot.docs.map((doc) => {
-//     return (
-//       console.log("data read", doc.data())
-//       // id: doc.id,
-//       // ...doc.data()
-//     )
-//   });
-// };
-
-export const setReservation = async (data) => {
+export const setReservation = async data => {
   await firestore.collection("reservations").add({
-    ...data
+    ...data,
   })
 }

@@ -78,16 +78,13 @@ const StepOne = ({ setCurrentStep }) => {
   ]
 
   useEffect(() => {
-    setValue("date", moment(selectedDate).format("MMM DD, YYYY"))
+    setValue("date", moment(selectedDate).format("YYYY/MM/DD"))
   }, [selectedDate])
 
   useEffect(() => {
-    setValue("time", moment(selectedTime).format("HH:mm"))
+    setValue("time", moment(selectedTime).format("HH:mm:ss"))
   }, [selectedTime])
 
-  // useEffect(() => {
-  //   getReservations()
-  // }, [])
 
   return (
     <S.Wrapper>

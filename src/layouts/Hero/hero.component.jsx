@@ -1,23 +1,12 @@
 import React from "react"
 import * as S from "./hero.styles"
-import RowGrid from "../../components/row-grid/row-grid.component"
-import theme from "../../gatsby-theme-material-ui-top-layout/theme"
-import { graphql, useStaticQuery } from "gatsby"
-import { Container } from "@mui/material"
-import CustomButton from "../../components/custom-button/custom-button.component"
 
 const Hero = ({ title }) => {
-  const staticQuery = useStaticQuery(graphql`
-    query {
-      hero: file(relativePath: { eq: "hero3.jpg" }) {
-        childImageSharp {
-          gatsbyImageData(layout: FULL_WIDTH, quality: 100)
-        }
-      }
-    }
-  `)
   return (
-    <S.Wrapper img={staticQuery.hero}>
+    <S.CustomParallax
+      bgImage="https://admin-banhmi.godiip.com/wp-content/uploads/2021/12/hero-2@2x-min-scaled.jpg"
+      strength={300}
+    >
       <S.TopWrapper>
         <S.Icon />
         <S.CustomContainer maxWidth="xl">
@@ -31,7 +20,7 @@ const Hero = ({ title }) => {
           </S.ContentWrapper>
         </S.CustomContainer>
       </S.TopWrapper>
-    </S.Wrapper>
+    </S.CustomParallax>
   )
 }
 

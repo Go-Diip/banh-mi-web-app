@@ -4,6 +4,7 @@ import PepperIcon from "../../assets/pepper2.svg"
 import WhiteLogo from "../../assets/logo4.svg"
 import CustomButton from "../../components/custom-button/custom-button.component"
 import { Container } from "@mui/material"
+import { Parallax } from "react-parallax"
 
 export const Wrapper = styled(CustomBgImage)`
   height: 100vh;
@@ -50,4 +51,11 @@ export const CustomContainer = styled(Container)`
   display: flex;
   justify-content: center;
   align-items: center;
+`
+
+export const CustomParallax = styled(Parallax)`
+  height: 100vh;
+  .react-parallax-content {
+    height: 100%;
+  }
 `

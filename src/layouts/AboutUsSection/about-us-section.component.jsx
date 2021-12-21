@@ -24,7 +24,7 @@ const AboutUsSection = ({ title, description, chefs, leftImage }) => {
           <S.PepperIcon />
           <Container style={{ height: "100%" }}>
             <S.TextWrapper>
-              <Fade>
+              <Fade triggerOnce>
                 {title && <S.Title>{title}</S.Title>}
                 {description && (
                   <S.Description>{parse(description)}</S.Description>

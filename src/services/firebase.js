@@ -1,5 +1,6 @@
 import firebase from "firebase/compat/app"
 import "firebase/compat/firestore"
+import 'firebase/compat/auth'
 
 
 const config = {
@@ -12,10 +13,14 @@ const config = {
   measurementId: process.env.GATSBY_MEASUREMENT_ID
 }
 
-if (!firebase.apps.length) {
-  firebase.initializeApp(config)
-}
+// if (!firebase.apps.length) {
+  const firebaseApp =  firebase.initializeApp(config)
+// }
 
 const firestore = firebase.firestore()
+const db = firebaseApp.firestore();
+const auth = firebaseApp.auth();
+export { auth };
+export default db;
 
 export { firestore }

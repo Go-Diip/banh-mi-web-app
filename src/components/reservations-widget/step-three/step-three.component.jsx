@@ -37,6 +37,7 @@ const StepThree = () => {
             // label="Requerimiento especial"
             name="notes"
             {...register("notes")}
+            inputProps={{ maxLength: 120 }}
             placeholder="Escribe aquí tu nota..."
             multiline
             sx={{ marginBottom: "0" }}

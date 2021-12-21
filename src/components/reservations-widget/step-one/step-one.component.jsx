@@ -85,7 +85,6 @@ const StepOne = ({ setCurrentStep }) => {
     setValue("time", moment(selectedTime).format("HH:mm:ss"))
   }, [selectedTime])
 
-
   return (
     <S.Wrapper>
       <Grid container>
@@ -94,7 +93,7 @@ const StepOne = ({ setCurrentStep }) => {
             options={peopleOptions}
             name="seats"
             label="Personas"
-            defaultValue={peopleOptions[0]}
+            defaultValue={peopleOptions[0].value}
             isRequired
           />
         </Grid>

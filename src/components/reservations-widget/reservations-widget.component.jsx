@@ -9,8 +9,8 @@ import StepTwo from "./step-two/step-two.component"
 import StepThree from "./step-three/step-three.component"
 import {
   getReservations,
-  getReservations2,
   setReservation,
+  updateReservationStatus,
 } from "../../services/reservations"
 
 export const STEPS = {
@@ -42,16 +42,19 @@ const ReservationsWidget = () => {
   const onSubmit = data => {
     console.log("submit data", data)
     const stringDate = `${data.date} ${data.time}`
+    const phoneFormatted = `+593${data.phone.substring(1)}`
+
+    // updateReservationStatus("epsUEV89SBPM4AwIxkcL", "Aprobado")
 
     setReservation({
       name: data.name,
       email: data.email,
-      phone: data.phone,
+      phone: phoneFormatted,
       area: data.area,
       date: new Date(stringDate),
       seats: parseInt(data.seats),
       notes: data.notes,
-      status: 'Pendiente'
+      status: "Pendiente",
     })
   }
   return (

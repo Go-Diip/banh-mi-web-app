@@ -1,7 +1,7 @@
 import React from "react"
 import * as S from "./step-two.styles.jsx"
 
-import { Controller } from "react-hook-form"
+import { Controller, useFormContext } from "react-hook-form"
 import {
   Button,
   FormControl,
@@ -16,13 +16,12 @@ import LocalPhoneIcon from "@mui/icons-material/LocalPhone"
 import EmailIcon from "@mui/icons-material/Email"
 import { STEPS } from "../reservations-widget.component"
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
-import { useFormContext } from "react-hook-form"
 import { validateEmail, validatePhone } from "../../../utils"
 
-const inputNames = ["name", "phone", "email", "area"]
+const inputNames = ["name", "last_name", "phone", "email", "area"]
 
 const StepTwo = ({ setCurrentStep }) => {
-  const { register, trigger, control } = useFormContext()
+  const { trigger, control } = useFormContext()
   const handleNext = () => {
     trigger(inputNames).then(res => {
       if (res) {
@@ -36,15 +35,28 @@ const StepTwo = ({ setCurrentStep }) => {
       <Grid container spacing={4}>
         <Grid item xs={12} md={7}>
           <Subtitle>Datos</Subtitle>
+          <Grid container spacing={3}>
+            <Grid item xs={12} md={6}>
+              <WidgetTextField
+                name={inputNames[0]}
+                label="Nombre"
+                isRequired
+                placeholder="tu nombre"
+                autoComplete="given-name"
+              />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <WidgetTextField
+                name={inputNames[1]}
+                label="Apellido"
+                isRequired
+                placeholder="tu apellido"
+                autoComplete="family-name"
+              />
+            </Grid>
+          </Grid>
           <WidgetTextField
-            name={inputNames[0]}
-            label="Nombre"
-            isRequired
-            placeholder="tu nombre completo"
-            autoComplete="given-name"
-          />
-          <WidgetTextField
-            name={inputNames[1]}
+            name={inputNames[2]}
             label="Teléfono"
             isRequired
             placeholder="tu teléfono"
@@ -62,7 +74,7 @@ const StepTwo = ({ setCurrentStep }) => {
           />
 
           <WidgetTextField
-            name={inputNames[2]}
+            name={inputNames[3]}
             isRequired
             label="Correo electrónico"
             placeholder="tu correo electrónico"
@@ -107,7 +119,7 @@ const StepTwo = ({ setCurrentStep }) => {
                 </RadioGroup>
               )}
               defaultValue="restaurante"
-              name="area"
+              name={inputNames[4]}
               control={control}
             />
           </FormControl>

@@ -2,6 +2,19 @@ import React, { useEffect, useState } from "react"
 import { getReservations } from "../../services/reservations"
 import * as S from "./reservations-reporter.styles"
 import LoadableMuiDataTable from "../../components/loadable-mui-data-table/loadable-mui-data-table"
+import {
+  Dialog,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  TextField,
+} from "@mui/material"
+import Typography from "@mui/material/Typography"
+import CustomButton from "../custom-button/custom-button.component"
+import { useForm } from "react-hook-form"
+import Spinner from "../spinner/spinner.component"
+import CloseIcon from "@mui/icons-material/Close"
 
 export const STATUSES = {
   approved: "Aprobado",
@@ -10,12 +23,22 @@ export const STATUSES = {
 }
 
 const ReservationsReporter = () => {
-  const [data, setData] = useState([])
+  const { register, handleSubmit } = useForm()
 
+  const [data, setData] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
+  const [selectedDataIndex, setSelectedDataIndex] = useState(null)
+  const [isOpenDialog, setIsOpenDialog] = useState(false)
+
+  console.log("selectedDataIndex", selectedDataIndex)
   console.log("data", data)
 
   useEffect(() => {
-    getReservations().then(res => setData(res))
+    setIsLoading(true)
+    getReservations().then(res => {
+      setIsLoading(false)
+      setData(res)
+    })
   }, [])
 
   const handleCellprops = (cellValue, rowIndex, columnIndex) => {
@@ -40,6 +63,14 @@ const ReservationsReporter = () => {
     {
       name: "name",
       label: "Nombre",
+      options: {
+        filter: false,
+        sort: true,
+      },
+    },
+    {
+      name: "last_name",
+      label: "Apellido",
       options: {
         filter: false,
         sort: true,
@@ -112,27 +143,91 @@ const ReservationsReporter = () => {
     },
   ]
 
-  const handleStatusClick = (colData, cellMeta) => {
-    console.log("colData", colData)
-    console.log("cellMeta", cellMeta)
+  const handleCellClick = (colData, { rowIndex }) => {
+    setSelectedDataIndex(rowIndex)
+    setIsOpenDialog(true)
   }
 
   const options = {
     filterType: "multiselect",
     responsive: "standard",
     count: data.length,
-    onCellClick: handleStatusClick,
-    // selectableRows: "none",
+    onCellClick: handleCellClick,
+    selectableRows: "none",
+  }
+
+  const handleDataUpdate = formData => {
+    setIsLoading(true)
+    console.log("data", formData)
+
+    //TODO update data in firebase, then send notification to customer, update local data in promise and remove loading element
+
+    let newData = data
+    newData[selectedDataIndex].table = formData.table
+    newData[selectedDataIndex].status = formData.status
+    setData(newData)
+    setIsLoading(false)
+    setIsOpenDialog(false)
   }
 
   return (
     <S.Wrapper>
+      {isLoading && <Spinner />}
       <LoadableMuiDataTable
-        title={"Reservations"}
+        title={"Reservaciones Banh Mi"}
         data={data}
         columns={columns}
         options={options}
       />
+
+      <Dialog onClose={() => setIsOpenDialog(false)} open={isOpenDialog}>
+        {isOpenDialog && (
+          <S.DialogWrapper>
+            <S.CloseIconButton onClick={() => setIsOpenDialog(false)}>
+              <CloseIcon />
+            </S.CloseIconButton>
+            <Typography sx={{ marginBottom: "1em" }}>
+              Actualizar reservación
+            </Typography>
+            {selectedDataIndex ? (
+              <form onSubmit={handleSubmit(handleDataUpdate)}>
+                <FormControl fullWidth>
+                  <InputLabel id="statusUpdate">Estado</InputLabel>
+                  <Select
+                    {...register("status")}
+                    label="Estado"
+                    labelId="statusUpdate"
+                    fullWidth
+                    color="inputs"
+                    defaultValue={data[selectedDataIndex].status}
+                    // onChange={handleChange}
+                  >
+                    <MenuItem value={STATUSES.pending}>Pendiente</MenuItem>
+                    <MenuItem value={STATUSES.canceled}>Cancelado</MenuItem>
+                    <MenuItem value={STATUSES.approved}>Aprobado</MenuItem>
+                  </Select>
+                </FormControl>
+                <TextField
+                  label="Mesa"
+                  {...register("table")}
+                  fullWidth
+                  margin="normal"
+                  type="number"
+                  color="inputs"
+                  defaultValue={data[selectedDataIndex].table}
+                />
+                <CustomButton
+                  style={{ marginTop: "1.5em" }}
+                  fullWidth
+                  type="submit"
+                >
+                  Guardar
+                </CustomButton>
+              </form>
+            ) : null}
+          </S.DialogWrapper>
+        )}
+      </Dialog>
     </S.Wrapper>
   )
 }

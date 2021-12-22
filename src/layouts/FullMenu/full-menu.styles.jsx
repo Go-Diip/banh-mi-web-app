@@ -47,13 +47,13 @@ export const ItemsWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1em 0 2em;
+  padding: 4em 0 0;
 `
 
 export const OptionsWrapper = styled.div`
   max-width: 550px;
   margin: auto;
-  padding: 1.5em 0;
+  padding: 4em 0 0;
 `
 export const Line = styled.div`
   height: 1px;

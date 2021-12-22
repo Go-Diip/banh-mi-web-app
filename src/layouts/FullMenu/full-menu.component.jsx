@@ -104,6 +104,21 @@ const FullMenu = ({ title }) => {
       </S.BarWrapper>
       <S.MenuWrapper>
         <Container>
+          <S.ItemsWrapper>
+            {newProductCategories.map((item, index) => (
+              <S.MenuCategory
+                className={item.slug === category.slug && "active"}
+                onClick={() => handleChangeCategories(item)}
+                key={`item-select-${index}`}
+              >
+                {item.name}
+              </S.MenuCategory>
+            ))}
+          </S.ItemsWrapper>
+          <MenuItems
+            items={productsToShow}
+            title={newProductCategories[currentCategoryIndex].name}
+          />
           <S.OptionsWrapper>
             <S.IconsWrapper>
               <S.OptionWrapper>
@@ -121,21 +136,6 @@ const FullMenu = ({ title }) => {
             </S.DescWrapper>
             <S.Line />
           </S.OptionsWrapper>
-          <S.ItemsWrapper>
-            {newProductCategories.map((item, index) => (
-              <S.MenuCategory
-                className={item.slug === category.slug && "active"}
-                onClick={() => handleChangeCategories(item)}
-                key={`item-select-${index}`}
-              >
-                {item.name}
-              </S.MenuCategory>
-            ))}
-          </S.ItemsWrapper>
-          <MenuItems
-            items={productsToShow}
-            title={newProductCategories[currentCategoryIndex].name}
-          />
         </Container>
       </S.MenuWrapper>
     </S.Wrapper>

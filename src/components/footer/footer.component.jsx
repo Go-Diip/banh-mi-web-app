@@ -74,7 +74,7 @@ const Footer = ({ className }) => {
                 <InstagramIcon />
               </S.ExternalLink>
               <S.ExternalLink
-                href="https://www.google.com/maps/u…BHXLpACIQoip6BAgyEAM"
+                href="https://www.google.com/search?q=banh+mi+quito&sxsrf=AOaemvKpbOARXQGWEsjMNqrBXcZIyNTxHg%3A1640134389684&source=hp&ei=9XbCYfvpJ_GYwbkPkvm88AY&iflsig=ALs-wAMAAAAAYcKFBafPP4RCtaAl01EIxOUyxwG_PrZx&gs_ssp=eJzj4tVP1zc0TDaozCjKSUsyYLRSNaiwNEwxtUw0SDVLNTKzSDW2tDKoMDdMNTM0NDNMNElKNky0TPLiTUrMy1DIzVQoLM0syQcAqh8UPA&oq=banh+mi+quito&gs_lcp=Cgdnd3Mtd2l6EAEYAzIECCMQJzIECCMQJzIECCMQJzILCC4QgAQQxwEQrwEyBggAEBYQHjIGCAAQFhAeMgYIABAWEB4yAggmOgoILhDHARCvARAnOgUILhCABDoLCC4QgAQQxwEQ0QM6BQgAEIAEOgsILhCABBDHARCjAjoKCAAQgAQQhwIQFDoKCC4QxwEQ0QMQJzoICAAQgAQQyQM6BQgAEMsBOggIABAWEAoQHlAAWJMQYPYbaABwAHgAgAGpAYgBrg-SAQQwLjEzmAEAoAEB&sclient=gws-wiz#lrd=0x91d59a0e6e268e39:0x71e61161a4bc1a9b,1"
                 target="_blank"
               >
                 <GoogleIcon />

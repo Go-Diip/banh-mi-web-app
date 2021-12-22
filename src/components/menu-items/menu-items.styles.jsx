@@ -14,7 +14,7 @@ export const ProductDescription = styled.span`
   font-size: 16px;
   line-height: 22px;
   letter-spacing: -0.01em;
-  color: #091211;
+  color: rgba(9, 18, 17, 0.75);
 `
 
 export const ProductWrapper = styled.div`

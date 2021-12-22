@@ -34,6 +34,7 @@ export const Chefs = styled(Typography)`
   font-size: 16px;
   line-height: 24px;
   text-transform: uppercase;
+  padding-top: 2em;
 `
 
 export const ContentWrapper = styled.div`

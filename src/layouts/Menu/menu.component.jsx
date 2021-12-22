@@ -34,7 +34,7 @@ const Menu = ({ image }) => {
           <S.Pepper />
           <Container style={{ height: "100%" }}>
             <S.ContentWrapper>
-              <Fade direction="right" triggerOnce>
+              <Fade direction="right">
                 <S.FadeWrapper>
                   <S.BlackPepper />
                   <S.Title>MENÚ</S.Title>

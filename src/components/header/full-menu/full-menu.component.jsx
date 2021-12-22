@@ -30,13 +30,27 @@ const FullMenu = ({ isActive, closeOpenMenu, isHome }) => {
             <S.ItemsWrapper>
               {isHome ? (
                 <>
+                  <S.CSLink href="/" onClick={closeOpenMenu}>
+                    <S.MenuItem>Home</S.MenuItem>
+                  </S.CSLink>
+                  <S.CSLink href="/menu/" onClick={closeOpenMenu}>
+                    <S.MenuItem>Menú</S.MenuItem>
+                  </S.CSLink>
                   <S.SLink
-                    to="menu"
+                    to="reservation"
                     smooth={true}
                     duration={1000}
                     onClick={closeOpenMenu}
                   >
-                    <S.MenuItem>menu</S.MenuItem>
+                    <S.MenuItem>reservaciones</S.MenuItem>
+                  </S.SLink>
+                  <S.SLink
+                    to="reservation"
+                    smooth={true}
+                    duration={1000}
+                    onClick={closeOpenMenu}
+                  >
+                    <S.MenuItem>ordena online</S.MenuItem>
                   </S.SLink>
                   <S.SLink
                     to="contact"
@@ -44,7 +58,7 @@ const FullMenu = ({ isActive, closeOpenMenu, isHome }) => {
                     duration={1000}
                     onClick={closeOpenMenu}
                   >
-                    <S.MenuItem>contact</S.MenuItem>
+                    <S.MenuItem>eventos privados</S.MenuItem>
                   </S.SLink>
                   <S.SLink
                     to="reservation"
@@ -52,23 +66,7 @@ const FullMenu = ({ isActive, closeOpenMenu, isHome }) => {
                     duration={1000}
                     onClick={closeOpenMenu}
                   >
-                    <S.MenuItem>reservas</S.MenuItem>
-                  </S.SLink>
-                  <S.SLink
-                    to="reservation"
-                    smooth={true}
-                    duration={1000}
-                    onClick={closeOpenMenu}
-                  >
-                    <S.MenuItem>pedir online</S.MenuItem>
-                  </S.SLink>
-                  <S.SLink
-                    to="reservation"
-                    smooth={true}
-                    duration={1000}
-                    onClick={closeOpenMenu}
-                  >
-                    <S.MenuItem>contactenos</S.MenuItem>
+                    <S.MenuItem>contacto</S.MenuItem>
                   </S.SLink>
                 </>
               ) : (

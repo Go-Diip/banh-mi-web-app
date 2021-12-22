@@ -4,7 +4,7 @@ import * as S from "./hero.styles"
 const Hero = ({ title }) => {
   return (
     <S.CustomParallax
-      bgImage="https://admin-banhmi.godiip.com/wp-content/uploads/2021/12/hero-2@2x-min-scaled.jpg"
+      bgImage="https://admin-banhmi.godiip.com/wp-content/uploads/2021/12/07_kanikama.jpg"
       strength={300}
     >
       <S.TopWrapper>

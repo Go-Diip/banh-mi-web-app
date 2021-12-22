@@ -43,7 +43,11 @@ export const Title = styled.h1`
   text-transform: uppercase;
   margin-bottom: 3em;
   text-align: right;
+  transition: 0.3s all ease;
   color: #ffffff;
+  &:hover {
+    font-weight: 500;
+  }
 `
 
 export const CustomContainer = styled(Container)`

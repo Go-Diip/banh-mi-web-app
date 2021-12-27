@@ -10,8 +10,8 @@ export const LeftImage = styled(CustomImage)`
 `
 
 export const Title = styled.h2`
-  font-family: ${({ theme }) => theme.fonts.tertiary};
-  font-weight: 600;
+  font-family: ${({ theme }) => theme.fonts.quaternary};
+  font-weight: bold;
   font-size: 32px;
   line-height: 27px;
   letter-spacing: 0.22em;

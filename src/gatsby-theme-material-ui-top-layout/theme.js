@@ -7,6 +7,7 @@ const theme = createTheme({
     primary: "Kanit, sans-serif",
     secondary: "Montserrat, sans-serif",
     tertiary: "Coustard, sans-serif",
+    quaternary: "Corben, sans-serif",
   },
   layout: {
     contentWidth: 1236,
@@ -47,7 +48,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: `"Kanit","Coustard","Montserrat", "Open Sans", "Arial", sans-serif`,
+    fontFamily: `"Kanit","Corben","Coustard","Montserrat", "Open Sans", "Arial", sans-serif`,
   },
 })
 

@@ -34,13 +34,13 @@ export const TextWrapper = styled.div`
 export const Title = styled.h2`
   margin-top: 1em;
   font-style: normal;
-  font-weight: 600;
+  font-weight: bold;
   font-size: ${({ theme }) => theme.typography.pxToRem(32)};
   line-height: 27px;
   letter-spacing: 0.22em;
   color: ${({ theme }) => theme.palette.text.secondary};
   text-transform: uppercase;
-  font-family: ${({ theme }) => theme.fonts.tertiary};
+  font-family: ${({ theme }) => theme.fonts.quaternary};
 `
 
 export const Desc = styled(Typography)`

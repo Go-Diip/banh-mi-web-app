@@ -11,7 +11,7 @@ import CustomButton from "../custom-button/custom-button.component"
 import FooterBanner from "../footer-banner/footer-banner.component"
 import FooterForm from "../footer-form/footer-form.component"
 import { Modal } from "@mui/material"
-import ReservationForm from "../reservation-form/reservation-form.component"
+import PhoneIcon from "../../assets/phone.svg"
 import FooterModal from "../footer-modal/footer-modal.component"
 
 const Footer = ({ className }) => {
@@ -57,6 +57,7 @@ const Footer = ({ className }) => {
                       ordena online
                     </CustomButton>
                     <S.PhoneWrapper>
+                      <PhoneIcon />
                       <S.Phone href="tel:+59399 770 2994">099 770 2994</S.Phone>
                     </S.PhoneWrapper>
                   </S.PhoneContainer>

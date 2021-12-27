@@ -90,7 +90,9 @@ export const VerticalLine = styled.div`
 `
 export const PhoneWrapper = styled.div`
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  gap: 0.5em;
+  align-items: center;
   padding: 1.5em 0;
 `
 

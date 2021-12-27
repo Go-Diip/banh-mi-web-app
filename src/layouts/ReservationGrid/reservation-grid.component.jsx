@@ -7,7 +7,7 @@ import parse from "html-react-parser"
 import { graphql, useStaticQuery } from "gatsby"
 import { Fade } from "react-awesome-reveal"
 
-const ReservationGrid = ({ image, title, numDesc, number, button }) => {
+const ReservationGrid = ({ image, images, title, numDesc, number, button }) => {
   const staticQuery = useStaticQuery(graphql`
     query {
       black: file(relativePath: { eq: "black.jpg" }) {
@@ -18,7 +18,7 @@ const ReservationGrid = ({ image, title, numDesc, number, button }) => {
     }
   `)
   return (
-    <RowGrid image={image}>
+    <RowGrid isSlider sliderImages={images}>
       <S.BgImage img={staticQuery.black}>
         <S.TopWrapper id="reservation">
           <S.PepperBg />

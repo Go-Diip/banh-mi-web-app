@@ -15,10 +15,12 @@ export const TopWrapper = styled.div`
   height: 100%;
 `
 
-export const Icon = styled(PepperIcon)`
+export const Icon = styled.img`
   position: absolute;
   top: 20px;
   left: 20px;
+  width: 100px;
+  height: 100px;
 `
 
 export const Logo = styled(WhiteLogo)``

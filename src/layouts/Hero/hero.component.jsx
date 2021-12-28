@@ -8,7 +8,7 @@ const Hero = ({ title }) => {
       strength={300}
     >
       <S.TopWrapper>
-        <S.Icon />
+        <S.Icon src="https://admin-rr.aftershock.agency/wp-content/uploads/2021/12/Comp_2.gif" />
         <S.CustomContainer maxWidth="xl">
           <S.ContentWrapper>
             <S.Logo />

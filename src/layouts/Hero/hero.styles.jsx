@@ -30,8 +30,14 @@ export const ContentWrapper = styled.div`
   margin-left: auto;
 `
 
+export const ButtonWrapper = styled.div`
+  max-width: 300px;
+  margin-left: auto;
+`
+
 export const Button = styled(CustomButton)`
   margin: 0 0 1em;
+  width: 100%;
 `
 
 export const Title = styled.h1`

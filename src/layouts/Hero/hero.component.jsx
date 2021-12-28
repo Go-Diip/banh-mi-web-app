@@ -13,10 +13,12 @@ const Hero = ({ title }) => {
           <S.ContentWrapper>
             <S.Logo />
             <S.Title>{title}</S.Title>
-            <S.Button className="lightBorder" href="/reservations/">
-              reservaciones
-            </S.Button>
-            <S.Button className="lightBorder">ordena online</S.Button>
+            <S.ButtonWrapper>
+              <S.Button className="lightBorder" href="/reservations/">
+                reservaciones
+              </S.Button>
+              <S.Button className="lightBorder">ordena online</S.Button>
+            </S.ButtonWrapper>
           </S.ContentWrapper>
         </S.CustomContainer>
       </S.TopWrapper>

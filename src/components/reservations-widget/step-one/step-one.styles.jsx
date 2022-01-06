@@ -1,6 +1,11 @@
 import styled from "styled-components"
 
 export const Wrapper = styled.div`
+  min-height: calc(100vh - 300px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
   .MuiInputLabel-root {
     color: ${({ theme }) => theme.palette.text.primary};
   }

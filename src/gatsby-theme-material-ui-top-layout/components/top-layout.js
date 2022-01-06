@@ -12,7 +12,7 @@ export default function TopLayout({ children, theme }) {
   let sectionPadding = theme.sectionPadding
 
   if (isMd) {
-    navHeight = "100vh"
+    // navHeight = "100vh"
     sectionPadding = "padding-top: 5em; padding-bottom: 5em;"
   }
 

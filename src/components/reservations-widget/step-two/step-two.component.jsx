@@ -10,13 +10,14 @@ import {
   Radio,
   RadioGroup,
 } from "@mui/material"
-import { Subtitle } from "../reservations-widget.styles"
+import { Disclaimer, Subtitle } from "../reservations-widget.styles"
 import WidgetTextField from "../widget-text-field/widget-text-field.component"
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone"
 import EmailIcon from "@mui/icons-material/Email"
 import { STEPS } from "../reservations-widget.component"
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
 import { validateEmail, validatePhone } from "../../../utils"
+import Typography from "@mui/material/Typography"
 
 const inputNames = ["name", "last_name", "phone", "email", "area"]
 
@@ -35,31 +36,25 @@ const StepTwo = ({ setCurrentStep }) => {
       <Grid container spacing={4}>
         <Grid item xs={12} md={7}>
           <Subtitle>Datos</Subtitle>
-          <Grid container spacing={3}>
-            <Grid item xs={12} md={6}>
-              <WidgetTextField
-                name={inputNames[0]}
-                label="Nombre"
-                isRequired
-                placeholder="tu nombre"
-                autoComplete="given-name"
-              />
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <WidgetTextField
-                name={inputNames[1]}
-                label="Apellido"
-                isRequired
-                placeholder="tu apellido"
-                autoComplete="family-name"
-              />
-            </Grid>
-          </Grid>
+          <WidgetTextField
+            name={inputNames[0]}
+            label="Nombre"
+            isRequired
+            placeholder="Tu primer nombre"
+            autoComplete="given-name"
+          />
+          <WidgetTextField
+            name={inputNames[1]}
+            label="Apellidos"
+            isRequired
+            placeholder="Tus dos apellido"
+            autoComplete="family-name"
+          />
           <WidgetTextField
             name={inputNames[2]}
             label="Teléfono"
             isRequired
-            placeholder="tu teléfono"
+            placeholder="Tu teléfono celular"
             validate={validatePhone}
             autoComplete="tel"
             type="number"
@@ -77,7 +72,7 @@ const StepTwo = ({ setCurrentStep }) => {
             name={inputNames[3]}
             isRequired
             label="Correo electrónico"
-            placeholder="tu correo electrónico"
+            placeholder="Tu correo electrónico"
             type="email"
             autoComplete="email"
             validate={validateEmail}
@@ -112,9 +107,9 @@ const StepTwo = ({ setCurrentStep }) => {
                     label="Restaurante"
                   />
                   <S.CustomRadioButton
-                    value="segundo piso"
+                    value="bar"
                     control={<Radio />}
-                    label="Segundo Piso"
+                    label="Bar"
                   />
                 </RadioGroup>
               )}
@@ -134,6 +129,13 @@ const StepTwo = ({ setCurrentStep }) => {
           </Button>
         </Grid>
       </Grid>
+      <Disclaimer>
+        <Typography>
+          Asegúrate de colocar tus datos correctamente. La confirmación de tu
+          reservación será enviada a tu correo electrónico y por mensaje de
+          texto.
+        </Typography>
+      </Disclaimer>
     </S.Wrapper>
   )
 }

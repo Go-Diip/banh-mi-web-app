@@ -2,6 +2,10 @@ import styled from "styled-components"
 import { FormControlLabel } from "@mui/material"
 
 export const Wrapper = styled.div`
+  min-height: calc(100vh - 300px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   .MuiFormControl-root {
     width: 100%;
   }

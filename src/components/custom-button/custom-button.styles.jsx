@@ -76,7 +76,8 @@ export const CustomButton = styled(Button)`
           : theme.palette.primary.main,
         0.1
       )};
-    border: 1px solid ${({ theme }) => darken(theme.palette.primary.main, 0.1)};
+    // border: 1px solid ${({ theme }) =>
+      darken(theme.palette.primary.main, 0.1)};
   }
 
   &.Mui-disabled {

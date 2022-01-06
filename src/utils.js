@@ -214,7 +214,7 @@ export const validateEmail = email => {
 
 export const validatePhone = number => number?.match(/\d/g)?.length === 10
 
-export const sendEmail = (email, name, table, emailType) => {
+export const sendEmail = async (email, name, table, emailType) => {
   const formData = require("form-data")
   const Mailgun = require("mailgun.js")
   const mailgun = new Mailgun(formData)
@@ -233,8 +233,12 @@ export const sendEmail = (email, name, table, emailType) => {
   //   .then(msg => console.log(msg)) // logs response data
   //   .catch(err => console.log(err)); // logs any error
 
-  mg.messages
-    .create("mg.godiip.com", getEmailData(email, name, table, emailType))
-    .then(msg => console.log(msg)) // logs response data
-    .catch(err => console.log(err)) // logs any error
+  try {
+    return await mg.messages.create(
+      "mg.godiip.com",
+      getEmailData(email, name, table, emailType)
+    )
+  } catch (e) {
+    return e
+  }
 }

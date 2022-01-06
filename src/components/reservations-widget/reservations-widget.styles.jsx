@@ -1,7 +1,8 @@
 import styled from "styled-components"
 import CustomBgImage from "../custom-bg-image/custom-bg-image.component"
-import { Tabs } from "@mui/material"
+import { Dialog, Tabs } from "@mui/material"
 import Typography from "@mui/material/Typography"
+import CustomButton from "../custom-button/custom-button.component"
 
 export const Wrapper = styled.div`
   display: flex;
@@ -12,6 +13,7 @@ export const Wrapper = styled.div`
   ${({ theme }) => theme.breakpoints.up("md")} {
     min-height: 600px;
     height: 100vh;
+    overflow: hidden;
   }
 
   ${({ theme }) => theme.breakpoints.down("md")} {
@@ -51,6 +53,7 @@ export const MainWrapper = styled.div`
   padding: 2em;
   height: 100%;
   color: ${({ theme }) => theme.palette.text.primary};
+  overflow-y: auto;
   ${({ theme }) => theme.breakpoints.up("lg")} {
     padding: 4em;
     max-width: 1000px;
@@ -79,4 +82,77 @@ export const Subtitle = styled(Typography)`
   font-size: ${({ theme }) => theme.typography.pxToRem(18)};
   font-weight: 500;
   margin-bottom: 1em;
+`
+
+export const Disclaimer = styled.div`
+  margin-top: 3em;
+  padding-top: 1.5em;
+  border-top: 1px solid rgba(17, 18, 18, 0.2);
+  p {
+    font-size: ${({ theme }) => theme.typography.pxToRem(14)};
+    color: black;
+    opacity: 0.75;
+    margin-bottom: 1em;
+  }
+`
+
+export const CustomModal = styled(Dialog)`
+  .MuiPaper-root {
+    border: 5px solid ${({ theme }) => theme.palette.tertiary.main};
+    padding: 1.5em;
+    max-width: 700px;
+    ${({ theme }) => theme.breakpoints.up("md")} {
+      padding: 3em;
+    }
+  }
+
+  color: #111212;
+
+  ${({ theme }) => theme.breakpoints.up("md")} {
+    .MuiGrid-item:last-child {
+      position: relative;
+      &:before {
+        content: "";
+        position: absolute;
+        left: 8px;
+        bottom: 0;
+        width: 1px;
+        height: calc(100% - 2.7em);
+        background-color: rgba(0, 0, 0, 0.23);
+      }
+    }
+  } ;
+`
+
+export const ModalName = styled(Typography)`
+  font-size: ${({ theme }) => theme.typography.pxToRem(24)};
+  font-weight: 500;
+  margin-bottom: 0.5em;
+`
+export const ModalDescription = styled(Typography)`
+  font-size: ${({ theme }) => theme.typography.pxToRem(14)};
+  opacity: 0.78;
+`
+
+export const ModalLabel = styled(Typography)`
+  font-size: ${({ theme }) => theme.typography.pxToRem(14)};
+`
+
+export const ModalText = styled(Typography)`
+  font-size: ${({ theme }) => theme.typography.pxToRem(18)};
+  &:not(:last-child) {
+    margin-bottom: 1em;
+  }
+`
+
+export const ModalButton = styled(CustomButton)`
+  margin-top: 2em;
+  width: 100%;
+  max-width: 325px;
+  text-transform: unset;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  letter-spacing: normal;
+  background-color: ${({ theme }) => theme.palette.tertiary.main};
 `

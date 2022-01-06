@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react"
 import * as S from "./step-one.styles.jsx"
-import { Button, Grid, InputAdornment, TextField } from "@mui/material"
+import {
+  Button,
+  Grid,
+  InputAdornment,
+  TextField,
+  Typography,
+} from "@mui/material"
 import WidgetSelect from "../widget-select/widget-select.component"
 import { DatePicker, LocalizationProvider, TimePicker } from "@mui/lab"
 import DateAdapter from "@mui/lab/AdapterMoment"
@@ -11,6 +17,7 @@ import AccessTimeIcon from "@mui/icons-material/AccessTime"
 import moment from "moment"
 import { useFormContext } from "react-hook-form"
 import { getReservations } from "../../../services/reservations"
+import { Disclaimer } from "../reservations-widget.styles"
 
 const MIN_DATE = moment(new Date())
 const MAX_DATE = moment(MIN_DATE).add(2, "week")
@@ -179,6 +186,17 @@ const StepOne = ({ setCurrentStep }) => {
           </Button>
         </Grid>
       </Grid>
+      <Disclaimer>
+        <Grid container spacing={3}>
+          <Grid item xs={12} md={6}>
+            <Typography>Horario de atención: Martes a Sábado</Typography>
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <Typography>Restaurante - Almuerzo: 12:30 - 15:30</Typography>
+            <Typography>Restaurante y Bar: 18:00 - 23:00</Typography>
+          </Grid>
+        </Grid>
+      </Disclaimer>
     </S.Wrapper>
   )
 }

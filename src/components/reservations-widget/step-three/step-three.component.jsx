@@ -5,6 +5,26 @@ import WidgetTextField from "../widget-text-field/widget-text-field.component"
 import { NotesField } from "./step-three.styles.jsx"
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
 import { useFormContext } from "react-hook-form"
+import WidgetSelect from "../widget-select/widget-select.component"
+
+const reasonOptions = [
+  {
+    value: "none",
+    label: "Ninguna",
+  },
+  {
+    value: "birthday",
+    label: "Cumpleaños",
+  },
+  {
+    value: "work_meeting",
+    label: "Reunión de trabajo",
+  },
+  {
+    value: "special_occasion",
+    label: "Ocasión especial",
+  },
+]
 
 const StepThree = () => {
   const { register, getValues } = useFormContext()
@@ -29,9 +49,21 @@ const StepThree = () => {
           <label>Lugar</label>
           <Typography>{values[4]}</Typography>
         </S.ReviewBox>
+        <WidgetSelect
+          options={reasonOptions}
+          name="occasion"
+          label="Ocasión (opcional)"
+          defaultValue={reasonOptions[0].value}
+          isRequired
+        />
         <NotesField>
           <Typography sx={{ fontWeight: "300" }}>
             Requerimiento especial
+          </Typography>
+          <Typography
+            sx={{ fontSize: "12px", color: "rgba(33, 33, 33, 0.83)" }}
+          >
+            Alergias, tipo de mesa, otros
           </Typography>
           <WidgetTextField
             // label="Requerimiento especial"
@@ -71,7 +103,7 @@ const StepThree = () => {
           type="submit"
           // onClick={() => setCurrentStep(STEPS.PERSONAL_DATA)}
         >
-          Reservar
+          Confirmar Reservación
           <ArrowForwardIcon />
         </Button>
       </Grid>

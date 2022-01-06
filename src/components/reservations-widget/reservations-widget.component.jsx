@@ -65,7 +65,7 @@ const ReservationsWidget = () => {
 
     await Promise.all([
       setReservation({
-        formattedData,
+        ...formattedData,
       }),
       sendEmail(
         data.email,

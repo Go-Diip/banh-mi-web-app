@@ -20,28 +20,28 @@ export const getEmailData = (mail, name, table, emailType) => {
         from: "Banhmi <no-reply@banhmi.com>",
         to: [mail],
         subject: "Reservación Recibida",
-        html: `<p>Some text customer notification</p>`,
+        html: `<p>Recibimos tu reservacion ${name}!</p>`,
       }
     case emailTypes.CUSTOMER_CONFIRMATION:
       return {
         from: "Banhmi <no-reply@banhmi.com>",
         to: [mail],
         subject: "Reservación Confirmada",
-        html: `<p>Some Text Confirmation</p> ${table}`,
+        html: `<p>Tu reservación ha sido confirmada ${name}!</p> ${table}`,
       }
     case emailTypes.CUSTOMER_CANCELED:
       return {
         from: "Banhmi <no-reply@banhmi.com>",
         to: [mail],
         subject: "Reservación Cancelada",
-        html: `<p>Some Text Canceled</p>`,
+        html: `<p>Tu reservación ha sido cancelada ${name}</p>`,
       }
     case emailTypes.CLIENT_NOTIFICATION:
       return {
         from: "Banhmi <no-reply@banhmi.com>",
-        to: "valladarespaul@gmail.com",
-        subject: "Nueva Reservación",
-        html: `<p>Some Text Nueva Reservacion</p>`,
+        to: "hello@godiip.com",
+        subject: "Nueva Reservación recibida",
+        html: `<p>Nueva reservación recibida de ${name}</p>`,
       }
   }
 }

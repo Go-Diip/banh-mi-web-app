@@ -176,11 +176,11 @@ const ReservationsReporter = () => {
 
     updateReservationStatus(reservationData.id, formData).then(response => {
       console.log("responseUpdate", response)
-      if (reservationData.status === STATUSES.approved) {
+      if (formData.status === STATUSES.approved) {
         sendEmail(reservationData, emailTypes.CUSTOMER_CONFIRMATION)
       }
 
-      if (reservationData.status === STATUSES.canceled) {
+      if (formData.status === STATUSES.canceled) {
         sendEmail(reservationData, emailTypes.CUSTOMER_CANCELED)
       }
 

@@ -10,7 +10,7 @@ import { Fade } from "react-awesome-reveal"
 const AboutUsSection = ({ title, description, chefs, leftImage }) => {
   const staticQuery = useStaticQuery(graphql`
     query {
-      red: file(relativePath: { eq: "red.png" }) {
+      red: file(relativePath: { eq: "red-section.png" }) {
         childImageSharp {
           gatsbyImageData(layout: FULL_WIDTH, quality: 100)
         }

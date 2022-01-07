@@ -19,7 +19,7 @@ const Menu = ({ image }) => {
 
   const staticQuery = useStaticQuery(graphql`
     query {
-      yellow: file(relativePath: { eq: "yellow.png" }) {
+      yellow: file(relativePath: { eq: "yellow-bg.png" }) {
         childImageSharp {
           gatsbyImageData(layout: FULL_WIDTH, quality: 100)
         }

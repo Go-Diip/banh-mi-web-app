@@ -10,7 +10,7 @@ import { Fade } from "react-awesome-reveal"
 const ReservationGrid = ({ image, images, title, numDesc, number, button }) => {
   const staticQuery = useStaticQuery(graphql`
     query {
-      black: file(relativePath: { eq: "black.jpg" }) {
+      black: file(relativePath: { eq: "black-section.png" }) {
         childImageSharp {
           gatsbyImageData(layout: FULL_WIDTH, quality: 100)
         }

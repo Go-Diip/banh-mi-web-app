@@ -3,7 +3,7 @@ import Pepper from "../../assets/middlePepper.svg"
 import { Typography } from "@mui/material"
 
 export const Wrapper = styled.div`
-  background-color: #c2312c;
+  //background-color: #c2312c;
   position: relative;
 `
 

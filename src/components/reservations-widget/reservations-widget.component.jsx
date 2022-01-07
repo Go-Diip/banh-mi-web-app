@@ -63,20 +63,24 @@ const ReservationsWidget = () => {
       status: STATUSES.pending,
     }
 
-    await Promise.all([
-      setReservation({
-        ...formattedData,
-      }),
-      // sendEmail(
-      //   data.email,
-      //   data.name,
-      //   data.table,
-      //   emailTypes.CUSTOMER_NOTIFICATION
-      // ),
-      sendEmail(null, data.name, data.table, emailTypes.CLIENT_NOTIFICATION),
-    ])
-    setOverviewData({ ...formattedData, date: stringDate })
-    setIsLoading(false)
+    setReservation({
+      ...formattedData,
+    }).then(r => {
+      setOverviewData({ ...formattedData, date: stringDate })
+      setIsLoading(false)
+    })
+    // await Promise.all([
+    //   setReservation({
+    //     ...formattedData,
+    //   }),
+    //   // sendEmail(
+    //   //   data.email,
+    //   //   data.name,
+    //   //   data.table,
+    //   //   emailTypes.CUSTOMER_NOTIFICATION
+    //   // ),
+    //   sendEmail(data, emailTypes.CLIENT_NOTIFICATION),
+    // ])
   }
 
   useEffect(() => {

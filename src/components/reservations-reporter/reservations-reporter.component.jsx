@@ -177,21 +177,11 @@ const ReservationsReporter = () => {
     updateReservationStatus(reservationData.id, formData).then(response => {
       console.log("responseUpdate", response)
       if (reservationData.status === STATUSES.approved) {
-        sendEmail(
-          reservationData.email,
-          reservationData.name,
-          reservationData.table,
-          emailTypes.CUSTOMER_CONFIRMATION
-        )
+        sendEmail(reservationData, emailTypes.CUSTOMER_CONFIRMATION)
       }
 
       if (reservationData.status === STATUSES.canceled) {
-        sendEmail(
-          reservationData.email,
-          reservationData.name,
-          reservationData.table,
-          emailTypes.CUSTOMER_CANCELED
-        )
+        sendEmail(reservationData, emailTypes.CUSTOMER_CANCELED)
       }
 
       setIsLoading(false)

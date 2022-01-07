@@ -2,6 +2,9 @@ import queryString from "query-string"
 import Cookies from "js-cookie"
 import { gravityFormsApi, HUBSPOT_API, IPIFY_API } from "./apis/apis"
 import CryptoJS from "crypto-js"
+import canceledEmail from "./emails/canceled-email"
+import approvedEmail from "./emails/approved-email"
+import clientNotification from "./emails/client-notification"
 
 export const isBrowser = () => typeof window !== "undefined"
 
@@ -12,36 +15,39 @@ export const emailTypes = {
   CLIENT_NOTIFICATION: "Client Notification",
 }
 
-export const getEmailData = (mail, name, table, emailType) => {
+export const getEmailData = (
+  { email, name, last_Name, table, seats, date },
+  emailType
+) => {
   console.log("emailType", emailType)
   switch (emailType) {
     case emailTypes.CUSTOMER_NOTIFICATION:
       return {
         from: "Banh Mi <no-reply@banhmi.com>",
-        to: [mail],
+        to: [email],
         subject: "Reservación Recibida",
         html: `<p>Recibimos tu reservacion ${name}!</p>`,
       }
     case emailTypes.CUSTOMER_CONFIRMATION:
       return {
         from: "Banh Mi  <no-reply@banhmi.com>",
-        to: [mail],
-        subject: "Reservación Confirmada",
-        html: `<p>Tu reservación ha sido confirmada ${name}!</p> ${table}`,
+        to: [email],
+        subject: "Reservación Confirmada!",
+        html: approvedEmail(name, last_Name, date, seats),
       }
     case emailTypes.CUSTOMER_CANCELED:
       return {
         from: "Banh Mi  <no-reply@banhmi.com>",
-        to: [mail],
+        to: [email],
         subject: "Reservación Cancelada",
-        html: `<p>Tu reservación ha sido cancelada ${name}</p>`,
+        html: canceledEmail(name),
       }
     case emailTypes.CLIENT_NOTIFICATION:
       return {
         from: "Banhmi <no-reply@banhmi.com>",
         to: "hello@godiip.com",
         subject: "Nueva Reservación recibida",
-        html: `<p>Nueva reservación recibida de ${name}</p>`,
+        html: clientNotification(),
       }
   }
 }
@@ -214,7 +220,7 @@ export const validateEmail = email => {
 
 export const validatePhone = number => number?.match(/\d/g)?.length === 10
 
-export const sendEmail = async (email, name, table, emailType) => {
+export const sendEmail = async (data, emailType) => {
   const formData = require("form-data")
   const Mailgun = require("mailgun.js")
   const mailgun = new Mailgun(formData)
@@ -236,7 +242,7 @@ export const sendEmail = async (email, name, table, emailType) => {
   try {
     return await mg.messages.create(
       "mg.godiip.com",
-      getEmailData(email, name, table, emailType)
+      getEmailData(data, emailType)
     )
   } catch (e) {
     return e

@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react"
-import {
-  getReservations,
-  updateReservationStatus,
-} from "../../services/reservations"
+import { updateReservationStatus } from "../../services/reservations"
 import * as S from "./reservations-reporter.styles"
 import LoadableMuiDataTable from "../../components/loadable-mui-data-table/loadable-mui-data-table"
 import {
@@ -19,9 +16,8 @@ import { useForm } from "react-hook-form"
 import Spinner from "../spinner/spinner.component"
 import CloseIcon from "@mui/icons-material/Close"
 import { emailTypes, sendEmail } from "../../utils"
-import { auth } from "../../services/firebase"
-import { navigate } from "gatsby"
-
+import { firestore } from "../../services/firebase"
+import moment from "moment"
 
 export const STATUSES = {
   approved: "Aprobado",
@@ -31,41 +27,30 @@ export const STATUSES = {
 
 const ReservationsReporter = () => {
   const { register, handleSubmit } = useForm()
-  const [user, setUser] = useState(null)
-  const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   const [selectedDataIndex, setSelectedDataIndex] = useState(null)
   const [isOpenDialog, setIsOpenDialog] = useState(false)
+  // const data = useReservations()
+  const [data, setData] = useState([])
 
   console.log("selectedDataIndex", selectedDataIndex)
   console.log("data", data)
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(userAuth => {
-      const user = {
-        uid: userAuth?.uid,
-        email: userAuth?.email,
-      }
-      if (userAuth) {
-        console.log("userAuth", userAuth)
-        setUser(user)
-      } else {
-        setUser(null)
-        navigate("/login/")
-      }
-    })
-    return unsubscribe
-  }, [])
-
-  useEffect(() => {
-    if (user) {
-      setIsLoading(true)
-      getReservations().then(res => {
-        setIsLoading(false)
-        setData(res)
+    //added variable unsubscribe
+    const unsubscribe = firestore
+      .collection("reservations")
+      .onSnapshot(snapshot => {
+        const listItems = snapshot.docs.map(doc => ({
+          ...doc.data(),
+          id: doc.id,
+          date: moment.unix(doc.data().date.seconds).format("DD/MM/YYYY kk:mm"),
+        }))
+        setData(listItems)
       })
-    }
-  }, [user])
+    //called the unsubscribe--closing connection to Firestore.
+    return () => unsubscribe()
+  }, [])
 
   const handleCellprops = (cellValue, rowIndex, columnIndex) => {
     console.log("cellValue", cellValue)
@@ -170,6 +155,7 @@ const ReservationsReporter = () => {
   ]
 
   const handleCellClick = (colData, { rowIndex }) => {
+    console.log("ROW INDEX", rowIndex)
     setSelectedDataIndex(rowIndex)
     setIsOpenDialog(true)
   }
@@ -185,12 +171,8 @@ const ReservationsReporter = () => {
   const handleDataUpdate = formData => {
     setIsLoading(true)
     console.log("formData", formData)
-    let newData = data
-    const reservationData = newData[selectedDataIndex]
+    const reservationData = data[selectedDataIndex]
     console.log("selectedIndexTable", reservationData)
-
-    newData[selectedDataIndex].table = formData.table
-    newData[selectedDataIndex].status = formData.status
 
     updateReservationStatus(reservationData.id, formData).then(response => {
       console.log("responseUpdate", response)
@@ -212,7 +194,6 @@ const ReservationsReporter = () => {
         )
       }
 
-      setData(newData)
       setIsLoading(false)
       setIsOpenDialog(false)
     })
@@ -229,52 +210,48 @@ const ReservationsReporter = () => {
       />
 
       <Dialog onClose={() => setIsOpenDialog(false)} open={isOpenDialog}>
-        {isOpenDialog && (
-          <S.DialogWrapper>
-            <S.CloseIconButton onClick={() => setIsOpenDialog(false)}>
-              <CloseIcon />
-            </S.CloseIconButton>
-            <Typography sx={{ marginBottom: "1em" }}>
-              Actualizar reservación
-            </Typography>
-            {selectedDataIndex ? (
-              <form onSubmit={handleSubmit(handleDataUpdate)}>
-                <FormControl fullWidth>
-                  <InputLabel id="statusUpdate">Estado</InputLabel>
-                  <Select
-                    {...register("status")}
-                    label="Estado"
-                    labelId="statusUpdate"
-                    fullWidth
-                    color="inputs"
-                    defaultValue={data[selectedDataIndex].status}
-                    // onChange={handleChange}
-                  >
-                    <MenuItem value={STATUSES.pending}>Pendiente</MenuItem>
-                    <MenuItem value={STATUSES.canceled}>Cancelado</MenuItem>
-                    <MenuItem value={STATUSES.approved}>Aprobado</MenuItem>
-                  </Select>
-                </FormControl>
-                <TextField
-                  label="Mesa"
-                  {...register("table")}
-                  fullWidth
-                  margin="normal"
-                  type="number"
-                  color="inputs"
-                  defaultValue={data[selectedDataIndex].table}
-                />
-                <CustomButton
-                  style={{ marginTop: "1.5em" }}
-                  fullWidth
-                  type="submit"
-                >
-                  Guardar
-                </CustomButton>
-              </form>
-            ) : null}
-          </S.DialogWrapper>
-        )}
+        <S.DialogWrapper>
+          <S.CloseIconButton onClick={() => setIsOpenDialog(false)}>
+            <CloseIcon />
+          </S.CloseIconButton>
+          <Typography sx={{ marginBottom: "1em" }}>
+            Actualizar reservación
+          </Typography>
+          <form onSubmit={handleSubmit(handleDataUpdate)}>
+            <FormControl fullWidth>
+              <InputLabel id="statusUpdate">Estado</InputLabel>
+              <Select
+                {...register("status")}
+                label="Estado"
+                labelId="statusUpdate"
+                fullWidth
+                color="inputs"
+                defaultValue={data[selectedDataIndex]?.status}
+                // onChange={handleChange}
+              >
+                <MenuItem value={STATUSES.pending}>Pendiente</MenuItem>
+                <MenuItem value={STATUSES.canceled}>Cancelado</MenuItem>
+                <MenuItem value={STATUSES.approved}>Aprobado</MenuItem>
+              </Select>
+            </FormControl>
+            <TextField
+              label="Mesa"
+              {...register("table")}
+              fullWidth
+              margin="normal"
+              type="number"
+              color="inputs"
+              defaultValue={data[selectedDataIndex]?.table}
+            />
+            <CustomButton
+              style={{ marginTop: "1.5em" }}
+              fullWidth
+              type="submit"
+            >
+              Guardar
+            </CustomButton>
+          </form>
+        </S.DialogWrapper>
       </Dialog>
     </S.Wrapper>
   )

@@ -2,10 +2,10 @@ import styled from "styled-components"
 import { Typography } from "@mui/material"
 import PoweredIcon from "../../assets/poweredby.svg"
 import Logo from "../../assets/logo.svg"
+import CustomBgImage from "../custom-bg-image/custom-bg-image.component"
 
 export const Wrapper = styled.footer`
   color: ${({ theme }) => theme.palette.text.secondary};
-  padding: 4em 0 2em;
   background-color: ${({ theme }) => theme.palette.primary.dark};
 
   ${({ theme }) => theme.breakpoints.down("sm")} {
@@ -14,6 +14,10 @@ export const Wrapper = styled.footer`
       padding-left: 2.5em;
     }
   }
+`
+
+export const BgImage = styled(CustomBgImage)`
+  padding: 4em 0 2em;
 `
 
 export const FooterLogo = styled(Logo)`

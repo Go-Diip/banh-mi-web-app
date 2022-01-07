@@ -21,7 +21,7 @@ const FooterBanner = () => {
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
   return (
-    <CustomBgImage img={staticQuery.bg}>
+    <CustomBgImage img={staticQuery.bg} tag="div">
       <S.Wrapper>
         <S.MiddlePepper />
         <Container style={{ height: "100%" }}>

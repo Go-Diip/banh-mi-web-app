@@ -19,7 +19,7 @@ const AboutUsSection = ({ title, description, chefs, leftImage }) => {
   `)
   return (
     <RowGrid image={leftImage} bgColor={theme.palette.primary.main}>
-      <S.BgImage img={staticQuery.red}>
+      <S.BgImage img={staticQuery.red} tag="div">
         <S.ContentWrapper id="about-us">
           <S.PepperIcon />
           <Container style={{ height: "100%" }}>

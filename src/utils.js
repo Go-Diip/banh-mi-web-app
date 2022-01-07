@@ -17,21 +17,21 @@ export const getEmailData = (mail, name, table, emailType) => {
   switch (emailType) {
     case emailTypes.CUSTOMER_NOTIFICATION:
       return {
-        from: "Banhmi <no-reply@banhmi.com>",
+        from: "Banh Mi <no-reply@banhmi.com>",
         to: [mail],
         subject: "Reservación Recibida",
         html: `<p>Recibimos tu reservacion ${name}!</p>`,
       }
     case emailTypes.CUSTOMER_CONFIRMATION:
       return {
-        from: "Banhmi <no-reply@banhmi.com>",
+        from: "Banh Mi  <no-reply@banhmi.com>",
         to: [mail],
         subject: "Reservación Confirmada",
         html: `<p>Tu reservación ha sido confirmada ${name}!</p> ${table}`,
       }
     case emailTypes.CUSTOMER_CANCELED:
       return {
-        from: "Banhmi <no-reply@banhmi.com>",
+        from: "Banh Mi  <no-reply@banhmi.com>",
         to: [mail],
         subject: "Reservación Cancelada",
         html: `<p>Tu reservación ha sido cancelada ${name}</p>`,

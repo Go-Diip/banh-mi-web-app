@@ -9,11 +9,14 @@ export const MenuWrapper = styled.div`
   top: 0;
   width: 100%;
   z-index: 4;
-  background-color: white;
+  background-color: transparent;
 `
 export const Wrapper = styled.div`
   position: relative;
   height: 100%;
+  width: 50vw;
+  margin-left: auto;
+  background-color: #f6faf4;
 `
 export const Pepper = styled(PepperIcon)`
   position: absolute;

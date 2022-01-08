@@ -32,12 +32,12 @@ const FullMenu = ({ isActive, closeOpenMenu, isHome }) => {
     >
       <S.MenuWrapper>
         <S.Wrapper>
-          <S.Pepper />
+          {/*<S.Pepper />*/}
           <S.ItemsWrapper>
             {isHome ? (
               <>
                 <S.CSLink href="/" onClick={closeOpenMenu}>
-                  <S.MenuItem>Home</S.MenuItem>
+                  <S.MenuItem>Inicio</S.MenuItem>
                 </S.CSLink>
                 <S.CSLink href="/menu/" onClick={closeOpenMenu}>
                   <S.MenuItem>Menú</S.MenuItem>
@@ -48,7 +48,7 @@ const FullMenu = ({ isActive, closeOpenMenu, isHome }) => {
                   duration={1000}
                   onClick={closeOpenMenu}
                 >
-                  <S.MenuItem>reservaciones</S.MenuItem>
+                  <S.MenuItem>reservas</S.MenuItem>
                 </S.SLink>
                 <S.SLink
                   to="reservation"
@@ -77,7 +77,7 @@ const FullMenu = ({ isActive, closeOpenMenu, isHome }) => {
               </>
             ) : (
               <S.CSLink href="/">
-                <S.MenuItem>Home</S.MenuItem>
+                <S.MenuItem>Inicio</S.MenuItem>
               </S.CSLink>
             )}
           </S.ItemsWrapper>

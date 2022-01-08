@@ -35,15 +35,15 @@ const Footer = ({ className }) => {
       <S.Wrapper className={className}>
         <Container maxWidth="xl">
           <Grid container spacing={4}>
-            <Grid item xs={12} md={6}>
+            <Grid item xs={12} md={4}>
               <S.FormWrapper>
                 <S.FooterLogo />
                 <FooterForm />
               </S.FormWrapper>
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid item xs={12} md={8}>
               <Grid container>
-                <Grid item xs={12} md={3}>
+                <Grid item xs={12} md={4}>
                   <S.Text>
                     {parse(
                       "<a href='https://goo.gl/maps/LKy1qzYiUFz4cQkS7' target='_blank'><strong>Dirección:</strong><br>" +
@@ -51,26 +51,28 @@ const Footer = ({ className }) => {
                     )}
                   </S.Text>
                 </Grid>
-                <Grid item xs={12} md={3}>
-                  <S.Text>
-                    {parse(
-                      "<strong>Horario:</strong><br>" +
-                        "Martes a Sábado<br>" +
-                        "12:30-15:30 y 19:00-22:30<br>" +
-                        "---<br>" +
-                        "Lunes y Domingos: cerrados"
-                    )}
-                  </S.Text>
-                </Grid>
-                <Grid item xs={12} md={6}>
-                  <S.PhoneContainer>
-                    <CustomButton className="lightBorder">
-                      ordena online
-                    </CustomButton>
+                <Grid item xs={12} md={4}>
+                  <S.InfoWrapper>
+                    <S.Text>
+                      {parse(
+                        "<strong>Horario:</strong><br>" +
+                          "Martes a Sábado<br>" +
+                          "12:30-15:30 y 19:00-22:30<br>" +
+                          "---<br>" +
+                          "Lunes y Domingos: cerrados"
+                      )}
+                    </S.Text>
                     <S.PhoneWrapper>
                       <PhoneIcon />
                       <S.Phone href="tel:+59399 770 2994">099 770 2994</S.Phone>
                     </S.PhoneWrapper>
+                  </S.InfoWrapper>
+                </Grid>
+                <Grid item xs={12} md={4}>
+                  <S.PhoneContainer>
+                    <CustomButton className="lightBorder">
+                      ordena online
+                    </CustomButton>
                   </S.PhoneContainer>
                 </Grid>
               </Grid>

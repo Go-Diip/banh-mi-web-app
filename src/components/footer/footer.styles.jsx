@@ -91,7 +91,6 @@ export const VerticalLine = styled.div`
 `
 export const PhoneWrapper = styled.div`
   display: flex;
-  justify-content: center;
   gap: 0.5em;
   align-items: center;
   padding: 1.5em 0;
@@ -99,7 +98,11 @@ export const PhoneWrapper = styled.div`
 
 export const Phone = styled.a`
   text-decoration: none;
-  font-size: 2rem;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 22px;
   color: rgba(246, 250, 244, 1);
 `
 
@@ -114,4 +117,9 @@ export const FormWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+`
+
+export const InfoWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
 `

@@ -103,7 +103,6 @@ export const Phone = styled.a`
   font-size: 24px;
   font-style: normal;
   font-weight: 300;
-  font-size: 24px;
   line-height: 22px;
   color: rgba(246, 250, 244, 1);
 `

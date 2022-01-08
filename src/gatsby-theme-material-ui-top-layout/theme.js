@@ -23,7 +23,7 @@ const theme = createTheme({
       // contrastText: "rgba(0, 0, 0, 0.87)",
       main: "#8799ca",
       light: "#c6747f",
-      dark: "#eba440",
+      dark: "#111212",
     },
     tertiary: {
       main: "#811E1A",

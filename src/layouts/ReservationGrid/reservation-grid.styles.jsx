@@ -14,6 +14,7 @@ export const Wrapper = styled(SectionWrapper)`
 export const TopWrapper = styled.div`
   height: 100%;
   position: relative;
+  background-color: ${({ theme }) => theme.palette.secondary.dark};
 `
 
 export const ContentWrapper = styled.div`
@@ -21,7 +22,6 @@ export const ContentWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 248px;
 `
 
 export const TextWrapper = styled.div`
@@ -32,19 +32,18 @@ export const TextWrapper = styled.div`
 `
 
 export const Title = styled.h2`
-  margin-top: 1em;
+  margin: 1em 0 1.5em;
   font-style: normal;
-  font-weight: bold;
-  font-size: ${({ theme }) => theme.typography.pxToRem(32)};
-  line-height: 27px;
-  letter-spacing: 0.22em;
+  font-weight: 500;
+  font-size: ${({ theme }) => theme.typography.pxToRem(24)};
+  line-height: 36px;
+  letter-spacing: 0.16em;
   color: ${({ theme }) => theme.palette.text.secondary};
   text-transform: uppercase;
-  font-family: ${({ theme }) => theme.fonts.quaternary};
 `
 
 export const Desc = styled(Typography)`
-  padding: 2em 0;
+  padding-top: 3em;
   color: rgba(246, 250, 244, 0.76);
   text-align: center;
   font-weight: 300;
@@ -65,7 +64,7 @@ export const RightGrid = styled(Grid)`
 `
 
 export const PoweredIcon = styled(PoweredByIcon)`
-  margin-top: 0.5em;
+  margin-top: 1em;
 `
 
 export const PepperBg = styled(Pepper)`
@@ -79,4 +78,20 @@ export const PepperBg = styled(Pepper)`
 
 export const BgImage = styled(CustomBgImage)`
   height: 100%;
+`
+
+export const PhoneWrapper = styled.div`
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
+  padding: 1.5em 0;
+`
+
+export const Phone = styled.a`
+  text-decoration: none;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 22px;
+  color: rgba(246, 250, 244, 1);
 `

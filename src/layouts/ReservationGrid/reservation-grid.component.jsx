@@ -6,6 +6,7 @@ import RowGrid from "../../components/row-grid/row-grid.component"
 import parse from "html-react-parser"
 import { graphql, useStaticQuery } from "gatsby"
 import { Fade } from "react-awesome-reveal"
+import PhoneIcon from "../../assets/phone.svg"
 
 const ReservationGrid = ({ image, images, title, numDesc, number, button }) => {
   const staticQuery = useStaticQuery(graphql`
@@ -19,29 +20,26 @@ const ReservationGrid = ({ image, images, title, numDesc, number, button }) => {
   `)
   return (
     <RowGrid isSlider sliderImages={images} reverse>
-      <S.BgImage img={staticQuery.black} tag="div">
-        <S.TopWrapper id="reservation">
-          <S.PepperBg />
-          <S.TextWrapper>
-            <Fade direction="left">
-              <S.ContentWrapper>
-                <Pepper />
-                {title && <S.Title>{title}</S.Title>}
-                {numDesc && number && (
-                  <S.Desc>
-                    {parse(numDesc + "<br>")}
-                    <S.Number href="tel:+59399 770 2994">099 770 2994</S.Number>
-                  </S.Desc>
-                )}
-                <CustomButton className="lightBorder" href="/reservations/">
-                  {button?.title}
-                </CustomButton>
-                <S.PoweredIcon />
-              </S.ContentWrapper>
-            </Fade>
-          </S.TextWrapper>
-        </S.TopWrapper>
-      </S.BgImage>
+      <S.TopWrapper id="reservation">
+        {/*<S.PepperBg />*/}
+        <S.TextWrapper>
+          <Fade direction="left">
+            <S.ContentWrapper>
+              {/*<Pepper />*/}
+              {title && <S.Title>{title}</S.Title>}
+              <CustomButton className="lightBorder" href="/reservations/">
+                {button?.title}
+              </CustomButton>
+              <S.PoweredIcon />
+              {numDesc && number && <S.Desc>{parse(numDesc)}</S.Desc>}
+              <S.PhoneWrapper>
+                <PhoneIcon />
+                <S.Phone href="tel:+593981244567">0981244567</S.Phone>
+              </S.PhoneWrapper>
+            </S.ContentWrapper>
+          </Fade>
+        </S.TextWrapper>
+      </S.TopWrapper>
     </RowGrid>
   )
 }

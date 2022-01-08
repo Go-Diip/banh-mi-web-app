@@ -33,90 +33,84 @@ const Footer = ({ className }) => {
     <>
       <FooterBanner id="contact" />
       <S.Wrapper className={className}>
-        <S.BgImage img={staticQuery.bg} tag="div">
-          <Container maxWidth="xl">
-            <Grid container spacing={4}>
-              <Grid item xs={12} md={6}>
-                <S.FormWrapper>
-                  <S.FooterLogo />
-                  <FooterForm />
-                </S.FormWrapper>
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <Grid container>
-                  <Grid item xs={12} md={3}>
-                    <S.Text>
-                      {parse(
-                        "<a href='https://goo.gl/maps/LKy1qzYiUFz4cQkS7' target='_blank'><strong>Dirección:</strong><br>" +
-                          "Andalucía N24-234 y Cordero<br>Quito,Ecuador</a>"
-                      )}
-                    </S.Text>
-                  </Grid>
-                  <Grid item xs={12} md={3}>
-                    <S.Text>
-                      {parse(
-                        "<strong>Horario:</strong><br>" +
-                          "Martes a Sábado<br>" +
-                          "12:30-15:30 y 19:00-22:30<br>" +
-                          "---<br>" +
-                          "Lunes y Domingos: cerrados"
-                      )}
-                    </S.Text>
-                  </Grid>
-                  <Grid item xs={12} md={6}>
-                    <S.PhoneContainer>
-                      <CustomButton className="lightBorder">
-                        ordena online
-                      </CustomButton>
-                      <S.PhoneWrapper>
-                        <PhoneIcon />
-                        <S.Phone href="tel:+59399 770 2994">
-                          099 770 2994
-                        </S.Phone>
-                      </S.PhoneWrapper>
-                    </S.PhoneContainer>
-                  </Grid>
+        <Container maxWidth="xl">
+          <Grid container spacing={4}>
+            <Grid item xs={12} md={6}>
+              <S.FormWrapper>
+                <S.FooterLogo />
+                <FooterForm />
+              </S.FormWrapper>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <Grid container>
+                <Grid item xs={12} md={3}>
+                  <S.Text>
+                    {parse(
+                      "<a href='https://goo.gl/maps/LKy1qzYiUFz4cQkS7' target='_blank'><strong>Dirección:</strong><br>" +
+                        "Andalucía N24-234 y Cordero<br>Quito,Ecuador</a>"
+                    )}
+                  </S.Text>
+                </Grid>
+                <Grid item xs={12} md={3}>
+                  <S.Text>
+                    {parse(
+                      "<strong>Horario:</strong><br>" +
+                        "Martes a Sábado<br>" +
+                        "12:30-15:30 y 19:00-22:30<br>" +
+                        "---<br>" +
+                        "Lunes y Domingos: cerrados"
+                    )}
+                  </S.Text>
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <S.PhoneContainer>
+                    <CustomButton className="lightBorder">
+                      ordena online
+                    </CustomButton>
+                    <S.PhoneWrapper>
+                      <PhoneIcon />
+                      <S.Phone href="tel:+59399 770 2994">099 770 2994</S.Phone>
+                    </S.PhoneWrapper>
+                  </S.PhoneContainer>
                 </Grid>
               </Grid>
             </Grid>
-            <S.Line />
-            <S.PoweredWrapper>
-              <S.LogoWrapper>
-                <S.ExternalLink
-                  href="https://www.instagram.com/banhmisanducheria/"
-                  target="_blank"
-                >
-                  <InstagramIcon />
-                </S.ExternalLink>
-                <S.ExternalLink
-                  href="https://www.google.com/search?q=banh+mi+quito&sxsrf=AOaemvKpbOARXQGWEsjMNqrBXcZIyNTxHg%3A1640134389684&source=hp&ei=9XbCYfvpJ_GYwbkPkvm88AY&iflsig=ALs-wAMAAAAAYcKFBafPP4RCtaAl01EIxOUyxwG_PrZx&gs_ssp=eJzj4tVP1zc0TDaozCjKSUsyYLRSNaiwNEwxtUw0SDVLNTKzSDW2tDKoMDdMNTM0NDNMNElKNky0TPLiTUrMy1DIzVQoLM0syQcAqh8UPA&oq=banh+mi+quito&gs_lcp=Cgdnd3Mtd2l6EAEYAzIECCMQJzIECCMQJzIECCMQJzILCC4QgAQQxwEQrwEyBggAEBYQHjIGCAAQFhAeMgYIABAWEB4yAggmOgoILhDHARCvARAnOgUILhCABDoLCC4QgAQQxwEQ0QM6BQgAEIAEOgsILhCABBDHARCjAjoKCAAQgAQQhwIQFDoKCC4QxwEQ0QMQJzoICAAQgAQQyQM6BQgAEMsBOggIABAWEAoQHlAAWJMQYPYbaABwAHgAgAGpAYgBrg-SAQQwLjEzmAEAoAEB&sclient=gws-wiz#lrd=0x91d59a0e6e268e39:0x71e61161a4bc1a9b,1"
-                  target="_blank"
-                >
-                  <GoogleIcon />
-                </S.ExternalLink>
-                <S.ExternalLink
-                  href="https://www.facebook.com/banhmisanducheria"
-                  target="_blank"
-                >
-                  <FacebookIcon />
-                </S.ExternalLink>
-                <S.ExternalLink
-                  href="https://www.facebook.com/banhmisanducheria"
-                  target="_blank"
-                >
-                  <TripIcon />
-                </S.ExternalLink>
-              </S.LogoWrapper>
-              <S.RightWrapper>
-                <S.WorkText onClick={handleOpen}>
-                  Trabaja con Nosotros
-                </S.WorkText>
-                <S.VerticalLine />
-                <S.PoweredBy />
-              </S.RightWrapper>
-            </S.PoweredWrapper>
-          </Container>
-        </S.BgImage>
+          </Grid>
+          <S.Line />
+          <S.PoweredWrapper>
+            <S.LogoWrapper>
+              <S.ExternalLink
+                href="https://www.instagram.com/banhmisanducheria/"
+                target="_blank"
+              >
+                <InstagramIcon />
+              </S.ExternalLink>
+              <S.ExternalLink
+                href="https://www.google.com/search?q=banh+mi+quito&sxsrf=AOaemvKpbOARXQGWEsjMNqrBXcZIyNTxHg%3A1640134389684&source=hp&ei=9XbCYfvpJ_GYwbkPkvm88AY&iflsig=ALs-wAMAAAAAYcKFBafPP4RCtaAl01EIxOUyxwG_PrZx&gs_ssp=eJzj4tVP1zc0TDaozCjKSUsyYLRSNaiwNEwxtUw0SDVLNTKzSDW2tDKoMDdMNTM0NDNMNElKNky0TPLiTUrMy1DIzVQoLM0syQcAqh8UPA&oq=banh+mi+quito&gs_lcp=Cgdnd3Mtd2l6EAEYAzIECCMQJzIECCMQJzIECCMQJzILCC4QgAQQxwEQrwEyBggAEBYQHjIGCAAQFhAeMgYIABAWEB4yAggmOgoILhDHARCvARAnOgUILhCABDoLCC4QgAQQxwEQ0QM6BQgAEIAEOgsILhCABBDHARCjAjoKCAAQgAQQhwIQFDoKCC4QxwEQ0QMQJzoICAAQgAQQyQM6BQgAEMsBOggIABAWEAoQHlAAWJMQYPYbaABwAHgAgAGpAYgBrg-SAQQwLjEzmAEAoAEB&sclient=gws-wiz#lrd=0x91d59a0e6e268e39:0x71e61161a4bc1a9b,1"
+                target="_blank"
+              >
+                <GoogleIcon />
+              </S.ExternalLink>
+              <S.ExternalLink
+                href="https://www.facebook.com/banhmisanducheria"
+                target="_blank"
+              >
+                <FacebookIcon />
+              </S.ExternalLink>
+              <S.ExternalLink
+                href="https://www.facebook.com/banhmisanducheria"
+                target="_blank"
+              >
+                <TripIcon />
+              </S.ExternalLink>
+            </S.LogoWrapper>
+            <S.RightWrapper>
+              <S.WorkText onClick={handleOpen}>Trabaja con Nosotros</S.WorkText>
+              <S.VerticalLine />
+              <S.PoweredBy />
+            </S.RightWrapper>
+          </S.PoweredWrapper>
+        </Container>
       </S.Wrapper>
       <Modal
         open={open}

@@ -35,10 +35,11 @@ const Menu = ({ image }) => {
           <S.ContentWrapper>
             <Fade triggerOnce>
               <S.FadeWrapper>
-                <S.BlackPepper />
+                {/*<S.BlackPepper />*/}
                 <S.Title>MENÚ</S.Title>
                 <S.MenuDescription>
-                  Para grupos de mas 10 personas, por favor comunicate al
+                  Cocina inspirada en productos locales con los sabores y la
+                  magia del Sureste Asiático.
                 </S.MenuDescription>
                 <CustomButton className="darkBorder" href="/menu/">
                   Ver menú

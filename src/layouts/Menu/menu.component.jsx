@@ -7,7 +7,7 @@ import CustomButton from "../../components/custom-button/custom-button.component
 import { graphql, useStaticQuery } from "gatsby"
 import { Fade } from "react-awesome-reveal"
 
-const Menu = ({ image }) => {
+const Menu = ({ image, images }) => {
   const [toggleState, setToggleState] = useState(0)
   const toggleTab = index => {
     setToggleState(index)
@@ -28,7 +28,7 @@ const Menu = ({ image }) => {
   `)
 
   return (
-    <RowGrid image={image} bgColor={theme.palette.primary.light}>
+    <RowGrid isSlider sliderImages={images}>
       <S.RightWrapper id="menu">
         {/*<S.Pepper />*/}
         <Container style={{ height: "100%" }}>

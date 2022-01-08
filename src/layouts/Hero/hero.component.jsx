@@ -5,18 +5,18 @@ import { InfoWrapper } from "./hero.styles"
 const Hero = ({ title }) => {
   return (
     <S.CustomParallax
-      bgImage="https://admin-banhmi.godiip.com/wp-content/uploads/2022/01/hero.png"
+      bgImage="https://admin-banhmi.godiip.com/wp-content/uploads/2022/01/hero-1.jpg"
       strength={300}
     >
       <S.TopWrapper>
-        <S.Pepper />
+        {/*<S.Pepper />*/}
         <S.CustomContainer maxWidth="xl">
           <S.ContentWrapper>
             <S.LogoVertical />
-            <S.Title>{title}</S.Title>
+            {/*<S.Title>{title}</S.Title>*/}
             <S.ButtonWrapper>
               <S.Button className="lightBorderBlack" href="/reservations/">
-                reservaciones
+                reservas
               </S.Button>
               <S.Button className="lightBorderBlack">ordena online</S.Button>
             </S.ButtonWrapper>

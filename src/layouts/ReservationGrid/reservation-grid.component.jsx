@@ -18,7 +18,7 @@ const ReservationGrid = ({ image, images, title, numDesc, number, button }) => {
     }
   `)
   return (
-    <RowGrid isSlider sliderImages={images}>
+    <RowGrid isSlider sliderImages={images} reverse>
       <S.BgImage img={staticQuery.black} tag="div">
         <S.TopWrapper id="reservation">
           <S.PepperBg />

@@ -10,7 +10,7 @@ import { graphql, useStaticQuery } from "gatsby"
 const FooterBanner = () => {
   const staticQuery = useStaticQuery(graphql`
     query {
-      bg: file(relativePath: { eq: "eventos-red.png" }) {
+      bg: file(relativePath: { eq: "footer-banner.jpg" }) {
         childImageSharp {
           gatsbyImageData(layout: FULL_WIDTH, quality: 100)
         }
@@ -23,7 +23,7 @@ const FooterBanner = () => {
   return (
     <CustomBgImage img={staticQuery.bg} tag="div">
       <S.Wrapper>
-        <S.MiddlePepper />
+        {/*<S.MiddlePepper />*/}
         <Container style={{ height: "100%" }}>
           <S.BannerWrapper>
             <S.TextWrapper>
@@ -33,9 +33,9 @@ const FooterBanner = () => {
                 mas de 12 personas
               </S.BannerDescription>
             </S.TextWrapper>
-            <CustomButton className="lightRed" onClick={handleOpen}>
+            <S.Button className="lightRed" onClick={handleOpen}>
               Contáctanos
-            </CustomButton>
+            </S.Button>
           </S.BannerWrapper>
         </Container>
         <Modal

@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import Pepper from "../../assets/middlePepper.svg"
 import { Typography } from "@mui/material"
+import CustomButton from "../custom-button/custom-button.component"
 
 export const Wrapper = styled.div`
   //background-color: #c2312c;
@@ -17,30 +18,38 @@ export const MiddlePepper = styled(Pepper)`
 
 export const BannerWrapper = styled.div`
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  height: 100%;
-  padding: 4em 0;
+  //height: 100%;
+  height: 625px;
+  max-width: 428px;
+  margin-left: auto;
 `
 
 export const TextWrapper = styled.div`
-  max-width: 472px;
+  text-align: center;
 `
 
 export const BannerTitle = styled.span`
-  font-weight: 600;
-  font-size: ${({ theme }) => theme.typography.pxToRem(18)};
-  line-height: 27px;
-  letter-spacing: 0.22em;
+  font-weight: 500;
+  font-size: ${({ theme }) => theme.typography.pxToRem(24)};
+  line-height: 36px;
+  letter-spacing: 0.16em;
+  text-align: center;
   text-transform: uppercase;
   color: #f6faf4;
 `
 
 export const BannerDescription = styled(Typography)`
-  font-size: ${({ theme }) => theme.typography.pxToRem(14)};
-  font-weight: 200;
-  line-height: 18px;
+  font-size: ${({ theme }) => theme.typography.pxToRem(18)};
+  font-weight: 300;
+  line-height: 120%;
   letter-spacing: 0;
   color: #f6faf4;
+  padding: 2em 0;
+`
+
+export const Button = styled(CustomButton)`
   max-width: 200px;
 `

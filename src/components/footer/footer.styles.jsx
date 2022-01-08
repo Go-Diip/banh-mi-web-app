@@ -1,8 +1,7 @@
 import styled from "styled-components"
 import { Typography } from "@mui/material"
 import PoweredIcon from "../../assets/poweredby.svg"
-import Logo from "../../assets/logo.svg"
-import CustomBgImage from "../custom-bg-image/custom-bg-image.component"
+import Logo from "../../assets/logoVertical.svg"
 
 export const Wrapper = styled.footer`
   color: ${({ theme }) => theme.palette.text.secondary};
@@ -19,6 +18,9 @@ export const Wrapper = styled.footer`
 
 export const FooterLogo = styled(Logo)`
   margin-bottom: 4em;
+  width: 28px;
+  height: 90px;
+  object-fit: cover;
 `
 export const Text = styled(Typography)`
   font-style: normal;

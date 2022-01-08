@@ -75,11 +75,22 @@ export const CustomButton = styled(Button)`
     }
   }
 
+  &.lightBorderWhite {
+    color: white;
+    border: 1px ${({ theme }) => theme.palette.primary.light} solid;
+    background-color: transparent;
+    &:hover {
+      border: 1px white solid;
+      background-color: rgba(255, 255, 255, 0.09);
+      color: white;
+    }
+  }
+
   &.moreWidth {
     min-width: 250px;
   }
 
-  &:not(.light):not(.darkBorder):not(.transparentMenuButton):not(.lightRed):not(.lightBorderBlack):hover {
+  &:not(.light):not(.darkBorder):not(.transparentMenuButton):not(.lightRed):not(.lightBorderBlack):not(.lightBorderWhite):hover {
     background-color: ${({ theme, color }) =>
       darken(
         theme.palette[color]

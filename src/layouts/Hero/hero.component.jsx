@@ -15,10 +15,10 @@ const Hero = ({ title }) => {
             <S.LogoVertical />
             {/*<S.Title>{title}</S.Title>*/}
             <S.ButtonWrapper>
-              <S.Button className="lightBorderBlack" href="/reservations/">
+              <S.Button className="lightBorderWhite" href="/reservations/">
                 reservas
               </S.Button>
-              <S.Button className="lightBorderBlack">ordena online</S.Button>
+              <S.Button className="lightBorderWhite">ordena online</S.Button>
             </S.ButtonWrapper>
           </S.ContentWrapper>
         </S.CustomContainer>

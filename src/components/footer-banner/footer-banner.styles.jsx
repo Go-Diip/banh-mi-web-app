@@ -2,6 +2,7 @@ import styled from "styled-components"
 import Pepper from "../../assets/middlePepper.svg"
 import { Typography } from "@mui/material"
 import CustomButton from "../custom-button/custom-button.component"
+import PepperIcon from "../../assets/pepper.svg"
 
 export const Wrapper = styled.div`
   //background-color: #c2312c;

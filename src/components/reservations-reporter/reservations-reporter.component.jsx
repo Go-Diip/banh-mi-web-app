@@ -224,6 +224,7 @@ const ReservationsReporter = () => {
       <ReservationDialog
         handleDataInput={handleDataInput}
         shouldEdit={shouldEdit}
+        isLoading={isLoading}
         onClose={() => setIsOpenDialog(false)}
         open={isOpenDialog}
         data={data[selectedDataIndex]}

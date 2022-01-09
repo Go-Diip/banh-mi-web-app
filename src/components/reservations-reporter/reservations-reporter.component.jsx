@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { updateReservationData } from "../../services/reservations"
+import { setReservation, updateReservationData } from "../../services/reservations"
 import * as S from "./reservations-reporter.styles"
 import LoadableMuiDataTable from "../../components/loadable-mui-data-table/loadable-mui-data-table"
 import Spinner from "../spinner/spinner.component"
@@ -202,7 +202,12 @@ const ReservationsReporter = () => {
         }
       )
     } else {
-      //  TODO add new reservation here
+      setReservation({
+        ...formattedData,
+      }).then(r => {
+        setIsLoading(false)
+        setIsOpenDialog(false)
+      })
     }
   }
 

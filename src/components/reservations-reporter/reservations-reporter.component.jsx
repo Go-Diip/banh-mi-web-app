@@ -7,6 +7,9 @@ import { emailTypes, getFormattedReservationData, sendEmail } from "../../utils"
 import { firestore } from "../../services/firebase"
 import moment from "moment"
 import ReservationDialog from "./reservation-dialog/reservation-dialog.component"
+import Button from "@mui/material/Button"
+import AddIcon from "@mui/icons-material/Add"
+import { IconButton, Tooltip } from "@mui/material"
 
 export const STATUSES = {
   approved: "Aprobado",
@@ -16,6 +19,7 @@ export const STATUSES = {
 
 const ReservationsReporter = () => {
   const [isLoading, setIsLoading] = useState(false)
+  const [shouldEdit, setShouldEdit] = useState(true)
   const [selectedDataIndex, setSelectedDataIndex] = useState(null)
   const [isOpenDialog, setIsOpenDialog] = useState(false)
   const [data, setData] = useState([])
@@ -149,8 +153,24 @@ const ReservationsReporter = () => {
 
   const handleCellClick = (colData, { rowIndex }) => {
     setSelectedDataIndex(rowIndex)
+    setShouldEdit(true)
     setIsOpenDialog(true)
   }
+
+  const handleAddReservation = () => {
+    setShouldEdit(false)
+    setIsOpenDialog(true)
+  }
+
+  const HeaderElements = () => (
+    <>
+      <Tooltip title="Añadir nueva reservación">
+        <IconButton onClick={handleAddReservation}>
+          <AddIcon />
+        </IconButton>
+      </Tooltip>
+    </>
+  )
 
   const options = {
     filterType: "multiselect",
@@ -158,41 +178,47 @@ const ReservationsReporter = () => {
     count: data.length,
     onCellClick: handleCellClick,
     selectableRows: "none",
+    customToolbar: () => <HeaderElements />,
   }
 
-  const handleDataUpdate = formData => {
+  const handleDataInput = formData => {
     const formattedData = getFormattedReservationData(formData)
     const currentReservationData = data[selectedDataIndex]
     setIsLoading(true)
 
-    updateReservationData(currentReservationData.id, formattedData).then(
-      response => {
-        if (formData.status === STATUSES.approved) {
-          sendEmail(formattedData, emailTypes.CUSTOMER_CONFIRMATION)
-        }
+    if (shouldEdit) {
+      updateReservationData(currentReservationData.id, formattedData).then(
+        response => {
+          if (formData.status === STATUSES.approved) {
+            sendEmail(formattedData, emailTypes.CUSTOMER_CONFIRMATION)
+          }
 
-        if (formData.status === STATUSES.canceled) {
-          sendEmail(formattedData, emailTypes.CUSTOMER_CANCELED)
-        }
+          if (formData.status === STATUSES.canceled) {
+            sendEmail(formattedData, emailTypes.CUSTOMER_CANCELED)
+          }
 
-        setIsLoading(false)
-        setIsOpenDialog(false)
-      }
-    )
+          setIsLoading(false)
+          setIsOpenDialog(false)
+        }
+      )
+    } else {
+      //  TODO add new reservation here
+    }
   }
 
   return (
     <S.Wrapper>
       {isLoading && <Spinner />}
       <LoadableMuiDataTable
-        title={"Reservaciones Banh Mi"}
+        title="Bahn Mi Reservaciones"
         data={data}
         columns={columns}
         options={options}
       />
 
       <ReservationDialog
-        handleDataUpdate={handleDataUpdate}
+        handleDataInput={handleDataInput}
+        shouldEdit={shouldEdit}
         onClose={() => setIsOpenDialog(false)}
         open={isOpenDialog}
         data={data[selectedDataIndex]}

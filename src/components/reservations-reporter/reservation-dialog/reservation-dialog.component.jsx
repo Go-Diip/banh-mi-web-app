@@ -25,7 +25,13 @@ import CalendarTodayIcon from "@mui/icons-material/CalendarToday"
 import moment from "moment"
 import { STATUSES } from "../reservations-reporter.component"
 
-const ReservationDialog = ({ onClose, data, open, handleDataUpdate }) => {
+const ReservationDialog = ({
+  onClose,
+  data,
+  open,
+  handleDataInput,
+  shouldEdit,
+}) => {
   const [selectedDate, setSelectedDate] = useState(MIN_DATE)
   const [dateOpen, setDateOpen] = useState(false)
   const methods = useForm({
@@ -39,7 +45,7 @@ const ReservationDialog = ({ onClose, data, open, handleDataUpdate }) => {
   }
 
   useEffect(() => {
-    if (data) {
+    if (data && shouldEdit) {
       const momentDate = moment(data.date, "DD/MM/YYYY kk:mm")
       console.log("current date", momentDate)
       setValue("status", data.status)
@@ -55,8 +61,20 @@ const ReservationDialog = ({ onClose, data, open, handleDataUpdate }) => {
       setValue("notes", data.notes)
 
       setSelectedDate(momentDate)
+    } else {
+      setValue("status", STATUSES.approved)
+      setValue("table", "-")
+      setValue("email", "")
+      setValue("name", "")
+      setValue("last_name", "")
+      setValue("phone", "")
+      setValue("time", timeOptions[0].value)
+      setValue("seats", "")
+      setValue("area", "bar")
+      setValue("occasion", "ninguna")
+      setValue("notes", "")
     }
-  }, [data])
+  }, [data, shouldEdit])
 
   useEffect(() => {
     setValue("date", moment(selectedDate).format("YYYY/MM/DD"))
@@ -69,10 +87,10 @@ const ReservationDialog = ({ onClose, data, open, handleDataUpdate }) => {
           <CloseIcon />
         </S.CloseIconButton>
         <Typography sx={{ marginBottom: "1em" }}>
-          Actualizar reservación
+          {shouldEdit ? "Actualizar reservación" : "Añadir Reservación"}
         </Typography>
         <FormProvider {...methods}>
-          <form onSubmit={handleSubmit(handleDataUpdate)}>
+          <form onSubmit={handleSubmit(handleDataInput)}>
             <Grid container spacing={2}>
               <Grid item xs={12} md={6}>
                 <WidgetSelect

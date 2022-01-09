@@ -25,7 +25,7 @@ const FooterModal = ({ close }) => {
 
   const staticQuery = useStaticQuery(graphql`
     query {
-      menu: file(relativePath: { eq: "full-menu.jpg" }) {
+      menu: file(relativePath: { eq: "trabaja-con.jpg" }) {
         childImageSharp {
           gatsbyImageData(layout: FULL_WIDTH, quality: 100)
         }
@@ -40,9 +40,10 @@ const FooterModal = ({ close }) => {
           <Logo />
           <CancelIcon onClick={close} />
         </S.TopWrapper>
+        <S.Title>Trabaja con Nosotros</S.Title>
         <S.Description>
-          Banh Mi offers seasonally inspired menus featuring the highest quality
-          seafood and meats available from the local Gulf coast and beyond.
+          ¿Quieres formar parte del equipo de Banh Mi? Te invitamos a aplicar a
+          nuestras posiciones disponibles en el siguiente formulario.
         </S.Description>
         <Grid container>
           <Grid item xs={12} md={7}>
@@ -119,9 +120,9 @@ const FooterModal = ({ close }) => {
             <S.RightWrapper>
               <S.Image img={staticQuery.menu} />
               <S.Description>
-                Banh Mi offers seasonally inspired menus featuring the highest
-                quality seafood and meats available from the local Gulf coast
-                and beyond.
+                ¡Forma parte de nuestro equipo ! En Banh Mi ofrocemos una cocina
+                inspirada en productos locales con los sabores y la magia del
+                Sureste Asiático.
               </S.Description>
             </S.RightWrapper>
           </Grid>

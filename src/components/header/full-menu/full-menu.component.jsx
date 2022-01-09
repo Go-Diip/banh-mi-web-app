@@ -51,7 +51,7 @@ const FullMenu = ({ isActive, closeOpenMenu, isHome }) => {
                   <S.MenuItem>reservas</S.MenuItem>
                 </S.SLink>
                 <S.SLink
-                  to="reservation"
+                  to="ordena-online"
                   smooth={true}
                   duration={1000}
                   onClick={closeOpenMenu}
@@ -59,7 +59,7 @@ const FullMenu = ({ isActive, closeOpenMenu, isHome }) => {
                   <S.MenuItem>ordena online</S.MenuItem>
                 </S.SLink>
                 <S.SLink
-                  to="contact"
+                  to="eventos-privados"
                   smooth={true}
                   duration={1000}
                   onClick={closeOpenMenu}
@@ -67,7 +67,7 @@ const FullMenu = ({ isActive, closeOpenMenu, isHome }) => {
                   <S.MenuItem>eventos privados</S.MenuItem>
                 </S.SLink>
                 <S.SLink
-                  to="reservation"
+                  to="ordena-online"
                   smooth={true}
                   duration={1000}
                   onClick={closeOpenMenu}

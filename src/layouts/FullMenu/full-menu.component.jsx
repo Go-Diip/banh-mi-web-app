@@ -97,7 +97,7 @@ const FullMenu = ({ title }) => {
           <S.Link url="/">
             <S.ButtonWrapper>
               <S.ArrowIcon />
-              <S.HomeText>home</S.HomeText>
+              <S.HomeText>Inicio</S.HomeText>
             </S.ButtonWrapper>
           </S.Link>
         </Container>

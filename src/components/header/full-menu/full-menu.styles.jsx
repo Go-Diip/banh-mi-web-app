@@ -9,11 +9,14 @@ export const MenuWrapper = styled.div`
   top: 0;
   width: 100%;
   z-index: 4;
-  background-color: white;
+  background-color: transparent;
 `
 export const Wrapper = styled.div`
   position: relative;
   height: 100%;
+  width: 50vw;
+  margin-left: auto;
+  background-color: #f6faf4;
 `
 export const Pepper = styled(PepperIcon)`
   position: absolute;
@@ -45,8 +48,11 @@ export const MenuItem = styled.span`
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: #091211;
+  border-bottom: 2px solid transparent;
   cursor: pointer;
   &:hover {
-    color: ${({ theme }) => theme.palette.primary.main};
+    color: #111212;
+    font-weight: 500;
+    border-bottom: 2px solid ${({ theme }) => theme.palette.primary.main};
   }
 `

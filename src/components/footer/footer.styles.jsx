@@ -1,12 +1,12 @@
 import styled from "styled-components"
 import { Typography } from "@mui/material"
 import PoweredIcon from "../../assets/poweredby.svg"
-import Logo from "../../assets/logo.svg"
-import CustomBgImage from "../custom-bg-image/custom-bg-image.component"
+import Logo from "../../assets/logoVertical.svg"
 
 export const Wrapper = styled.footer`
   color: ${({ theme }) => theme.palette.text.secondary};
-  background-color: ${({ theme }) => theme.palette.primary.dark};
+  background-color: ${({ theme }) => theme.palette.tertiary.main};
+  padding: 4em 0 2.5em;
 
   ${({ theme }) => theme.breakpoints.down("sm")} {
     .MuiContainer-root {
@@ -16,12 +16,11 @@ export const Wrapper = styled.footer`
   }
 `
 
-export const BgImage = styled(CustomBgImage)`
-  padding: 4em 0 2em;
-`
-
 export const FooterLogo = styled(Logo)`
   margin-bottom: 4em;
+  width: 28px;
+  height: 90px;
+  object-fit: cover;
 `
 export const Text = styled(Typography)`
   font-style: normal;
@@ -94,7 +93,6 @@ export const VerticalLine = styled.div`
 `
 export const PhoneWrapper = styled.div`
   display: flex;
-  justify-content: center;
   gap: 0.5em;
   align-items: center;
   padding: 1.5em 0;
@@ -102,7 +100,10 @@ export const PhoneWrapper = styled.div`
 
 export const Phone = styled.a`
   text-decoration: none;
-  font-size: 2rem;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 22px;
   color: rgba(246, 250, 244, 1);
 `
 
@@ -117,4 +118,9 @@ export const FormWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+`
+
+export const InfoWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
 `

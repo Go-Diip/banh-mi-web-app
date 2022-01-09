@@ -7,6 +7,7 @@ import CustomBgImage from "../../components/custom-bg-image/custom-bg-image.comp
 export const RightWrapper = styled.div`
   height: 100%;
   position: relative;
+  background-color: #f6faf4;
 `
 
 export const Pepper = styled(PepperMenu)`
@@ -39,15 +40,14 @@ export const BlackPepper = styled(PepperIcon)`
 `
 
 export const Title = styled.span`
-  font-family: ${({ theme }) => theme.fonts.quaternary};
   font-style: normal;
-  font-weight: bold;
-  font-size: 32px;
-  line-height: 27px;
-  letter-spacing: 0.22em;
+  font-weight: 500;
+  font-size: ${({ theme }) => theme.typography.pxToRem(24)};
+  line-height: 36px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: #091211;
-  padding: 2em 0 0;
+  //padding: 2em 0 0;
 `
 
 export const BgImage = styled(CustomBgImage)`

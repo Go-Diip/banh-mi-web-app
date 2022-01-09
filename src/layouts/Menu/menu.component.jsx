@@ -7,7 +7,7 @@ import CustomButton from "../../components/custom-button/custom-button.component
 import { graphql, useStaticQuery } from "gatsby"
 import { Fade } from "react-awesome-reveal"
 
-const Menu = ({ image }) => {
+const Menu = ({ image, images }) => {
   const [toggleState, setToggleState] = useState(0)
   const toggleTab = index => {
     setToggleState(index)
@@ -28,28 +28,27 @@ const Menu = ({ image }) => {
   `)
 
   return (
-    <RowGrid image={image} bgColor={theme.palette.primary.light}>
-      <S.BgImage img={staticQuery.yellow}>
-        <S.RightWrapper id="menu">
-          <S.Pepper />
-          <Container style={{ height: "100%" }}>
-            <S.ContentWrapper>
-              <Fade direction="right">
-                <S.FadeWrapper>
-                  <S.BlackPepper />
-                  <S.Title>MENÚ</S.Title>
-                  <S.MenuDescription>
-                    Para grupos de mas 10 personas, por favor comunicate al
-                  </S.MenuDescription>
-                  <CustomButton className="darkBorder" href="/menu/">
-                    Ver menú
-                  </CustomButton>
-                </S.FadeWrapper>
-              </Fade>
-            </S.ContentWrapper>
-          </Container>
-        </S.RightWrapper>
-      </S.BgImage>
+    <RowGrid isSlider sliderImages={images}>
+      <S.RightWrapper id="menu">
+        {/*<S.Pepper />*/}
+        <Container style={{ height: "100%" }}>
+          <S.ContentWrapper>
+            <Fade triggerOnce>
+              <S.FadeWrapper>
+                {/*<S.BlackPepper />*/}
+                <S.Title>MENÚ</S.Title>
+                <S.MenuDescription>
+                  Cocina inspirada en productos locales con los sabores y la
+                  magia del Sureste Asiático.
+                </S.MenuDescription>
+                <CustomButton className="darkBorder" href="/menu/">
+                  Ver menú
+                </CustomButton>
+              </S.FadeWrapper>
+            </Fade>
+          </S.ContentWrapper>
+        </Container>
+      </S.RightWrapper>
     </RowGrid>
   )
 }

@@ -5,7 +5,7 @@ import WhiteLogo from "../../assets/logo4.svg"
 import CustomButton from "../../components/custom-button/custom-button.component"
 import { Container } from "@mui/material"
 import { Parallax } from "react-parallax"
-import LogoMenu from "../../assets/logoVertical.svg"
+import LogoMenu from "../../assets/pepper-line.svg"
 
 export const Wrapper = styled(CustomBgImage)`
   height: 100vh;
@@ -46,10 +46,11 @@ export const ContentWrapper = styled.div`
 
 export const ButtonWrapper = styled.div`
   display: flex;
+  flex-direction: column;
   margin: auto;
   justify-content: center;
   align-items: center;
-  gap: 1em;
+  padding-top: 2em;
 `
 
 export const Button = styled(CustomButton)`

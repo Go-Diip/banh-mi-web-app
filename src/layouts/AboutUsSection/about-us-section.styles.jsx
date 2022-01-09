@@ -3,6 +3,7 @@ import CustomImage from "../../components/custom-image/custom-image.component"
 import Pepper from "../../assets/pepper.svg"
 import { Container, Typography } from "@mui/material"
 import CustomBgImage from "../../components/custom-bg-image/custom-bg-image.component"
+import { Parallax } from "react-parallax"
 
 export const LeftImage = styled(CustomImage)`
   width: 100%;
@@ -19,12 +20,12 @@ export const Title = styled.h2`
 `
 
 export const Description = styled(Typography)`
-  font-size: 14px;
-  font-weight: 200;
-  line-height: 18px;
-  letter-spacing: 0;
-  text-align: left;
-  max-width: 514px;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 180%;
+  text-align: center;
+  max-width: 710px;
   margin: 0 auto;
   padding: 1em 0;
 `
@@ -70,5 +71,21 @@ export const CustomContainer = styled(Container)`
 `
 
 export const BgImage = styled(CustomBgImage)`
-  height: 100%;
+  height: 100vh;
+`
+
+export const CustomParallax = styled(Parallax)`
+  height: 100vh;
+  .react-parallax-content {
+    height: 100%;
+  }
+
+  .react-parallax-bgimage {
+    object-fit: cover;
+  }
+`
+
+export const WhiteIcon = styled(Pepper)`
+  width: 42px;
+  height: 45px;
 `

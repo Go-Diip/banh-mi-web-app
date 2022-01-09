@@ -18,24 +18,22 @@ const AboutUsSection = ({ title, description, chefs, leftImage }) => {
     }
   `)
   return (
-    <RowGrid image={leftImage} bgColor={theme.palette.primary.main}>
-      <S.BgImage img={staticQuery.red} tag="div">
-        <S.ContentWrapper id="about-us">
-          <S.PepperIcon />
-          <Container style={{ height: "100%" }}>
-            <S.TextWrapper>
-              <Fade>
-                {title && <S.Title>{title}</S.Title>}
-                {description && (
-                  <S.Description>{parse(description)}</S.Description>
-                )}
-                {chefs && <S.Chefs>{parse(chefs)}</S.Chefs>}
-              </Fade>
-            </S.TextWrapper>
-          </Container>
-        </S.ContentWrapper>
-      </S.BgImage>
-    </RowGrid>
+    <S.CustomParallax
+      bgImage="https://admin-banhmi.godiip.com/wp-content/uploads/2022/01/nosotros.jpg"
+      strength={300}
+    >
+      <S.ContentWrapper id="about-us">
+        {/*<S.PepperIcon />*/}
+        <Container style={{ height: "100%" }}>
+          <S.TextWrapper>
+            <S.WhiteIcon />
+            {title && <S.Title>{title}</S.Title>}
+            {description && <S.Description>{parse(description)}</S.Description>}
+            {chefs && <S.Chefs>{parse(chefs)}</S.Chefs>}
+          </S.TextWrapper>
+        </Container>
+      </S.ContentWrapper>
+    </S.CustomParallax>
   )
 }
 

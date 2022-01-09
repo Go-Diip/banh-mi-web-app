@@ -169,6 +169,10 @@ export const GlobalStyles = createGlobalStyle`
     max-width: 100%;
   }
 
+  .MuiTypography-caption {
+    color: black !important;
+  }
+
   .emphasis {
     color: ${({ theme }) => theme.palette.primary.main};
   }

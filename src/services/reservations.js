@@ -24,10 +24,11 @@ export const setReservation = async data => {
   }
 }
 
-export const updateReservationStatus = async (id, status) => {
+export const updateReservationData = async (id, data) => {
+  console.log("data tu update", data)
   try {
     const snapshot = await firestore.collection("reservations").doc(id)
-    return await snapshot.update(status)
+    return await snapshot.update(data)
   } catch (e) {
     return e
   }

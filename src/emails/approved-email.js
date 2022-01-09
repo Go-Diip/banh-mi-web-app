@@ -1,4 +1,10 @@
+import moment from "moment"
+import "moment/locale/es"
+
 const ApprovedEmail = (name, lastName, date, seats) => {
+  const formattedDate = moment(date, "DD MMM YYYY hh:mm", "es").format(
+    "DD MMM YYYY h:mm A"
+  )
   return `
     <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -77,7 +83,7 @@ const ApprovedEmail = (name, lastName, date, seats) => {
                         </p>
                         <p
                           style="font-family:Arial,sans-serif; font-size: 18px; margin-bottom: 16px; font-weight: 300; margin-top: 0">
-                          ${date}
+                          ${formattedDate}
                         </p>
                         <p
                           style="font-family:Arial,sans-serif; font-size: 14px; color: #111212; font-weight: 300; margin: 0; line-height: 27px;">

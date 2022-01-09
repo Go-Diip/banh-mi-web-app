@@ -7,21 +7,21 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
 import { useFormContext } from "react-hook-form"
 import WidgetSelect from "../widget-select/widget-select.component"
 
-const reasonOptions = [
+export const reasonOptions = [
   {
-    value: "none",
+    value: "ninguna",
     label: "Ninguna",
   },
   {
-    value: "birthday",
+    value: "cumpleaños",
     label: "Cumpleaños",
   },
   {
-    value: "work_meeting",
+    value: "reunión de trabajo",
     label: "Reunión de trabajo",
   },
   {
-    value: "special_occasion",
+    value: "ocasión especial",
     label: "Ocasión especial",
   },
 ]

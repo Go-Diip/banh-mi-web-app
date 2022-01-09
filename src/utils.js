@@ -5,6 +5,7 @@ import CryptoJS from "crypto-js"
 import canceledEmail from "./emails/canceled-email"
 import approvedEmail from "./emails/approved-email"
 import clientNotification from "./emails/client-notification"
+import { STATUSES } from "./components/reservations-reporter/reservations-reporter.component"
 
 export const isBrowser = () => typeof window !== "undefined"
 
@@ -16,7 +17,7 @@ export const emailTypes = {
 }
 
 export const getEmailData = (
-  { email, name, last_Name, table, seats, date },
+  { email, name, last_name, table, seats, date },
   emailType
 ) => {
   console.log("emailType", emailType)
@@ -33,7 +34,7 @@ export const getEmailData = (
         from: "Banh Mi  <no-reply@banhmi.com>",
         to: [email],
         subject: "Reservación Confirmada!",
-        html: approvedEmail(name, last_Name, date, seats),
+        html: approvedEmail(name, last_name, date, seats),
       }
     case emailTypes.CUSTOMER_CANCELED:
       return {
@@ -246,5 +247,23 @@ export const sendEmail = async (data, emailType) => {
     )
   } catch (e) {
     return e
+  }
+}
+
+export const getFormattedReservationData = data => {
+  const stringDate = `${data.date} ${data.time}`
+  // const phoneFormatted = `+593${data.phone.substring(1)}`
+  return {
+    name: data.name,
+    last_name: data.last_name,
+    email: data.email,
+    phone: data.phone,
+    area: data.area,
+    date: new Date(stringDate),
+    seats: parseInt(data.seats),
+    occasion: data.occasion,
+    table: data.table ?? "-",
+    notes: data.notes,
+    status: data.status ?? STATUSES.pending,
   }
 }

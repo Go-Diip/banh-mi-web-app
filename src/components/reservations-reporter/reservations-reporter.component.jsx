@@ -1,23 +1,12 @@
 import React, { useEffect, useState } from "react"
-import { updateReservationStatus } from "../../services/reservations"
+import { updateReservationData } from "../../services/reservations"
 import * as S from "./reservations-reporter.styles"
 import LoadableMuiDataTable from "../../components/loadable-mui-data-table/loadable-mui-data-table"
-import {
-  Dialog,
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Select,
-  TextField,
-} from "@mui/material"
-import Typography from "@mui/material/Typography"
-import CustomButton from "../custom-button/custom-button.component"
-import { useForm } from "react-hook-form"
 import Spinner from "../spinner/spinner.component"
-import CloseIcon from "@mui/icons-material/Close"
-import { emailTypes, sendEmail } from "../../utils"
+import { emailTypes, getFormattedReservationData, sendEmail } from "../../utils"
 import { firestore } from "../../services/firebase"
 import moment from "moment"
+import ReservationDialog from "./reservation-dialog/reservation-dialog.component"
 
 export const STATUSES = {
   approved: "Aprobado",
@@ -26,15 +15,10 @@ export const STATUSES = {
 }
 
 const ReservationsReporter = () => {
-  const { register, handleSubmit } = useForm()
   const [isLoading, setIsLoading] = useState(false)
   const [selectedDataIndex, setSelectedDataIndex] = useState(null)
   const [isOpenDialog, setIsOpenDialog] = useState(false)
-  // const data = useReservations()
   const [data, setData] = useState([])
-
-  console.log("selectedDataIndex", selectedDataIndex)
-  console.log("data", data)
 
   useEffect(() => {
     //added variable unsubscribe
@@ -44,7 +28,9 @@ const ReservationsReporter = () => {
         const listItems = snapshot.docs.map(doc => ({
           ...doc.data(),
           id: doc.id,
-          date: moment.unix(doc.data().date.seconds).format("DD/MM/YYYY kk:mm"),
+          date: moment
+            .unix(doc.data()?.date?.seconds)
+            .format("DD/MM/YYYY kk:mm"),
         }))
         setData(listItems)
       })
@@ -53,7 +39,6 @@ const ReservationsReporter = () => {
   }, [])
 
   const handleCellprops = (cellValue, rowIndex, columnIndex) => {
-    console.log("cellValue", cellValue)
     switch (cellValue) {
       case STATUSES.pending:
         return {
@@ -145,6 +130,14 @@ const ReservationsReporter = () => {
       },
     },
     {
+      name: "occasion",
+      label: "Ocasión",
+      options: {
+        filter: false,
+        sort: false,
+      },
+    },
+    {
       name: "notes",
       label: "Notas",
       options: {
@@ -155,7 +148,6 @@ const ReservationsReporter = () => {
   ]
 
   const handleCellClick = (colData, { rowIndex }) => {
-    console.log("ROW INDEX", rowIndex)
     setSelectedDataIndex(rowIndex)
     setIsOpenDialog(true)
   }
@@ -169,24 +161,24 @@ const ReservationsReporter = () => {
   }
 
   const handleDataUpdate = formData => {
+    const formattedData = getFormattedReservationData(formData)
+    const currentReservationData = data[selectedDataIndex]
     setIsLoading(true)
-    console.log("formData", formData)
-    const reservationData = data[selectedDataIndex]
-    console.log("selectedIndexTable", reservationData)
 
-    updateReservationStatus(reservationData.id, formData).then(response => {
-      console.log("responseUpdate", response)
-      if (formData.status === STATUSES.approved) {
-        sendEmail(reservationData, emailTypes.CUSTOMER_CONFIRMATION)
+    updateReservationData(currentReservationData.id, formattedData).then(
+      response => {
+        if (formData.status === STATUSES.approved) {
+          sendEmail(formattedData, emailTypes.CUSTOMER_CONFIRMATION)
+        }
+
+        if (formData.status === STATUSES.canceled) {
+          sendEmail(formattedData, emailTypes.CUSTOMER_CANCELED)
+        }
+
+        setIsLoading(false)
+        setIsOpenDialog(false)
       }
-
-      if (formData.status === STATUSES.canceled) {
-        sendEmail(reservationData, emailTypes.CUSTOMER_CANCELED)
-      }
-
-      setIsLoading(false)
-      setIsOpenDialog(false)
-    })
+    )
   }
 
   return (
@@ -199,50 +191,12 @@ const ReservationsReporter = () => {
         options={options}
       />
 
-      <Dialog onClose={() => setIsOpenDialog(false)} open={isOpenDialog}>
-        <S.DialogWrapper>
-          <S.CloseIconButton onClick={() => setIsOpenDialog(false)}>
-            <CloseIcon />
-          </S.CloseIconButton>
-          <Typography sx={{ marginBottom: "1em" }}>
-            Actualizar reservación
-          </Typography>
-          <form onSubmit={handleSubmit(handleDataUpdate)}>
-            <FormControl fullWidth>
-              <InputLabel id="statusUpdate">Estado</InputLabel>
-              <Select
-                {...register("status")}
-                label="Estado"
-                labelId="statusUpdate"
-                fullWidth
-                color="inputs"
-                defaultValue={data[selectedDataIndex]?.status}
-                // onChange={handleChange}
-              >
-                <MenuItem value={STATUSES.pending}>Pendiente</MenuItem>
-                <MenuItem value={STATUSES.canceled}>Cancelado</MenuItem>
-                <MenuItem value={STATUSES.approved}>Aprobado</MenuItem>
-              </Select>
-            </FormControl>
-            <TextField
-              label="Mesa"
-              {...register("table")}
-              fullWidth
-              margin="normal"
-              type="number"
-              color="inputs"
-              defaultValue={data[selectedDataIndex]?.table}
-            />
-            <CustomButton
-              style={{ marginTop: "1.5em" }}
-              fullWidth
-              type="submit"
-            >
-              Guardar
-            </CustomButton>
-          </form>
-        </S.DialogWrapper>
-      </Dialog>
+      <ReservationDialog
+        handleDataUpdate={handleDataUpdate}
+        onClose={() => setIsOpenDialog(false)}
+        open={isOpenDialog}
+        data={data[selectedDataIndex]}
+      />
     </S.Wrapper>
   )
 }

@@ -8,104 +8,201 @@ import {
   Typography,
 } from "@mui/material"
 import WidgetSelect from "../widget-select/widget-select.component"
-import { DatePicker, LocalizationProvider, TimePicker } from "@mui/lab"
+import { DatePicker, LocalizationProvider } from "@mui/lab"
 import DateAdapter from "@mui/lab/AdapterMoment"
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
 import { STEPS } from "../reservations-widget.component"
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday"
 import AccessTimeIcon from "@mui/icons-material/AccessTime"
 import moment from "moment"
+import "moment/locale/es"
 import { useFormContext } from "react-hook-form"
-import { getReservations } from "../../../services/reservations"
 import { Disclaimer } from "../reservations-widget.styles"
-
-const MIN_DATE = moment(new Date())
-const MAX_DATE = moment(MIN_DATE).add(2, "week")
-const MIN_TIME = moment("9:00", "HH:mm")
-const MAX_TIME = moment("20:00", "HH:mm")
+export const MIN_DATE = moment(new Date())
+export const MAX_DATE = moment(MIN_DATE).add(4, "week")
+export const timeOptions = [
+  {
+    value: "12:30",
+    label: "12:30 PM",
+  },
+  {
+    value: "12:45",
+    label: "12:45 PM",
+  },
+  {
+    value: "13:00",
+    label: "1:00 PM",
+  },
+  {
+    value: "13:15",
+    label: "1:15 PM",
+  },
+  {
+    value: "13:30",
+    label: "1:30 PM",
+  },
+  {
+    value: "13:45",
+    label: "1:45 PM",
+  },
+  {
+    value: "14:00",
+    label: "2:00 PM",
+  },
+  {
+    value: "14:15",
+    label: "2:15 PM",
+  },
+  {
+    value: "14:30",
+    label: "2:30 PM",
+  },
+  {
+    value: "14:45",
+    label: "2:45 PM",
+  },
+  {
+    value: "15:00",
+    label: "3:00 PM",
+  },
+  {
+    value: "18:00",
+    label: "6:00 PM",
+  },
+  {
+    value: "18:15",
+    label: "6:15 PM",
+  },
+  {
+    value: "18:30",
+    label: "6:30 PM",
+  },
+  {
+    value: "18:45",
+    label: "6:45 PM",
+  },
+  {
+    value: "19:00",
+    label: "7:00 PM",
+  },
+  {
+    value: "19:15",
+    label: "7:15 PM",
+  },
+  {
+    value: "19:30",
+    label: "7:30 PM",
+  },
+  {
+    value: "20:00",
+    label: "8:00 PM",
+  },
+  {
+    value: "20:15",
+    label: "8:15 PM",
+  },
+  {
+    value: "20:30",
+    label: "8:30 PM",
+  },
+  {
+    value: "20:45",
+    label: "8:45 PM",
+  },
+  {
+    value: "21:00",
+    label: "9:00 PM",
+  },
+  {
+    value: "21:15",
+    label: "9:15 PM",
+  },
+  {
+    value: "21:30",
+    label: "9:30 PM",
+  },
+  {
+    value: "21:45",
+    label: "9:45 PM",
+  },
+  {
+    value: "22:00",
+    label: "10:00 PM",
+  },
+]
+export const seatsOptions = [
+  {
+    value: 1,
+    label: "1 Persona",
+  },
+  {
+    value: 2,
+    label: "2 Personas",
+  },
+  {
+    value: 3,
+    label: "3 Personas",
+  },
+  {
+    value: 4,
+    label: "4 Personas",
+  },
+  {
+    value: 5,
+    label: "5 Personas",
+  },
+  {
+    value: 6,
+    label: "6 Personas",
+  },
+  {
+    value: 7,
+    label: "7 Personas",
+  },
+  {
+    value: 8,
+    label: "8 Personas",
+  },
+  {
+    value: 9,
+    label: "9 Personas",
+  },
+  {
+    value: 10,
+    label: "10 Personas",
+  },
+]
 const StepOne = ({ setCurrentStep }) => {
   const { register, setValue } = useFormContext()
   const [selectedDate, setSelectedDate] = useState(MIN_DATE)
-  const [selectedTime, setSelectedTime] = useState(MIN_TIME)
   const [dateOpen, setDateOpen] = useState(false)
-  const [timeOpen, setTimeOpen] = useState(false)
-  // const peopleOptions = [
-  //   "1 persona",
-  //   "2 personas",
-  //   "3 personas",
-  //   "4 personas",
-  //   "5 personas",
-  //   "6 personas",
-  //   "7 personas",
-  //   "8 personas",
-  //   "9 personas",
-  //   "10 personas",
-  // ]
-  const peopleOptions = [
-    {
-      value: 1,
-      label: "1 Persona",
-    },
-    {
-      value: 2,
-      label: "2 Personas",
-    },
-    {
-      value: 3,
-      label: "3 Personas",
-    },
-    {
-      value: 4,
-      label: "4 Personas",
-    },
-    {
-      value: 5,
-      label: "5 Personas",
-    },
-    {
-      value: 6,
-      label: "6 Personas",
-    },
-    {
-      value: 7,
-      label: "7 Personas",
-    },
-    {
-      value: 8,
-      label: "8 Personas",
-    },
-    {
-      value: 9,
-      label: "9 Personas",
-    },
-    {
-      value: 10,
-      label: "10 Personas",
-    },
-  ]
+
+  const disableMondays = date => {
+    return date.day() === 1
+  }
 
   useEffect(() => {
     setValue("date", moment(selectedDate).format("YYYY/MM/DD"))
   }, [selectedDate])
 
-  useEffect(() => {
-    setValue("time", moment(selectedTime).format("HH:mm:ss"))
-  }, [selectedTime])
+  // useEffect(() => {
+  //   setValue("time", moment(selectedTime).format("HH:mm:ss"))
+  // }, [selectedTime])
 
   return (
     <S.Wrapper>
       <Grid container>
         <Grid item xs={12} md>
           <WidgetSelect
-            options={peopleOptions}
+            options={seatsOptions}
             name="seats"
             label="Personas"
-            defaultValue={peopleOptions[0].value}
+            defaultValue={seatsOptions[0].value}
             isRequired
           />
         </Grid>
         <Grid item xs={12} md>
-          <LocalizationProvider dateAdapter={DateAdapter}>
+          <LocalizationProvider dateAdapter={DateAdapter} locale="es">
             <DatePicker
               label="Fecha"
               inputFormat="MMM DD"
@@ -117,6 +214,7 @@ const StepOne = ({ setCurrentStep }) => {
               onChange={date => setSelectedDate(date)}
               minDate={MIN_DATE}
               maxDate={MAX_DATE}
+              shouldDisableDate={disableMondays}
               variant="inline"
               inputVariant="outlined"
               InputProps={{
@@ -128,8 +226,6 @@ const StepOne = ({ setCurrentStep }) => {
               }}
               disablePast={true}
               InputAdornmentProps={{ position: "start" }}
-              // value={value}
-              // onChange={handleChange}
               renderInput={params => (
                 <TextField
                   className="date"
@@ -143,36 +239,18 @@ const StepOne = ({ setCurrentStep }) => {
           </LocalizationProvider>
         </Grid>
         <Grid item xs={12} md>
-          <LocalizationProvider dateAdapter={DateAdapter}>
-            <TimePicker
-              onOpen={() => setTimeOpen(true)}
-              onClose={() => setTimeOpen(false)}
-              open={timeOpen}
-              label="Hora"
-              autoOk
-              minutesStep={30}
-              value={selectedTime}
-              maxTime={MAX_TIME}
-              minTime={MIN_TIME}
-              onChange={time => setSelectedTime(time)}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <AccessTimeIcon />
-                  </InputAdornment>
-                ),
-              }}
-              InputAdornmentProps={{ position: "start" }}
-              renderInput={params => (
-                <TextField
-                  fullWidth
-                  className="time"
-                  onClick={() => setTimeOpen(true)}
-                  {...params}
-                />
-              )}
-            />
-          </LocalizationProvider>
+          <WidgetSelect
+            options={timeOptions}
+            name="time"
+            label="Hora"
+            defaultValue={timeOptions[0]}
+            startAdornment={
+              <InputAdornment position="start">
+                <AccessTimeIcon />
+              </InputAdornment>
+            }
+            isRequired
+          />
         </Grid>
         <Grid item xs={12} md>
           <Button

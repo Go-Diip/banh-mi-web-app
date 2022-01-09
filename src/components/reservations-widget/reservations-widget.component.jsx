@@ -8,8 +8,7 @@ import StepOne from "./step-one/step-one.component"
 import StepTwo from "./step-two/step-two.component"
 import StepThree from "./step-three/step-three.component"
 import { setReservation } from "../../services/reservations"
-import { STATUSES } from "../reservations-reporter/reservations-reporter.component"
-import { emailTypes, sendEmail } from "../../utils"
+import { getFormattedReservationData } from "../../utils"
 import Spinner from "../spinner/spinner.component"
 import { navigate } from "gatsby-link"
 
@@ -47,26 +46,12 @@ const ReservationsWidget = () => {
     if (!shouldSubmit) return
     setIsLoading(true)
     console.log("submit data", data)
-    const stringDate = `${data.date} ${data.time}`
-    const phoneFormatted = `+593${data.phone.substring(1)}`
-    const formattedData = {
-      name: data.name,
-      last_name: data.last_name,
-      email: data.email,
-      phone: phoneFormatted,
-      area: data.area,
-      date: new Date(stringDate),
-      seats: parseInt(data.seats),
-      occasion: data.occasion,
-      table: "-",
-      notes: data.notes,
-      status: STATUSES.pending,
-    }
+    const formattedData = getFormattedReservationData(data)
 
     setReservation({
       ...formattedData,
     }).then(r => {
-      setOverviewData({ ...formattedData, date: stringDate })
+      setOverviewData({ ...formattedData, date: `${data.date} ${data.time}` })
       setIsLoading(false)
     })
     // await Promise.all([

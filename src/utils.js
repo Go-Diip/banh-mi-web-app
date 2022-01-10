@@ -267,3 +267,7 @@ export const getFormattedReservationData = data => {
     status: data.status ?? STATUSES.pending,
   }
 }
+
+export const disableMondays = date => {
+  return date.day() === 1 || date.day() === 0
+}

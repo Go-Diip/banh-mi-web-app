@@ -18,6 +18,7 @@ import moment from "moment"
 import "moment/locale/es"
 import { useFormContext } from "react-hook-form"
 import { Disclaimer } from "../reservations-widget.styles"
+import { disableMondays } from "../../../utils"
 export const MIN_DATE = moment(new Date())
 export const MAX_DATE = moment(MIN_DATE).add(4, "week")
 export const timeOptions = [
@@ -176,10 +177,6 @@ const StepOne = ({ setCurrentStep }) => {
   const { register, setValue } = useFormContext()
   const [selectedDate, setSelectedDate] = useState(MIN_DATE)
   const [dateOpen, setDateOpen] = useState(false)
-
-  const disableMondays = date => {
-    return date.day() === 1
-  }
 
   useEffect(() => {
     setValue("date", moment(selectedDate).format("YYYY/MM/DD"))

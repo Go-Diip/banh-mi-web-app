@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react"
-import { CircularProgress, Dialog, Grid, InputAdornment, TextField, withStyles } from "@mui/material"
+import {
+  CircularProgress,
+  Dialog,
+  Grid,
+  InputAdornment,
+  TextField,
+} from "@mui/material"
 import CloseIcon from "@mui/icons-material/Close"
 import Typography from "@mui/material/Typography"
 import CustomButton from "../../custom-button/custom-button.component"
@@ -7,7 +13,7 @@ import { reasonOptions } from "../../reservations-widget/step-three/step-three.c
 import EmailIcon from "@mui/icons-material/Email"
 import * as S from "./reservation-dialog.styles"
 import WidgetTextField from "../../reservations-widget/widget-text-field/widget-text-field.component"
-import { validatePhone } from "../../../utils"
+import { disableMondays, validatePhone } from "../../../utils"
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone"
 import { FormProvider, useForm } from "react-hook-form"
 import WidgetSelect from "../../reservations-widget/widget-select/widget-select.component"
@@ -40,10 +46,6 @@ const ReservationDialog = ({
     reValidateMode: "onBlur",
   })
   const { handleSubmit, register, setValue } = methods
-
-  const disableMondays = date => {
-    return date.day() === 1
-  }
 
   useEffect(() => {
     if (data && shouldEdit) {
@@ -258,9 +260,12 @@ const ReservationDialog = ({
               type="submit"
             >
               Guardar
-              {isLoading &&  <CircularProgress style={{marginLeft: ".5em", color: "black"}}
-                size={20}
-              />}
+              {isLoading && (
+                <CircularProgress
+                  style={{ marginLeft: ".5em", color: "black" }}
+                  size={20}
+                />
+              )}
             </CustomButton>
           </form>
         </FormProvider>

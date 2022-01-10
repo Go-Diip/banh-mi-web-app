@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react"
-import { setReservation, updateReservationData } from "../../services/reservations"
+import {
+  setReservation,
+  updateReservationData,
+} from "../../services/reservations"
 import * as S from "./reservations-reporter.styles"
 import LoadableMuiDataTable from "../../components/loadable-mui-data-table/loadable-mui-data-table"
 import Spinner from "../spinner/spinner.component"
@@ -181,40 +184,23 @@ const ReservationsReporter = () => {
     customToolbar: () => <HeaderElements />,
   }
 
-  const handleDataInput = formData => {
+  const handleDataInput = async formData => {
     const formattedData = getFormattedReservationData(formData)
     const currentReservationData = data[selectedDataIndex]
     setIsLoading(true)
 
     if (shouldEdit) {
-      updateReservationData(currentReservationData.id, formattedData).then(
-        response => {
-          if (
-            formData.status === STATUSES.approved &&
-            currentReservationData.status !== STATUSES.approved
-          ) {
-            sendEmail(formattedData, emailTypes.CUSTOMER_CONFIRMATION)
-          }
-
-          if (
-            formData.status === STATUSES.canceled &&
-            currentReservationData.status !== STATUSES.canceled
-          ) {
-            sendEmail(formattedData, emailTypes.CUSTOMER_CANCELED)
-          }
-
-          setIsLoading(false)
-          setIsOpenDialog(false)
-        }
-      )
+      await updateReservationData(currentReservationData.id, formattedData)
     } else {
-      setReservation({
+      await setReservation({
         ...formattedData,
-      }).then(r => {
-        setIsLoading(false)
-        setIsOpenDialog(false)
       })
     }
+    await sendEmail(formattedData, emailTypes.CUSTOMER_CONFIRMATION)
+    await sendEmail(formattedData, emailTypes.CUSTOMER_CANCELED)
+
+    setIsLoading(false)
+    setIsOpenDialog(false)
   }
 
   return (

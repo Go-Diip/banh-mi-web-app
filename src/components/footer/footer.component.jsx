@@ -59,7 +59,7 @@ const Footer = ({ className }) => {
                           "Martes a Sábado<br>" +
                           "12:30-15:30 y 19:00-22:30<br>" +
                           "---<br>" +
-                          "Domingos a Lunes: cerrados"
+                          "Domingos y Lunes: cerrados"
                       )}
                     </S.Text>
                     <S.PhoneWrapper>

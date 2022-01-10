@@ -270,7 +270,7 @@ const StepOne = ({ setCurrentStep }) => {
             <Typography>Horario de atención: Martes a Sábado</Typography>
           </Grid>
           <Grid item xs={12} md={6}>
-            <Typography>Restaurante - Almuerzo: 12:30 - 15:30</Typography>
+            <Typography>Restaurante: 12:30 - 15:30</Typography>
             <Typography>Restaurante y Bar: 18:00 - 23:00</Typography>
           </Grid>
         </Grid>

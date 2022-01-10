@@ -73,7 +73,7 @@ const ReservationDialog = ({
       setValue("phone", "")
       setValue("time", timeOptions[0].value)
       setValue("seats", "")
-      setValue("area", "bar")
+      setValue("area", "restaurante")
       setValue("occasion", "ninguna")
       setValue("notes", "")
     }
@@ -226,8 +226,8 @@ const ReservationDialog = ({
                       value: "restaurante",
                     },
                     {
-                      label: "Bar",
-                      value: "bar",
+                      label: "Segundo Piso",
+                      value: "segundo piso",
                     },
                   ]}
                   name="area"

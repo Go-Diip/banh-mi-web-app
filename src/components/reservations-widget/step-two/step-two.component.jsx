@@ -107,9 +107,9 @@ const StepTwo = ({ setCurrentStep }) => {
                     label="Restaurante"
                   />
                   <S.CustomRadioButton
-                    value="bar"
+                    value="segundo piso"
                     control={<Radio />}
-                    label="Bar"
+                    label="Segundo Piso"
                   />
                 </RadioGroup>
               )}

@@ -65,6 +65,8 @@ export const MainWrapper = styled.div`
   flex: 1;
   padding: 2em;
   height: 100%;
+  position: relative;
+  z-index: 2;
   color: ${({ theme }) => theme.palette.text.primary};
   overflow-y: auto;
   ${({ theme }) => theme.breakpoints.up("lg")} {

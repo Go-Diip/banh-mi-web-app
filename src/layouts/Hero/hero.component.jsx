@@ -1,6 +1,7 @@
 import React from "react"
 import * as S from "./hero.styles"
 import { InfoWrapper } from "./hero.styles"
+import { Fade } from "react-awesome-reveal"
 
 const Hero = ({ title }) => {
   return (
@@ -11,16 +12,18 @@ const Hero = ({ title }) => {
       <S.TopWrapper>
         {/*<S.Pepper />*/}
         <S.CustomContainer maxWidth="xl">
-          <S.ContentWrapper>
-            <S.LogoVertical />
-            {/*<S.Title>{title}</S.Title>*/}
-            <S.ButtonWrapper>
-              <S.Button className="lightBorderWhite" href="/reservations/">
-                reservas
-              </S.Button>
-              <S.Button className="lightBorderWhite">ordena online</S.Button>
-            </S.ButtonWrapper>
-          </S.ContentWrapper>
+          <Fade triggerOnce duration={1300}>
+            <S.ContentWrapper>
+              <S.LogoVertical />
+              {/*<S.Title>{title}</S.Title>*/}
+              <S.ButtonWrapper>
+                <S.Button className="lightBorderWhite" href="/reservations/">
+                  reservas
+                </S.Button>
+                <S.Button className="lightBorderWhite">ordena online</S.Button>
+              </S.ButtonWrapper>
+            </S.ContentWrapper>
+          </Fade>
         </S.CustomContainer>
       </S.TopWrapper>
     </S.CustomParallax>

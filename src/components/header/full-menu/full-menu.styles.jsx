@@ -14,7 +14,7 @@ export const MenuWrapper = styled.div`
 export const Wrapper = styled.div`
   position: relative;
   height: 100%;
-  width: 50vw;
+  width: 100vw;
   margin-left: auto;
   background-color: #f6faf4;
 `

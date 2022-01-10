@@ -3,8 +3,8 @@ import { Select, TextField, Typography } from "@mui/material"
 import CustomImage from "../custom-image/custom-image.component"
 
 export const Wrapper = styled.div`
-  width: 50vw;
-  height: 90vh;
+  width: 700px;
+  height: 680px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -15,7 +15,7 @@ export const Wrapper = styled.div`
 
 export const Description = styled(Typography)`
   font-family: Montserrat, sans-serif;
-  padding: 1em 0;
+  padding: 0 0 1em;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -40,6 +40,7 @@ export const Image = styled(CustomImage)`
     width: 100%;
     height: 100%;
   }
+  padding-bottom: 1em;
 `
 
 export const RightWrapper = styled.div`
@@ -49,10 +50,19 @@ export const RightWrapper = styled.div`
 
 export const TopWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   svg {
     cursor: pointer;
     fill: ${({ theme }) => theme.palette.primary.main};
   }
+`
+
+export const Title = styled.h2`
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 100%;
+  color: #111212;
+  padding-top: 0.5em;
 `

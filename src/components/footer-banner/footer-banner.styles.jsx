@@ -3,6 +3,7 @@ import Pepper from "../../assets/middlePepper.svg"
 import { Typography } from "@mui/material"
 import CustomButton from "../custom-button/custom-button.component"
 import PepperIcon from "../../assets/pepper.svg"
+import CustomBgImage from "../custom-bg-image/custom-bg-image.component"
 
 export const Wrapper = styled.div`
   //background-color: #c2312c;
@@ -53,4 +54,16 @@ export const BannerDescription = styled(Typography)`
 
 export const Button = styled(CustomButton)`
   max-width: 200px;
+`
+
+export const BgWrapper = styled(CustomBgImage)`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-color: black;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover !important;
+  }
 `

@@ -186,9 +186,8 @@ const ReservationForm = ({ close }) => {
             <S.RightWrapper>
               <S.Image img={staticQuery.menu} />
               <S.Description>
-                Banh Mi offers seasonally inspired menus featuring the highest
-                quality seafood and meats available from the local Gulf coast
-                and beyond.
+                Cocina inspirada en productos locales con los sabores y la magia
+                del Sureste Asiático.
               </S.Description>
             </S.RightWrapper>
           </Grid>

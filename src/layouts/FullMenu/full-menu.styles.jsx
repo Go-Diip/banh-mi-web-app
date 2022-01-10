@@ -93,10 +93,12 @@ export const BarWrapper = styled.div`
 export const Link = styled(CustomLink)``
 
 export const ArrowIcon = styled(ArrowBackIcon)`
+  transition: 0.3s all ease;
   color: #f6faf4;
 `
 
 export const HomeText = styled.span`
+  transition: 0.3s all ease;
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
@@ -109,4 +111,15 @@ export const ButtonWrapper = styled.div`
   display: flex;
   align-items: center;
   margin-left: 80px;
+  transition: 0.3s all ease;
+
+  &:hover {
+    svg {
+      transform: translate(-5px);
+      fill: ${({ theme }) => theme.palette.primary.main};
+    }
+    span {
+      color: ${({ theme }) => theme.palette.primary.main};
+    }
+  }
 `

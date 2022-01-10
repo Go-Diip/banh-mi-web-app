@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { Dialog, Grid, InputAdornment, TextField } from "@mui/material"
+import { CircularProgress, Dialog, Grid, InputAdornment, TextField, withStyles } from "@mui/material"
 import CloseIcon from "@mui/icons-material/Close"
 import Typography from "@mui/material/Typography"
 import CustomButton from "../../custom-button/custom-button.component"
@@ -31,6 +31,7 @@ const ReservationDialog = ({
   open,
   handleDataInput,
   shouldEdit,
+  isLoading,
 }) => {
   const [selectedDate, setSelectedDate] = useState(MIN_DATE)
   const [dateOpen, setDateOpen] = useState(false)
@@ -253,9 +254,13 @@ const ReservationDialog = ({
             <CustomButton
               style={{ marginTop: "1.5em" }}
               fullWidth
+              disabled={!!isLoading}
               type="submit"
             >
               Guardar
+              {isLoading &&  <CircularProgress style={{marginLeft: ".5em", color: "black"}}
+                size={20}
+              />}
             </CustomButton>
           </form>
         </FormProvider>

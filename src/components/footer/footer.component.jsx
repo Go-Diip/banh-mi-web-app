@@ -32,7 +32,7 @@ const Footer = ({ className }) => {
   return (
     <>
       <FooterBanner id="contact" />
-      <S.Wrapper className={className}>
+      <S.Wrapper className={className} id="ordena-online">
         <Container maxWidth="xl">
           <Grid container spacing={4}>
             <Grid item xs={12} md={4}>
@@ -59,7 +59,7 @@ const Footer = ({ className }) => {
                           "Martes a Sábado<br>" +
                           "12:30-15:30 y 19:00-22:30<br>" +
                           "---<br>" +
-                          "Lunes y Domingos: cerrados"
+                          "Domingos a Lunes: cerrados"
                       )}
                     </S.Text>
                     <S.PhoneWrapper>

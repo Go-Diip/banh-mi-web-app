@@ -3,12 +3,25 @@ import CustomBgImage from "../custom-bg-image/custom-bg-image.component"
 import { Dialog, Tabs } from "@mui/material"
 import Typography from "@mui/material/Typography"
 import CustomButton from "../custom-button/custom-button.component"
+import BgLogo from "../../images/logo-bg.svg"
 
 export const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   background-color: #f7f7f7;
   margin-top: -${({ theme }) => theme.navHeight}px;
+  position: relative;
+  &:after {
+    content: "";
+    opacity: 0.03;
+    background: url(${BgLogo}) no-repeat center center;
+    background-size: cover;
+    width: 500px;
+    height: 500px;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+  }
 
   ${({ theme }) => theme.breakpoints.up("md")} {
     min-height: 600px;

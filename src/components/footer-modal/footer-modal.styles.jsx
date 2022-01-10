@@ -50,8 +50,8 @@ export const RightWrapper = styled.div`
 
 export const TopWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   svg {
     cursor: pointer;
     fill: ${({ theme }) => theme.palette.primary.main};

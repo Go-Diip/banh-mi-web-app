@@ -189,11 +189,17 @@ const ReservationsReporter = () => {
     if (shouldEdit) {
       updateReservationData(currentReservationData.id, formattedData).then(
         response => {
-          if (formData.status === STATUSES.approved) {
+          if (
+            formData.status === STATUSES.approved &&
+            currentReservationData.status !== STATUSES.approved
+          ) {
             sendEmail(formattedData, emailTypes.CUSTOMER_CONFIRMATION)
           }
 
-          if (formData.status === STATUSES.canceled) {
+          if (
+            formData.status === STATUSES.canceled &&
+            currentReservationData.status !== STATUSES.canceled
+          ) {
             sendEmail(formattedData, emailTypes.CUSTOMER_CANCELED)
           }
 

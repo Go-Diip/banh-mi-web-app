@@ -3,7 +3,9 @@ import styled from "styled-components"
 import PepperIcon from "../../assets/pepperBlack.svg"
 import { Link } from "react-scroll"
 
-export const CustomAppBar = styled(AppBar)``
+export const CustomAppBar = styled(AppBar)`
+  width: auto;
+`
 
 export const MainNav = styled.div`
   display: flex;

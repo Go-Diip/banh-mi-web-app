@@ -48,3 +48,13 @@ export const MenuWrapper = styled.div`
   margin: auto;
   padding-top: 2em;
 `
+
+export const ItemsWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 0.5em 0;
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+`

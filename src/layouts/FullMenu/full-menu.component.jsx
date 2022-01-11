@@ -18,6 +18,8 @@ const FullMenu = ({ title }) => {
             description
             price
             title
+            vegan
+            spicy
           }
           productCategories {
             nodes {
@@ -117,7 +119,7 @@ const FullMenu = ({ title }) => {
           </S.ItemsWrapper>
           <MenuItems
             items={productsToShow}
-            title={newProductCategories[currentCategoryIndex].name}
+            title={newProductCategories[currentCategoryIndex]?.name}
           />
           <S.OptionsWrapper>
             <S.IconsWrapper>

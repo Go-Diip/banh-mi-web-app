@@ -2,6 +2,8 @@ import React from "react"
 import * as S from "./menu-items.styles"
 import { Container, Grid } from "@mui/material"
 import parse from "html-react-parser"
+import VegIcon from "../../assets/veg.svg"
+import PepperIcon from "../../assets/chili.svg"
 
 const MenuItems = ({ items, title }) => {
   const newItems = items.reverse()
@@ -47,6 +49,10 @@ const MenuItems = ({ items, title }) => {
                   }}
                 >
                   {product.title} {product.price}
+                  <S.ItemsWrapper>
+                    {product.spicy && <PepperIcon />}
+                    {product.vegan && <VegIcon />}
+                  </S.ItemsWrapper>
                 </S.ProductTitle>
                 {product.description && (
                   <S.ProductDescription>

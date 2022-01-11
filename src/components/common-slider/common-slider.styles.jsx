@@ -4,6 +4,7 @@ import Logo from "../../assets/logo.svg"
 
 export const Wrapper = styled.div`
   position: relative;
+  height: 100vh;
 
   .slick-dots {
     bottom: 40px;
@@ -20,14 +21,18 @@ export const Wrapper = styled.div`
   }
 `
 
-export const SlideImage = styled(CustomImage)`
+export const SlideImage = styled.img`
   width: 100%;
   height: 100vh;
-  object-fit: cover;
 `
 
 export const Icon = styled(Logo)`
   position: absolute;
   z-index: 2;
   top: 30px;
+`
+
+export const ImageWrapper = styled.div`
+  width: 100%;
+  height: 100vh;
 `

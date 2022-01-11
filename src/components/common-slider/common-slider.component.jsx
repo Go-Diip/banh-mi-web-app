@@ -23,7 +23,9 @@ const CommonSlider = ({ images, haveIcon }) => {
       )}
       <Slider {...sliderSettings}>
         {images.map(({ image }, index) => (
-          <S.SlideImage key={`image-slide-${index}`} img={image} />
+          <S.ImageWrapper key={`image-slide-${index}`}>
+            <S.SlideImage src={image?.sourceUrl} />
+          </S.ImageWrapper>
         ))}
       </Slider>
     </S.Wrapper>

@@ -51,7 +51,10 @@ const ReservationsWidget = () => {
     setReservation({
       ...formattedData,
     }).then(r => {
-      setOverviewData({ ...formattedData, date: `${data.date} ${data.time}` })
+      setOverviewData({
+        ...formattedData,
+        date: `${data.date} a las ${data.time.label}`,
+      })
       setIsLoading(false)
     })
     // await Promise.all([
@@ -121,8 +124,9 @@ const ReservationsWidget = () => {
             <Grid item xs={12} sm={6}>
               <S.ModalName>Hola {overviewData?.name}</S.ModalName>
               <S.ModalDescription>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,
-                accusamus ad animi aut ex expedita facere libero, magni neque,
+                Hemos recibido tu solicitud de reservación. En máximo 10 minutos
+                recibirás un mensaje vía WhatsApp y un correo electrónico con la
+                confirmación de tu reservación.
               </S.ModalDescription>
             </Grid>
             <Grid item xs={12} sm={6}>

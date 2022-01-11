@@ -129,7 +129,7 @@ export const CustomModal = styled(Dialog)`
       &:before {
         content: "";
         position: absolute;
-        left: 8px;
+        left: 18px;
         bottom: 0;
         width: 1px;
         height: calc(100% - 2.7em);

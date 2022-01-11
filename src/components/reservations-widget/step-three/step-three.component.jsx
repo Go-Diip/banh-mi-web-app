@@ -24,6 +24,10 @@ export const reasonOptions = [
     value: "ocasión especial",
     label: "Ocasión especial",
   },
+  {
+    value: "aniversario",
+    label: "Aniversario",
+  },
 ]
 
 const StepThree = () => {
@@ -47,7 +51,9 @@ const StepThree = () => {
         </S.ReviewBox>
         <S.ReviewBox>
           <label>Lugar</label>
-          <Typography>{values[4]}</Typography>
+          <Typography style={{ textTransform: "capitalize" }}>
+            {values[4]}
+          </Typography>
         </S.ReviewBox>
         <WidgetSelect
           options={reasonOptions}
@@ -85,16 +91,17 @@ const StepThree = () => {
       >
         <S.ImportantInfo>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab beatae
-            dignissimos, dolore ipsa molestias repellendus velit. Animi
-            blanditiis, consequuntur dolorem, ducimus esse explicabo nobis omnis
-            pariatur possimus, quam recusandae suscipit?
+            <b>POLÍTICAS DE RESERVACIONES</b>
           </p>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab beatae
-            dignissimos, dolore ipsa molestias repellendus velit. Animi
-            blanditiis, consequuntur dolorem, ducimus esse explicabo nobis omnis
-            pariatur possimus, quam recusandae suscipit?
+            Una vez enviada tu solicitud de reservación deberás esperar por la
+            confirmación de tu reservación vía WhatsApp y correo electrónico con
+            la confirmación en un tiempo máximo de 10 minutos. En caso de
+            retraso, cancelaciones o cambio de hora de tu reserva por favor
+            notifícanos vía WhatsApp o llamada telefónica, al: 099 770 2994.
+            También puedes realizar tu reservación vía WhatsApp o llamada
+            telefónica. El restaurante no garantiza ubicación de la mesa al
+            momento de realizar la reservación.
           </p>
         </S.ImportantInfo>
         <Button

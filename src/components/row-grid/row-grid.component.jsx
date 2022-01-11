@@ -1,6 +1,6 @@
 import React from "react"
 import * as S from "./row-grid.styles"
-import { Grid } from "@mui/material"
+import { Grid, useMediaQuery, useTheme } from "@mui/material"
 import CommonSlider from "../common-slider/common-slider.component"
 
 const RowGrid = ({

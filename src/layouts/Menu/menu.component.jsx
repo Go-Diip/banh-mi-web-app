@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import * as S from "./menu.styles"
-import { Container } from "@mui/material"
-import theme from "../../gatsby-theme-material-ui-top-layout/theme"
+import { Container, useMediaQuery, useTheme } from "@mui/material"
 import RowGrid from "../../components/row-grid/row-grid.component"
 import CustomButton from "../../components/custom-button/custom-button.component"
 import { graphql, useStaticQuery } from "gatsby"

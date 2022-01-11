@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import * as S from "./full-menu.styles"
 import { graphql, useStaticQuery } from "gatsby"
-import { Container } from "@mui/material"
+import { Container, useMediaQuery, useTheme } from "@mui/material"
 import MenuItems from "../../components/menu-items/menu-items.component"
 import VegIcon from "../../assets/veg.svg"
 import PepperIcon from "../../assets/chili.svg"

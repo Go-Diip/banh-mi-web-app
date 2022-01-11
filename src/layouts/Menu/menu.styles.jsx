@@ -8,6 +8,9 @@ export const RightWrapper = styled.div`
   height: 100%;
   position: relative;
   background-color: #f6faf4;
+  ${({ theme }) => theme.breakpoints.down("md")} {
+    padding: 5em 0;
+  }
 `
 
 export const Pepper = styled(PepperMenu)`

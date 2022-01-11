@@ -57,7 +57,11 @@ const Footer = ({ className }) => {
                       {parse(
                         "<strong>Horario:</strong><br>" +
                           "Martes a Sábado<br>" +
-                          "12:30-15:30 y 19:00-22:30<br>" +
+                          "Restaurante<br>" +
+                          "12:30pm - 3:30pm<br>" +
+                          "7:00pm - 10:30pm<br>" +
+                          "Segundo Piso<br>" +
+                          "7:00pm - 12:00am<br>" +
                           "---<br>" +
                           "Domingos y Lunes: cerrados"
                       )}

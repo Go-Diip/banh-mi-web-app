@@ -18,7 +18,7 @@ const Hero = ({ title }) => {
               {/*<S.Title>{title}</S.Title>*/}
               <S.ButtonWrapper>
                 <S.Button className="lightBorderWhite" href="/reservations/">
-                  reservas
+                  reservaciones
                 </S.Button>
                 <S.Button className="lightBorderWhite">ordena online</S.Button>
               </S.ButtonWrapper>

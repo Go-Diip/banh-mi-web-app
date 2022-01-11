@@ -37,8 +37,8 @@ const Menu = ({ image, images }) => {
                 {/*<S.BlackPepper />*/}
                 <S.Title>MENÚ</S.Title>
                 <S.MenuDescription>
-                  Cocina inspirada en productos locales con los sabores y la
-                  magia del Sureste Asiático.
+                  Cocina inspirada en productos locales con los sabores del
+                  Sureste Asiático.
                 </S.MenuDescription>
                 <CustomButton className="darkBorder" href="/menu/">
                   Ver menú

@@ -30,7 +30,7 @@ const FooterBanner = () => {
               <S.BannerTitle>Eventos privados</S.BannerTitle>
               <S.BannerDescription>
                 Reserva un espacio para eventos privados o para reservaciones de
-                mas de 12 personas
+                mas de 10 personas
               </S.BannerDescription>
             </S.TextWrapper>
             <S.Button className="lightRed" onClick={handleOpen}>

@@ -240,7 +240,7 @@ const StepOne = ({ setCurrentStep }) => {
             options={timeOptions}
             name="time"
             label="Hora"
-            defaultValue={timeOptions[0]}
+            defaultValue={timeOptions[0].value}
             startAdornment={
               <InputAdornment position="start">
                 <AccessTimeIcon />

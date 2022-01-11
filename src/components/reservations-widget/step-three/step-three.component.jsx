@@ -47,7 +47,7 @@ const StepThree = () => {
         </S.ReviewBox>
         <S.ReviewBox>
           <label>Reservado para el</label>
-          <Typography>{`${values[2]} a las ${values[3]?.label}`}</Typography>
+          <Typography>{`${values[2]} a las ${values[3]}`}</Typography>
         </S.ReviewBox>
         <S.ReviewBox>
           <label>Lugar</label>

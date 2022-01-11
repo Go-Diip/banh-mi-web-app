@@ -52,7 +52,7 @@ const ReservationsWidget = () => {
     }).then(r => {
       setOverviewData({
         ...formattedData,
-        date: `${data.date} a las ${data.time.label}`,
+        date: `${data.date} a las ${data.time}`,
       })
       setIsLoading(false)
     })

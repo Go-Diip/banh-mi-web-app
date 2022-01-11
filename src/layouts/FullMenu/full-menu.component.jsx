@@ -134,7 +134,7 @@ const FullMenu = ({ title }) => {
             </S.IconsWrapper>
             <S.Line />
             <S.DescWrapper>
-              <S.Description>Todos nuestros incluyen IVA</S.Description>
+              <S.Description>Todos nuestros precios incluyen I.V.A.</S.Description>
             </S.DescWrapper>
             <S.Line />
           </S.OptionsWrapper>

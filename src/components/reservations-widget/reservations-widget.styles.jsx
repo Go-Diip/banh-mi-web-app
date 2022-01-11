@@ -107,7 +107,7 @@ export const Disclaimer = styled.div`
     font-size: ${({ theme }) => theme.typography.pxToRem(14)};
     color: black;
     opacity: 0.75;
-    margin-bottom: 1em;
+    margin-bottom: 0.75em;
   }
 `
 

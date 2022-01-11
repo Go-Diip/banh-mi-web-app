@@ -267,8 +267,18 @@ const StepOne = ({ setCurrentStep }) => {
             <Typography>Horario de atención: Martes a Sábado</Typography>
           </Grid>
           <Grid item xs={12} md={6}>
-            <Typography>Restaurante: 12:30 - 15:30</Typography>
-            <Typography>Restaurante y Bar: 18:00 - 23:00</Typography>
+            <Typography>
+              <b>Horario </b>
+            </Typography>
+            <Typography>Martes a Sábado:</Typography>
+            <Typography>
+              Restaurante <br /> 12:30pm - 3:30pm 7:00pm - 10:30pm
+            </Typography>
+            <Typography>
+              Segundo Piso <br />
+              7:00pm - 12:00am
+            </Typography>
+            <Typography>Domingo y Lunes: cerrados</Typography>
           </Grid>
         </Grid>
       </Disclaimer>

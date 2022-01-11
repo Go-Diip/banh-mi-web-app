@@ -48,7 +48,7 @@ const FullMenu = ({ isActive, closeOpenMenu, isHome }) => {
                   duration={1000}
                   onClick={closeOpenMenu}
                 >
-                  <S.MenuItem>reservas</S.MenuItem>
+                  <S.MenuItem>reservaciones</S.MenuItem>
                 </S.SLink>
                 <S.SLink
                   to="ordena-online"
@@ -76,9 +76,17 @@ const FullMenu = ({ isActive, closeOpenMenu, isHome }) => {
                 </S.SLink>
               </>
             ) : (
-              <S.CSLink href="/">
-                <S.MenuItem>Inicio</S.MenuItem>
-              </S.CSLink>
+              <>
+                <S.CSLink href="/">
+                  <S.MenuItem>Inicio</S.MenuItem>
+                </S.CSLink>
+                <S.CSLink href="/reservations/">
+                  <S.MenuItem>Reservaciones</S.MenuItem>
+                </S.CSLink>
+                <S.CSLink href="/">
+                  <S.MenuItem>Ordena Online</S.MenuItem>
+                </S.CSLink>
+              </>
             )}
           </S.ItemsWrapper>
         </S.Wrapper>

@@ -45,9 +45,8 @@ const ReservationsWidget = () => {
   const onSubmit = async data => {
     if (!shouldSubmit) return
     setIsLoading(true)
-    console.log("submit data", data)
     const formattedData = getFormattedReservationData(data)
-
+    console.log("submit data", formattedData)
     setReservation({
       ...formattedData,
     }).then(r => {

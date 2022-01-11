@@ -251,7 +251,7 @@ export const sendEmail = async (data, emailType) => {
 }
 
 export const getFormattedReservationData = data => {
-  const stringDate = `${data.date} ${data.time}`
+  const stringDate = `${data.date} ${data.time.label}`
   // const phoneFormatted = `+593${data.phone.substring(1)}`
   return {
     name: data.name,

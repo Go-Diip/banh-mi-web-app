@@ -120,7 +120,7 @@ const FooterModal = ({ close }) => {
             <S.RightWrapper>
               <S.Image img={staticQuery.menu} />
               <S.Description>
-                ¡Forma parte de nuestro equipo ! En Banh Mi ofrocemos una cocina
+                ¡Forma parte de nuestro equipo! En Banh Mi ofrocemos una cocina
                 inspirada en productos locales con los sabores y la magia del
                 Sureste Asiático.
               </S.Description>

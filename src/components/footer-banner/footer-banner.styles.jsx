@@ -4,6 +4,8 @@ import { Typography } from "@mui/material"
 import CustomButton from "../custom-button/custom-button.component"
 import PepperIcon from "../../assets/pepper.svg"
 import CustomBgImage from "../custom-bg-image/custom-bg-image.component"
+import CustomImage from "../custom-image/custom-image.component"
+import SectionWrapper from "../section-wrapper/section-wrapper.component"
 
 export const Wrapper = styled.div`
   //background-color: #c2312c;
@@ -27,6 +29,9 @@ export const BannerWrapper = styled.div`
   height: 625px;
   max-width: 428px;
   margin-left: auto;
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    height: 485px;
+  }
 `
 
 export const TextWrapper = styled.div`
@@ -66,4 +71,18 @@ export const BgWrapper = styled(CustomBgImage)`
     height: 100%;
     object-fit: cover !important;
   }
+`
+
+export const MobileImage = styled(CustomImage)`
+  height: 525px;
+  width: 100%;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+`
+
+export const MobileWrapper = styled(SectionWrapper)`
+  background-color: black;
+  padding: 0;
 `

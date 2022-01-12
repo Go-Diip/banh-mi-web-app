@@ -13,8 +13,8 @@ const CommonSlider = ({ images, haveIcon }) => {
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
-    // autoplay: true,
-    // autoplaySpeed: 5000,
+    autoplay: true,
+    autoplaySpeed: 5000,
   }
   return (
     <S.Wrapper>

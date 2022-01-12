@@ -1,6 +1,6 @@
 import queryString from "query-string"
 import Cookies from "js-cookie"
-import { gravityFormsApi, HUBSPOT_API, IPIFY_API } from "./apis/apis"
+import { gravityFormsApi, HUBSPOT_API, IPIFY_API, twilioApi } from "./apis/apis"
 import CryptoJS from "crypto-js"
 import canceledEmail from "./emails/canceled-email"
 import approvedEmail from "./emails/approved-email"
@@ -270,4 +270,46 @@ export const getFormattedReservationData = data => {
 
 export const disableMondays = date => {
   return date.day() === 1 || date.day() === 0
+}
+
+export const sendConfirmationSMS = async data => {
+  const phoneFormatted = `+593${data.phone.substring(1)}`
+  try {
+    return await twilioApi.post(
+      "/send-sms",
+      new URLSearchParams({
+        to: phoneFormatted,
+        // prettier-ignore
+        body: `Banh Mi: Hola, ${data.name}. Tu reservación está confirmada.`,
+      }).toString(),
+      {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+          Accept:
+            "application/json, application/xml, text/plain, text/html, *.*",
+        },
+      }
+    )
+  } catch (e) {}
+}
+
+export const sendCancellationSMS = async data => {
+  const phoneFormatted = `+593${data.phone.substring(1)}`
+  try {
+    return await twilioApi.post(
+      "/send-sms",
+      new URLSearchParams({
+        to: phoneFormatted,
+        // prettier-ignore
+        body: `Banh Mi: Hola, ${data.name}. Al momento no hemos podido confirmar tu reservación. En pocos minutos te contactarán directamente alguien de nuestro equipo para poder asisitirte con tu reservación.`,
+      }).toString(),
+      {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+          Accept:
+            "application/json, application/xml, text/plain, text/html, *.*",
+        },
+      }
+    )
+  } catch (e) {}
 }

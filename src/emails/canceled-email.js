@@ -45,7 +45,7 @@ const CanceledEmail = name => {
                   </p>
                   <p style="font-family:Arial,sans-serif; font-size: 18px; margin-bottom: 16px; font-weight: 300;">
                     Al momento <span style="color: #811E1A">no hemos podido confirmar tu reservación.</span> En pocos
-                    minutos te contactará directamente alguien de nuestro equipo para poder asisitirte con tu
+                    minutos te contactarán directamente alguien de nuestro equipo para poder asisitirte con tu
                     reservación.
                   </p>
                   <p style="font-family:Arial,sans-serif; font-size: 18px; margin-bottom: 16px; font-weight: 300;">

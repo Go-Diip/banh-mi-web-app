@@ -6,7 +6,13 @@ import {
 import * as S from "./reservations-reporter.styles"
 import LoadableMuiDataTable from "../../components/loadable-mui-data-table/loadable-mui-data-table"
 import Spinner from "../spinner/spinner.component"
-import { emailTypes, getFormattedReservationData, sendEmail } from "../../utils"
+import {
+  emailTypes,
+  getFormattedReservationData,
+  sendCancellationSMS,
+  sendConfirmationSMS,
+  sendEmail
+} from "../../utils"
 import { firestore } from "../../services/firebase"
 import moment from "moment"
 import ReservationDialog from "./reservation-dialog/reservation-dialog.component"
@@ -198,10 +204,12 @@ const ReservationsReporter = () => {
     }
     if (formData.status === STATUSES.approved) {
       await sendEmail(formattedData, emailTypes.CUSTOMER_CONFIRMATION)
+      await sendConfirmationSMS(formattedData)
     }
 
     if (formData.status === STATUSES.canceled) {
       await sendEmail(formattedData, emailTypes.CUSTOMER_CANCELED)
+      await sendCancellationSMS(formattedData)
     }
 
     setIsLoading(false)

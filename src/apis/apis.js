@@ -16,3 +16,7 @@ export const gravityFormsApi = axios.create({
 export const contactFormApi = axios.create({
   baseURL: `https://admin-banhmi.godiip.com/wp-json/contact-form-7/v1/contact-forms`,
 })
+
+export const twilioApi = axios.create({
+  baseURL: `https://dandelion-tortoise-9096.twil.io`,
+})

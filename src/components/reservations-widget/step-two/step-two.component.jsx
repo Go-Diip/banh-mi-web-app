@@ -23,7 +23,7 @@ import moment from "moment"
 const inputNames = ["name", "last_name", "phone", "email", "area"]
 
 const StepTwo = ({ setCurrentStep }) => {
-  const { trigger, control, getValues } = useFormContext()
+  const { trigger, control, getValues, setValue } = useFormContext()
   const [isBarAvailable, setIsBarAvailable] = useState(true)
   const handleNext = () => {
     trigger(inputNames).then(res => {
@@ -34,10 +34,16 @@ const StepTwo = ({ setCurrentStep }) => {
   }
 
   useEffect(() => {
-    const selectedTime = moment(getValues('time'), 'H:mm')
-    const minBarTime = moment("18:59", 'H:mm')
+    const selectedTime = moment(getValues("time"), "H:mm")
+    const minBarTime = moment("18:59", "H:mm")
     setIsBarAvailable(selectedTime.isAfter(minBarTime))
   }, [])
+
+  useEffect(() => {
+    if (!isBarAvailable) {
+      setValue("area", "restaurante")
+    }
+  }, [isBarAvailable])
 
   return (
     <S.Wrapper>

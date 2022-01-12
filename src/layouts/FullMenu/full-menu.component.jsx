@@ -6,8 +6,12 @@ import MenuItems from "../../components/menu-items/menu-items.component"
 import VegIcon from "../../assets/veg.svg"
 import PepperIcon from "../../assets/chili.svg"
 import CustomLink from "../../components/custom-link/custom-link.component"
+import MobileMenu from "../../components/mobile-menu/mobile-menu.component"
 
 const FullMenu = ({ title }) => {
+  const theme = useTheme()
+  const isLg = useMediaQuery(theme.breakpoints.down("lg"))
+
   const staticQuery = useStaticQuery(graphql`
     query {
       allWpProduct {
@@ -92,55 +96,66 @@ const FullMenu = ({ title }) => {
     }
   }, [category])
   return (
-    <S.Wrapper>
-      <S.TitleWrapper>{title && <h1>{title}</h1>}</S.TitleWrapper>
-      <S.BarWrapper>
-        <Container maxWidth="xl">
-          <S.Link url="/">
-            <S.ButtonWrapper>
-              <S.ArrowIcon />
-              <S.HomeText>Inicio</S.HomeText>
-            </S.ButtonWrapper>
-          </S.Link>
-        </Container>
-      </S.BarWrapper>
-      <S.MenuWrapper>
-        <Container>
-          <S.ItemsWrapper>
-            {newProductCategories.map((item, index) => (
-              <S.MenuCategory
-                className={item.slug === category.slug && "active"}
-                onClick={() => handleChangeCategories(item)}
-                key={`item-select-${index}`}
-              >
-                {item.name}
-              </S.MenuCategory>
-            ))}
-          </S.ItemsWrapper>
-          <MenuItems
-            items={productsToShow}
-            title={newProductCategories[currentCategoryIndex]?.name}
-          />
-          <S.OptionsWrapper>
-            <S.IconsWrapper>
-              <S.OptionWrapper>
-                <VegIcon />
-                <S.Description>Opciones Veganas</S.Description>
-              </S.OptionWrapper>
-              <S.OptionWrapper>
-                <PepperIcon />
-                <S.Description>Escoge tu nivel de picante</S.Description>
-              </S.OptionWrapper>
-            </S.IconsWrapper>
-            <S.Line />
-            <S.DescWrapper>
-              <S.Description>Todos nuestros precios incluyen I.V.A.</S.Description>
-            </S.DescWrapper>
-            <S.Line />
-          </S.OptionsWrapper>
-        </Container>
-      </S.MenuWrapper>
-    </S.Wrapper>
+    <>
+      {!isLg ? (
+        <S.Wrapper>
+          <S.TitleWrapper>{title && <h1>{title}</h1>}</S.TitleWrapper>
+          <S.BarWrapper>
+            <Container maxWidth="xl">
+              <S.Link url="/">
+                <S.ButtonWrapper>
+                  <S.ArrowIcon />
+                  <S.HomeText>Inicio</S.HomeText>
+                </S.ButtonWrapper>
+              </S.Link>
+            </Container>
+          </S.BarWrapper>
+          <S.MenuWrapper>
+            <Container>
+              <S.ItemsWrapper>
+                {newProductCategories.map((item, index) => (
+                  <S.MenuCategory
+                    className={item.slug === category.slug && "active"}
+                    onClick={() => handleChangeCategories(item)}
+                    key={`item-select-${index}`}
+                  >
+                    {item.name}
+                  </S.MenuCategory>
+                ))}
+              </S.ItemsWrapper>
+              <MenuItems
+                items={productsToShow}
+                title={newProductCategories[currentCategoryIndex]?.name}
+              />
+              <S.OptionsWrapper>
+                <S.IconsWrapper>
+                  <S.OptionWrapper>
+                    <VegIcon />
+                    <S.Description>Opciones Veganas</S.Description>
+                  </S.OptionWrapper>
+                  <S.OptionWrapper>
+                    <PepperIcon />
+                    <S.Description>Escoge tu nivel de picante</S.Description>
+                  </S.OptionWrapper>
+                </S.IconsWrapper>
+                <S.Line />
+                <S.DescWrapper>
+                  <S.Description>
+                    Todos nuestros precios incluyen I.V.A.
+                  </S.Description>
+                </S.DescWrapper>
+                <S.Line />
+              </S.OptionsWrapper>
+            </Container>
+          </S.MenuWrapper>
+        </S.Wrapper>
+      ) : (
+        <MobileMenu
+          productCategories={newProductCategories}
+          products={products}
+        />
+      )}
+    </>
   )
 }
 

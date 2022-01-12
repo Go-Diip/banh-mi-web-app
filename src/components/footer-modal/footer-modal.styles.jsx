@@ -3,8 +3,8 @@ import { Select, TextField, Typography } from "@mui/material"
 import CustomImage from "../custom-image/custom-image.component"
 
 export const Wrapper = styled.div`
-  width: 700px;
-  height: 680px;
+  max-width: 700px;
+  max-height: 680px;
   position: absolute;
   top: 50%;
   left: 50%;

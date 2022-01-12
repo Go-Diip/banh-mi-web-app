@@ -3,14 +3,14 @@ import { Select, TextField, Typography } from "@mui/material"
 import CustomImage from "../custom-image/custom-image.component"
 
 export const Wrapper = styled.div`
-  width: 700px;
-  height: 680px;
+  max-width: 700px;
+  max-height: 680px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #f6faf4;
-  padding: 2em 0;
+  padding: 1em 0;
 `
 
 export const Description = styled(Typography)`

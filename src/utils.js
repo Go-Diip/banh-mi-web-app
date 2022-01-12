@@ -280,7 +280,7 @@ export const sendConfirmationSMS = async data => {
       new URLSearchParams({
         to: phoneFormatted,
         // prettier-ignore
-        body: `Banh Mi: Hola, ${data.name}. Tu reservación está confirmada.`,
+        body: `Banh Mi: Hola, ${data.name}. Tu reservacion el dia ${data.date} esta confirmada.`,
       }).toString(),
       {
         headers: {
@@ -301,7 +301,7 @@ export const sendCancellationSMS = async data => {
       new URLSearchParams({
         to: phoneFormatted,
         // prettier-ignore
-        body: `Banh Mi: Hola, ${data.name}. Al momento no hemos podido confirmar tu reservación. En pocos minutos te contactarán directamente alguien de nuestro equipo para poder asisitirte con tu reservación.`,
+        body: `Banh Mi: Hola, ${data.name}. Al momento no hemos podido confirmar tu reservacion. Pronto te contactaran directamente para poder asisitirte.`,
       }).toString(),
       {
         headers: {

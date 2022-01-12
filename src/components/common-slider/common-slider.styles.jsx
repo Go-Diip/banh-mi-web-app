@@ -6,8 +6,15 @@ export const Wrapper = styled.div`
   position: relative;
   height: 100vh;
 
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    height: 400px;
+  }
+
   .slick-dots {
     bottom: 285px;
+    ${({ theme }) => theme.breakpoints.down("sm")} {
+      bottom: 100px;
+    }
   }
 
   .slick-dots li.slick-active button::before {

@@ -204,7 +204,7 @@ const ReservationsReporter = () => {
     }
     if (formData.status === STATUSES.approved) {
       await sendEmail(formattedData, emailTypes.CUSTOMER_CONFIRMATION)
-      await sendConfirmationSMS({...formattedData, date: `${formData.date} a las ${formData.time}`})
+      await sendConfirmationSMS({...formattedData, date: `${moment(formData.date, "YYYY/MM/DD" ).format("DD/MM/YYYY")} a las ${formData.time}`})
     }
 
     if (formData.status === STATUSES.canceled) {

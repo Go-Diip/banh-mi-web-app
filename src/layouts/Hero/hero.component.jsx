@@ -20,7 +20,7 @@ const Hero = ({ title }) => {
                 <S.Button className="lightBorderWhite" href="/reservations/">
                   reservaciones
                 </S.Button>
-                <S.Button className="lightBorderWhite">ordena online</S.Button>
+                <S.Button className="lightBorderWhite">ordenar online</S.Button>
               </S.ButtonWrapper>
             </S.ContentWrapper>
           </Fade>

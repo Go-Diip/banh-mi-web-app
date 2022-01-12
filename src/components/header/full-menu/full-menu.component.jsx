@@ -56,7 +56,7 @@ const FullMenu = ({ isActive, closeOpenMenu, isHome }) => {
                   duration={1000}
                   onClick={closeOpenMenu}
                 >
-                  <S.MenuItem>ordena online</S.MenuItem>
+                  <S.MenuItem>ordenar online</S.MenuItem>
                 </S.SLink>
                 <S.SLink
                   to="eventos-privados"

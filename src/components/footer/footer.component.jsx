@@ -88,7 +88,7 @@ const Footer = ({ className }) => {
                   {!isSM && (
                     <S.PhoneContainer>
                       <CustomButton className="lightBorder">
-                        ordena online
+                        ordenar online
                       </CustomButton>
                     </S.PhoneContainer>
                   )}

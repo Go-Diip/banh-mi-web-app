@@ -41,8 +41,11 @@ const ReservationForm = ({ close }) => {
           <CancelIcon onClick={close} />
         </S.TopWrapper>
         <S.Description>
-          Banh Mi offers seasonally inspired menus featuring the highest quality
-          seafood and meats available from the local Gulf coast and beyond.
+          En Banh Mi ofrecemos cocina de producto local con influencia asiática.
+          Nuestras preparaciones se basan principalmente en el wok y la
+          parrilla. Contamos con una barra de coctelería clásica donde podrás
+          encontrar la mayor variedad de licores de la ciudad y cualquier cóctel
+          clásico.
         </S.Description>
         <Grid container>
           <Grid item xs={12} md={7}>
@@ -50,13 +53,13 @@ const ReservationForm = ({ close }) => {
               <S.CustomTextField
                 id="outlined-basic"
                 variant="outlined"
-                placeholder="Full Name"
+                placeholder="Nombre completo"
                 fullWidth
               />
               <S.CustomTextField
                 id="outlined-basic"
                 variant="outlined"
-                placeholder="Email"
+                placeholder="Correo electrónico"
                 fullWidth
                 InputProps={{
                   endAdornment: (
@@ -71,7 +74,7 @@ const ReservationForm = ({ close }) => {
                   <S.CustomTextField
                     id="outlined-basic"
                     variant="outlined"
-                    placeholder="Phone"
+                    placeholder="Teléfono"
                     fullWidth
                     InputProps={{
                       endAdornment: (
@@ -85,7 +88,7 @@ const ReservationForm = ({ close }) => {
                 <Grid item xs={12} md={6}>
                   <S.CustomTextField
                     variant="outlined"
-                    placeholder="Number of Guests"
+                    placeholder="Cantidad de personas"
                     fullWidth
                   />
                 </Grid>
@@ -98,7 +101,7 @@ const ReservationForm = ({ close }) => {
                     type="date"
                     required
                     fullWidth
-                    defaultValue="Event Day"
+                    defaultValue="Día del evento"
                     InputLabelProps={{
                       shrink: true,
                     }}
@@ -108,7 +111,7 @@ const ReservationForm = ({ close }) => {
                   <S.CustomTextField
                     id="time"
                     type="time"
-                    defaultValue="Event Hour"
+                    defaultValue="Hora del evento"
                     fullWidth
                     InputLabelProps={{
                       shrink: true,
@@ -123,17 +126,12 @@ const ReservationForm = ({ close }) => {
                 <Grid item xs={12} md={6}>
                   {" "}
                   <FormControl fullWidth>
-                    <InputLabel
-                      style={{ color: "#a9a9a9" }}
-                      id="demo-simple-select-helper-label"
-                    >
+                    <InputLabel style={{ color: "#a9a9a9" }}>
                       Type of Menu
                     </InputLabel>
                     <S.CustomSelect
-                      labelId="demo-simple-select-helper-label"
-                      id="demo-simple-select-helper"
                       value={age}
-                      label="Type of Menu"
+                      label="Tipo de Menú"
                       onChange={handleChange}
                     >
                       <MenuItem value="">
@@ -147,17 +145,14 @@ const ReservationForm = ({ close }) => {
                 </Grid>
                 <Grid item xs={12} md={6}>
                   <FormControl fullWidth>
-                    <InputLabel
-                      style={{ color: "#a9a9a9" }}
-                      id="demo-simple-select-helper-label"
-                    >
+                    <InputLabel style={{ color: "#a9a9a9" }}>
                       Type of Event
                     </InputLabel>
                     <S.CustomSelect
                       labelId="demo-simple-select-helper-label"
                       id="demo-simple-select-helper"
                       value={age}
-                      label="Type of Event"
+                      label="Tipo de Evento"
                       onChange={handleChange}
                     >
                       <MenuItem value="">
@@ -172,7 +167,6 @@ const ReservationForm = ({ close }) => {
               </Grid>
 
               <S.CustomTextField
-                id="outlined-basic"
                 variant="outlined"
                 placeholder="Special Request (optional)"
                 fullWidth

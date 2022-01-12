@@ -1,7 +1,7 @@
 import React from "react"
 
 import * as S from "./footer.styles"
-import { Container, Grid } from "@mui/material"
+import { Container, Grid, useTheme } from "@mui/material"
 import parse from "html-react-parser"
 import InstagramIcon from "../../assets/instagram.svg"
 import GoogleIcon from "../../assets/google.svg"
@@ -14,11 +14,16 @@ import { Modal } from "@mui/material"
 import PhoneIcon from "../../assets/phone.svg"
 import FooterModal from "../footer-modal/footer-modal.component"
 import { graphql, useStaticQuery } from "gatsby"
+import useMediaQuery from "@mui/material/useMediaQuery"
 
 const Footer = ({ className }) => {
   const [open, setOpen] = React.useState(false)
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
+
+  const theme = useTheme()
+  const isMD = useMediaQuery(theme.breakpoints.down("md"))
+  const isSM = useMediaQuery(theme.breakpoints.down("sm"))
 
   const staticQuery = useStaticQuery(graphql`
     query {
@@ -35,15 +40,22 @@ const Footer = ({ className }) => {
       <S.Wrapper className={className} id="ordena-online">
         <Container maxWidth="xl">
           <Grid container spacing={4}>
-            <Grid item xs={12} md={4}>
+            <Grid item xs={12} sm={4}>
               <S.FormWrapper>
                 <S.FooterLogo />
-                <FooterForm />
+                {!isMD && <FooterForm />}
+                {isSM && (
+                  <S.PhoneContainer>
+                    <CustomButton className="lightBorder">
+                      ordena online
+                    </CustomButton>
+                  </S.PhoneContainer>
+                )}
               </S.FormWrapper>
             </Grid>
-            <Grid item xs={12} md={8}>
+            <Grid item xs={12} sm={8}>
               <Grid container>
-                <Grid item xs={12} md={4}>
+                <Grid item xs={12} sm={4}>
                   <S.Text>
                     {parse(
                       "<a href='https://goo.gl/maps/LKy1qzYiUFz4cQkS7' target='_blank'><strong>Dirección:</strong><br>" +
@@ -51,7 +63,7 @@ const Footer = ({ className }) => {
                     )}
                   </S.Text>
                 </Grid>
-                <Grid item xs={12} md={4}>
+                <Grid item xs={12} sm={4}>
                   <S.InfoWrapper>
                     <S.Text>
                       {parse(
@@ -72,12 +84,14 @@ const Footer = ({ className }) => {
                     </S.PhoneWrapper>
                   </S.InfoWrapper>
                 </Grid>
-                <Grid item xs={12} md={4}>
-                  <S.PhoneContainer>
-                    <CustomButton className="lightBorder">
-                      ordena online
-                    </CustomButton>
-                  </S.PhoneContainer>
+                <Grid item xs={12} sm={4}>
+                  {!isSM && (
+                    <S.PhoneContainer>
+                      <CustomButton className="lightBorder">
+                        ordena online
+                      </CustomButton>
+                    </S.PhoneContainer>
+                  )}
                 </Grid>
               </Grid>
             </Grid>

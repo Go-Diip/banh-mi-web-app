@@ -21,6 +21,9 @@ export const FooterLogo = styled(Logo)`
   width: 28px;
   height: 90px;
   object-fit: cover;
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    margin-bottom: 0;
+  }
 `
 export const Text = styled(Typography)`
   font-style: normal;
@@ -42,11 +45,14 @@ export const Text = styled(Typography)`
 
 export const LogoWrapper = styled.div`
   display: flex;
+  gap: 1em;
   svg {
     fill: #f6faf4;
     width: 30px;
     height: 30px;
-    margin-right: 1em;
+  }
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    padding: 1em 0;
   }
 `
 
@@ -58,11 +64,18 @@ export const Line = styled.div`
   margin: 2em 0 1em;
   height: 1px;
   background-color: rgba(246, 250, 244, 0.28);
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    display: none;
+  }
 `
 
 export const PoweredWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    flex-direction: column;
+    align-items: center;
+  }
 `
 export const PoweredBy = styled(PoweredIcon)`
   width: 125px;
@@ -70,6 +83,9 @@ export const PoweredBy = styled(PoweredIcon)`
 export const RightWrapper = styled.div`
   display: flex;
   align-items: center;
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    flex-direction: column;
+  }
 `
 
 export const WorkText = styled.span`
@@ -83,6 +99,9 @@ export const WorkText = styled.span`
   &:hover {
     color: ${({ theme }) => theme.palette.primary.main};
   }
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    padding: 1em 0 2em;
+  }
 `
 
 export const VerticalLine = styled.div`
@@ -90,12 +109,18 @@ export const VerticalLine = styled.div`
   height: 35px;
   background-color: rgba(246, 250, 244, 0.25);
   margin: 0 0 0 1em;
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    display: none;
+  }
 `
 export const PhoneWrapper = styled.div`
   display: flex;
   gap: 0.5em;
   align-items: center;
   padding: 1.5em 0;
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    justify-content: center;
+  }
 `
 
 export const Phone = styled.a`
@@ -118,9 +143,16 @@ export const FormWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    flex-direction: row;
+    align-items: center;
+  }
 `
 
 export const InfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    padding-top: 1em 0;
+  }
 `

@@ -7,7 +7,6 @@ import { Container } from "@mui/material"
 
 const CommonSlider = ({ images, haveIcon }) => {
   const sliderSettings = {
-    dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import * as S from "./step-two.styles.jsx"
 
 import { Controller, useFormContext } from "react-hook-form"
@@ -18,11 +18,13 @@ import { STEPS } from "../reservations-widget.component"
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
 import { validateEmail, validatePhone } from "../../../utils"
 import Typography from "@mui/material/Typography"
+import moment from "moment"
 
 const inputNames = ["name", "last_name", "phone", "email", "area"]
 
 const StepTwo = ({ setCurrentStep }) => {
-  const { trigger, control } = useFormContext()
+  const { trigger, control, getValues } = useFormContext()
+  const [isBarAvailable, setIsBarAvailable] = useState(true)
   const handleNext = () => {
     trigger(inputNames).then(res => {
       if (res) {
@@ -30,6 +32,12 @@ const StepTwo = ({ setCurrentStep }) => {
       }
     })
   }
+
+  useEffect(() => {
+    const selectedTime = moment(getValues('time'), 'H:mm')
+    const minBarTime = moment("18:59", 'H:mm')
+    setIsBarAvailable(selectedTime.isAfter(minBarTime))
+  }, [])
 
   return (
     <S.Wrapper>
@@ -110,6 +118,7 @@ const StepTwo = ({ setCurrentStep }) => {
                     value="segundo piso"
                     control={<Radio />}
                     label="Segundo Piso"
+                    disabled={!isBarAvailable}
                   />
                 </RadioGroup>
               )}

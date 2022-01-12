@@ -11,6 +11,12 @@ export const Wrapper = styled.div`
   transform: translate(-50%, -50%);
   background-color: #f6faf4;
   padding: 2em 0;
+
+  ${({ theme }) => theme.breakpoints.down("md")} {
+    width: 90%;
+    height: 85%;
+    overflow: scroll;
+  }
 `
 
 export const Description = styled(Typography)`
@@ -46,6 +52,10 @@ export const Image = styled(CustomImage)`
 export const RightWrapper = styled.div`
   max-width: 90%;
   margin-left: auto;
+  ${({ theme }) => theme.breakpoints.down("md")} {
+    padding: 2em 0 0;
+    max-width: 100%;
+  }
 `
 
 export const TopWrapper = styled.div`

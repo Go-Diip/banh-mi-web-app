@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   height: 100vh;
 
   .slick-dots {
-    bottom: 40px;
+    bottom: 285px;
   }
 
   .slick-dots li.slick-active button::before {
@@ -21,9 +21,13 @@ export const Wrapper = styled.div`
   }
 `
 
-export const SlideImage = styled.img`
+export const SlideImage = styled(CustomImage)`
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  img {
+    width: 100%;
+    height: 100%;
+  }
 `
 
 export const Icon = styled(Logo)`
@@ -34,5 +38,5 @@ export const Icon = styled(Logo)`
 
 export const ImageWrapper = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 100%;
 `

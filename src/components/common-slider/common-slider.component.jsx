@@ -13,6 +13,8 @@ const CommonSlider = ({ images, haveIcon }) => {
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
+    autoplay: true,
+    autoplaySpeed: 5000,
   }
   return (
     <S.Wrapper>
@@ -24,7 +26,7 @@ const CommonSlider = ({ images, haveIcon }) => {
       <Slider {...sliderSettings}>
         {images.map(({ image }, index) => (
           <S.ImageWrapper key={`image-slide-${index}`}>
-            <S.SlideImage src={image?.sourceUrl} />
+            <S.SlideImage img={image} />
           </S.ImageWrapper>
         ))}
       </Slider>

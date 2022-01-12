@@ -9,7 +9,6 @@ export const Wrapper = styled(SectionWrapper)`
 
 export const Image = styled(CustomImage)`
   width: 100%;
-  max-height: 100vh;
   height: 100%;
   img {
     width: 100%;

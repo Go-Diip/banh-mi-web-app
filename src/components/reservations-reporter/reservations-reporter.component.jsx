@@ -196,8 +196,13 @@ const ReservationsReporter = () => {
         ...formattedData,
       })
     }
-    await sendEmail(formattedData, emailTypes.CUSTOMER_CONFIRMATION)
-    await sendEmail(formattedData, emailTypes.CUSTOMER_CANCELED)
+    if (formData.status === STATUSES.approved) {
+      await sendEmail(formattedData, emailTypes.CUSTOMER_CONFIRMATION)
+    }
+
+    if (formData.status === STATUSES.canceled) {
+      await sendEmail(formattedData, emailTypes.CUSTOMER_CANCELED)
+    }
 
     setIsLoading(false)
     setIsOpenDialog(false)

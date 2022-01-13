@@ -5,7 +5,7 @@ import MenuItems from "../menu-items/menu-items.component"
 import { graphql, useStaticQuery } from "gatsby"
 
 const MobileMenu = ({ productCategories, products }) => {
-  const [category, setCategory] = React.useState("")
+  const [category, setCategory] = React.useState(productCategories[0].slug)
   const handleChangeCategory = event => {
     setCategory(event.target.value)
   }

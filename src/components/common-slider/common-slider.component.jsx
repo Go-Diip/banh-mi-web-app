@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useRef } from "react"
 import * as S from "./common-slider.styles"
 import "../../../node_modules/slick-carousel/slick/slick-theme.css"
 import "../../../node_modules/slick-carousel/slick/slick.css"
@@ -14,6 +14,14 @@ const CommonSlider = ({ images, haveIcon }) => {
     autoplay: true,
     autoplaySpeed: 5000,
   }
+  let slider = useRef(null)
+  const next = () => {
+    slider.slickNext()
+  }
+
+  const previous = () => {
+    slider.slickPrev()
+  }
   return (
     <S.Wrapper>
       {haveIcon && (
@@ -21,13 +29,15 @@ const CommonSlider = ({ images, haveIcon }) => {
           <S.Icon />
         </Container>
       )}
-      <S.CustomSlider {...sliderSettings}>
+      <S.CustomSlider ref={c => (slider = c)} {...sliderSettings}>
         {images.map(({ image }, index) => (
           <S.ImageWrapper key={`image-slide-${index}`}>
             <S.SlideImage img={image} />
           </S.ImageWrapper>
         ))}
       </S.CustomSlider>
+      <S.LArrow onClick={previous} />
+      <S.RArrow onClick={next} />
     </S.Wrapper>
   )
 }

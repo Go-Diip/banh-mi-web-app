@@ -2,6 +2,8 @@ import styled from "styled-components"
 import CustomImage from "../custom-image/custom-image.component"
 import Logo from "../../assets/logo.svg"
 import Slider from "react-slick"
+import LeftArrow from "../../assets/leftArrow.svg"
+import RightArrow from "../../assets/rightArrow.svg"
 
 export const Wrapper = styled.div`
   position: relative;
@@ -65,4 +67,20 @@ export const CustomSlider = styled(Slider)`
       height: 100%;
     }
   }
+`
+
+export const LArrow = styled(LeftArrow)`
+  position: absolute;
+  cursor: pointer;
+  top: 50%;
+  left: 0;
+  transform: translate(0, -50%);
+`
+
+export const RArrow = styled(RightArrow)`
+  position: absolute;
+  cursor: pointer;
+  top: 50%;
+  right: 0;
+  transform: translate(0, -50%);
 `

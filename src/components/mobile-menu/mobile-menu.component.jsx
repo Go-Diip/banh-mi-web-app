@@ -5,37 +5,7 @@ import MenuItems from "../menu-items/menu-items.component"
 import { graphql, useStaticQuery } from "gatsby"
 
 const MobileMenu = ({ productCategories, products }) => {
-  const staticQuery = useStaticQuery(graphql`
-    query {
-      allWpProduct {
-        nodes {
-          id
-          title
-          product {
-            description
-            price
-            title
-            vegan
-            spicy
-          }
-          productCategories {
-            nodes {
-              name
-              slug
-            }
-          }
-        }
-      }
-      allWpProductCategory {
-        nodes {
-          name
-          slug
-        }
-      }
-    }
-  `)
-
-  const [category, setCategory] = React.useState("")
+  const [category, setCategory] = React.useState(productCategories[0].slug)
   const handleChangeCategory = event => {
     setCategory(event.target.value)
   }
@@ -76,7 +46,6 @@ const MobileMenu = ({ productCategories, products }) => {
               labelId="demo-simple-select-helper-label"
               id="demo-simple-select-helper"
               value={category}
-              defaultValue={productCategories[0].name}
               onChange={handleChangeCategory}
             >
               {productCategories.map(({ name, slug }, index) => (
@@ -86,7 +55,10 @@ const MobileMenu = ({ productCategories, products }) => {
               ))}
             </S.CustomSelect>
           </FormControl>
-          <MenuItems items={productsToShow} />
+          <MenuItems
+            items={productsToShow}
+            title={productsToShow[0]?.productCategories?.nodes[0]?.name}
+          />
         </S.MenuWrapper>
       </Container>
     </S.Wrapper>

@@ -2,23 +2,16 @@ import styled from "styled-components"
 import SectionWrapper from "../section-wrapper/section-wrapper.component"
 import { InputLabel, Select } from "@mui/material"
 
-export const Wrapper = styled(SectionWrapper)`
+export const Wrapper = styled.div`
   padding: 0;
+  max-width: 500px;
+  margin: 1em auto auto;
 `
 
 export const Hero = styled.div`
   text-align: center;
   background-color: ${({ theme }) => theme.palette.primary.main};
   padding: 4em 0;
-  h1 {
-    font-style: normal;
-    font-weight: 500;
-    font-size: ${({ theme }) => theme.typography.pxToRem(24)};
-    line-height: 36px;
-    letter-spacing: 0.16em;
-    color: ${({ theme }) => theme.palette.text.secondary};
-    text-transform: uppercase;
-  }
 `
 export const CustomSelect = styled(Select)``
 
@@ -28,4 +21,13 @@ export const Label = styled(InputLabel)`
 
 export const MenuWrapper = styled.div`
   padding: 2em 0;
+`
+
+export const SelectWrapper = styled.div`
+  width: 200px;
+`
+
+export const FormWrapper = styled.div`
+  display: flex;
+  justify-content: center;
 `

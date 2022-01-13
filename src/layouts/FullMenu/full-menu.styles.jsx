@@ -12,11 +12,12 @@ export const TitleWrapper = styled.div`
   text-align: center;
   padding: 7em 0 5em;
   h1 {
-    font-family: ${({ theme }) => theme.fonts.tertiary};
+    color: ${({ theme }) => theme.palette.text.secondary};
+    font-family: ${({ theme }) => theme.fonts.secondary};
     font-weight: 600;
     font-size: 32px;
-    line-height: 27px;
-    letter-spacing: 0.22em;
+    line-height: 36px;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
     color: white;
   }
@@ -54,6 +55,9 @@ export const OptionsWrapper = styled.div`
   max-width: 550px;
   margin: auto;
   padding: 4em 0 0;
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    padding: 0 0 2em;
+  }
 `
 export const Line = styled.div`
   height: 1px;

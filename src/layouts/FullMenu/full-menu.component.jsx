@@ -60,15 +60,42 @@ const FullMenu = ({ title }) => {
   newProductCategories.push(productCategories[3])
   newProductCategories.push(productCategories[13])
 
-  const [category, setCategory] = useState(newProductCategories[0])
-  const currentCategoryIndex = newProductCategories.indexOf(category)
-  const [categoryTitle, setCategoryTitle] = useState(
-    newProductCategories[0].name
-  )
+  //arreglo para desktop
+  let desktopCategories = []
+
+  for (let i = 0; i < newProductCategories.length - 4; i++) {
+    desktopCategories.push(newProductCategories[i])
+  }
+
+  //agrego la categoria para bebidas
+  desktopCategories.push({ name: "Bebidas", slug: "bebidas" })
+
+  //arreglos para las bebidas y sus categorias
+  let drinksCategories = []
+  let newDrinks = []
+
+  drinksCategories.push(newProductCategories[newProductCategories.length - 1])
+  drinksCategories.push(newProductCategories[newProductCategories.length - 2])
+  drinksCategories.push(newProductCategories[newProductCategories.length - 3])
+  drinksCategories.push(newProductCategories[newProductCategories.length - 4])
+
+  console.log(drinksCategories)
+
+  const [category, setCategory] = useState(desktopCategories[0])
+  const currentCategoryIndex = desktopCategories.indexOf(category)
+  const [categoryTitle, setCategoryTitle] = useState(desktopCategories[0].name)
 
   const handleChangeCategories = node => {
     setCategory(node)
     setCategoryTitle(node.name)
+    setDrinks(false)
+  }
+
+  const [drinks, setDrinks] = useState(false)
+
+  const handleChangeDrinks = () => {
+    setDrinks(true)
+    console.log(drinks)
   }
 
   const [productsToShow, setProductsToShow] = useState([])
@@ -113,7 +140,7 @@ const FullMenu = ({ title }) => {
           <S.MenuWrapper>
             <Container>
               <S.ItemsWrapper>
-                {newProductCategories.map((item, index) => (
+                {desktopCategories.map((item, index) => (
                   <S.MenuCategory
                     className={item.slug === category.slug && "active"}
                     onClick={() => handleChangeCategories(item)}
@@ -124,8 +151,9 @@ const FullMenu = ({ title }) => {
                 ))}
               </S.ItemsWrapper>
               <MenuItems
-                items={productsToShow}
-                title={newProductCategories[currentCategoryIndex]?.name}
+                items={categoryTitle === "Bebidas" ? products : productsToShow}
+                title={categoryTitle}
+                drinksCategories={drinksCategories}
               />
               <S.OptionsWrapper>
                 <S.IconsWrapper>
@@ -150,10 +178,31 @@ const FullMenu = ({ title }) => {
           </S.MenuWrapper>
         </S.Wrapper>
       ) : (
-        <MobileMenu
-          productCategories={newProductCategories}
-          products={products}
-        />
+        <>
+          <MobileMenu
+            productCategories={newProductCategories}
+            products={products}
+          />
+          <S.OptionsWrapper>
+            <S.IconsWrapper>
+              <S.OptionWrapper>
+                <VegIcon />
+                <S.Description>Opciones Veganas</S.Description>
+              </S.OptionWrapper>
+              <S.OptionWrapper>
+                <PepperIcon />
+                <S.Description>Escoge tu nivel de picante</S.Description>
+              </S.OptionWrapper>
+            </S.IconsWrapper>
+            <S.Line />
+            <S.DescWrapper>
+              <S.Description>
+                Todos nuestros precios incluyen I.V.A.
+              </S.Description>
+            </S.DescWrapper>
+            <S.Line />
+          </S.OptionsWrapper>
+        </>
       )}
     </>
   )

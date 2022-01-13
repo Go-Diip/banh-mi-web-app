@@ -21,9 +21,6 @@ export const ProductWrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding: 1em 0 0;
-  ${({ theme }) => theme.breakpoints.down("sm")} {
-    padding: 1em 0 1.5em;
-  }
 `
 
 export const CategoryWrapper = styled.div`

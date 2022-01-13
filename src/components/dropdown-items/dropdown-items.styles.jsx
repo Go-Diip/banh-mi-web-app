@@ -34,6 +34,7 @@ export const CategoryTitle = styled.span`
   font-size: 18px;
   line-height: 27px;
   text-transform: uppercase;
+  padding-right: 16px;
 `
 
 export const TitleWrapper = styled.div`

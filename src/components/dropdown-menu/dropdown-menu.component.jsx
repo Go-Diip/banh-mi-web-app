@@ -46,18 +46,23 @@ const DropdownMenu = ({ productCategories, products }) => {
       <Container>
         <S.MenuWrapper>
           <FormControl fullWidth>
-            <S.CustomSelect
-              labelId="demo-simple-select-helper-label"
-              id="demo-simple-select-helper"
-              value={category}
-              onChange={handleChangeCategory}
-            >
-              {productCategories.map(({ name, slug }, index) => (
-                <MenuItem key={`item-select-${index}`} value={slug}>
-                  {name}
-                </MenuItem>
-              ))}
-            </S.CustomSelect>
+            <S.FormWrapper>
+              <S.SelectWrapper>
+                <S.CustomSelect
+                  labelId="demo-simple-select-helper-label"
+                  id="demo-simple-select-helper"
+                  value={category}
+                  onChange={handleChangeCategory}
+                  fullWidth
+                >
+                  {productCategories.map(({ name, slug }, index) => (
+                    <MenuItem key={`item-select-${index}`} value={slug}>
+                      {name}
+                    </MenuItem>
+                  ))}
+                </S.CustomSelect>
+              </S.SelectWrapper>
+            </S.FormWrapper>
           </FormControl>
           <DropdownItems items={productsToShow} title={title} />
         </S.MenuWrapper>

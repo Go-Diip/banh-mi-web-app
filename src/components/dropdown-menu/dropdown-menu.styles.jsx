@@ -22,3 +22,12 @@ export const Label = styled(InputLabel)`
 export const MenuWrapper = styled.div`
   padding: 2em 0;
 `
+
+export const SelectWrapper = styled.div`
+  width: 200px;
+`
+
+export const FormWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`

@@ -30,7 +30,6 @@ const ReservationForm = ({ close }) => {
   const [successMessage, setSuccessMessage] = useState("")
 
   const onSubmit = async data => {
-    console.log("form data", data)
     setIsLoading(true)
 
     const form = new FormData()

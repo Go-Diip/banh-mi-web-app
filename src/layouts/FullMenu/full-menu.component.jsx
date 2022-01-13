@@ -66,19 +66,23 @@ const FullMenu = ({ title }) => {
     desktopCategories.push(newProductCategories[i])
   }
 
-  // desktopCategories.push(newProductCategories[0])
-
-  // console.log(desktopCategories)
+  desktopCategories.push({ name: "Bebidas", slug: "bebidas" })
 
   const [category, setCategory] = useState(desktopCategories[0])
   const currentCategoryIndex = desktopCategories.indexOf(category)
-  const [categoryTitle, setCategoryTitle] = useState(
-    newProductCategories[0].name
-  )
+  const [categoryTitle, setCategoryTitle] = useState(desktopCategories[0].name)
 
   const handleChangeCategories = node => {
     setCategory(node)
     setCategoryTitle(node.name)
+    setDrinks(false)
+  }
+
+  const [drinks, setDrinks] = useState(false)
+
+  const handleChangeDrinks = () => {
+    setDrinks(true)
+    console.log(drinks)
   }
 
   const [productsToShow, setProductsToShow] = useState([])
@@ -133,10 +137,7 @@ const FullMenu = ({ title }) => {
                   </S.MenuCategory>
                 ))}
               </S.ItemsWrapper>
-              <MenuItems
-                items={productsToShow}
-                title={newProductCategories[currentCategoryIndex]?.name}
-              />
+              <MenuItems items={productsToShow} title={categoryTitle} />
               <S.OptionsWrapper>
                 <S.IconsWrapper>
                   <S.OptionWrapper>

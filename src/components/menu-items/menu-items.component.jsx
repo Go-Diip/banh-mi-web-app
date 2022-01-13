@@ -7,63 +7,68 @@ import PepperIcon from "../../assets/chili.svg"
 
 const MenuItems = ({ items, title }) => {
   const newItems = items.reverse()
+  console.log(title)
   return (
     <Container>
-      <S.MenuWrapper>
-        <S.TitleWrapper>
-          <S.CategoryTitle>{title}</S.CategoryTitle>
-        </S.TitleWrapper>
-        <Grid
-          container
-          spacing={
-            title === "Postres" ||
-            (title === "Porciones" || title === "Bebidas Soft" ? 2 : 8)
-          }
-        >
-          {newItems.map(({ product }, index) => (
-            <Grid
-              item
-              xs={
-                title === "Postres" ||
-                title === "Porciones" ||
-                title === "Bebidas Soft"
-                  ? 12
-                  : 6
-              }
-            >
-              <S.ProductWrapper>
-                <S.ProductTitle
-                  style={{
-                    textAlign:
-                      title === "Postres" ||
-                      title === "Porciones" ||
-                      title === "Bebidas Soft"
-                        ? "center"
-                        : "left",
-                    marginBottom:
-                      title === "Postres" ||
-                      title === "Porciones" ||
-                      title === "Bebidas Soft"
-                        ? "0"
-                        : "0.5em",
-                  }}
-                >
-                  {product.title} {product.price}
-                  <S.ItemsWrapper>
-                    {product.spicy && <PepperIcon />}
-                    {product.vegan && <VegIcon />}
-                  </S.ItemsWrapper>
-                </S.ProductTitle>
-                {product.description && (
-                  <S.ProductDescription>
-                    {parse(product.description)}
-                  </S.ProductDescription>
-                )}
-              </S.ProductWrapper>
-            </Grid>
-          ))}
-        </Grid>
-      </S.MenuWrapper>
+      {title === "bebidas" ? (
+        <h1>{title}</h1>
+      ) : (
+        <S.MenuWrapper>
+          <S.TitleWrapper>
+            <S.CategoryTitle>{title}</S.CategoryTitle>
+          </S.TitleWrapper>
+          <Grid
+            container
+            spacing={
+              title === "Postres" ||
+              (title === "Porciones" || title === "Bebidas Soft" ? 2 : 8)
+            }
+          >
+            {newItems.map(({ product }, index) => (
+              <Grid
+                item
+                xs={
+                  title === "Postres" ||
+                  title === "Porciones" ||
+                  title === "Bebidas Soft"
+                    ? 12
+                    : 6
+                }
+              >
+                <S.ProductWrapper>
+                  <S.ProductTitle
+                    style={{
+                      textAlign:
+                        title === "Postres" ||
+                        title === "Porciones" ||
+                        title === "Bebidas Soft"
+                          ? "center"
+                          : "left",
+                      marginBottom:
+                        title === "Postres" ||
+                        title === "Porciones" ||
+                        title === "Bebidas Soft"
+                          ? "0"
+                          : "0.5em",
+                    }}
+                  >
+                    {product.title} {product.price}
+                    <S.ItemsWrapper>
+                      {product.spicy && <PepperIcon />}
+                      {product.vegan && <VegIcon />}
+                    </S.ItemsWrapper>
+                  </S.ProductTitle>
+                  {product.description && (
+                    <S.ProductDescription>
+                      {parse(product.description)}
+                    </S.ProductDescription>
+                  )}
+                </S.ProductWrapper>
+              </Grid>
+            ))}
+          </Grid>
+        </S.MenuWrapper>
+      )}
     </Container>
   )
 }

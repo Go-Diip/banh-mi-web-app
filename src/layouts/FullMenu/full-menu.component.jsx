@@ -178,10 +178,31 @@ const FullMenu = ({ title }) => {
           </S.MenuWrapper>
         </S.Wrapper>
       ) : (
-        <MobileMenu
-          productCategories={newProductCategories}
-          products={products}
-        />
+        <>
+          <MobileMenu
+            productCategories={newProductCategories}
+            products={products}
+          />
+          <S.OptionsWrapper>
+            <S.IconsWrapper>
+              <S.OptionWrapper>
+                <VegIcon />
+                <S.Description>Opciones Veganas</S.Description>
+              </S.OptionWrapper>
+              <S.OptionWrapper>
+                <PepperIcon />
+                <S.Description>Escoge tu nivel de picante</S.Description>
+              </S.OptionWrapper>
+            </S.IconsWrapper>
+            <S.Line />
+            <S.DescWrapper>
+              <S.Description>
+                Todos nuestros precios incluyen I.V.A.
+              </S.Description>
+            </S.DescWrapper>
+            <S.Line />
+          </S.OptionsWrapper>
+        </>
       )}
     </>
   )

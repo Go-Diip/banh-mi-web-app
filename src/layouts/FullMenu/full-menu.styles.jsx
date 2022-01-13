@@ -54,6 +54,9 @@ export const OptionsWrapper = styled.div`
   max-width: 550px;
   margin: auto;
   padding: 4em 0 0;
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    padding: 0 0 2em;
+  }
 `
 export const Line = styled.div`
   height: 1px;

@@ -49,3 +49,16 @@ export const CustomTextField = styled(TextField)`
     border-bottom-color: ${({ theme }) => theme.palette.primary.light};
   }
 `
+
+export const SuccessMessage = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  p {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+`

@@ -1,39 +1,33 @@
 import React, { useState } from "react"
 import * as S from "./footer-form.styles"
-import { contactFormApi } from "../../apis/apis"
-import { navigate } from "gatsby-link"
-import { TextField } from "@mui/material"
-import { useForm, Controller } from "react-hook-form"
+import { Typography } from "@mui/material"
+import { useForm } from "react-hook-form"
+import addToMailchimp from "gatsby-plugin-mailchimp"
 
 const FooterForm = ({}) => {
-  const [products, setProducts] = useState("")
-  // const { register, handleSubmit, errors, control } = useForm({
-  //   mode: "onBlur",
-  //   reValidateMode: "onBlur",
-  // })
+  const { register, handleSubmit, errors, control } = useForm({
+    mode: "onBlur",
+    reValidateMode: "onBlur",
+  })
   const [isLoading, setIsLoading] = useState(false)
   const [successMessage, setSuccessMessage] = useState("")
   const onSubmit = async data => {
+    console.log("data", data)
     setIsLoading(true)
-    const form = new FormData()
-    form.append("yourEmail", data.yourEmail)
+    const { result, msg } = await addToMailchimp(data.email, {
+      EMAIL: data.email,
+    })
 
-    contactFormApi
-      .post("/971/feedback", form, {
-        headers: { "Content-Type": "multipart/form-data" },
-      })
-      .then(response => {
-        setIsLoading(false)
-        if (response.data) {
-          setSuccessMessage(response.data.message)
-        }
-      })
+    if (result === "success") {
+      setSuccessMessage("Gracias por subscribirte")
+    }
+    setIsLoading(false)
   }
 
   return (
     <S.Wrapper>
       <S.FormTitle>Suscribete a nuestro E-CLUB</S.FormTitle>
-      <form>
+      <form onSubmit={handleSubmit(onSubmit)}>
         {isLoading && (
           <S.FormSpinner>
             <S.CustomSpinner />
@@ -43,17 +37,18 @@ const FooterForm = ({}) => {
           <>
             <S.CustomTextField
               required
-              // inputRef={register}
               color="tertiary"
               id="yourEmail"
               label="Email"
               variant="standard"
+              {...register("email")}
+              errors={errors}
             />
           </>
         ) : (
-          <>
-            <h2>Gracias</h2>
-          </>
+          <S.SuccessMessage>
+            <Typography>{successMessage}</Typography>
+          </S.SuccessMessage>
         )}
       </form>
     </S.Wrapper>

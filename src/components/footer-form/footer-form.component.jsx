@@ -12,7 +12,6 @@ const FooterForm = ({}) => {
   const [isLoading, setIsLoading] = useState(false)
   const [successMessage, setSuccessMessage] = useState("")
   const onSubmit = async data => {
-    console.log("data", data)
     setIsLoading(true)
     const { result, msg } = await addToMailchimp(data.email, {
       EMAIL: data.email,

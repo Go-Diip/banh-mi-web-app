@@ -60,13 +60,26 @@ const FullMenu = ({ title }) => {
   newProductCategories.push(productCategories[3])
   newProductCategories.push(productCategories[13])
 
+  //arreglo para desktop
   let desktopCategories = []
 
   for (let i = 0; i < newProductCategories.length - 4; i++) {
     desktopCategories.push(newProductCategories[i])
   }
 
+  //agrego la categoria para bebidas
   desktopCategories.push({ name: "Bebidas", slug: "bebidas" })
+
+  //arreglos para las bebidas y sus categorias
+  let drinksCategories = []
+  let newDrinks = []
+
+  drinksCategories.push(newProductCategories[newProductCategories.length - 1])
+  drinksCategories.push(newProductCategories[newProductCategories.length - 2])
+  drinksCategories.push(newProductCategories[newProductCategories.length - 3])
+  drinksCategories.push(newProductCategories[newProductCategories.length - 4])
+
+  console.log(drinksCategories)
 
   const [category, setCategory] = useState(desktopCategories[0])
   const currentCategoryIndex = desktopCategories.indexOf(category)
@@ -137,7 +150,11 @@ const FullMenu = ({ title }) => {
                   </S.MenuCategory>
                 ))}
               </S.ItemsWrapper>
-              <MenuItems items={productsToShow} title={categoryTitle} />
+              <MenuItems
+                items={categoryTitle === "Bebidas" ? products : productsToShow}
+                title={categoryTitle}
+                drinksCategories={drinksCategories}
+              />
               <S.OptionsWrapper>
                 <S.IconsWrapper>
                   <S.OptionWrapper>

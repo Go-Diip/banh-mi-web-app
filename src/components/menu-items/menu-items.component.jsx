@@ -4,14 +4,17 @@ import { Container, Grid } from "@mui/material"
 import parse from "html-react-parser"
 import VegIcon from "../../assets/veg.svg"
 import PepperIcon from "../../assets/chili.svg"
+import MobileMenu from "../mobile-menu/mobile-menu.component"
+import DropdownMenu from "../dropdown-menu/dropdown-menu.component"
 
-const MenuItems = ({ items, title }) => {
+const MenuItems = ({ items, title, drinksCategories }) => {
   const newItems = items.reverse()
-  console.log(title)
+  console.log("bebidas", drinksCategories)
+  console.log("title", title)
   return (
     <Container>
-      {title === "bebidas" ? (
-        <h1>{title}</h1>
+      {title === "Bebidas" ? (
+        <DropdownMenu productCategories={drinksCategories} products={items} />
       ) : (
         <S.MenuWrapper>
           <S.TitleWrapper>

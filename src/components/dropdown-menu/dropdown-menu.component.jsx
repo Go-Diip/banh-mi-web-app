@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react"
-import * as S from "./mobile-menu.styles"
+import * as S from "./dropdown-menu.styles"
 import { Container, FormControl, InputLabel, MenuItem } from "@mui/material"
 import MenuItems from "../menu-items/menu-items.component"
 import { graphql, useStaticQuery } from "gatsby"
+import DropdownItems from "../dropdown-items/dropdown-items.component"
 
-const MobileMenu = ({ productCategories, products }) => {
+const DropdownMenu = ({ productCategories, products }) => {
   const [category, setCategory] = React.useState("")
   const handleChangeCategory = event => {
     setCategory(event.target.value)
@@ -34,11 +35,10 @@ const MobileMenu = ({ productCategories, products }) => {
     }
   }, [category])
 
+  console.log("dropdown", productsToShow)
+
   return (
     <S.Wrapper>
-      <S.Hero>
-        <h1>MENÚ</h1>
-      </S.Hero>
       <Container>
         <S.MenuWrapper>
           <FormControl fullWidth>
@@ -55,11 +55,11 @@ const MobileMenu = ({ productCategories, products }) => {
               ))}
             </S.CustomSelect>
           </FormControl>
-          <MenuItems items={productsToShow} />
+          <DropdownItems items={productsToShow} />
         </S.MenuWrapper>
       </Container>
     </S.Wrapper>
   )
 }
 
-export default MobileMenu
+export default DropdownMenu

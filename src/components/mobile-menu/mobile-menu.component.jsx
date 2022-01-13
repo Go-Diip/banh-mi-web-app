@@ -76,7 +76,6 @@ const MobileMenu = ({ productCategories, products }) => {
               labelId="demo-simple-select-helper-label"
               id="demo-simple-select-helper"
               value={category}
-              defaultValue={productCategories[0].name}
               onChange={handleChangeCategory}
             >
               {productCategories.map(({ name, slug }, index) => (

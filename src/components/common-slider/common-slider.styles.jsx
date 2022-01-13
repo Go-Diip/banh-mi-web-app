@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   height: 100vh;
 
   ${({ theme }) => theme.breakpoints.down("sm")} {
-    height: 400px;
+    height: 500px;
   }
 
   .slick-dots {

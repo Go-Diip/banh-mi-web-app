@@ -27,7 +27,8 @@ const MenuItems = ({ items, title }) => {
             {newItems.map(({ product }, index) => (
               <Grid
                 item
-                xs={
+                sm={12}
+                md={
                   title === "Postres" ||
                   title === "Porciones" ||
                   title === "Bebidas Soft"

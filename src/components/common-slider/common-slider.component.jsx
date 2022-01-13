@@ -22,13 +22,13 @@ const CommonSlider = ({ images, haveIcon }) => {
           <S.Icon />
         </Container>
       )}
-      <Slider {...sliderSettings}>
+      <S.CustomSlider {...sliderSettings}>
         {images.map(({ image }, index) => (
           <S.ImageWrapper key={`image-slide-${index}`}>
             <S.SlideImage img={image} />
           </S.ImageWrapper>
         ))}
-      </Slider>
+      </S.CustomSlider>
     </S.Wrapper>
   )
 }

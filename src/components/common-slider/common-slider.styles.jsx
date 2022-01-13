@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import CustomImage from "../custom-image/custom-image.component"
 import Logo from "../../assets/logo.svg"
+import Slider from "react-slick"
 
 export const Wrapper = styled.div`
   position: relative;
@@ -34,6 +35,7 @@ export const SlideImage = styled(CustomImage)`
   img {
     width: 100%;
     height: 100%;
+    object-fit: cover !important;
   }
 `
 
@@ -46,4 +48,21 @@ export const Icon = styled(Logo)`
 export const ImageWrapper = styled.div`
   width: 100%;
   height: 100%;
+`
+
+export const CustomSlider = styled(Slider)`
+  .slick-list {
+    height: 100%;
+  }
+  .slick-track {
+    height: 100%;
+  }
+
+  .slick-slide {
+    height: 100%;
+    object-fit: cover;
+    > div {
+      height: 100%;
+    }
+  }
 `

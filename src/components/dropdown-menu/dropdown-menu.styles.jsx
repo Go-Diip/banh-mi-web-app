@@ -2,8 +2,10 @@ import styled from "styled-components"
 import SectionWrapper from "../section-wrapper/section-wrapper.component"
 import { InputLabel, Select } from "@mui/material"
 
-export const Wrapper = styled(SectionWrapper)`
+export const Wrapper = styled.div`
   padding: 0;
+  max-width: 500px;
+  margin: 1em auto auto;
 `
 
 export const Hero = styled.div`

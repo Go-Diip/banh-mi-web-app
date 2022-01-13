@@ -9,6 +9,7 @@ import DropdownMenu from "../dropdown-menu/dropdown-menu.component"
 
 const DropdownItems = ({ items, title }) => {
   const newItems = items.reverse()
+  console.log("titulo", title)
 
   return (
     <Container>

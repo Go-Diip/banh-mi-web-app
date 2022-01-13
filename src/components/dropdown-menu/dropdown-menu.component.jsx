@@ -6,12 +6,17 @@ import { graphql, useStaticQuery } from "gatsby"
 import DropdownItems from "../dropdown-items/dropdown-items.component"
 
 const DropdownMenu = ({ productCategories, products }) => {
-  const [category, setCategory] = React.useState("")
+  const [category, setCategory] = useState("")
+  const [title, setTitle] = useState(productCategories[0].name)
+
   const handleChangeCategory = event => {
     setCategory(event.target.value)
+    setTitle(event.target.value.replace("-", " "))
   }
 
   const [productsToShow, setProductsToShow] = useState([])
+
+  const currentCategoryIndex = productCategories.indexOf(category)
 
   useEffect(() => {
     if (products) {
@@ -55,7 +60,7 @@ const DropdownMenu = ({ productCategories, products }) => {
               ))}
             </S.CustomSelect>
           </FormControl>
-          <DropdownItems items={productsToShow} />
+          <DropdownItems items={productsToShow} title={title} />
         </S.MenuWrapper>
       </Container>
     </S.Wrapper>

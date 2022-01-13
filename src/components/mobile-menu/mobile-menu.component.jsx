@@ -55,7 +55,10 @@ const MobileMenu = ({ productCategories, products }) => {
               ))}
             </S.CustomSelect>
           </FormControl>
-          <MenuItems items={productsToShow} />
+          <MenuItems
+            items={productsToShow}
+            title={productsToShow[0]?.productCategories?.nodes[0]?.name}
+          />
         </S.MenuWrapper>
       </Container>
     </S.Wrapper>

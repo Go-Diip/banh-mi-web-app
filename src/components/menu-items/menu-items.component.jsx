@@ -9,8 +9,7 @@ import DropdownMenu from "../dropdown-menu/dropdown-menu.component"
 
 const MenuItems = ({ items, title, drinksCategories }) => {
   const newItems = items.reverse()
-  console.log("bebidas", drinksCategories)
-  console.log("title", title)
+  console.log("items", items)
   return (
     <Container>
       {title === "Bebidas" ? (

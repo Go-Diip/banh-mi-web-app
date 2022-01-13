@@ -1,6 +1,5 @@
 import React from "react"
 import * as S from "./common-slider.styles"
-import Slider from "react-slick"
 import "../../../node_modules/slick-carousel/slick/slick-theme.css"
 import "../../../node_modules/slick-carousel/slick/slick.css"
 import { Container } from "@mui/material"

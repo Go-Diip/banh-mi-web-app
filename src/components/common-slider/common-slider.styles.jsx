@@ -75,6 +75,9 @@ export const LArrow = styled(LeftArrow)`
   top: 50%;
   left: 0;
   transform: translate(0, -50%);
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    display: none;
+  }
 `
 
 export const RArrow = styled(RightArrow)`
@@ -83,4 +86,7 @@ export const RArrow = styled(RightArrow)`
   top: 50%;
   right: 0;
   transform: translate(0, -50%);
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    display: none;
+  }
 `

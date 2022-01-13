@@ -29,7 +29,7 @@ const MenuItems = ({ items, title, drinksCategories }) => {
             {newItems.map(({ product }, index) => (
               <Grid
                 item
-                sm={12}
+                xs={12}
                 md={
                   title === "Postres" ||
                   title === "Porciones" ||

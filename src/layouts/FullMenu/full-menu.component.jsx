@@ -60,8 +60,18 @@ const FullMenu = ({ title }) => {
   newProductCategories.push(productCategories[3])
   newProductCategories.push(productCategories[13])
 
-  const [category, setCategory] = useState(newProductCategories[0])
-  const currentCategoryIndex = newProductCategories.indexOf(category)
+  let desktopCategories = []
+
+  for (let i = 0; i < newProductCategories.length - 4; i++) {
+    desktopCategories.push(newProductCategories[i])
+  }
+
+  // desktopCategories.push(newProductCategories[0])
+
+  // console.log(desktopCategories)
+
+  const [category, setCategory] = useState(desktopCategories[0])
+  const currentCategoryIndex = desktopCategories.indexOf(category)
   const [categoryTitle, setCategoryTitle] = useState(
     newProductCategories[0].name
   )
@@ -113,7 +123,7 @@ const FullMenu = ({ title }) => {
           <S.MenuWrapper>
             <Container>
               <S.ItemsWrapper>
-                {newProductCategories.map((item, index) => (
+                {desktopCategories.map((item, index) => (
                   <S.MenuCategory
                     className={item.slug === category.slug && "active"}
                     onClick={() => handleChangeCategories(item)}

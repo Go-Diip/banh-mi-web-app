@@ -14,7 +14,7 @@ const FullMenu = ({ title }) => {
 
   const staticQuery = useStaticQuery(graphql`
     query {
-      allWpProduct {
+      allWpProduct(sort: { fields: date, order: ASC }) {
         nodes {
           id
           title
@@ -46,16 +46,16 @@ const FullMenu = ({ title }) => {
 
   let newProductCategories = []
   newProductCategories.push(productCategories[5])
+  newProductCategories.push(productCategories[10])
   newProductCategories.push(productCategories[9])
   newProductCategories.push(productCategories[8])
   newProductCategories.push(productCategories[7])
   newProductCategories.push(productCategories[6])
-  newProductCategories.push(productCategories[12])
   newProductCategories.push(productCategories[1])
   newProductCategories.push(productCategories[0])
-  newProductCategories.push(productCategories[10])
-  newProductCategories.push(productCategories[11])
+  newProductCategories.push(productCategories[12])
   newProductCategories.push(productCategories[2])
+  newProductCategories.push(productCategories[11])
   newProductCategories.push(productCategories[4])
   newProductCategories.push(productCategories[3])
   newProductCategories.push(productCategories[13])

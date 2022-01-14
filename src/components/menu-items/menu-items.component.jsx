@@ -9,7 +9,7 @@ import DropdownMenu from "../dropdown-menu/dropdown-menu.component"
 import useMediaQuery from "@mui/material/useMediaQuery"
 
 const MenuItems = ({ items, title, drinksCategories }) => {
-  const newItems = items.reverse()
+  // const newItems = items.reverse()
   const theme = useTheme()
   const isSm = useMediaQuery(theme.breakpoints.down("sm"))
 
@@ -31,7 +31,7 @@ const MenuItems = ({ items, title, drinksCategories }) => {
                 : 8)
             }
           >
-            {newItems.map(({ product }, index) => (
+            {items.map(({ product }, index) => (
               <Grid
                 item
                 xs={12}

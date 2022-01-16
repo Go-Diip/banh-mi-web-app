@@ -53,17 +53,19 @@ const FullMenu = ({ title }) => {
   newProductCategories.push(productCategories[6])
   newProductCategories.push(productCategories[1])
   newProductCategories.push(productCategories[0])
-  newProductCategories.push(productCategories[12])
-  newProductCategories.push(productCategories[2])
   newProductCategories.push(productCategories[11])
+  newProductCategories.push(productCategories[12])
+  newProductCategories.push(productCategories[13])
   newProductCategories.push(productCategories[4])
   newProductCategories.push(productCategories[3])
-  newProductCategories.push(productCategories[13])
+  newProductCategories.push(productCategories[2])
+
+  console.log(newProductCategories)
 
   //arreglo para desktop
   let desktopCategories = []
 
-  for (let i = 0; i < newProductCategories.length - 4; i++) {
+  for (let i = 0; i <= newProductCategories.length - 5; i++) {
     desktopCategories.push(newProductCategories[i])
   }
 

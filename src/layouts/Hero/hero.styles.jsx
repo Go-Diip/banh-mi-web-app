@@ -55,7 +55,7 @@ export const ButtonWrapper = styled.div`
 
 export const Button = styled(CustomButton)`
   margin: 0 0 1em;
-  max-width: 300px;
+  min-width: 275px;
 `
 
 export const Title = styled.h1`

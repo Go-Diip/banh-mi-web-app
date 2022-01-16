@@ -2,8 +2,23 @@ import styled from "styled-components"
 import { Typography } from "@mui/material"
 import PoweredIcon from "../../assets/poweredby.svg"
 import Logo from "../../assets/logoVertical.svg"
+import CustomBgImage from "../custom-bg-image/custom-bg-image.component";
 
 export const Wrapper = styled.footer`
+  // color: ${({ theme }) => theme.palette.text.secondary};
+  // background-color: ${({ theme }) => theme.palette.tertiary.main};
+  // padding: 4em 0 2.5em;
+  //
+  // ${({ theme }) => theme.breakpoints.down("sm")} {
+  //   .MuiContainer-root {
+  //     padding-right: 2.5em;
+  //     padding-left: 2.5em;
+  //   }
+  // }
+`
+
+export const BgImage = styled(CustomBgImage)`
+  height: 100%;
   color: ${({ theme }) => theme.palette.text.secondary};
   background-color: ${({ theme }) => theme.palette.tertiary.main};
   padding: 4em 0 2.5em;

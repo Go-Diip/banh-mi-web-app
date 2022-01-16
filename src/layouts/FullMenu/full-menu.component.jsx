@@ -44,8 +44,6 @@ const FullMenu = ({ title }) => {
   const products = staticQuery.allWpProduct.nodes
   const productCategories = staticQuery.allWpProductCategory.nodes
 
-  console.log(productCategories)
-
   let newProductCategories = []
   newProductCategories.push(productCategories[4])
   newProductCategories.push(productCategories[8])
@@ -61,8 +59,6 @@ const FullMenu = ({ title }) => {
   newProductCategories.push(productCategories[2])
   newProductCategories.push(productCategories[11])
   newProductCategories.push(productCategories[1])
-
-  console.log("new categories", newProductCategories)
 
   //arreglo para desktop
   let desktopCategories = []

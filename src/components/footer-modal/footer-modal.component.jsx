@@ -9,7 +9,7 @@ import {
   InputLabel,
   Typography,
 } from "@mui/material"
-import Logo from "../../assets/logo-red.svg"
+import Logo from "../../assets/logoVertical-dark.svg"
 import MailOutlineIcon from "@mui/icons-material/MailOutline"
 import PhoneOutlinedIcon from "@mui/icons-material/PhoneOutlined"
 import CustomButton from "../custom-button/custom-button.component"
@@ -67,7 +67,7 @@ const FooterModal = ({ close }) => {
     <S.Wrapper>
       <Container>
         <S.TopWrapper>
-          <Logo />
+          <Logo style={{ height: "80px", width: "auto" }} />
           <CancelIcon onClick={close} />
         </S.TopWrapper>
         <S.Title>Trabaja con Nosotros</S.Title>

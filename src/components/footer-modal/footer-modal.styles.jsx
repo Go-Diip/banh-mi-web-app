@@ -1,10 +1,16 @@
 import styled from "styled-components"
-import { Box, CircularProgress, Select, TextField, Typography } from "@mui/material"
+import {
+  Box,
+  CircularProgress,
+  Select,
+  TextField,
+  Typography,
+} from "@mui/material"
 import CustomImage from "../custom-image/custom-image.component"
 
 export const Wrapper = styled.div`
   max-width: 700px;
-  max-height: 680px;
+  //max-height: 680px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -60,7 +66,6 @@ export const RightWrapper = styled.div`
 
 export const TopWrapper = styled.div`
   display: flex;
-  align-items: center;
   justify-content: space-between;
   svg {
     cursor: pointer;
@@ -95,7 +100,7 @@ export const FormSpinner = styled(Box)`
 
 export const CustomSpinner = styled(CircularProgress)`
   color: ${({ theme }) =>
-  theme.palette ? theme.palette.secondary.main : `black`};
+    theme.palette ? theme.palette.secondary.main : `black`};
   width: 60px !important;
   height: 60px !important;
 `

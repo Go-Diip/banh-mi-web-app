@@ -86,7 +86,6 @@ const FooterModal = ({ close }) => {
               <Grid item xs={12} md={7}>
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <S.CustomTextField
-                    id="outlined-basic"
                     variant="outlined"
                     name="yourName"
                     placeholder="Nombre"
@@ -95,7 +94,6 @@ const FooterModal = ({ close }) => {
                     errors={errors}
                   />
                   <S.CustomTextField
-                    id="outlined-basic"
                     variant="outlined"
                     placeholder="Email"
                     name="yourEmail"
@@ -111,7 +109,6 @@ const FooterModal = ({ close }) => {
                     }}
                   />
                   <S.CustomTextField
-                    id="outlined-basic"
                     variant="outlined"
                     name="phone"
                     placeholder="Teléfono"
@@ -127,15 +124,10 @@ const FooterModal = ({ close }) => {
                     }}
                   />
                   <FormControl fullWidth>
-                    <InputLabel
-                      style={{ color: "#a9a9a9" }}
-                      id="demo-simple-select-helper-label"
-                    >
+                    <InputLabel style={{ color: "#a9a9a9" }}>
                       Posiciones
                     </InputLabel>
                     <S.CustomSelect
-                      labelId="demo-simple-select-helper-label"
-                      id="demo-simple-select-helper"
                       value={age}
                       name="positions"
                       label="Posiciones"
@@ -153,7 +145,6 @@ const FooterModal = ({ close }) => {
                   </FormControl>
 
                   <S.CustomTextField
-                    id="outlined-basic"
                     variant="outlined"
                     placeholder="Experiencia"
                     fullWidth
@@ -164,7 +155,7 @@ const FooterModal = ({ close }) => {
                     rows={4}
                   />
                   <CustomButton fullWidth type="submit">
-                    Submit
+                    Enviar
                   </CustomButton>
                 </form>
               </Grid>

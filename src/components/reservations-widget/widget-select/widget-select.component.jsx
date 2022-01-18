@@ -2,6 +2,7 @@ import React from "react"
 import * as S from "./widget-select.styles.jsx"
 import { Controller, useFormContext } from "react-hook-form"
 import { FormHelperText, InputLabel, Select } from "@mui/material"
+import PropTypes from "prop-types"
 
 const WidgetSelect = ({
   name,
@@ -56,4 +57,12 @@ const WidgetSelect = ({
     </S.Wrapper>
   )
 }
+
+WidgetSelect.propTypes = {
+  options: PropTypes.array.isRequired,
+  label: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  defaultValue: PropTypes.string,
+}
+
 export default WidgetSelect

@@ -2,6 +2,7 @@ import React from "react"
 import * as S from "./widget-text-field.styles.jsx"
 import { useFormContext } from "react-hook-form"
 import { Controller } from "react-hook-form"
+import PropTypes from "prop-types"
 
 const WidgetTextField = ({
   name,
@@ -60,4 +61,11 @@ const WidgetTextField = ({
     />
   )
 }
+
+WidgetTextField.propTypes = {
+  name: PropTypes.string.isRequired,
+  customError: PropTypes.string,
+  type: PropTypes.string,
+}
+
 export default WidgetTextField

@@ -258,8 +258,8 @@ const ReservationForm = ({ close }) => {
                 <S.RightWrapper>
                   <S.Image img={staticQuery.menu} />
                   <S.Description>
-                    Cocina inspirada en productos locales con los sabores y la
-                    magia del Sureste Asiático.
+                    Cocina inspirada en productos locales con los sabores del
+                    Sureste Asiático.
                   </S.Description>
                 </S.RightWrapper>
               </Grid>

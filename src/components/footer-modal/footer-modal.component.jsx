@@ -173,8 +173,8 @@ const FooterModal = ({ close }) => {
                   <S.Image img={staticQuery.menu} />
                   <S.Description>
                     ¡Forma parte de nuestro equipo! En Banh Mi ofrocemos una
-                    cocina inspirada en productos locales con los sabores y la
-                    magia del Sureste Asiático.
+                    cocina inspirada en productos locales con los sabores del
+                    Sureste Asiático.
                   </S.Description>
                 </S.RightWrapper>
               </Grid>

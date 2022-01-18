@@ -95,7 +95,7 @@ const ReservationForm = ({ close }) => {
           <>
             <Grid container>
               <Grid item xs={12} md={7}>
-                <form onSubmit={handleSubmit(onSubmit)}>
+                <form onSubmit={handleSubmit(onSubmit)} lang="es">
                   <S.CustomTextField
                     id="outlined-basic"
                     variant="outlined"
@@ -156,8 +156,12 @@ const ReservationForm = ({ close }) => {
                         required
                         {...register("date")}
                         errors={errors}
+                        lang="es"
                         fullWidth
                         defaultValue="Día del evento"
+                        inputProps={{
+                          lang: "es",
+                        }}
                         InputLabelProps={{
                           shrink: true,
                         }}
@@ -167,7 +171,7 @@ const ReservationForm = ({ close }) => {
                       <S.CustomTextField
                         id="time"
                         type="time"
-                        defaultValue="Hora del evento"
+                        // defaultValue="Hora del evento"
                         {...register("hourForm")}
                         errors={errors}
                         fullWidth
@@ -185,32 +189,35 @@ const ReservationForm = ({ close }) => {
                       {" "}
                       <FormControl fullWidth>
                         <InputLabel style={{ color: "#a9a9a9" }}>
-                          Type of Menu
+                          Tipo de Menú
                         </InputLabel>
                         <S.CustomSelect
                           value={menu}
                           label="Tipo de Menú"
-                          {...register("typeOfMenu")}
+                          {...register("typeOfMenu", {
+                            required: true,
+                          })}
                           errors={errors}
                           onChange={handleChangeMenu}
                         >
                           <MenuItem value="">
                             <em>--</em>
                           </MenuItem>
-                          <MenuItem value="asiático">Asiático</MenuItem>
-                          <MenuItem value={20}>Twenty</MenuItem>
-                          <MenuItem value={30}>Thirty</MenuItem>
+                          <MenuItem value="desayuno">Desayuno</MenuItem>
+                          <MenuItem value="almuerzo">Almuerzo</MenuItem>
+                          <MenuItem value="cena">Cena</MenuItem>
+                          <MenuItem value="cocktail">Cocktail</MenuItem>
+                          <MenuItem value="buffet">Buffet</MenuItem>
+                          <MenuItem value="otro">Otro</MenuItem>
                         </S.CustomSelect>
                       </FormControl>
                     </Grid>
                     <Grid item xs={12} md={6}>
                       <FormControl fullWidth>
                         <InputLabel style={{ color: "#a9a9a9" }}>
-                          Type of Event
+                          Tipo de Evento
                         </InputLabel>
                         <S.CustomSelect
-                          labelId="demo-simple-select-helper-label"
-                          id="demo-simple-select-helper"
                           value={age}
                           {...register("typeOfEvent")}
                           errors={errors}
@@ -221,8 +228,12 @@ const ReservationForm = ({ close }) => {
                             <em>--</em>
                           </MenuItem>
                           <MenuItem value="cumpleaños">Cumpleaños</MenuItem>
-                          <MenuItem value="reunión de trabajo">Reunión de Trabajo</MenuItem>
-                          <MenuItem value="ocasión especial">Ocasión Especial</MenuItem>
+                          <MenuItem value="reunión de trabajo">
+                            Reunión de Trabajo
+                          </MenuItem>
+                          <MenuItem value="ocasión especial">
+                            Ocasión Especial
+                          </MenuItem>
                           <MenuItem value="aniversario">Aniversario</MenuItem>
                         </S.CustomSelect>
                       </FormControl>
@@ -231,13 +242,15 @@ const ReservationForm = ({ close }) => {
 
                   <S.CustomTextField
                     variant="outlined"
-                    placeholder="Special Request (optional)"
+                    placeholder="Requerimientos especiales (opcional)"
                     {...register("specialRequest")}
+                    multiline
+                    rows={2}
                     errors={errors}
                     fullWidth
                   />
                   <CustomButton fullWidth type="submit">
-                    Submit
+                    Enviar
                   </CustomButton>
                 </form>
               </Grid>

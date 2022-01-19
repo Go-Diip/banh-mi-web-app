@@ -2,7 +2,7 @@ import styled from "styled-components"
 import { Typography } from "@mui/material"
 import PoweredIcon from "../../assets/poweredby.svg"
 import Logo from "../../assets/logoVertical.svg"
-import CustomBgImage from "../custom-bg-image/custom-bg-image.component";
+import CustomBgImage from "../custom-bg-image/custom-bg-image.component"
 
 export const Wrapper = styled.footer`
   // color: ${({ theme }) => theme.palette.text.secondary};
@@ -111,8 +111,11 @@ export const WorkText = styled.span`
   line-height: 18px;
   color: #f6faf4;
   cursor: pointer;
+  border-bottom: 2px solid transparent;
+
   &:hover {
-    color: ${({ theme }) => theme.palette.primary.main};
+    border-bottom: 2px solid #f6faf4;
+    // color: ${({ theme }) => theme.palette.primary.dark};
   }
   ${({ theme }) => theme.breakpoints.down("sm")} {
     padding: 1em 0 2em;

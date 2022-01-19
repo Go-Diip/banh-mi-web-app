@@ -12,18 +12,16 @@ const Hero = ({ title }) => {
       <S.TopWrapper>
         {/*<S.Pepper />*/}
         <S.CustomContainer maxWidth="xl">
-          <Fade triggerOnce duration={1300}>
-            <S.ContentWrapper>
-              <S.LogoVertical />
-              {/*<S.Title>{title}</S.Title>*/}
-              <S.ButtonWrapper>
-                <S.Button className="lightBorderWhite" href="/reservations/">
-                  reservaciones
-                </S.Button>
-                <S.Button className="lightBorderWhite">ordenar online</S.Button>
-              </S.ButtonWrapper>
-            </S.ContentWrapper>
-          </Fade>
+          <S.ContentWrapper>
+            <S.LogoVertical />
+            {/*<S.Title>{title}</S.Title>*/}
+            <S.ButtonWrapper>
+              <S.Button className="lightBorderWhite" href="/reservations/">
+                reservaciones
+              </S.Button>
+              <S.Button className="lightBorderWhite">ordenar online</S.Button>
+            </S.ButtonWrapper>
+          </S.ContentWrapper>
         </S.CustomContainer>
       </S.TopWrapper>
     </S.CustomParallax>

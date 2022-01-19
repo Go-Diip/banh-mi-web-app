@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 
 import * as S from "./footer.styles"
 import { Container, Grid, useTheme } from "@mui/material"
@@ -15,10 +15,13 @@ import PhoneIcon from "../../assets/phone.svg"
 import FooterModal from "../footer-modal/footer-modal.component"
 import { graphql, useStaticQuery } from "gatsby"
 import useMediaQuery from "@mui/material/useMediaQuery"
+import CustomDialog from "../custom-dialog/custom-dialog.component"
 
 const Footer = ({ className }) => {
-  const [open, setOpen] = React.useState(false)
-  const handleOpen = () => setOpen(true)
+  const [open, setOpen] = useState(false)
+  const handleOpen = () => {
+    setOpen(true)
+  }
   const handleClose = () => setOpen(false)
 
   const theme = useTheme()
@@ -46,11 +49,11 @@ const Footer = ({ className }) => {
                   <S.FooterLogo />
                   {!isMD && <FooterForm />}
                   {isSM && (
-                      <S.PhoneContainer>
-                        <CustomButton className="lightBorder">
-                          ordena online
-                        </CustomButton>
-                      </S.PhoneContainer>
+                    <S.PhoneContainer>
+                      <CustomButton className="lightBorder">
+                        ordena online
+                      </CustomButton>
+                    </S.PhoneContainer>
                   )}
                 </S.FormWrapper>
               </Grid>
@@ -59,7 +62,7 @@ const Footer = ({ className }) => {
                   <Grid item xs={12} sm={4}>
                     <S.Text>
                       {parse(
-                          "<a href='https://goo.gl/maps/LKy1qzYiUFz4cQkS7' target='_blank'><strong>Dirección:</strong><br>" +
+                        "<a href='https://goo.gl/maps/LKy1qzYiUFz4cQkS7' target='_blank'><strong>Dirección:</strong><br>" +
                           "Andalucía N24-234 y Cordero<br>Quito, Ecuador</a>"
                       )}
                     </S.Text>
@@ -68,7 +71,7 @@ const Footer = ({ className }) => {
                     <S.InfoWrapper>
                       <S.Text>
                         {parse(
-                            "<strong>Horario:</strong><br>" +
+                          "<strong>Horario:</strong><br>" +
                             "Martes a Sábado<br>" +
                             "Restaurante<br>" +
                             "12:30pm - 3:30pm<br>" +
@@ -81,17 +84,19 @@ const Footer = ({ className }) => {
                       </S.Text>
                       <S.PhoneWrapper>
                         <PhoneIcon />
-                        <S.Phone href="tel:+59399 770 2994">099 770 2994</S.Phone>
+                        <S.Phone href="tel:+59399 770 2994">
+                          099 770 2994
+                        </S.Phone>
                       </S.PhoneWrapper>
                     </S.InfoWrapper>
                   </Grid>
                   <Grid item xs={12} sm={4}>
                     {!isSM && (
-                        <S.PhoneContainer>
-                          <CustomButton className="lightBorder">
-                            ordenar online
-                          </CustomButton>
-                        </S.PhoneContainer>
+                      <S.PhoneContainer>
+                        <CustomButton className="lightBorder">
+                          ordenar online
+                        </CustomButton>
+                      </S.PhoneContainer>
                     )}
                   </Grid>
                 </Grid>
@@ -101,48 +106,49 @@ const Footer = ({ className }) => {
             <S.PoweredWrapper>
               <S.LogoWrapper>
                 <S.ExternalLink
-                    href="https://www.instagram.com/banhmisanducheria/"
-                    target="_blank"
+                  href="https://www.instagram.com/banhmisanducheria/"
+                  target="_blank"
                 >
                   <InstagramIcon />
                 </S.ExternalLink>
                 <S.ExternalLink
-                    href="https://www.google.com/search?q=banh+mi+quito&sxsrf=AOaemvKpbOARXQGWEsjMNqrBXcZIyNTxHg%3A1640134389684&source=hp&ei=9XbCYfvpJ_GYwbkPkvm88AY&iflsig=ALs-wAMAAAAAYcKFBafPP4RCtaAl01EIxOUyxwG_PrZx&gs_ssp=eJzj4tVP1zc0TDaozCjKSUsyYLRSNaiwNEwxtUw0SDVLNTKzSDW2tDKoMDdMNTM0NDNMNElKNky0TPLiTUrMy1DIzVQoLM0syQcAqh8UPA&oq=banh+mi+quito&gs_lcp=Cgdnd3Mtd2l6EAEYAzIECCMQJzIECCMQJzIECCMQJzILCC4QgAQQxwEQrwEyBggAEBYQHjIGCAAQFhAeMgYIABAWEB4yAggmOgoILhDHARCvARAnOgUILhCABDoLCC4QgAQQxwEQ0QM6BQgAEIAEOgsILhCABBDHARCjAjoKCAAQgAQQhwIQFDoKCC4QxwEQ0QMQJzoICAAQgAQQyQM6BQgAEMsBOggIABAWEAoQHlAAWJMQYPYbaABwAHgAgAGpAYgBrg-SAQQwLjEzmAEAoAEB&sclient=gws-wiz#lrd=0x91d59a0e6e268e39:0x71e61161a4bc1a9b,1"
-                    target="_blank"
+                  href="https://www.google.com/search?q=banh+mi+quito&sxsrf=AOaemvKpbOARXQGWEsjMNqrBXcZIyNTxHg%3A1640134389684&source=hp&ei=9XbCYfvpJ_GYwbkPkvm88AY&iflsig=ALs-wAMAAAAAYcKFBafPP4RCtaAl01EIxOUyxwG_PrZx&gs_ssp=eJzj4tVP1zc0TDaozCjKSUsyYLRSNaiwNEwxtUw0SDVLNTKzSDW2tDKoMDdMNTM0NDNMNElKNky0TPLiTUrMy1DIzVQoLM0syQcAqh8UPA&oq=banh+mi+quito&gs_lcp=Cgdnd3Mtd2l6EAEYAzIECCMQJzIECCMQJzIECCMQJzILCC4QgAQQxwEQrwEyBggAEBYQHjIGCAAQFhAeMgYIABAWEB4yAggmOgoILhDHARCvARAnOgUILhCABDoLCC4QgAQQxwEQ0QM6BQgAEIAEOgsILhCABBDHARCjAjoKCAAQgAQQhwIQFDoKCC4QxwEQ0QMQJzoICAAQgAQQyQM6BQgAEMsBOggIABAWEAoQHlAAWJMQYPYbaABwAHgAgAGpAYgBrg-SAQQwLjEzmAEAoAEB&sclient=gws-wiz#lrd=0x91d59a0e6e268e39:0x71e61161a4bc1a9b,1"
+                  target="_blank"
                 >
                   <GoogleIcon />
                 </S.ExternalLink>
                 <S.ExternalLink
-                    href="https://www.facebook.com/banhmisanducheria"
-                    target="_blank"
+                  href="https://www.facebook.com/banhmisanducheria"
+                  target="_blank"
                 >
                   <FacebookIcon />
                 </S.ExternalLink>
                 <S.ExternalLink
-                    href="https://www.facebook.com/banhmisanducheria"
-                    target="_blank"
+                  href="https://www.facebook.com/banhmisanducheria"
+                  target="_blank"
                 >
                   <TripIcon />
                 </S.ExternalLink>
               </S.LogoWrapper>
               <S.RightWrapper>
-                <S.WorkText onClick={handleOpen}>Trabaja con Nosotros</S.WorkText>
+                <S.WorkText onClick={handleOpen}>
+                  Trabaja con Nosotros
+                </S.WorkText>
                 <S.VerticalLine />
                 <S.PoweredBy />
               </S.RightWrapper>
             </S.PoweredWrapper>
           </Container>
-
         </S.BgImage>
       </S.Wrapper>
-      <Modal
+      <CustomDialog
         open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
+        handleClose={handleClose}
+        title="Trabaja con Nosotros"
+        description="¿Quieres formar parte del equipo de Banh Mi? Te invitamos a aplicar a nuestras posiciones disponibles en el siguiente formulario."
       >
-        <FooterModal close={handleClose} />
-      </Modal>
+        <FooterModal handleClose={handleClose} />
+      </CustomDialog>
     </>
   )
 }

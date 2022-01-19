@@ -64,120 +64,109 @@ const FooterModal = ({ close }) => {
   `)
 
   return (
-    <S.Wrapper>
-      <Container>
-        <S.TopWrapper>
-          <Logo style={{ height: "80px", width: "auto" }} />
-          <CancelIcon onClick={close} />
-        </S.TopWrapper>
-        <S.Title>Trabaja con Nosotros</S.Title>
-        <S.Description>
-          ¿Quieres formar parte del equipo de Banh Mi? Te invitamos a aplicar a
-          nuestras posiciones disponibles en el siguiente formulario.
-        </S.Description>
-        {isLoading && (
-          <S.FormSpinner>
-            <S.CustomSpinner />
-          </S.FormSpinner>
-        )}
-        {!successMessage ? (
-          <>
-            <Grid container>
-              <Grid item xs={12} md={7}>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                  <S.CustomTextField
-                    variant="outlined"
-                    name="yourName"
-                    placeholder="Nombre"
-                    fullWidth
-                    {...register("yourName")}
+    <>
+      {isLoading && (
+        <S.FormSpinner>
+          <S.CustomSpinner />
+        </S.FormSpinner>
+      )}
+      {!successMessage ? (
+        <>
+          <Grid container>
+            <Grid item xs={12} md={7}>
+              <form onSubmit={handleSubmit(onSubmit)}>
+                <S.CustomTextField
+                  variant="outlined"
+                  name="yourName"
+                  placeholder="Nombre"
+                  fullWidth
+                  {...register("yourName")}
+                  errors={errors}
+                />
+                <S.CustomTextField
+                  variant="outlined"
+                  placeholder="Email"
+                  name="yourEmail"
+                  fullWidth
+                  {...register("yourEmail")}
+                  errors={errors}
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="start">
+                        <MailOutlineIcon />
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+                <S.CustomTextField
+                  variant="outlined"
+                  name="phone"
+                  placeholder="Teléfono"
+                  fullWidth
+                  {...register("phone")}
+                  errors={errors}
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="start">
+                        <PhoneOutlinedIcon />
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+                <FormControl fullWidth>
+                  <InputLabel style={{ color: "#a9a9a9" }}>
+                    Posiciones
+                  </InputLabel>
+                  <S.CustomSelect
+                    value={age}
+                    name="positions"
+                    label="Posiciones"
+                    {...register("positions")}
                     errors={errors}
-                  />
-                  <S.CustomTextField
-                    variant="outlined"
-                    placeholder="Email"
-                    name="yourEmail"
-                    fullWidth
-                    {...register("yourEmail")}
-                    errors={errors}
-                    InputProps={{
-                      endAdornment: (
-                        <InputAdornment position="start">
-                          <MailOutlineIcon />
-                        </InputAdornment>
-                      ),
-                    }}
-                  />
-                  <S.CustomTextField
-                    variant="outlined"
-                    name="phone"
-                    placeholder="Teléfono"
-                    fullWidth
-                    {...register("phone")}
-                    errors={errors}
-                    InputProps={{
-                      endAdornment: (
-                        <InputAdornment position="start">
-                          <PhoneOutlinedIcon />
-                        </InputAdornment>
-                      ),
-                    }}
-                  />
-                  <FormControl fullWidth>
-                    <InputLabel style={{ color: "#a9a9a9" }}>
-                      Posiciones
-                    </InputLabel>
-                    <S.CustomSelect
-                      value={age}
-                      name="positions"
-                      label="Posiciones"
-                      {...register("positions")}
-                      errors={errors}
-                      onChange={handleChange}
-                    >
-                      <MenuItem value="">
-                        <em>--</em>
-                      </MenuItem>
-                      <MenuItem value="cocinero">Cocinero</MenuItem>
-                      <MenuItem value="mesero">Mesero</MenuItem>
-                      {/*<MenuItem value={30}>Thirty</MenuItem>*/}
-                    </S.CustomSelect>
-                  </FormControl>
+                    onChange={handleChange}
+                  >
+                    <MenuItem value="">
+                      <em>--</em>
+                    </MenuItem>
+                    <MenuItem value="cocinero">Cocinero</MenuItem>
+                    <MenuItem value="mesero">Mesero</MenuItem>
+                    {/*<MenuItem value={30}>Thirty</MenuItem>*/}
+                  </S.CustomSelect>
+                </FormControl>
 
-                  <S.CustomTextField
-                    variant="outlined"
-                    placeholder="Experiencia"
-                    fullWidth
-                    name="experience"
-                    {...register("experience")}
-                    errors={errors}
-                    multiline
-                    rows={4}
-                  />
-                  <CustomButton fullWidth type="submit">
-                    Enviar
-                  </CustomButton>
-                </form>
-              </Grid>
-              <Grid item xs={12} md={5}>
-                <S.RightWrapper>
-                  <S.Image img={staticQuery.menu} />
-                  <S.Description>
-                    ¡Forma parte de nuestro equipo! En Banh Mi ofrocemos una
-                    cocina inspirada en productos locales con los sabores del
-                    Sureste Asiático.
-                  </S.Description>
-                </S.RightWrapper>
-              </Grid>
+                <S.CustomTextField
+                  variant="outlined"
+                  placeholder="Experiencia"
+                  fullWidth
+                  name="experience"
+                  {...register("experience")}
+                  errors={errors}
+                  multiline
+                  rows={4}
+                />
+                <CustomButton fullWidth type="submit">
+                  Enviar
+                </CustomButton>
+              </form>
             </Grid>
-          </>
-        ) : (
-          <S.SuccessMessage>
-            <Typography>{successMessage}</Typography>
-          </S.SuccessMessage>
-        )}
-      </Container>
-    </S.Wrapper>
+            <Grid item xs={12} md={5}>
+              <S.RightWrapper>
+                <S.Image img={staticQuery.menu} />
+                <S.Description>
+                  ¡Forma parte de nuestro equipo! En Banh Mi ofrocemos una
+                  cocina inspirada en productos locales con los sabores del
+                  Sureste Asiático.
+                </S.Description>
+              </S.RightWrapper>
+            </Grid>
+          </Grid>
+        </>
+      ) : (
+        <S.SuccessMessage>
+          <Typography>{successMessage}</Typography>
+        </S.SuccessMessage>
+      )}
+    </>
   )
 }
 

@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import * as S from "./footer-modal.styles"
+import * as S from "./work-with-us-form.styles"
 import {
   Container,
   Grid,

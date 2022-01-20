@@ -6,7 +6,7 @@ import { Fade } from "react-awesome-reveal"
 const Hero = ({ title }) => {
   return (
     <S.CustomParallax
-      bgImage="https://admin-banhmi.godiip.com/wp-content/uploads/2022/01/red-bg.png"
+      bgImage="https://admin-banhmi.godiip.com/wp-content/uploads/2022/01/wok.jpg"
       strength={300}
     >
       <S.TopWrapper>

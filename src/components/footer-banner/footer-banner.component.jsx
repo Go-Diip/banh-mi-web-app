@@ -1,10 +1,12 @@
-import React from "react"
+import React, { useState } from "react"
 import * as S from "./footer-banner.styles"
 import { Container, useTheme } from "@mui/material"
 import ReservationForm from "../../components/reservation-form/reservation-form.component"
 import { Modal } from "@mui/material"
 import { graphql, useStaticQuery } from "gatsby"
 import useMediaQuery from "@mui/material/useMediaQuery"
+import CustomDialog from "../custom-dialog/custom-dialog.component"
+import WorkWithUsForm from "../work-with-us-form/work-with-us-form.component"
 
 const FooterBanner = () => {
   const staticQuery = useStaticQuery(graphql`
@@ -19,10 +21,17 @@ const FooterBanner = () => {
           gatsbyImageData(layout: FULL_WIDTH, quality: 100)
         }
       }
+      reservationForm: file(relativePath: { eq: "full-menu.jpg" }) {
+        childImageSharp {
+          gatsbyImageData(layout: FULL_WIDTH, quality: 100)
+        }
+      }
     }
   `)
-  const [open, setOpen] = React.useState(false)
-  const handleOpen = () => setOpen(true)
+  const [open, setOpen] = useState(false)
+  const handleOpen = () => {
+    setOpen(true)
+  }
   const handleClose = () => setOpen(false)
 
   const theme = useTheme()
@@ -48,14 +57,20 @@ const FooterBanner = () => {
                 </S.Button>
               </S.BannerWrapper>
             </Container>
-            <Modal
+            <CustomDialog
               open={open}
-              onClose={handleClose}
-              aria-labelledby="modal-modal-title"
-              aria-describedby="modal-modal-description"
+              handleClose={handleClose}
+              description="En Banh Mi ofrecemos cocina de producto local con influencia asiática.
+          Nuestras preparaciones se basan principalmente en el wok y la
+          parrilla. Contamos con una barra de coctelería clásica donde podrás
+          encontrar la mayor variedad de licores de la ciudad y cualquier cóctel
+          clásico."
+              rightDescription="Cocina inspirada en productos locales con los sabores del
+                  Sureste Asiático."
+              image={staticQuery.reservationForm}
             >
-              <ReservationForm close={handleClose} />
-            </Modal>
+              <ReservationForm handleClose={handleClose} />
+            </CustomDialog>
           </S.Wrapper>
         </S.BgWrapper>
       ) : (

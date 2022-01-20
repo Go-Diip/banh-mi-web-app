@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import { Dialog, IconButton, Typography } from "@mui/material"
+import CustomImage from "../custom-image/custom-image.component"
 
 export const Wrapper = styled(Dialog)`
   .MuiPaper-root {
@@ -49,4 +50,23 @@ export const Description = styled(Typography)`
 
 export const TextWrapper = styled.div`
   padding: 1em 0;
+`
+
+export const RightWrapper = styled.div`
+  max-width: 90%;
+  margin-left: auto;
+  ${({ theme }) => theme.breakpoints.down("md")} {
+    padding: 2em 0 0;
+    max-width: 100%;
+  }
+`
+
+export const Image = styled(CustomImage)`
+  height: 80%;
+  margin: auto;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+  padding-bottom: 1em;
 `

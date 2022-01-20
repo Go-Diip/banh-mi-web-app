@@ -19,7 +19,7 @@ import CancelIcon from "@mui/icons-material/Cancel"
 import { useForm } from "react-hook-form"
 import { contactFormApi } from "../../apis/apis"
 
-const ReservationForm = ({ close }) => {
+const ReservationForm = ({ handleClose }) => {
   const [age, setAge] = React.useState("")
   const [menu, setMenu] = React.useState("")
   const { register, handleSubmit, errors, control } = useForm({
@@ -73,205 +73,179 @@ const ReservationForm = ({ close }) => {
   `)
 
   return (
-    <S.Wrapper>
-      <Container>
-        <S.TopWrapper>
-          <Logo style={{ height: "80px", width: "auto" }} />
-          <CancelIcon onClick={close} />
-        </S.TopWrapper>
-        <S.Description>
-          En Banh Mi ofrecemos cocina de producto local con influencia asiática.
-          Nuestras preparaciones se basan principalmente en el wok y la
-          parrilla. Contamos con una barra de coctelería clásica donde podrás
-          encontrar la mayor variedad de licores de la ciudad y cualquier cóctel
-          clásico.
-        </S.Description>
-        {isLoading && (
-          <S.FormSpinner>
-            <S.CustomSpinner />
-          </S.FormSpinner>
-        )}
-        {!successMessage ? (
-          <>
-            <Grid container>
-              <Grid item xs={12} md={7}>
-                <form onSubmit={handleSubmit(onSubmit)} lang="es">
-                  <S.CustomTextField
-                    id="outlined-basic"
-                    variant="outlined"
-                    placeholder="Nombre completo"
-                    {...register("yourName")}
-                    errors={errors}
-                    fullWidth
-                  />
-                  <S.CustomTextField
-                    id="outlined-basic"
-                    variant="outlined"
-                    placeholder="Correo electrónico"
-                    {...register("yourEmail")}
-                    errors={errors}
-                    fullWidth
-                    InputProps={{
-                      endAdornment: (
-                        <InputAdornment position="start">
-                          <MailOutlineIcon />
-                        </InputAdornment>
-                      ),
-                    }}
-                  />
-                  <Grid container spacing={2}>
-                    <Grid item xs={12} md={6}>
-                      <S.CustomTextField
-                        id="outlined-basic"
-                        variant="outlined"
-                        placeholder="Teléfono"
-                        {...register("phone")}
-                        errors={errors}
-                        fullWidth
-                        InputProps={{
-                          endAdornment: (
-                            <InputAdornment position="start">
-                              <PhoneOutlinedIcon />
-                            </InputAdornment>
-                          ),
-                        }}
-                      />
-                    </Grid>
-                    <Grid item xs={12} md={6}>
-                      <S.CustomTextField
-                        variant="outlined"
-                        placeholder="Cantidad de personas"
-                        {...register("numberOfPersons")}
-                        errors={errors}
-                        fullWidth
-                      />
-                    </Grid>
-                  </Grid>
-
-                  <Grid container spacing={2}>
-                    <Grid item xs={12} md={6}>
-                      <S.CustomTextField
-                        id="date"
-                        type="date"
-                        required
-                        {...register("date")}
-                        errors={errors}
-                        lang="es"
-                        fullWidth
-                        defaultValue="Día del evento"
-                        inputProps={{
-                          lang: "es",
-                        }}
-                        InputLabelProps={{
-                          shrink: true,
-                        }}
-                      />
-                    </Grid>
-                    <Grid item xs={12} md={6}>
-                      <S.CustomTextField
-                        id="time"
-                        type="time"
-                        // defaultValue="Hora del evento"
-                        {...register("hourForm")}
-                        errors={errors}
-                        fullWidth
-                        InputLabelProps={{
-                          shrink: true,
-                        }}
-                        inputProps={{
-                          step: 300, // 5 min
-                        }}
-                      />
-                    </Grid>
-                  </Grid>
-                  <Grid container spacing={2}>
-                    <Grid item xs={12} md={6}>
-                      {" "}
-                      <FormControl fullWidth>
-                        <InputLabel style={{ color: "#a9a9a9" }}>
-                          Tipo de Menú
-                        </InputLabel>
-                        <S.CustomSelect
-                          value={menu}
-                          label="Tipo de Menú"
-                          {...register("typeOfMenu", {
-                            required: true,
-                          })}
-                          errors={errors}
-                          onChange={handleChangeMenu}
-                        >
-                          <MenuItem value="">
-                            <em>--</em>
-                          </MenuItem>
-                          <MenuItem value="desayuno">Desayuno</MenuItem>
-                          <MenuItem value="almuerzo">Almuerzo</MenuItem>
-                          <MenuItem value="cena">Cena</MenuItem>
-                          <MenuItem value="cocktail">Cocktail</MenuItem>
-                          <MenuItem value="buffet">Buffet</MenuItem>
-                          <MenuItem value="otro">Otro</MenuItem>
-                        </S.CustomSelect>
-                      </FormControl>
-                    </Grid>
-                    <Grid item xs={12} md={6}>
-                      <FormControl fullWidth>
-                        <InputLabel style={{ color: "#a9a9a9" }}>
-                          Tipo de Evento
-                        </InputLabel>
-                        <S.CustomSelect
-                          value={age}
-                          {...register("typeOfEvent")}
-                          errors={errors}
-                          label="Tipo de Evento"
-                          onChange={handleChange}
-                        >
-                          <MenuItem value="">
-                            <em>--</em>
-                          </MenuItem>
-                          <MenuItem value="cumpleaños">Cumpleaños</MenuItem>
-                          <MenuItem value="reunión de trabajo">
-                            Reunión de Trabajo
-                          </MenuItem>
-                          <MenuItem value="ocasión especial">
-                            Ocasión Especial
-                          </MenuItem>
-                          <MenuItem value="aniversario">Aniversario</MenuItem>
-                        </S.CustomSelect>
-                      </FormControl>
-                    </Grid>
-                  </Grid>
-
-                  <S.CustomTextField
-                    variant="outlined"
-                    placeholder="Requerimientos especiales (opcional)"
-                    {...register("specialRequest")}
-                    multiline
-                    rows={2}
-                    errors={errors}
-                    fullWidth
-                  />
-                  <CustomButton fullWidth type="submit">
-                    Enviar
-                  </CustomButton>
-                </form>
+    <>
+      {isLoading && (
+        <S.FormSpinner>
+          <S.CustomSpinner />
+        </S.FormSpinner>
+      )}
+      {!successMessage ? (
+        <>
+          <form onSubmit={handleSubmit(onSubmit)} lang="es">
+            <S.CustomTextField
+              id="outlined-basic"
+              variant="outlined"
+              placeholder="Nombre completo"
+              {...register("yourName")}
+              errors={errors}
+              fullWidth
+            />
+            <S.CustomTextField
+              id="outlined-basic"
+              variant="outlined"
+              placeholder="Correo electrónico"
+              {...register("yourEmail")}
+              errors={errors}
+              fullWidth
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="start">
+                    <MailOutlineIcon />
+                  </InputAdornment>
+                ),
+              }}
+            />
+            <Grid container spacing={2}>
+              <Grid item xs={12} md={6}>
+                <S.CustomTextField
+                  id="outlined-basic"
+                  variant="outlined"
+                  placeholder="Teléfono"
+                  {...register("phone")}
+                  errors={errors}
+                  fullWidth
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="start">
+                        <PhoneOutlinedIcon />
+                      </InputAdornment>
+                    ),
+                  }}
+                />
               </Grid>
-              <Grid item xs={12} md={5}>
-                <S.RightWrapper>
-                  <S.Image img={staticQuery.menu} />
-                  <S.Description>
-                    Cocina inspirada en productos locales con los sabores del
-                    Sureste Asiático.
-                  </S.Description>
-                </S.RightWrapper>
+              <Grid item xs={12} md={6}>
+                <S.CustomTextField
+                  variant="outlined"
+                  placeholder="Cantidad de personas"
+                  {...register("numberOfPersons")}
+                  errors={errors}
+                  fullWidth
+                />
               </Grid>
             </Grid>
-          </>
-        ) : (
-          <S.SuccessMessage>
-            <Typography>{successMessage}</Typography>
-          </S.SuccessMessage>
-        )}
-      </Container>
-    </S.Wrapper>
+
+            <Grid container spacing={2}>
+              <Grid item xs={12} md={6}>
+                <S.CustomTextField
+                  id="date"
+                  type="date"
+                  required
+                  {...register("date")}
+                  errors={errors}
+                  lang="es"
+                  fullWidth
+                  defaultValue="Día del evento"
+                  inputProps={{
+                    lang: "es",
+                  }}
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                />
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <S.CustomTextField
+                  id="time"
+                  type="time"
+                  // defaultValue="Hora del evento"
+                  {...register("hourForm")}
+                  errors={errors}
+                  fullWidth
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  inputProps={{
+                    step: 300, // 5 min
+                  }}
+                />
+              </Grid>
+            </Grid>
+            <Grid container spacing={2}>
+              <Grid item xs={12} md={6}>
+                {" "}
+                <FormControl fullWidth>
+                  <InputLabel style={{ color: "#a9a9a9" }}>
+                    Tipo de Menú
+                  </InputLabel>
+                  <S.CustomSelect
+                    value={menu}
+                    label="Tipo de Menú"
+                    {...register("typeOfMenu", {
+                      required: true,
+                    })}
+                    errors={errors}
+                    onChange={handleChangeMenu}
+                  >
+                    <MenuItem value="">
+                      <em>--</em>
+                    </MenuItem>
+                    <MenuItem value="desayuno">Desayuno</MenuItem>
+                    <MenuItem value="almuerzo">Almuerzo</MenuItem>
+                    <MenuItem value="cena">Cena</MenuItem>
+                    <MenuItem value="cocktail">Cocktail</MenuItem>
+                    <MenuItem value="buffet">Buffet</MenuItem>
+                    <MenuItem value="otro">Otro</MenuItem>
+                  </S.CustomSelect>
+                </FormControl>
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <FormControl fullWidth>
+                  <InputLabel style={{ color: "#a9a9a9" }}>
+                    Tipo de Evento
+                  </InputLabel>
+                  <S.CustomSelect
+                    value={age}
+                    {...register("typeOfEvent")}
+                    errors={errors}
+                    label="Tipo de Evento"
+                    onChange={handleChange}
+                  >
+                    <MenuItem value="">
+                      <em>--</em>
+                    </MenuItem>
+                    <MenuItem value="cumpleaños">Cumpleaños</MenuItem>
+                    <MenuItem value="reunión de trabajo">
+                      Reunión de Trabajo
+                    </MenuItem>
+                    <MenuItem value="ocasión especial">
+                      Ocasión Especial
+                    </MenuItem>
+                    <MenuItem value="aniversario">Aniversario</MenuItem>
+                  </S.CustomSelect>
+                </FormControl>
+              </Grid>
+            </Grid>
+
+            <S.CustomTextField
+              variant="outlined"
+              placeholder="Requerimientos especiales (opcional)"
+              {...register("specialRequest")}
+              multiline
+              rows={2}
+              errors={errors}
+              fullWidth
+            />
+            <CustomButton fullWidth type="submit">
+              Enviar
+            </CustomButton>
+          </form>
+        </>
+      ) : (
+        <S.SuccessMessage>
+          <Typography>{successMessage}</Typography>
+        </S.SuccessMessage>
+      )}
+    </>
   )
 }
 

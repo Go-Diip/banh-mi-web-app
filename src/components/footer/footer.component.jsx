@@ -16,6 +16,7 @@ import FooterModal from "../work-with-us-form/work-with-us-form.component"
 import { graphql, useStaticQuery } from "gatsby"
 import useMediaQuery from "@mui/material/useMediaQuery"
 import CustomDialog from "../custom-dialog/custom-dialog.component"
+import WorkWithUsFormComponent from "../work-with-us-form/work-with-us-form.component"
 
 const Footer = ({ className }) => {
   const [open, setOpen] = useState(false)
@@ -35,8 +36,15 @@ const Footer = ({ className }) => {
           gatsbyImageData(layout: FULL_WIDTH, quality: 100)
         }
       }
+
+      workImg: file(relativePath: { eq: "trabaja-con.jpg" }) {
+        childImageSharp {
+          gatsbyImageData(layout: FULL_WIDTH, quality: 100)
+        }
+      }
     }
   `)
+
   return (
     <>
       <FooterBanner id="contact" />
@@ -145,9 +153,13 @@ const Footer = ({ className }) => {
         open={open}
         handleClose={handleClose}
         title="Trabaja con Nosotros"
+        image={staticQuery.workImg}
         description="¿Quieres formar parte del equipo de Banh Mi? Te invitamos a aplicar a nuestras posiciones disponibles en el siguiente formulario."
+        rightDescription="¡Forma parte de nuestro equipo! En Banh Mi ofrocemos una cocina
+                inspirada en productos locales con los sabores del Sureste
+                Asiático."
       >
-        <FooterModal handleClose={handleClose} />
+        <WorkWithUsFormComponent handleClose={handleClose} />
       </CustomDialog>
     </>
   )

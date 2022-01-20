@@ -1,8 +1,6 @@
 import React, { useState } from "react"
 import * as S from "./work-with-us-form.styles"
 import {
-  Container,
-  Grid,
   InputAdornment,
   FormControl,
   MenuItem,

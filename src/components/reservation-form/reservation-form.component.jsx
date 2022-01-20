@@ -1,25 +1,21 @@
 import React, { useState } from "react"
 import * as S from "./reservation-form.styles"
 import {
-  Container,
   Grid,
-  Box,
   InputAdornment,
   FormControl,
   MenuItem,
   InputLabel,
   Typography,
 } from "@mui/material"
-import Logo from "../../assets/logoVertical-dark.svg"
 import MailOutlineIcon from "@mui/icons-material/MailOutline"
 import PhoneOutlinedIcon from "@mui/icons-material/PhoneOutlined"
 import CustomButton from "../custom-button/custom-button.component"
 import { graphql, useStaticQuery } from "gatsby"
-import CancelIcon from "@mui/icons-material/Cancel"
 import { useForm } from "react-hook-form"
 import { contactFormApi } from "../../apis/apis"
 
-const ReservationForm = ({ handleClose }) => {
+const ReservationForm = ({}) => {
   const [age, setAge] = React.useState("")
   const [menu, setMenu] = React.useState("")
   const { register, handleSubmit, errors, control } = useForm({

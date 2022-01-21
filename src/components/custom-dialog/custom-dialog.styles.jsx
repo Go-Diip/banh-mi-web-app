@@ -5,7 +5,7 @@ import CustomImage from "../custom-image/custom-image.component"
 export const Wrapper = styled(Dialog)`
   .MuiPaper-root {
     max-width: 700px;
-    background-color: white;
+    background-color: #edecea;
     overflow: unset;
     padding: 1em 0;
     overflow-y: scroll;

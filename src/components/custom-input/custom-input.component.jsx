@@ -2,22 +2,21 @@ import React from "react"
 import * as S from "./custom-input.styles.jsx"
 import { Grid, InputAdornment, TextField } from "@mui/material"
 
-const CustomInput = props => {
-  const {
-    children,
-    name,
-    className,
-    errors,
-    customError,
-    isRequired,
-    rows,
-    register,
-    placeholder,
-    rowsMax,
-    type = "text",
-    halfWidth,
-  } = props
-
+const CustomInput = ({
+  children,
+  name,
+  className,
+  errors,
+  customError,
+  isRequired,
+  rows,
+  register,
+  placeholder,
+  rowsMax,
+  type = "text",
+  halfWidth,
+  multiline,
+}) => {
   const getError = () => {
     if (errors[name]) {
       if (customError) {

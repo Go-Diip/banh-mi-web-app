@@ -134,69 +134,70 @@ const ReservationForm = ({}) => {
                 errors={errors}
                 halfWidth
               />
-              <Grid container spacing={2}>
-                <Grid item xs={12} md={6}>
-                  <FormControl fullWidth>
-                    <InputLabel style={{ color: "#a9a9a9" }}>
-                      Tipo de Menú
-                    </InputLabel>
-                    <S.CustomSelect
-                      value={menu}
-                      label="Tipo de Menú"
-                      {...register("typeOfMenu", {
-                        required: true,
-                      })}
-                      errors={errors}
-                      onChange={handleChangeMenu}
-                    >
-                      <MenuItem value="">
-                        <em>--</em>
-                      </MenuItem>
-                      <MenuItem value="desayuno">Desayuno</MenuItem>
-                      <MenuItem value="almuerzo">Almuerzo</MenuItem>
-                      <MenuItem value="cena">Cena</MenuItem>
-                      <MenuItem value="cocktail">Cocktail</MenuItem>
-                      <MenuItem value="buffet">Buffet</MenuItem>
-                      <MenuItem value="otro">Otro</MenuItem>
-                    </S.CustomSelect>
-                  </FormControl>
-                </Grid>
-                <Grid item xs={12} md={6}>
-                  <FormControl fullWidth>
-                    <InputLabel style={{ color: "#a9a9a9" }}>
-                      Tipo de Evento
-                    </InputLabel>
-                    <S.CustomSelect
-                      value={age}
-                      {...register("typeOfEvent")}
-                      errors={errors}
-                      label="Tipo de Evento"
-                      onChange={handleChange}
-                    >
-                      <MenuItem value="">
-                        <em>--</em>
-                      </MenuItem>
-                      <MenuItem value="cumpleaños">Cumpleaños</MenuItem>
-                      <MenuItem value="reunión de trabajo">
-                        Reunión de Trabajo
-                      </MenuItem>
-                      <MenuItem value="ocasión especial">
-                        Ocasión Especial
-                      </MenuItem>
-                      <MenuItem value="aniversario">Aniversario</MenuItem>
-                    </S.CustomSelect>
-                  </FormControl>
+              <Grid item sx={{ width: "100%" }}>
+                <Grid container spacing={2}>
+                  <Grid item xs={12} md={6}>
+                    <FormControl fullWidth>
+                      <InputLabel style={{ color: "#a9a9a9" }}>
+                        Tipo de Menú
+                      </InputLabel>
+                      <S.CustomSelect
+                        value={menu}
+                        label="Tipo de Menú"
+                        {...register("typeOfMenu", {
+                          required: true,
+                        })}
+                        errors={errors}
+                        onChange={handleChangeMenu}
+                      >
+                        <MenuItem value="">
+                          <em>--</em>
+                        </MenuItem>
+                        <MenuItem value="desayuno">Desayuno</MenuItem>
+                        <MenuItem value="almuerzo">Almuerzo</MenuItem>
+                        <MenuItem value="cena">Cena</MenuItem>
+                        <MenuItem value="cocktail">Cocktail</MenuItem>
+                        <MenuItem value="buffet">Buffet</MenuItem>
+                        <MenuItem value="otro">Otro</MenuItem>
+                      </S.CustomSelect>
+                    </FormControl>
+                  </Grid>
+                  <Grid item xs={12} md={6}>
+                    <FormControl fullWidth>
+                      <InputLabel style={{ color: "#a9a9a9" }}>
+                        Tipo de Evento
+                      </InputLabel>
+                      <S.CustomSelect
+                        value={age}
+                        {...register("typeOfEvent")}
+                        errors={errors}
+                        label="Tipo de Evento"
+                        onChange={handleChange}
+                      >
+                        <MenuItem value="">
+                          <em>--</em>
+                        </MenuItem>
+                        <MenuItem value="cumpleaños">Cumpleaños</MenuItem>
+                        <MenuItem value="reunión de trabajo">
+                          Reunión de Trabajo
+                        </MenuItem>
+                        <MenuItem value="ocasión especial">
+                          Ocasión Especial
+                        </MenuItem>
+                        <MenuItem value="aniversario">Aniversario</MenuItem>
+                      </S.CustomSelect>
+                    </FormControl>
+                  </Grid>
                 </Grid>
               </Grid>
 
-              <S.CustomTextField
-                variant="outlined"
+              <CustomInput
+                name="specialRequest"
+                register={register}
                 placeholder="Requerimientos especiales (opcional)"
                 {...register("specialRequest")}
-                multiline
                 rows={2}
                 errors={errors}
-                fullWidth
               />
               {errorMessage && (
                 <Typography style={{ marginTop: "2em" }}>

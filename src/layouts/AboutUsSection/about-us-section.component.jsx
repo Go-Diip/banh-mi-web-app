@@ -17,7 +17,7 @@ const AboutUsSection = ({ title, description, chefs, leftImage }) => {
   `)
   return (
     <S.CustomParallax
-      bgImage="https://admin-banhmi.godiip.com/wp-content/uploads/2022/01/nosotros.jpg"
+      bgImage="https://admin-banhmi.godiip.com/wp-content/uploads/2022/01/wok.jpg"
       strength={300}
     >
       <S.ContentWrapper id="about-us">

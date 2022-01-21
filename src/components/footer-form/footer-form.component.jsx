@@ -1,8 +1,9 @@
 import React, { useState } from "react"
 import * as S from "./footer-form.styles"
-import { Typography } from "@mui/material"
+import { Grid, Typography } from "@mui/material"
 import { useForm } from "react-hook-form"
 import addToMailchimp from "gatsby-plugin-mailchimp"
+import CustomButton from "../custom-button/custom-button.component"
 
 const FooterForm = ({}) => {
   const { register, handleSubmit, errors, control } = useForm({
@@ -34,15 +35,24 @@ const FooterForm = ({}) => {
         )}
         {!successMessage ? (
           <>
-            <S.CustomTextField
-              required
-              color="tertiary"
-              id="yourEmail"
-              label="Email"
-              variant="standard"
-              {...register("email")}
-              errors={errors}
-            />
+            <Grid container>
+              <Grid item xs={6}>
+                <S.CustomTextField
+                  required
+                  color="tertiary"
+                  id="yourEmail"
+                  label="Email"
+                  variant="standard"
+                  {...register("email")}
+                  errors={errors}
+                />
+              </Grid>
+              <Grid item xs={6}>
+                <CustomButton className="lightBorder" fullWidth type="submit">
+                  Suscribirse
+                </CustomButton>
+              </Grid>
+            </Grid>
           </>
         ) : (
           <S.SuccessMessage>

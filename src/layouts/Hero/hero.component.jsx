@@ -2,13 +2,21 @@ import React from "react"
 import * as S from "./hero.styles"
 import { InfoWrapper } from "./hero.styles"
 import { Fade } from "react-awesome-reveal"
+import { graphql, useStaticQuery } from "gatsby"
 
 const Hero = ({ title }) => {
+  const staticQuery = useStaticQuery(graphql`
+    query {
+      bg: file(relativePath: { eq: "red-bg-new.png" }) {
+        childImageSharp {
+          gatsbyImageData(layout: FULL_WIDTH, quality: 100)
+        }
+      }
+    }
+  `)
+
   return (
-    <S.CustomParallax
-      bgImage="https://admin-banhmi.godiip.com/wp-content/uploads/2022/01/red-bg.png"
-      strength={300}
-    >
+    <S.BgImage img={staticQuery.bg}>
       <S.TopWrapper>
         {/*<S.Pepper />*/}
         <S.CustomContainer maxWidth="xl">
@@ -24,7 +32,7 @@ const Hero = ({ title }) => {
           </S.ContentWrapper>
         </S.CustomContainer>
       </S.TopWrapper>
-    </S.CustomParallax>
+    </S.BgImage>
   )
 }
 

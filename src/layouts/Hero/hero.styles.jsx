@@ -81,15 +81,8 @@ export const CustomContainer = styled(Container)`
   align-items: center;
 `
 
-export const CustomParallax = styled(Parallax)`
+export const BgImage = styled(CustomBgImage)`
   height: 100vh;
-  .react-parallax-content {
-    height: 100%;
-  }
-
-  .react-parallax-bgimage {
-    object-fit: cover;
-  }
 `
 
 export const InfoWrapper = styled.div`

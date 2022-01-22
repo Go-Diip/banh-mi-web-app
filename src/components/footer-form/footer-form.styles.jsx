@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import { CircularProgress, TextField } from "@mui/material"
 import Box from "@mui/system/Box"
+import CustomButton from "../custom-button/custom-button.component"
 
 export const Wrapper = styled.div`
   &.MuiInputBase-root:before {
@@ -45,8 +46,18 @@ export const CustomTextField = styled(TextField)`
     color: ${({ theme }) => theme.palette.primary.light};
   }
 
-  .MuiInput-root:before {
-    border-bottom-color: ${({ theme }) => theme.palette.primary.light};
+  .MuiInput-root {
+    &:before {
+      border-bottom-color: ${({ theme }) => theme.palette.primary.light};
+    }
+
+    &:after {
+      border-bottom-color: ${({ theme }) => theme.palette.primary.light};
+    }
+  }
+
+  .MuiInputLabel-root {
+    color: white !important;
   }
 `
 
@@ -61,4 +72,9 @@ export const SuccessMessage = styled.div`
     font-size: 1.5rem;
     text-align: center;
   }
+`
+export const SubscribeBtn = styled(CustomButton)`
+  letter-spacing: 0;
+  text-transform: none;
+  width: auto;
 `

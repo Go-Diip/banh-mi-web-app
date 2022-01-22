@@ -4,6 +4,7 @@ import { Grid, Typography } from "@mui/material"
 import { useForm } from "react-hook-form"
 import addToMailchimp from "gatsby-plugin-mailchimp"
 import CustomButton from "../custom-button/custom-button.component"
+import { SubscribeBtn } from "./footer-form.styles"
 
 const FooterForm = ({}) => {
   const { register, handleSubmit, errors, control } = useForm({
@@ -48,9 +49,9 @@ const FooterForm = ({}) => {
                 />
               </Grid>
               <Grid item xs={6}>
-                <CustomButton className="lightBorder" fullWidth type="submit">
+                <S.SubscribeBtn className="lightBorder" fullWidth type="submit">
                   Suscribirse
-                </CustomButton>
+                </S.SubscribeBtn>
               </Grid>
             </Grid>
           </>

@@ -7,10 +7,10 @@ import RightArrow from "../../assets/rightArrow.svg"
 
 export const Wrapper = styled.div`
   position: relative;
-  height: 100vh;
+  height: 800px;
 
   ${({ theme }) => theme.breakpoints.down("sm")} {
-    height: 400px;
+    height: 380px;
   }
 
   .slick-dots {

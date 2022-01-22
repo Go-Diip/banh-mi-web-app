@@ -31,9 +31,7 @@ const CommonSlider = ({ images, haveIcon }) => {
       )}
       <S.CustomSlider ref={c => (slider = c)} {...sliderSettings}>
         {images.map(({ image }, index) => (
-          <S.ImageWrapper key={`image-slide-${index}`}>
-            <S.SlideImage img={image} />
-          </S.ImageWrapper>
+            <S.SlideImage key={`image-slide-${index}`} img={image} />
         ))}
       </S.CustomSlider>
       <S.LArrow onClick={previous} />

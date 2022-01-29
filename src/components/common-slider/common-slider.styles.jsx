@@ -1,17 +1,23 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import CustomImage from "../custom-image/custom-image.component"
 import Logo from "../../assets/logo.svg"
 import Slider from "react-slick"
 import LeftArrow from "../../assets/leftArrow.svg"
 import RightArrow from "../../assets/rightArrow.svg"
 
+const imageHeightRule = css`
+  height: 380px;
+  ${({ theme }) => theme.breakpoints.up("sm")} {
+    height: 500px;
+  }
+  ${({ theme }) => theme.breakpoints.up("lg")} {
+    height: 800px;
+  }
+`
+
 export const Wrapper = styled.div`
   position: relative;
-  height: 800px;
-
-  ${({ theme }) => theme.breakpoints.down("sm")} {
-    height: 380px;
-  }
+  ${imageHeightRule};
 
   .slick-dots {
     bottom: 285px;
@@ -33,10 +39,14 @@ export const Wrapper = styled.div`
 
 export const SlideImage = styled(CustomImage)`
   width: 100%;
-  height: 100%;
+  ${imageHeightRule};
+
+  .gatsby-image-wrapper {
+    ${imageHeightRule};
+  }
   img {
     width: 100%;
-    height: 100%;
+    ${imageHeightRule};
     object-fit: cover !important;
   }
 `
@@ -53,20 +63,20 @@ export const ImageWrapper = styled.div`
 `
 
 export const CustomSlider = styled(Slider)`
-  .slick-list {
-    height: 100%;
-  }
-  .slick-track {
-    height: 100%;
-  }
+  //.slick-list {
+  //  height: 100% !important;
+  //}
+  //.slick-track {
+  //  height: 100%;
+  //}
 
-  .slick-slide {
-    height: 100%;
-    object-fit: cover;
-    > div {
-      height: 100%;
-    }
-  }
+  //.slick-slide {
+  //  height: 100%;
+  //  object-fit: cover;
+  //  > div {
+  //    height: 100%;
+  //  }
+  //}
 `
 
 export const LArrow = styled(LeftArrow)`

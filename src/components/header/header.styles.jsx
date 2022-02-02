@@ -27,7 +27,7 @@ export const NavWrapper = styled.div`
 
 export const MenuButton = styled(IconButton)`
   opacity: 0;
-  animation: ${fadeIn} 0.7s linear 2.7s forwards;
+  animation: ${fadeIn} 0.7s linear 1.9s forwards;
   svg {
     fill: #f6faf4;
   }

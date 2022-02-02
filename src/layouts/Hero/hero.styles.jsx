@@ -76,7 +76,7 @@ export const Pepper = styled.div`
   width: 150px;
   overflow: hidden;
   opacity: 0;
-  animation: ${fadeIn} 0.6s linear 0.3s forwards;
+  animation: ${fadeIn} 0.6s linear 0.4s forwards;
 
   > div {
     position: absolute;

@@ -1,8 +1,7 @@
 import React from "react"
 import * as S from "./hero.styles"
-import { InfoWrapper } from "./hero.styles"
-import { Fade } from "react-awesome-reveal"
 import { graphql, useStaticQuery } from "gatsby"
+import PepperIcon from "../../assets/pepper.svg"
 
 const Hero = ({ title }) => {
   const staticQuery = useStaticQuery(graphql`
@@ -16,23 +15,31 @@ const Hero = ({ title }) => {
   `)
 
   return (
-    <S.BgImage img={staticQuery.bg}>
-      <S.TopWrapper>
-        {/*<S.Pepper />*/}
-        <S.CustomContainer maxWidth="xl">
-          <S.ContentWrapper>
-            <S.LogoVertical />
-            {/*<S.Title>{title}</S.Title>*/}
-            <S.ButtonWrapper>
-              <S.Button className="lightBorderWhite" href="/reservations/">
-                reservaciones
-              </S.Button>
-              <S.Button className="lightBorderWhite">ordenar online</S.Button>
-            </S.ButtonWrapper>
-          </S.ContentWrapper>
-        </S.CustomContainer>
-      </S.TopWrapper>
-    </S.BgImage>
+    <S.Wrapper>
+      <S.Circle>
+        <S.Pepper>
+          <div />
+          <PepperIcon />
+        </S.Pepper>
+      </S.Circle>
+      <S.BgImage img={staticQuery.bg} tag="div">
+        <S.TopWrapper>
+          {/*<S.Pepper />*/}
+          <S.CustomContainer maxWidth="xl">
+            <S.ContentWrapper>
+              <S.LogoVertical />
+              {/*<S.Title>{title}</S.Title>*/}
+              <S.ButtonWrapper>
+                <S.Button className="lightBorderWhite" href="/reservations/">
+                  reservaciones
+                </S.Button>
+                <S.Button className="lightBorderWhite">ordenar online</S.Button>
+              </S.ButtonWrapper>
+            </S.ContentWrapper>
+          </S.CustomContainer>
+        </S.TopWrapper>
+      </S.BgImage>
+    </S.Wrapper>
   )
 }
 

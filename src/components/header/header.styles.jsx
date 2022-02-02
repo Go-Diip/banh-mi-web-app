@@ -2,7 +2,7 @@ import { AppBar, IconButton } from "@mui/material"
 import styled from "styled-components"
 import PepperIcon from "../../assets/pepperBlack.svg"
 import { Link } from "react-scroll"
-
+import { fadeIn } from "../../layouts/Hero/hero.styles"
 export const CustomAppBar = styled(AppBar)`
   width: auto;
 `
@@ -26,6 +26,8 @@ export const NavWrapper = styled.div`
 `
 
 export const MenuButton = styled(IconButton)`
+  opacity: 0;
+  animation: ${fadeIn} 0.7s linear 2.7s forwards;
   svg {
     fill: #f6faf4;
   }

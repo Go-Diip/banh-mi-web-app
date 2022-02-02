@@ -1,7 +1,7 @@
 import React from "react"
 import * as S from "./hero.styles"
 import { graphql, useStaticQuery } from "gatsby"
-import PepperIcon from "../../assets/pepper.svg"
+import PepperIcon from "../../assets/pepper-red.svg"
 
 const Hero = ({ title }) => {
   const staticQuery = useStaticQuery(graphql`

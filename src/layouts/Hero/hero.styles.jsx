@@ -167,14 +167,11 @@ export const BgImage = styled(CustomBgImage)`
   position: relative;
   z-index: 2;
   transform: translateY(100%);
-  //opacity: 0;
   animation: ${slideUp} 0.6s linear 2s forwards;
 `
 
 export const Circle = styled.div`
   background: black;
-  //width: 0;
-  //height: 0;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -185,7 +182,4 @@ export const Circle = styled.div`
   border-radius: 100%;
   transform: translate(-50%, -50%);
   animation: ${expand} 2.5s linear forwards;
-  //&.active {
-  //  transform: translate(-50%, -50%) scale(10000);
-  //}
 `

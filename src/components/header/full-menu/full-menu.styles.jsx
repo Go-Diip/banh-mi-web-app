@@ -10,6 +10,8 @@ export const MenuWrapper = styled.div`
   width: 100%;
   z-index: 4;
   background-color: transparent;
+  transition: all 0.6s ease;
+  right: ${({ isactive }) => (isactive ? `0` : "-100%")}; ;
 `
 export const Wrapper = styled.div`
   position: relative;

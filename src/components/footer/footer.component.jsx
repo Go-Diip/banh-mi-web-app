@@ -132,7 +132,7 @@ const Footer = ({ className }) => {
                   <FacebookIcon />
                 </S.ExternalLink>
                 <S.ExternalLink
-                  href="https://www.facebook.com/banhmisanducheria"
+                  href="https://www.tripadvisor.com/Restaurant_Review-g60763-d425838-Reviews-Gnocco-New_York_City_New_York.html"
                   target="_blank"
                 >
                   <TripIcon />
@@ -143,7 +143,9 @@ const Footer = ({ className }) => {
                   Trabaja con Nosotros
                 </S.WorkText>
                 <S.VerticalLine />
-                <S.PoweredBy />
+                <S.ExternalLink href="https://www.godiip.com" target="_blank">
+                  <S.PoweredBy />
+                </S.ExternalLink>
               </S.RightWrapper>
             </S.PoweredWrapper>
           </Container>

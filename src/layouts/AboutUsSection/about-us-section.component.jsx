@@ -4,6 +4,7 @@ import parse from "html-react-parser"
 import { Container } from "@mui/material"
 import { graphql, useStaticQuery } from "gatsby"
 import { Fade } from "react-awesome-reveal"
+import { getSrc } from "gatsby-plugin-image"
 
 const AboutUsSection = ({ title, description, chefs, leftImage }) => {
   const staticQuery = useStaticQuery(graphql`
@@ -16,10 +17,7 @@ const AboutUsSection = ({ title, description, chefs, leftImage }) => {
     }
   `)
   return (
-    <S.CustomParallax
-      bgImage="https://admin-banhmi.godiip.com/wp-content/uploads/2022/01/wok.jpg"
-      strength={300}
-    >
+    <S.CustomParallax bgImage={getSrc(leftImage?.localFile)} strength={300}>
       <S.ContentWrapper id="about-us">
         {/*<S.PepperIcon />*/}
         <Container style={{ height: "100%" }}>

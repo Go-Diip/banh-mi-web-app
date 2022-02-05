@@ -3,7 +3,7 @@ import CustomImage from "../../components/custom-image/custom-image.component"
 import Pepper from "../../assets/pepper.svg"
 import { Container, Typography } from "@mui/material"
 import CustomBgImage from "../../components/custom-bg-image/custom-bg-image.component"
-import { Parallax } from "react-parallax"
+import { ParallaxBanner } from "react-scroll-parallax"
 
 export const LeftImage = styled(CustomImage)`
   width: 100%;
@@ -74,15 +74,8 @@ export const BgImage = styled(CustomBgImage)`
   height: 100vh;
 `
 
-export const CustomParallax = styled(Parallax)`
+export const CustomParallax = styled(ParallaxBanner)`
   height: 100vh;
-  .react-parallax-content {
-    height: 100%;
-  }
-
-  .react-parallax-bgimage {
-    object-fit: cover;
-  }
 `
 
 export const WhiteIcon = styled(Pepper)`

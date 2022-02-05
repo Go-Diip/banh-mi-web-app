@@ -53,6 +53,7 @@ export const Wrapper = styled.section`
   height: 100vh;
   position: relative;
   overflow: hidden;
+  z-index: 2;
 `
 
 export const TopWrapper = styled.div`

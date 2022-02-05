@@ -1,6 +1,6 @@
 import React from "react"
 import ThemeTopLayout from "gatsby-theme-material-ui-top-layout/src/components/top-layout"
-
+import { ParallaxProvider } from "react-scroll-parallax"
 import { useMediaQuery } from "@mui/material"
 import { GlobalStyles } from "../../styles/app.styles"
 
@@ -19,7 +19,7 @@ export default function TopLayout({ children, theme }) {
   return (
     <ThemeTopLayout theme={{ ...theme, navHeight, sectionPadding }}>
       <GlobalStyles />
-      {children}
+      <ParallaxProvider>{children}</ParallaxProvider>
     </ThemeTopLayout>
   )
 }

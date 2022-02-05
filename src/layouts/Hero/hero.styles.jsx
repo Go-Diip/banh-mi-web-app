@@ -123,6 +123,7 @@ export const Button = styled(CustomButton)`
   margin: 0 0 1em;
   min-width: 275px;
   opacity: 0;
+  will-change: opacity;
   &:first-child {
     animation: ${fadeIn} 0.7s linear 2.1s forwards;
   }
@@ -167,6 +168,7 @@ export const BgImage = styled(CustomBgImage)`
   height: 100%;
   position: relative;
   z-index: 2;
+  will-change: transform;
   transform: translateY(100%);
   animation: ${slideUp} 0.4s linear 1.5s forwards;
 `
@@ -181,6 +183,7 @@ export const Circle = styled.div`
   width: 0;
   height: 0;
   border-radius: 100%;
+  will-change: transform;
   transform: translate(-50%, -50%);
   animation: ${expand} 1.8s linear forwards;
 `

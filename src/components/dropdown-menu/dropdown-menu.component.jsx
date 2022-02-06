@@ -39,8 +39,6 @@ const DropdownMenu = ({ productCategories, products }) => {
     }
   }, [category])
 
-  console.log("dropdown", productsToShow)
-
   return (
     <S.Wrapper>
       <Container>

@@ -33,53 +33,45 @@ const FullMenu = ({ title }) => {
           }
         }
       }
-      allWpProductCategory {
-        nodes {
-          name
-          slug
-        }
-      }
     }
   `)
+
   const products = staticQuery.allWpProduct.nodes
-  const productCategories = staticQuery.allWpProductCategory.nodes
 
-  let newProductCategories = []
-  newProductCategories.push(productCategories[4])
-  newProductCategories.push(productCategories[8])
-  newProductCategories.push(productCategories[7])
-  newProductCategories.push(productCategories[6])
-  newProductCategories.push(productCategories[5])
-  newProductCategories.push(productCategories[12])
-  newProductCategories.push(productCategories[0])
-  newProductCategories.push(productCategories[13])
-  newProductCategories.push(productCategories[9])
-  newProductCategories.push(productCategories[10])
-  newProductCategories.push(productCategories[3])
-  newProductCategories.push(productCategories[2])
-  newProductCategories.push(productCategories[11])
-  newProductCategories.push(productCategories[1])
+  const productCategories = [
+    { name: "Combinaciones", slug: "combinaciones" },
+    { name: "Platos Pequeños", slug: "platos-pequenos" },
+    { name: "Platos Medianos", slug: "platos-medianos" },
+    { name: "Parrilla", slug: "parrilla" },
+    { name: "Para Compartir", slug: "para-compartir" },
+    { name: "Sopas y Noodles", slug: "sopas-noodles" },
+    { name: "Baos y Rollos", slug: "baos-rollos" },
+    { name: "Banh Mis/Burguers", slug: "burguers" },
+    { name: "Porciones", slug: "porciones" },
+    { name: "Postres", slug: "postres" },
+    { name: "Bebidas Soft", slug: "bebidas-soft" },
+    { name: "Cervezas", slug: "cervezas" },
+    { name: "Cocteles", slug: "cocteles" },
+    { name: "Vinos", slug: "vinos" },
+  ]
 
-  //arreglo para desktop
+  //Array para desktop
   let desktopCategories = []
 
-  for (let i = 0; i <= newProductCategories.length - 5; i++) {
-    desktopCategories.push(newProductCategories[i])
+  for (let i = 0; i <= productCategories.length - 5; i++) {
+    desktopCategories.push(productCategories[i])
   }
 
   //agrego la categoria para bebidas
   desktopCategories.push({ name: "Bebidas", slug: "bebidas" })
 
-  //arreglos para las bebidas y sus categorias
+  //Array para las bebidas y sus categorias
   let drinksCategories = []
-  let newDrinks = []
 
-  drinksCategories.push(newProductCategories[newProductCategories.length - 1])
-  drinksCategories.push(newProductCategories[newProductCategories.length - 2])
-  drinksCategories.push(newProductCategories[newProductCategories.length - 3])
-  drinksCategories.push(newProductCategories[newProductCategories.length - 4])
-
-  console.log(drinksCategories)
+  drinksCategories.push(productCategories[productCategories.length - 4])
+  drinksCategories.push(productCategories[productCategories.length - 3])
+  drinksCategories.push(productCategories[productCategories.length - 2])
+  drinksCategories.push(productCategories[productCategories.length - 1])
 
   const [category, setCategory] = useState(desktopCategories[0])
   const currentCategoryIndex = desktopCategories.indexOf(category)
@@ -88,14 +80,6 @@ const FullMenu = ({ title }) => {
   const handleChangeCategories = node => {
     setCategory(node)
     setCategoryTitle(node.name)
-    setDrinks(false)
-  }
-
-  const [drinks, setDrinks] = useState(false)
-
-  const handleChangeDrinks = () => {
-    setDrinks(true)
-    console.log(drinks)
   }
 
   const [productsToShow, setProductsToShow] = useState([])
@@ -114,8 +98,6 @@ const FullMenu = ({ title }) => {
         item.productCategories.nodes.map(({ slug }) => {
           if (slug === category.slug) {
             filteredProducts.push(item)
-          } else if (category.slug === "all") {
-            filteredProducts = products
           }
         })
       })
@@ -180,7 +162,7 @@ const FullMenu = ({ title }) => {
       ) : (
         <>
           <MobileMenu
-            productCategories={newProductCategories}
+            productCategories={productCategories}
             products={products}
           />
           <S.OptionsWrapper>

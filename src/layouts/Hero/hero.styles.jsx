@@ -134,7 +134,6 @@ export const Button = styled(CustomButton)`
 `
 
 export const Title = styled.h1`
-  font-family: ${({ theme }) => theme.fonts.tertiary};
   padding: 1.5em 0;
   font-style: normal;
   font-weight: normal;

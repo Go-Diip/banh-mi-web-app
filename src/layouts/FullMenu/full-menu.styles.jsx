@@ -11,15 +11,15 @@ export const TitleWrapper = styled.div`
   background-color: ${({ theme }) => theme.palette.primary.main};
   text-align: center;
   padding: 7em 0 5em;
+  color: white;
+
   h1 {
     color: ${({ theme }) => theme.palette.text.secondary};
-    font-family: ${({ theme }) => theme.fonts.secondary};
     font-weight: 600;
     font-size: 32px;
     line-height: 36px;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: white;
   }
 `
 

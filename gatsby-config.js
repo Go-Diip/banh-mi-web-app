@@ -76,22 +76,6 @@ module.exports = {
                 family: `Kanit`,
                 variants: [`100`, `200`, `300`, `400`, `500`, `600`, `700`],
               },
-              {
-                family: `Coustard`,
-                variants: [`100`, `200`, `300`, `400`, `500`, `600`, `700`],
-              },
-              {
-                family: `Montserrat`,
-                variants: [`100`, `200`, `300`, `400`, `500`, `600`, `700`],
-              },
-              {
-                family: `Corben`,
-                variants: [`100`, `200`, `300`, `400`, `500`, `600`, `700`],
-              },
-              {
-                family: `Bebas Neue`,
-                variants: [`400`, `500`, `700`],
-              },
             ],
           },
         },

@@ -39,7 +39,6 @@ export const Title = styled.h2`
 `
 
 export const Description = styled(Typography)`
-  font-family: Montserrat, sans-serif;
   padding: 0 0 1em;
   font-style: normal;
   font-weight: normal;

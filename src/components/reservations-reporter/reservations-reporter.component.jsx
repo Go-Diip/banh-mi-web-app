@@ -235,12 +235,6 @@ const ReservationsReporter = () => {
           "DD/MM/YYYY"
         )} a las ${formData.time}`,
       })
-      await sendConfirmationSMSHost({
-        ...formattedData,
-        date: `${moment(formData.date, "YYYY/MM/DD").format(
-          "DD/MM/YYYY"
-        )} a las ${formData.time}`,
-      })
     }
 
     if (formData.status === STATUSES.canceled) {

@@ -11,6 +11,7 @@ import {
   getFormattedReservationData,
   sendCancellationSMS,
   sendConfirmationSMS,
+  sendConfirmationSMSHost,
   sendEmail,
 } from "../../utils"
 import Pepper from "../../assets/pepper-red.svg"
@@ -229,6 +230,12 @@ const ReservationsReporter = () => {
     if (formData.status === STATUSES.approved) {
       await sendEmail(formattedData, emailTypes.CUSTOMER_CONFIRMATION)
       await sendConfirmationSMS({
+        ...formattedData,
+        date: `${moment(formData.date, "YYYY/MM/DD").format(
+          "DD/MM/YYYY"
+        )} a las ${formData.time}`,
+      })
+      await sendConfirmationSMSHost({
         ...formattedData,
         date: `${moment(formData.date, "YYYY/MM/DD").format(
           "DD/MM/YYYY"

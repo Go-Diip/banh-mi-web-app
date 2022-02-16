@@ -33,8 +33,8 @@ const CanceledEmail = name => {
             <table role="presentation" style="width:100%;border-collapse:collapse;border:0;border-spacing:0;">
               <tr>
                 <td style="padding:0 0 18px 0; color:#153643; border-bottom: 1px solid #811E1A">
-                  <img width="120" src="https://admin-banhmi.godiip.com/wp-content/uploads/2022/01/logo-dark.png"
-                       alt="">
+                  <img width="30" src="https://admin-banhmi.godiip.com/wp-content/uploads/2022/02/logoVertical-dark.png"
+                  alt="">
                 </td>
               </tr>
               <tr>

@@ -6,6 +6,8 @@ import canceledEmail from "./emails/canceled-email"
 import approvedEmail from "./emails/approved-email"
 import clientNotification from "./emails/client-notification"
 import { STATUSES } from "./components/reservations-reporter/reservations-reporter.component"
+import moment from "moment"
+import "moment/locale/es"
 
 export const isBrowser = () => typeof window !== "undefined"
 
@@ -20,12 +22,16 @@ export const getEmailData = (
   { email, name, last_name, table, seats, date },
   emailType
 ) => {
+  const formattedDate = moment(date, "DD MMM YYYY hh:mm", "es").format(
+    "DD MMM YYYY h:mm A"
+  )
   console.log("emailType", emailType)
   switch (emailType) {
     case emailTypes.CUSTOMER_NOTIFICATION:
       return {
         from: "Banh Mi <no-reply@banhmi.com>",
         to: [email],
+        cc: "jserviciobm@gmail.com",
         subject: "Reservación Recibida",
         html: `<p>Recibimos tu reservacion ${name}!</p>`,
       }
@@ -33,13 +39,15 @@ export const getEmailData = (
       return {
         from: "Banh Mi  <no-reply@banhmi.com>",
         to: [email],
-        subject: "Reservación Confirmada!",
-        html: approvedEmail(name, last_name, date, seats),
+        cc: "jserviciobm@gmail.com",
+        subject: `Reservación Confirmada! ${name} ${formattedDate}`,
+        html: approvedEmail(name, last_name, formattedDate, seats),
       }
     case emailTypes.CUSTOMER_CANCELED:
       return {
         from: "Banh Mi  <no-reply@banhmi.com>",
         to: [email],
+        cc: "jserviciobm@gmail.com",
         subject: "Reservación Cancelada",
         html: canceledEmail(name),
       }
@@ -47,6 +55,7 @@ export const getEmailData = (
       return {
         from: "Banhmi <no-reply@banhmi.com>",
         to: "hello@godiip.com",
+        cc: "jserviciobm@gmail.com",
         subject: "Nueva Reservación recibida",
         html: clientNotification(),
       }
@@ -281,6 +290,27 @@ export const sendConfirmationSMS = async data => {
         to: phoneFormatted,
         // prettier-ignore
         body: `Banh Mi: Hola, ${data.name}. Tu reservacion el dia ${data.date} esta confirmada.`,
+      }).toString(),
+      {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+          Accept:
+            "application/json, application/xml, text/plain, text/html, *.*",
+        },
+      }
+    )
+  } catch (e) {}
+}
+
+export const sendConfirmationSMSHost = async data => {
+  const phoneFormatted = `+593997702994`
+  try {
+    return await twilioApi.post(
+      "/send-sms",
+      new URLSearchParams({
+        to: phoneFormatted,
+        // prettier-ignore
+        body: `Banh Mi: Reservacion confirmada para ${data.name} el dia ${data.date}.`,
       }).toString(),
       {
         headers: {

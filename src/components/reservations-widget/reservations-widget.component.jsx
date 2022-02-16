@@ -44,18 +44,17 @@ const ReservationsWidget = () => {
 
   const onSubmit = async data => {
     if (!shouldSubmit) return
+    console.log("submitted data", formattedData)
     setIsLoading(true)
     const formattedData = getFormattedReservationData(data)
-    console.log("submit data", formattedData)
-    setReservation({
+    await setReservation({
       ...formattedData,
-    }).then(r => {
-      setOverviewData({
-        ...formattedData,
-        date: `${data.date} a las ${data.time}`,
-      })
-      setIsLoading(false)
     })
+    setOverviewData({
+      ...formattedData,
+      date: `${data.date} a las ${data.time}`,
+    })
+    setIsLoading(false)
     // await Promise.all([
     //   setReservation({
     //     ...formattedData,

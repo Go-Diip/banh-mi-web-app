@@ -263,7 +263,7 @@ export const getFormattedReservationData = data => {
     seats: parseInt(data.seats),
     occasion: data.occasion,
     table: data.table ?? "-",
-    notes: data.notes,
+    notes: data.notes ?? "",
     status: data.status ?? STATUSES.pending,
   }
 }

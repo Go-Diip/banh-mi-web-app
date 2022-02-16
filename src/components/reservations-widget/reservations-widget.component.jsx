@@ -11,6 +11,7 @@ import { setReservation } from "../../services/reservations"
 import { getFormattedReservationData, sendNewReservationSMS } from "../../utils"
 import Spinner from "../spinner/spinner.component"
 import { navigate } from "gatsby-link"
+import moment from "moment"
 
 export const STEPS = {
   SELECT_TABLE: 0,
@@ -52,9 +53,9 @@ const ReservationsWidget = () => {
     })
     await sendNewReservationSMS({
       ...formattedData,
-      date: `${moment(formData.date, "YYYY/MM/DD").format(
-        "DD/MM/YYYY"
-      )} a las ${formData.time}`,
+      date: `${moment(data.date, "YYYY/MM/DD").format("DD/MM/YYYY")} a las ${
+        data.time
+      }`,
     })
     setOverviewData({
       ...formattedData,

@@ -11,14 +11,25 @@ import {
   getFormattedReservationData,
   sendCancellationSMS,
   sendConfirmationSMS,
-  sendEmail
+  sendEmail,
 } from "../../utils"
-import { firestore } from "../../services/firebase"
+import Pepper from "../../assets/pepper-red.svg"
+import { auth, firestore } from "../../services/firebase"
 import moment from "moment"
 import ReservationDialog from "./reservation-dialog/reservation-dialog.component"
 import Button from "@mui/material/Button"
 import AddIcon from "@mui/icons-material/Add"
-import { IconButton, Tooltip } from "@mui/material"
+import {
+  IconButton,
+  Tooltip,
+  Box,
+  Dialog,
+  Typography,
+  DialogContent,
+  Grid,
+} from "@mui/material"
+import LogoutIcon from "@mui/icons-material/Logout"
+import CustomButton from "../custom-button/custom-button.component"
 
 export const STATUSES = {
   approved: "Aprobado",
@@ -32,6 +43,7 @@ const ReservationsReporter = () => {
   const [selectedDataIndex, setSelectedDataIndex] = useState(null)
   const [isOpenDialog, setIsOpenDialog] = useState(false)
   const [data, setData] = useState([])
+  const [isWarningDialogOpen, setIsWarningDialogOpen] = useState(false)
 
   useEffect(() => {
     //added variable unsubscribe
@@ -178,8 +190,20 @@ const ReservationsReporter = () => {
           <AddIcon />
         </IconButton>
       </Tooltip>
+      <Tooltip title="Cerrar sesión">
+        <IconButton onClick={() => setIsWarningDialogOpen(true)}>
+          <LogoutIcon />
+        </IconButton>
+      </Tooltip>
     </>
   )
+
+  const handleSignOut = () => {
+    auth.signOut().then(
+      res => {},
+      e => {}
+    )
+  }
 
   const options = {
     filterType: "multiselect",
@@ -204,7 +228,12 @@ const ReservationsReporter = () => {
     }
     if (formData.status === STATUSES.approved) {
       await sendEmail(formattedData, emailTypes.CUSTOMER_CONFIRMATION)
-      await sendConfirmationSMS({...formattedData, date: `${moment(formData.date, "YYYY/MM/DD" ).format("DD/MM/YYYY")} a las ${formData.time}`})
+      await sendConfirmationSMS({
+        ...formattedData,
+        date: `${moment(formData.date, "YYYY/MM/DD").format(
+          "DD/MM/YYYY"
+        )} a las ${formData.time}`,
+      })
     }
 
     if (formData.status === STATUSES.canceled) {
@@ -220,7 +249,13 @@ const ReservationsReporter = () => {
     <S.Wrapper>
       {isLoading && <Spinner />}
       <LoadableMuiDataTable
-        title="Bahn Mi Reservaciones"
+        className="reservationsTable"
+        title={
+          <Box sx={{ display: "flex", alignItems: "center" }}>
+            <Pepper />
+            <span style={{ marginLeft: "0.5rem" }}>Bahn Mi Reservaciones</span>
+          </Box>
+        }
         data={data}
         columns={columns}
         options={options}
@@ -234,6 +269,31 @@ const ReservationsReporter = () => {
         open={isOpenDialog}
         data={data[selectedDataIndex]}
       />
+
+      <Dialog
+        maxWidth="sm"
+        fullWidth
+        onClose={() => setIsWarningDialogOpen(false)}
+        open={isWarningDialogOpen}
+      >
+        <DialogContent>
+          <Typography style={{ fontSize: "1.5rem", marginBottom: "1rem" }}>
+            Estás seguro que deseas cerrar sesión?
+          </Typography>
+          <Grid container spacing={2}>
+            <Grid item xs={6}>
+              <CustomButton fullWidth onClick={handleSignOut}>
+                Si
+              </CustomButton>
+            </Grid>
+            <Grid item xs={6}>
+              <CustomButton className="darkBorder" fullWidth>
+                Cancelar
+              </CustomButton>
+            </Grid>
+          </Grid>
+        </DialogContent>
+      </Dialog>
     </S.Wrapper>
   )
 }

@@ -1,18 +1,37 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import { IconButton } from "@mui/material"
+
+const statusStyle = css`
+  > div {
+    border-radius: 50px;
+    padding: 0.5em 1em;
+    text-align: center;
+  }
+`
 
 export const Wrapper = styled.div`
   .pending {
-    background-color: yellow;
+    ${statusStyle};
+    > div {
+      background-color: yellow;
+    }
   }
   .approved {
-    background-color: lightgreen;
+    ${statusStyle};
+    > div {
+      background-color: lightgreen;
+    }
   }
   .canceled {
-    background-color: lightcoral;
+    ${statusStyle};
+    > div {
+      background-color: lightcoral;
+    }
   }
 
   .MuiTableCell-root {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
     cursor: pointer;
   }
 `

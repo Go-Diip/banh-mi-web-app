@@ -201,6 +201,12 @@ export const GlobalStyles = createGlobalStyle`
     opacity: 0.4;
   }
 
+  .MuiPopover-root {
+    .MuiInputLabel-root, .MuiSvgIcon-root {
+      color: black
+    }
+  }
+
   
   ${wordpress}
   ${snipcart}

@@ -108,19 +108,12 @@ const StepTwo = ({ setCurrentStep }) => {
             sx={{ marginBottom: "1.5em" }}
           >
             <Controller
-              rules={{
-                required: true,
-                // validate: validate ? value => validate(value) : null,
-              }}
-              name={inputNames[4]}
-              control={control}
               render={({ field: { onChange, onBlur, value, name, ref } }) => (
                 <RadioGroup
                   onBlur={onBlur} // notify when input is touched
                   onChange={onChange}
                   value={value}
                   aria-label="area"
-                  isRequired
                 >
                   <S.CustomRadioButton
                     value="restaurante"
@@ -135,7 +128,9 @@ const StepTwo = ({ setCurrentStep }) => {
                   />
                 </RadioGroup>
               )}
-              // defaultValue="restaurante"
+              defaultValue="restaurante"
+              name={inputNames[4]}
+              control={control}
             />
           </FormControl>
           <Button

@@ -302,6 +302,27 @@ export const sendConfirmationSMS = async data => {
   } catch (e) {}
 }
 
+export const sendNewReservationSMS = async data => {
+  const phoneFormatted = `+593997702994`
+  try {
+    return await twilioApi.post(
+      "/send-sms",
+      new URLSearchParams({
+        to: phoneFormatted,
+        // prettier-ignore
+        body: `Banh Mi: Nueva reservación de ${data.name} el dia ${data.date}.`,
+      }).toString(),
+      {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+          Accept:
+            "application/json, application/xml, text/plain, text/html, *.*",
+        },
+      }
+    )
+  } catch (e) {}
+}
+
 export const sendConfirmationSMSHost = async data => {
   const phoneFormatted = `+593997702994`
   try {

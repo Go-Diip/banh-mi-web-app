@@ -8,7 +8,7 @@ import StepOne from "./step-one/step-one.component"
 import StepTwo from "./step-two/step-two.component"
 import StepThree from "./step-three/step-three.component"
 import { setReservation } from "../../services/reservations"
-import { getFormattedReservationData } from "../../utils"
+import { getFormattedReservationData, sendNewReservationSMS } from "../../utils"
 import Spinner from "../spinner/spinner.component"
 import { navigate } from "gatsby-link"
 
@@ -49,6 +49,12 @@ const ReservationsWidget = () => {
     const formattedData = getFormattedReservationData(data)
     await setReservation({
       ...formattedData,
+    })
+    await sendNewReservationSMS({
+      ...formattedData,
+      date: `${moment(formData.date, "YYYY/MM/DD").format(
+        "DD/MM/YYYY"
+      )} a las ${formData.time}`,
     })
     setOverviewData({
       ...formattedData,

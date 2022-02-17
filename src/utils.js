@@ -251,7 +251,7 @@ export const sendEmail = async (data, emailType) => {
 
   try {
     return await mg.messages.create(
-      "mg.godiip.com",
+      "mg.banhmi.ec",
       getEmailData(data, emailType)
     )
   } catch (e) {

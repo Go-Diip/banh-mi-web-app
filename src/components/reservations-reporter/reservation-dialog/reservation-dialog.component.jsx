@@ -114,7 +114,6 @@ const ReservationDialog = ({
                 <WidgetTextField
                   name="name"
                   label="Nombre"
-                  isRequired
                   placeholder="Nombre"
                 />
               </Grid>
@@ -122,7 +121,6 @@ const ReservationDialog = ({
                 <WidgetTextField
                   name="last_name"
                   label="Apellidos"
-                  isRequired
                   placeholder="Apellidos"
                 />
               </Grid>
@@ -130,7 +128,6 @@ const ReservationDialog = ({
                 <WidgetTextField
                   name="email"
                   label="Email"
-                  isRequired
                   placeholder="Email"
                   InputProps={{
                     endAdornment: (
@@ -145,9 +142,8 @@ const ReservationDialog = ({
                 <WidgetTextField
                   name="phone"
                   label="Teléfono"
-                  isRequired
                   placeholder="Teléfono celular"
-                  validate={validatePhone}
+                  // validate={validatePhone}
                   type="number"
                   customError="Por favor ingresa un número válido de 10 digitos"
                   InputProps={{
@@ -164,7 +160,6 @@ const ReservationDialog = ({
                   options={seatsOptions}
                   name="seats"
                   label="Puestos"
-                  isRequired
                 />
               </Grid>
               <Grid item xs={12} md={6}>

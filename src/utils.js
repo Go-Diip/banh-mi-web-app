@@ -29,7 +29,7 @@ export const getEmailData = (
   switch (emailType) {
     case emailTypes.CUSTOMER_NOTIFICATION:
       return {
-        from: "Banh Mi <no-reply@banhmi.com>",
+        from: "Banh Mi <no-reply@banhmi.ec>",
         to: [email],
         cc: "banhmireservas@gmail.com",
         subject: "Reservación Recibida",
@@ -45,7 +45,7 @@ export const getEmailData = (
       }
     case emailTypes.CUSTOMER_CANCELED:
       return {
-        from: "Banh Mi  <no-reply@banhmi.com>",
+        from: "Banh Mi  <no-reply@banhmi.ec>",
         to: [email],
         cc: "banhmireservas@gmail.com",
         subject: "Reservación Cancelada",
@@ -53,7 +53,7 @@ export const getEmailData = (
       }
     case emailTypes.CLIENT_NOTIFICATION:
       return {
-        from: "Banhmi <no-reply@banhmi.com>",
+        from: "Banhmi <no-reply@banhmi.ec>",
         to: "hello@godiip.com",
         cc: "banhmireservas@gmail.com",
         subject: "Nueva Reservación recibida",

@@ -40,3 +40,5 @@ export const CustomSpinner = styled(CircularProgress)`
   width: 60px !important;
   height: 60px !important;
 `
+
+export const SuccessMessage = styled(Typography)``

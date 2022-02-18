@@ -21,6 +21,7 @@ const WorkWithUsForm = ({}) => {
   })
   const [isLoading, setIsLoading] = useState(false)
   const [successMessage, setSuccessMessage] = useState("")
+  const [errorMessage, setErrorMessage] = useState("")
   const [age, setAge] = useState("")
 
   const handleChange = event => {
@@ -29,6 +30,7 @@ const WorkWithUsForm = ({}) => {
 
   const onSubmit = async data => {
     setIsLoading(true)
+    setErrorMessage("")
 
     const form = new FormData()
     form.append("yourName", data.yourName)
@@ -44,7 +46,11 @@ const WorkWithUsForm = ({}) => {
       .then(async response => {
         setIsLoading(false)
         if (response.data) {
-          setSuccessMessage(response.data.message)
+          if (response.data.status === "mail_sent") {
+            setSuccessMessage(response.data.message)
+          } else {
+            setErrorMessage(response.data.message)
+          }
         }
       })
   }
@@ -72,6 +78,8 @@ const WorkWithUsForm = ({}) => {
             <S.CustomTextField
               variant="outlined"
               name="yourName"
+              required
+              autoComplete="name"
               placeholder="Nombre"
               fullWidth
               {...register("yourName")}
@@ -80,6 +88,9 @@ const WorkWithUsForm = ({}) => {
             <S.CustomTextField
               variant="outlined"
               placeholder="Email"
+              required
+              autoComplete="email"
+              type="email"
               name="yourEmail"
               fullWidth
               {...register("yourEmail")}
@@ -95,6 +106,8 @@ const WorkWithUsForm = ({}) => {
             <S.CustomTextField
               variant="outlined"
               name="phone"
+              required
+              autoComplete="tel"
               placeholder="Teléfono"
               fullWidth
               {...register("phone")}
@@ -113,6 +126,7 @@ const WorkWithUsForm = ({}) => {
                 value={age}
                 name="positions"
                 label="Posiciones"
+                required
                 {...register("positions")}
                 errors={errors}
                 onChange={handleChange}
@@ -130,12 +144,18 @@ const WorkWithUsForm = ({}) => {
               variant="outlined"
               placeholder="Experiencia"
               fullWidth
+              required
               name="experience"
               {...register("experience")}
               errors={errors}
               multiline
               rows={4}
             />
+            {errorMessage && (
+              <Typography style={{ marginBottom: "1rem" }}>
+                {errorMessage}
+              </Typography>
+            )}
             <CustomButton fullWidth type="submit">
               Enviar
             </CustomButton>

@@ -11,7 +11,7 @@ console.log(`This WordPress Endpoint is used: '${process.env.WORDPRESS_URL}'`)
 
 module.exports = {
   siteMetadata: {
-    siteUrl: `https://www.domain.com`,
+    siteUrl: `https://www.banhmi.ec`,
   },
   flags: {
     // FAST_DEV: true,
@@ -20,23 +20,28 @@ module.exports = {
   },
   plugins: [
     // `gatsby-plugin-preact`,
-    `gatsby-plugin-sitemap`,
-    `gatsby-plugin-gatsby-cloud`,
-    // Make sure this plugin is first in the array of plugins
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: `gatsby-plugin-advanced-sitemap`,
       options: {
-        trackingId: "UA-111111111-1",
-        // this option places the tracking script into the head of the DOM
-        head: true,
-        // other options
+        exclude: [`/404`, `/layouts`],
       },
     },
+    `gatsby-plugin-gatsby-cloud`,
+    // Make sure this plugin is first in the array of plugins
+    // {
+    //   resolve: `gatsby-plugin-google-analytics`,
+    //   options: {
+    //     trackingId: "UA-111111111-1",
+    //     // this option places the tracking script into the head of the DOM
+    //     head: true,
+    //     // other options
+    //   },
+    // },
     {
       resolve: "gatsby-plugin-robots-txt",
       options: {
-        host: "https://www.domain.com",
-        sitemap: "https://www.domain.com/sitemap.xml",
+        host: "https://www.banhmi.ec",
+        sitemap: "https://www.banhmi.ec/sitemap.xml",
         policy: [{ userAgent: "*", allow: "/" }],
       },
     },

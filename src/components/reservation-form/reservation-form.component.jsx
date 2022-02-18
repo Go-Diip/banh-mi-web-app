@@ -54,7 +54,11 @@ const ReservationForm = ({}) => {
       .then(async response => {
         setIsLoading(false)
         if (response.data) {
-          setSuccessMessage(response.data.message)
+          if (response.data.status === "mail_sent") {
+            setSuccessMessage(response.data.message)
+          } else {
+            setErrorMessage(response.data.message)
+          }
         }
       })
   }
@@ -91,11 +95,15 @@ const ReservationForm = ({}) => {
                 register={register}
                 errors={errors}
                 name="yourName"
+                required
+                autoComplete="name"
                 placeholder="Nombre Completo"
               />
 
               <CustomInput
                 name="yourEmail"
+                required
+                autoComplete="email"
                 placeholder="Correo electrónico"
                 register={register}
                 errors={errors}
@@ -105,6 +113,8 @@ const ReservationForm = ({}) => {
               <CustomInput
                 placeholder="Teléfono"
                 name="phone"
+                required
+                autoComplete="tel"
                 errors={errors}
                 register={register}
                 halfWidth
@@ -128,6 +138,7 @@ const ReservationForm = ({}) => {
                 halfWidth
               />
               <CustomInput
+                required
                 type="time"
                 name="hourForm"
                 register={register}

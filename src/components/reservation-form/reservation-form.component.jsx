@@ -95,14 +95,14 @@ const ReservationForm = ({}) => {
                 register={register}
                 errors={errors}
                 name="yourName"
-                required
+                isRequired
                 autoComplete="name"
                 placeholder="Nombre Completo"
               />
 
               <CustomInput
                 name="yourEmail"
-                required
+                isRequired
                 autoComplete="email"
                 placeholder="Correo electrónico"
                 register={register}
@@ -113,7 +113,7 @@ const ReservationForm = ({}) => {
               <CustomInput
                 placeholder="Teléfono"
                 name="phone"
-                required
+                isRequired
                 autoComplete="tel"
                 errors={errors}
                 register={register}
@@ -123,14 +123,14 @@ const ReservationForm = ({}) => {
               </CustomInput>
               <CustomInput
                 name="numberOfPersons"
+                isRequired
                 placeholder="Cantidad de personas"
-                {...register("numberOfPersons")}
                 errors={errors}
                 halfWidth
                 register={register}
               />
               <CustomInput
-                required
+                isRequired
                 name="date"
                 type="date"
                 register={register}
@@ -138,7 +138,7 @@ const ReservationForm = ({}) => {
                 halfWidth
               />
               <CustomInput
-                required
+                isRequired
                 type="time"
                 name="hourForm"
                 register={register}
@@ -204,6 +204,7 @@ const ReservationForm = ({}) => {
 
               <CustomInput
                 name="specialRequest"
+                isRequired
                 register={register}
                 placeholder="Requerimientos especiales (opcional)"
                 {...register("specialRequest")}

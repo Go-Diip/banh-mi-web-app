@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import ReservationsReporter from "../components/reservations-reporter/reservations-reporter.component"
 import { auth } from "../services/firebase"
 import { navigate } from "gatsby"
-import Login from "./login"
+import IniciarSesion from "./iniciar-sesion"
 
 const ReservacionesReporte = () => {
   const [user, setUser] = useState(null)
@@ -23,7 +23,7 @@ const ReservacionesReporte = () => {
     return unsubscribe
   }, [])
 
-  return user ? <ReservationsReporter /> : <Login />
+  return user ? <ReservationsReporter /> : <IniciarSesion />
 }
 
 export default ReservacionesReporte

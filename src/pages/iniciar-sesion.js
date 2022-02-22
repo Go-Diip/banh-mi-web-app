@@ -30,7 +30,7 @@ function Copyright(props) {
   )
 }
 
-export default function SignIn() {
+export default function IniciarSesion() {
   const emailRef = useRef(null)
   const passwordRef = useRef(null)
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import ReservationsReporter from "../components/reservations-reporter/reservations-reporter.component"
 import { auth } from "../services/firebase"
 import { navigate } from "gatsby"
-import Login from "../pages/login"
+import Login from "./login"
 
 const ReservationsReport = () => {
   const [user, setUser] = useState(null)

@@ -17,7 +17,7 @@ export default function HTML(props) {
             <script
               async
               src="https://www.googletagmanager.com/gtag/js?id=G-RT68XJ61D9"
-            ></script>
+            />
             <script
               dangerouslySetInnerHTML={{
                 __html: `window.dataLayer = window.dataLayer || [];

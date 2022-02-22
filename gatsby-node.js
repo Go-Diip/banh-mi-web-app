@@ -15,13 +15,24 @@ const createPosts = require("./create/createPosts")
 exports.createPages = async ({ graphql, actions, reporter }, options) => {
   const { createRedirect } = actions
 
-  // const redirects = [
-  //   { fromPath: "/ind-boat-configurator", toPath: "/boat-builder/37-open", redirectInBrowser: true, isPermanent: true },
-  // ]
-  //
-  // redirects.map(redirect => {
-  //   createRedirect(redirect)
-  // })
+  const redirects = [
+    {
+      fromPath: "/reservations",
+      toPath: "/reservaciones",
+      redirectInBrowser: true,
+      isPermanent: true,
+    },
+    {
+      fromPath: "/reservations-report",
+      toPath: "/reservaciones-reporte",
+      redirectInBrowser: true,
+      isPermanent: true,
+    },
+  ]
+
+  redirects.map(redirect => {
+    createRedirect(redirect)
+  })
 
   await createPages({ actions, graphql, reporter }, options)
   // await createPosts({ actions, graphql, reporter }, options)

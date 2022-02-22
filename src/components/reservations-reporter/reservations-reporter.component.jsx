@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import {
+  deleteReservation,
   setReservation,
   updateReservationData,
 } from "../../services/reservations"
@@ -173,8 +174,8 @@ const ReservationsReporter = () => {
     },
   ]
 
-  const handleCellClick = (colData, { rowIndex }) => {
-    setSelectedDataIndex(rowIndex)
+  const handleCellClick = (colData, { dataIndex }) => {
+    setSelectedDataIndex(dataIndex)
     setShouldEdit(true)
     setIsOpenDialog(true)
   }
@@ -206,12 +207,26 @@ const ReservationsReporter = () => {
     )
   }
 
+  const handleDelete = async props => {
+    const selectedData = props.data
+    if (selectedData && selectedData.length) {
+      setIsLoading(true)
+      await Promise.all(
+        selectedData.map(async ({ dataIndex }) => {
+          await deleteReservation(data[dataIndex].id)
+        })
+      )
+    }
+    setIsLoading(false)
+  }
+
   const options = {
     filterType: "multiselect",
     responsive: "standard",
     count: data.length,
     onCellClick: handleCellClick,
-    selectableRows: "none",
+    // selectableRows: "none",
+    onRowsDelete: handleDelete,
     customToolbar: () => <HeaderElements />,
   }
 

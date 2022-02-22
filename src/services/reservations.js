@@ -24,8 +24,16 @@ export const setReservation = async data => {
   }
 }
 
+export const deleteReservation = async id => {
+  try {
+    const snapshot = await firestore.collection("reservations").doc(id)
+    return await snapshot.delete()
+  } catch (e) {
+    return e
+  }
+}
+
 export const updateReservationData = async (id, data) => {
-  console.log("data tu update", data)
   try {
     const snapshot = await firestore.collection("reservations").doc(id)
     return await snapshot.update(data)

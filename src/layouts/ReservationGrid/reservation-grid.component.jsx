@@ -29,7 +29,7 @@ const ReservationGrid = ({ image, images, title, numDesc, number, button }) => {
               <S.ContentWrapper>
                 {/*<Pepper />*/}
                 {title && <S.Title>{title}</S.Title>}
-                <CustomButton className="lightBorder" href="/reservations/">
+                <CustomButton className="lightBorder" href="/reservaciones/">
                   {button?.title}
                 </CustomButton>
                 <S.PoweredIcon />

@@ -12,6 +12,11 @@ import { auth } from "../services/firebase"
 import * as S from "../styles/pages/login.styles"
 import { navigate } from "gatsby"
 import Spinner from "../components/spinner/spinner.component"
+import Visibility from "@mui/icons-material/Visibility"
+import VisibilityOff from "@mui/icons-material/VisibilityOff"
+import { IconButton, InputAdornment } from "@mui/material"
+import PepperIcon from "../assets/pepper-red.svg"
+
 function Copyright(props) {
   return (
     <Typography
@@ -36,8 +41,16 @@ export default function IniciarSesion() {
 
   const [user, setUser] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
+  const [errorMessage, setErrorMessage] = useState("")
+  const [showPassword, setShowPassword] = useState(false)
 
-  console.log("user Logged Token", user)
+  const handleClickShowPassword = () => {
+    setShowPassword(prevShowPass => !prevShowPass)
+  }
+
+  const handleMouseDownPassword = event => {
+    event.preventDefault()
+  }
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(userAuth => {
@@ -64,6 +77,7 @@ export default function IniciarSesion() {
 
   const signIn = e => {
     e.preventDefault()
+    setErrorMessage("")
     setIsLoading(true)
     auth
       .signInWithEmailAndPassword(
@@ -76,6 +90,9 @@ export default function IniciarSesion() {
       })
       .catch(err => {
         setIsLoading(false)
+        setErrorMessage(
+          " El usuario o contraseña son incorrectos, por favor vuelve a intentar."
+        )
         console.log(err)
       })
   }
@@ -107,8 +124,8 @@ export default function IniciarSesion() {
             alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-            <LockOutlinedIcon />
+          <Avatar sx={{ m: 1, background: "transparent" }}>
+            <PepperIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
             Iniciar sesión
@@ -132,23 +149,43 @@ export default function IniciarSesion() {
               required
               fullWidth
               name="password"
-              label="Password"
+              label="Contraseña"
               color="inputs"
-              type="password"
+              type={showPassword ? "text" : "password"}
               id="password"
               autoComplete="current-password"
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      style={{ marginRight: ".5rem" }}
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                      edge="end"
+                    >
+                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
             />
             {/*<FormControlLabel*/}
             {/*  control={<Checkbox value="remember" color="primary" />}*/}
             {/*  label="Remember me"*/}
             {/*/>*/}
+            {errorMessage && (
+              <Typography style={{ fontSize: "0.875rem", color: "red" }}>
+                {errorMessage}
+              </Typography>
+            )}
             <Button
               type="submit"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Sign In
+              Iniciar Sesión
             </Button>
             {/*<Grid container>*/}
             {/*  <Grid item xs>*/}

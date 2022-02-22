@@ -1,60 +1,61 @@
 import styled, { createGlobalStyle, css } from "styled-components"
 
 const snipcart = css`
-     .snipcart * {
-          font-family: ${({ theme }) => theme.fonts.primaryFont} !important;
-     }
+  .snipcart * {
+    font-family: ${({ theme }) => theme.fonts.primaryFont} !important;
+  }
 
-     .snipcart-cart__secondary-header {
-          background-color: ${({ theme }) =>
-            theme.palette.primary.main} !important;
-          .snipcart__icon--darker path {
-               fill: white;
-          }
-          .snipcart-cart__secondary-header-title {
-               color: white;
-          }
-     }
+  .snipcart-cart__secondary-header {
+    background-color: ${({ theme }) => theme.palette.primary.main} !important;
 
-     .snipcart-cart-button,
-     .snipcart__box--badge-highlight {
-          background-color: ${({ theme }) =>
-            theme.palette.primary.main} !important;
-          background-image: none !important;
-     }
+    .snipcart__icon--darker path {
+      fill: white;
+    }
 
-     .snipcart-cart-button--secondary {
-          .snipcart__icon path {
-               fill: white !important;
-          }
-          color: white !important;
-     }
+    .snipcart-cart__secondary-header-title {
+      color: white;
+    }
+  }
 
-     .snipcart__icon--blue-light path,
-     .snipcart__icon--blue-dark path {
-          fill: ${({ theme }) => theme.palette.primary.main} !important;
-     }
+  .snipcart-cart-button,
+  .snipcart__box--badge-highlight {
+    background-color: ${({ theme }) => theme.palette.primary.main} !important;
+    background-image: none !important;
+  }
 
-     .snipcart__actions--link,
-     .snipcart-discount-box__submit {
-          color: ${({ theme }) => theme.palette.primary.main} !important;
-     }
+  .snipcart-cart-button--secondary {
+    .snipcart__icon path {
+      fill: white !important;
+    }
 
-     .snipcart-discount-box__form,
-     .snipcart-input:focus-within {{
-          border: 1px solid ${({ theme }) =>
-            theme.palette.primary.main} !important;
-     }
+    color: white !important;
+  }
 
-          .snipcart-overwrite #snipcart-footer #snipcart-powered {
-               display: none !important;
-          }
+  .snipcart__icon--blue-light path,
+  .snipcart__icon--blue-dark path {
+    fill: ${({ theme }) => theme.palette.primary.main} !important;
+  }
+
+  .snipcart__actions--link,
+  .snipcart-discount-box__submit {
+    color: ${({ theme }) => theme.palette.primary.main} !important;
+  }
+
+  .snipcart-discount-box__form,
+  .snipcart-input:focus-within { {
+    border: 1px solid ${({ theme }) => theme.palette.primary.main} !important;
+  }
+
+    .snipcart-overwrite #snipcart-footer #snipcart-powered {
+      display: none !important;
+    }
 `
 
 const wordpress = css`
   // WORDPRESS CLASSES
   /* =WordPress Core
   -------------------------------------------------------------- */
+
   .alignnone {
     margin: 5px 20px 20px 0;
   }
@@ -132,6 +133,7 @@ const wordpress = css`
   }
 
   /* Text meant only for screen readers. */
+
   .screen-reader-text {
     border: 0;
     clip: rect(1px, 1px, 1px, 1px);
@@ -196,7 +198,7 @@ export const GlobalStyles = createGlobalStyle`
     min-height: 100vh;
     flex-direction: column;
   }
-  
+
   .Mui-disabled {
     opacity: 0.4;
   }
@@ -207,7 +209,15 @@ export const GlobalStyles = createGlobalStyle`
     }
   }
 
-  
+  .reservationsTable {
+    .MuiCheckbox-root {
+      .MuiSvgIcon-root {
+        fill: rgba(0, 0, 0, 0.54);;
+      }
+    }
+  }
+
+
   ${wordpress}
   ${snipcart}
 `

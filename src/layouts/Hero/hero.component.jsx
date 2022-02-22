@@ -30,7 +30,7 @@ const Hero = ({ title }) => {
               <S.LogoVertical />
               {/*<S.Title>{title}</S.Title>*/}
               <S.ButtonWrapper>
-                <S.Button className="lightBorderWhite" href="/reservations/">
+                <S.Button className="lightBorderWhite" href="/reservaciones/">
                   reservaciones
                 </S.Button>
                 <S.Button className="lightBorderWhite">ordenar online</S.Button>

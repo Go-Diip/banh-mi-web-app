@@ -19,7 +19,6 @@ import Pepper from "../../assets/pepper-red.svg"
 import { auth, firestore } from "../../services/firebase"
 import moment from "moment"
 import ReservationDialog from "./reservation-dialog/reservation-dialog.component"
-import Button from "@mui/material/Button"
 import AddIcon from "@mui/icons-material/Add"
 import {
   IconButton,
@@ -52,7 +51,7 @@ const ReservationsReporter = () => {
     const unsubscribe = firestore
       .collection("reservations")
       // .where("status", "==", "Pendiente")
-      .orderBy("status", "desc")
+      .orderBy("createdAt", "desc")
       .limit(500)
       .onSnapshot(snapshot => {
         const listItems = snapshot.docs.map(doc => ({
@@ -60,6 +59,9 @@ const ReservationsReporter = () => {
           id: doc.id,
           date: moment
             .unix(doc.data()?.date?.seconds)
+            .format("DD/MM/YYYY kk:mm"),
+          createdAt: moment
+            .unix(doc.data()?.createdAt?.seconds)
             .format("DD/MM/YYYY kk:mm"),
         }))
         setData(listItems)
@@ -86,6 +88,14 @@ const ReservationsReporter = () => {
   }
 
   const columns = [
+    {
+      name: "createdAt",
+      label: "Fecha creación",
+      options: {
+        filter: false,
+        sort: true,
+      },
+    },
     {
       name: "name",
       label: "Nombre",

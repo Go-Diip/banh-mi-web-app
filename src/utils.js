@@ -272,7 +272,7 @@ export const getFormattedReservationData = data => {
     phone: data.phone,
     area: data.area,
     date: new Date(stringDate),
-    seats: parseInt(data.seats),
+    seats: data.seats ? parseInt(data.seats) : "",
     occasion: data.occasion,
     table: data.table ?? "-",
     notes: data.notes ?? "",

@@ -73,7 +73,7 @@ const FullMenu = ({ isActive, closeOpenMenu, isHome }) => {
               <S.CSLink href="/">
                 <S.MenuItem>Inicio</S.MenuItem>
               </S.CSLink>
-              <S.CSLink href="/reservations/">
+              <S.CSLink href="/reservaciones/">
                 <S.MenuItem>Reservaciones</S.MenuItem>
               </S.CSLink>
               <S.CSLink href="/">

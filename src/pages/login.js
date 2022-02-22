@@ -48,7 +48,7 @@ export default function SignIn() {
       if (userAuth) {
         console.log("userAuth", userAuth)
         setUser(user)
-        navigate("/login/")
+        navigate("/iniciar-sesion/")
       } else {
         setUser(null)
       }
@@ -58,7 +58,7 @@ export default function SignIn() {
 
   useEffect(() => {
     if (user) {
-      navigate("/reservations-report/")
+      navigate("/reservaciones-reporte/")
     }
   }, [user])
 

@@ -28,6 +28,12 @@ exports.createPages = async ({ graphql, actions, reporter }, options) => {
       redirectInBrowser: true,
       isPermanent: true,
     },
+    {
+      fromPath: "/login",
+      toPath: "/iniciar-sesion",
+      redirectInBrowser: true,
+      isPermanent: true,
+    },
   ]
 
   redirects.map(redirect => {

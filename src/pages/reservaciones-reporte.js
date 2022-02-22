@@ -4,7 +4,7 @@ import { auth } from "../services/firebase"
 import { navigate } from "gatsby"
 import Login from "./login"
 
-const ReservationsReport = () => {
+const ReservacionesReporte = () => {
   const [user, setUser] = useState(null)
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(userAuth => {
@@ -17,7 +17,7 @@ const ReservationsReport = () => {
         setUser(user)
       } else {
         setUser(null)
-        navigate("/login/")
+        navigate("/iniciar-sesion/")
       }
     })
     return unsubscribe
@@ -26,4 +26,4 @@ const ReservationsReport = () => {
   return user ? <ReservationsReporter /> : <Login />
 }
 
-export default ReservationsReport
+export default ReservacionesReporte

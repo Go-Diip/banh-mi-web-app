@@ -51,6 +51,9 @@ const ReservationsReporter = () => {
     //added variable unsubscribe
     const unsubscribe = firestore
       .collection("reservations")
+      // .where("status", "==", "Pendiente")
+      .orderBy("status", "desc")
+      .limit(500)
       .onSnapshot(snapshot => {
         const listItems = snapshot.docs.map(doc => ({
           ...doc.data(),

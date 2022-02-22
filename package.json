@@ -46,6 +46,7 @@
     "js-cookie": "^3.0.1",
     "lodash.isempty": "^4.4.0",
     "lodash.uniqby": "^4.7.0",
+    "logrocket": "^2.2.0",
     "mailgun-js": "^0.22.0",
     "mailgun.js": "^4.1.2",
     "moment": "^2.29.1",

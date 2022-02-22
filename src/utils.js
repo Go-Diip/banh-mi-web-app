@@ -25,7 +25,6 @@ export const getEmailData = (
   const formattedDate = moment(date, "DD MMM YYYY hh:mm", "es").format(
     "DD MMM YYYY h:mm A"
   )
-  console.log("emailType", emailType)
   switch (emailType) {
     case emailTypes.CUSTOMER_NOTIFICATION:
       return {
@@ -231,6 +230,10 @@ export const validateEmail = email => {
 export const validatePhone = number => number?.match(/\d/g)?.length === 10
 
 export const sendEmail = async (data, emailType) => {
+  if (!data.email) {
+    console.log("Was not able to send the email. No email address provided.")
+    return
+  }
   const formData = require("form-data")
   const Mailgun = require("mailgun.js")
   const mailgun = new Mailgun(formData)
@@ -282,6 +285,10 @@ export const disableMondays = date => {
 }
 
 export const sendConfirmationSMS = async data => {
+  if (!data.phone) {
+    console.log("No phone provided. Was not able to send confirmation SMS.")
+    return
+  }
   const phoneFormatted = `+593${data.phone.substring(1)}`
   try {
     return await twilioApi.post(
@@ -345,6 +352,10 @@ export const sendConfirmationSMSHost = async data => {
 }
 
 export const sendCancellationSMS = async data => {
+  if (!data.phone) {
+    console.log("No phone provided. Was not able to send cancellation SMS.")
+    return
+  }
   const phoneFormatted = `+593${data.phone.substring(1)}`
   try {
     return await twilioApi.post(

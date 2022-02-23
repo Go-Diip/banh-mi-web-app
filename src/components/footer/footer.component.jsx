@@ -101,8 +101,14 @@ const Footer = ({ className }) => {
                   <Grid item xs={12} sm={4}>
                     {!isSM && (
                       <S.PhoneContainer>
-                        <CustomButton className="lightBorder">
-                          ordenar online
+                        {/*<CustomButton className="lightBorder">*/}
+                        {/*  ordenar online*/}
+                        {/*</CustomButton>*/}
+                        <CustomButton
+                          className="lightBorder"
+                          href="tel:+593997702994"
+                        >
+                          reservaciones
                         </CustomButton>
                       </S.PhoneContainer>
                     )}

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react"
 import ReservationsReporter from "../components/reservations-reporter/reservations-reporter.component"
 import { auth } from "../services/firebase"
-import { navigate } from "gatsby"
-import IniciarSesion from "./iniciar-sesion"
 import Layout from "../components/layout"
+import Login from "../components/login/login.component"
 
 const ReservacionesReporte = () => {
   const [user, setUser] = useState(null)
+  const [isReady, setIsReady] = useState(false)
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(userAuth => {
       const user = {
@@ -14,15 +14,16 @@ const ReservacionesReporte = () => {
         email: userAuth?.email,
       }
       if (userAuth) {
-        console.log("userAuth", userAuth)
         setUser(user)
       } else {
         setUser(null)
-        navigate("/iniciar-sesion/")
       }
     })
+    setIsReady(true)
     return unsubscribe
   }, [])
+
+  if (!isReady) return null
 
   return (
     <Layout
@@ -34,7 +35,7 @@ const ReservacionesReporte = () => {
         metaRobotsNofollow: "nofollow",
       }}
     >
-      {user ? <ReservationsReporter /> : <IniciarSesion />}
+      {user ? <ReservationsReporter /> : <Login />}
     </Layout>
   )
 }

@@ -290,8 +290,6 @@ const ReservationsReporter = () => {
         selectedRows.map(async ({ dataIndex }) => {
           const currentData = data[dataIndex]
           const formattedData = getFormattedReservationData(currentData)
-          console.log("data[dataIndex]", currentData)
-          console.log("formattedData", formattedData)
           await updateReservationData(currentData.id, {
             ...formattedData,
             status: "Cancelado",

@@ -106,7 +106,7 @@ const Footer = ({ className }) => {
                         {/*</CustomButton>*/}
                         <CustomButton
                           className="lightBorder"
-                          href="tel:+593997702994"
+                          href="https://api.whatsapp.com/send?phone=593997702994&text=Hola!%20Quisiera%20realizar%20una%20reserva,%20un%20pedido4"
                         >
                           reservaciones
                         </CustomButton>

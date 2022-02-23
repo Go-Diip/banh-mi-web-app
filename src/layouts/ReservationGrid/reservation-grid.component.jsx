@@ -35,6 +35,7 @@ const ReservationGrid = ({ image, images, title, numDesc, number, button }) => {
                 <CustomButton
                   className="lightBorder"
                   href="https://api.whatsapp.com/send?phone=593997702994&text=Hola!%20Quisiera%20realizar%20una%20reserva,%20un%20pedido"
+                  target="_blank"
                 >
                   {button?.title}
                 </CustomButton>

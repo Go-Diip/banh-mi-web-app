@@ -17,7 +17,6 @@ export const getReservations = async () => {
 export const setReservation = async data => {
   try {
     return await firestore.collection("reservations").add({
-      createdAt: new Date(),
       ...data,
     })
   } catch (e) {

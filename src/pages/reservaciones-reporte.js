@@ -3,6 +3,7 @@ import ReservationsReporter from "../components/reservations-reporter/reservatio
 import { auth } from "../services/firebase"
 import { navigate } from "gatsby"
 import IniciarSesion from "./iniciar-sesion"
+import Layout from "../components/layout"
 
 const ReservacionesReporte = () => {
   const [user, setUser] = useState(null)
@@ -23,7 +24,19 @@ const ReservacionesReporte = () => {
     return unsubscribe
   }, [])
 
-  return user ? <ReservationsReporter /> : <IniciarSesion />
+  return (
+    <Layout
+      showFooter={false}
+      showHeader={false}
+      seo={{
+        title: "Banh Mi - Reporte de reservaciones",
+        metaRobotsNoindex: "noindex",
+        metaRobotsNofollow: "nofollow",
+      }}
+    >
+      {user ? <ReservationsReporter /> : <IniciarSesion />}
+    </Layout>
+  )
 }
 
 export default ReservacionesReporte

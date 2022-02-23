@@ -263,15 +263,20 @@ export const sendEmail = async (data, emailType) => {
 }
 
 export const getFormattedReservationData = data => {
-  const stringDate = `${data.date} ${data.time}`
+  const date = data.time
+    ? new Date(`${data.date} ${data.time}`)
+    : moment(data.date, "DD-MM-YYYY HH:mm").toDate()
+
+  const createdAt = date.createdAt ? new Date(date.createdAt) : new Date()
   // const phoneFormatted = `+593${data.phone.substring(1)}`
   return {
+    createdAt,
     name: data.name,
     last_name: data.last_name,
     email: data.email,
     phone: data.phone,
     area: data.area,
-    date: new Date(stringDate),
+    date,
     seats: data.seats ? parseInt(data.seats) : "",
     occasion: data.occasion,
     table: data.table ?? "-",

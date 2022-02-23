@@ -31,6 +31,8 @@ import {
 } from "@mui/material"
 import LogoutIcon from "@mui/icons-material/Logout"
 import CustomButton from "../custom-button/custom-button.component"
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever"
+import { CheckCircle, DoDisturb } from "@mui/icons-material"
 
 export const STATUSES = {
   approved: "Aprobado",
@@ -52,6 +54,7 @@ const ReservationsReporter = () => {
       .collection("reservations")
       // .where("status", "==", "Pendiente")
       .orderBy("createdAt", "desc")
+      // .orderBy("status", "desc")
       .limit(500)
       .onSnapshot(snapshot => {
         const listItems = snapshot.docs.map(doc => ({
@@ -94,6 +97,7 @@ const ReservationsReporter = () => {
       options: {
         filter: false,
         sort: true,
+        searchable: false,
       },
     },
     {
@@ -213,6 +217,26 @@ const ReservationsReporter = () => {
     </>
   )
 
+  const HeaderSelectedElements = ({ data }) => (
+    <Box sx={{ paddingRight: "1rem" }}>
+      <Tooltip title="Borrar">
+        <IconButton onClick={() => handleDelete(data)}>
+          <DeleteForeverIcon />
+        </IconButton>
+      </Tooltip>
+      <Tooltip title="Cancelar">
+        <IconButton onClick={() => handleCancel(data)}>
+          <DoDisturb />
+        </IconButton>
+      </Tooltip>
+      <Tooltip title="Aprobar">
+        <IconButton onClick={() => handleApprove(data)}>
+          <CheckCircle />
+        </IconButton>
+      </Tooltip>
+    </Box>
+  )
+
   const handleSignOut = () => {
     auth.signOut().then(
       res => {},
@@ -220,13 +244,61 @@ const ReservationsReporter = () => {
     )
   }
 
-  const handleDelete = async props => {
-    const selectedData = props.data
-    if (selectedData && selectedData.length) {
+  const handleDelete = async selectedRows => {
+    if (selectedRows && selectedRows.length) {
       setIsLoading(true)
       await Promise.all(
-        selectedData.map(async ({ dataIndex }) => {
+        selectedRows.map(async ({ dataIndex }) => {
           await deleteReservation(data[dataIndex].id)
+        })
+      )
+    }
+    setIsLoading(false)
+  }
+
+  const handleApprove = async selectedRows => {
+    if (selectedRows && selectedRows.length) {
+      setIsLoading(true)
+      await Promise.all(
+        selectedRows.map(async ({ dataIndex }) => {
+          const currentData = data[dataIndex]
+          const formattedData = getFormattedReservationData(currentData)
+          await updateReservationData(currentData.id, {
+            ...formattedData,
+            status: "Aprobado",
+          })
+
+          await sendEmail(formattedData, emailTypes.CUSTOMER_CONFIRMATION)
+          await sendConfirmationSMS({
+            ...formattedData,
+            date: `${moment(currentData.date, "DD-MM-YYYY HH:mm").format(
+              "DD/MM/YYYY"
+            )} a las ${moment(currentData.date, "DD-MM-YYYY HH:mm").format(
+              "HH:mm"
+            )}`,
+          })
+        })
+      )
+    }
+    setIsLoading(false)
+  }
+
+  const handleCancel = async selectedRows => {
+    if (selectedRows && selectedRows.length) {
+      setIsLoading(true)
+      await Promise.all(
+        selectedRows.map(async ({ dataIndex }) => {
+          const currentData = data[dataIndex]
+          const formattedData = getFormattedReservationData(currentData)
+          console.log("data[dataIndex]", currentData)
+          console.log("formattedData", formattedData)
+          await updateReservationData(currentData.id, {
+            ...formattedData,
+            status: "Cancelado",
+          })
+
+          await sendEmail(formattedData, emailTypes.CUSTOMER_CONFIRMATION)
+          await sendCancellationSMS(formattedData)
         })
       )
     }
@@ -239,8 +311,9 @@ const ReservationsReporter = () => {
     count: data.length,
     onCellClick: handleCellClick,
     // selectableRows: "none",
-    onRowsDelete: handleDelete,
+    // onRowsDelete: handleDelete,
     customToolbar: () => <HeaderElements />,
+    customToolbarSelect: props => <HeaderSelectedElements {...props} />,
   }
 
   const handleDataInput = async formData => {

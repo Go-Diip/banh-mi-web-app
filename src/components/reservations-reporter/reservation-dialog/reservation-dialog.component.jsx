@@ -51,6 +51,7 @@ const ReservationDialog = ({
     if (data && shouldEdit) {
       const momentDate = moment(data.date, "DD/MM/YYYY kk:mm")
       console.log("current date", momentDate)
+      setValue("createdAt", data.createdAt)
       setValue("status", data.status)
       setValue("table", data.table)
       setValue("email", data.email)
@@ -65,6 +66,7 @@ const ReservationDialog = ({
 
       setSelectedDate(momentDate)
     } else {
+      setValue("createdAt", new Date())
       setValue("status", STATUSES.approved)
       setValue("table", "-")
       setValue("email", "")
@@ -94,6 +96,7 @@ const ReservationDialog = ({
         </Typography>
         <FormProvider {...methods}>
           <form onSubmit={handleSubmit(handleDataInput)}>
+            <input type="hidden" {...register("createdAt")} />
             <Grid container spacing={2}>
               <Grid item xs={12} md={6}>
                 <WidgetSelect

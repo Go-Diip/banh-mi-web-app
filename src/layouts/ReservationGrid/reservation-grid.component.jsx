@@ -29,7 +29,7 @@ const ReservationGrid = ({ image, images, title, numDesc, number, button }) => {
               <S.ContentWrapper>
                 {/*<Pepper />*/}
                 {title && <S.Title>{title}</S.Title>}
-                <CustomButton className="lightBorder" href="/reservaciones/">
+                <CustomButton className="lightBorder" href="tel:+593997702994">
                   {button?.title}
                 </CustomButton>
                 <S.PoweredIcon />

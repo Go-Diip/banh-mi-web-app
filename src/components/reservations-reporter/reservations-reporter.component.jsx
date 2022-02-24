@@ -295,7 +295,7 @@ const ReservationsReporter = () => {
             status: "Cancelado",
           })
 
-          await sendEmail(formattedData, emailTypes.CUSTOMER_CONFIRMATION)
+          await sendEmail(formattedData, emailTypes.CUSTOMER_CANCELED)
           await sendCancellationSMS(formattedData)
         })
       )

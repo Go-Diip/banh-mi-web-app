@@ -4,7 +4,7 @@ import PropTypes from "prop-types"
 export default function HTML(props) {
   const isProduction = process.env.GATSBY_ACTIVE_ENV === "production"
   return (
-    <html {...props.htmlAttributes}>
+    <html {...props.htmlAttributes} lang="es">
       <head>
         <meta charSet="utf-8" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />

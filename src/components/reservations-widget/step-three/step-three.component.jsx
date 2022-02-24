@@ -38,7 +38,7 @@ const StepThree = () => {
       <Grid item xs={12} md={6}>
         <S.Title>Tu Reserva</S.Title>
         <S.ReviewBox>
-          <label>Reservador por</label>
+          <label>Reservado por</label>
           <Typography>{values[0]}</Typography>
         </S.ReviewBox>
         <S.ReviewBox>

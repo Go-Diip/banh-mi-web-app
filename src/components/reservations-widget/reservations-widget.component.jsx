@@ -129,7 +129,7 @@ const ReservationsWidget = () => {
               <S.ModalName>Hola {overviewData?.name}</S.ModalName>
               <S.ModalDescription>
                 Hemos recibido tu solicitud de reservación. En máximo 10 minutos
-                recibirás un mensaje vía WhatsApp y un correo electrónico con la
+                recibirás un mensaje vía SMS y un correo electrónico con la
                 confirmación de tu reservación.
               </S.ModalDescription>
             </Grid>

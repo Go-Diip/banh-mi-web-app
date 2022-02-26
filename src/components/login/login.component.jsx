@@ -18,12 +18,14 @@ import PepperIcon from "../../assets/pepper-red.svg"
 function Copyright(props) {
   return (
     <Typography variant="body2" color="black" align="center" {...props}>
-      {"Copyright © "}
-      <Link color="inherit" href="https://godiip.com/">
+      {"Powered by "}
+      <Link
+        color="inherit"
+        target="_blank"
+        href="https://godiip.com?utm_source=banhmi+powered+by+link&utm_medium=link+on+login+of+reservations&utm_campaign=banhmi+powered+by+link"
+      >
         Diip
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
+      </Link>
     </Typography>
   )
 }
@@ -170,7 +172,7 @@ export default function Login() {
             {/*</Grid>*/}
           </Box>
         </Box>
-        <Copyright sx={{ mt: 8, mb: 4 }} />
+        <Copyright sx={{ mt: 4, mb: 4 }} />
       </Container>
     </S.Wrapper>
   )

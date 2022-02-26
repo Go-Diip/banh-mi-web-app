@@ -91,18 +91,33 @@ const StepThree = () => {
       >
         <S.ImportantInfo>
           <p>
-            <b>POLÍTICAS DE RESERVACIONES</b>
+            <b>POLÍTICAS DE RESERVACIÓN</b>
           </p>
-          <p>
-            Una vez enviada tu solicitud de reservación deberás esperar por la
-            confirmación de tu reservación vía WhatsApp y correo electrónico con
-            la confirmación en un tiempo máximo de 10 minutos. En caso de
-            retraso, cancelaciones o cambio de hora de tu reserva por favor
-            notifícanos vía WhatsApp o llamada telefónica, al: 099 770 2994.
-            También puedes realizar tu reservación vía WhatsApp o llamada
-            telefónica. El restaurante no garantiza ubicación de la mesa al
-            momento de realizar la reservación.
-          </p>
+          <ul style={{ paddingLeft: "1rem" }}>
+            <li>
+              Una vez enviada tu solicitud de reservación deberás esperar por la
+              confirmación de tu reservación vía SMS y correo electrónico con la
+              confirmación en un tiempo máximo de 10 minutos.
+            </li>
+            <li>
+              En caso de retraso, cancelaciones o cambio de hora de tu reserva
+              por favor notifícanos vía WhatsApp o llamada telefónica, al: 099
+              770 2994.
+            </li>
+            <li>
+              También puedes realizar tu reservación vía WhatsApp o llamada
+              telefónica.
+            </li>
+            <li>
+              El restaurante no garantiza ubicación de la mesa al momento de
+              realizar la reservación.
+            </li>
+            <li>
+              Las reservaciones solicitadas fuera de nuestros horarios de
+              atención serán confirmadas dentro de los siguientes horarios:
+              Martes a Sábado de 11 am - 10:30pm.
+            </li>
+          </ul>
         </S.ImportantInfo>
         <Button
           fullWidth

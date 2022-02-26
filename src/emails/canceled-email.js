@@ -45,7 +45,7 @@ const CanceledEmail = name => {
                   </p>
                   <p style="font-family:Arial,sans-serif; font-size: 18px; margin-bottom: 16px; font-weight: 300;">
                     Al momento <span style="color: #811E1A">no hemos podido confirmar tu reservación.</span> En pocos
-                    minutos te contactarán directamente alguien de nuestro equipo para poder asisitirte con tu
+                    minutos te contactará alguien de nuestro equipo para poder asisitirte con tu
                     reservación.
                   </p>
                   <p style="font-family:Arial,sans-serif; font-size: 18px; margin-bottom: 16px; font-weight: 300;">
@@ -64,10 +64,11 @@ const CanceledEmail = name => {
               <tr>
                 <td style="padding:0;">
                   <p style="font-family:Arial,sans-serif; font-size: 14px; font-weight: 300;"><b>Condiciones de la Reserva</b></p>
-                  <p style="font-family:Arial,sans-serif; font-size: 14px; font-weight: 300;">For athletes, high altitude produces two contradictory effects on performance. For explosive events
-                    (sprints up to 400 metres, long jump, triple jump) the reduction in atmospheric pressure means there
-                    is less resistance from the atmosphere and the athlete's performance will generally be better at
-                    high altitude.</p>
+                  <p style="font-family:Arial,sans-serif; font-size: 14px; font-weight: 300;">
+                   Puedes hacer una reservación en estos 3 canales: Nuestra página web www.banhmi.ec y vía WhatsApp o llamada telefónica al siguiente número:  099 770 2994. <br>
+                          En caso de retraso, cancelaciones o cambio de hora de tu reserva por favor notifícanos vía WhatsApp o llamada telefónica, al: 099 770 2994.  <br>
+                          Las reservaciones solicitadas fuera de nuestros horarios de atención serán confirmadas dentro de los siguientes horarios: Martes a Sábado de 11 am - 10:30pm.
+                    </p>
 
                 </td>
               </tr>

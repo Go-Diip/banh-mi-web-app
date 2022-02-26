@@ -93,14 +93,13 @@ const ApprovedEmail = (name, lastName, date, seats) => {
 
                         <p
                           style="font-family:Arial,sans-serif; font-size: 14px; font-weight: 500; line-height: 21px; color: #111212; margin-top: 0; padding:0;">
-                          Condiciones de la Reserva
+                          Políticas de Reservaciones
                         </p>
                         <p
                           style="font-family:Arial,sans-serif; font-size: 14px; color: #111212; font-weight: 300; margin: 0; line-height: 20px; padding:0">
-                          For athletes, high altitude produces two contradictory effects on performance. For explosive
-                          events (sprints up to 400 metres, long jump, triple jump) the reduction in atmospheric
-                          pressure means there is less resistance from the atmosphere and the athlete's performance will
-                          generally be better at high altitude.
+                          Puedes hacer una reservación en estos 3 canales: Nuestra página web www.banhmi.ec y vía WhatsApp o llamada telefónica al siguiente número:  099 770 2994. <br>
+                          En caso de retraso, cancelaciones o cambio de hora de tu reserva por favor notifícanos vía WhatsApp o llamada telefónica, al: 099 770 2994.  <br>
+                          Las reservaciones solicitadas fuera de nuestros horarios de atención serán confirmadas dentro de los siguientes horarios: Martes a Sábado de 11 am - 10:30pm.
                         </p>
                       </td>
                     </tr>

@@ -1,4 +1,4 @@
-const CanceledEmail = name => {
+const UnavailableEmail = name => {
   return `
     <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -44,8 +44,13 @@ const CanceledEmail = name => {
                     Hola, ${name}
                   </p>
                   <p style="font-family:Arial,sans-serif; font-size: 18px; margin-bottom: 16px; font-weight: 300;">
-                    Tu reservación ha sido cancelada. 
-                    Te esperamos en Banh Mi en una próxima ocasión. Recuerda que puedes hacer tu reservación visitando nuestra página web <a href="www.banhmi.ec" target="_blank">www.banhmi.ec</a> o contactándonos vía WhatsApp o llamada telefónica al siguiente número <a href="tel:+59399770299">099 770 2994</a>.
+                    Al momento <span style="color: #811E1A">no hemos podido confirmar tu reservación.</span> En pocos
+                    minutos te contactará alguien de nuestro equipo para poder asisitirte con tu
+                    reservación.
+                  </p>
+                  <p style="font-family:Arial,sans-serif; font-size: 18px; margin-bottom: 16px; font-weight: 300;">
+                    <b style="font-style: italic">Atención:</b> Se te contactará al número de teléfono proporcionado al
+                    momento que solicitaste la reservación.
                   </p>
                 </td>
               </tr>
@@ -56,17 +61,17 @@ const CanceledEmail = name => {
           <td style="padding:30px; border-top: 1px solid lightgray">
             <table role="presentation"
                    style="width:100%;border-collapse:collapse;border:0;border-spacing:0;font-size:14px;font-family:Arial,sans-serif;">
-<!--              <tr>-->
-<!--                <td style="padding:0;">-->
-<!--                  <p style="font-family:Arial,sans-serif; font-size: 14px; font-weight: 300;"><b>Condiciones de la Reserva</b></p>-->
-<!--                  <p style="font-family:Arial,sans-serif; font-size: 14px; font-weight: 300;">-->
-<!--                   Puedes hacer una reservación en estos 3 canales: Nuestra página web www.banhmi.ec y vía WhatsApp o llamada telefónica al siguiente número:  099 770 2994. <br>-->
-<!--                          En caso de retraso, cancelaciones o cambio de hora de tu reserva por favor notifícanos vía WhatsApp o llamada telefónica, al: 099 770 2994.  <br>-->
-<!--                          Las reservaciones solicitadas fuera de nuestros horarios de atención serán confirmadas dentro de los siguientes horarios: Martes a Sábado de 11 am - 10:30pm.-->
-<!--                    </p>-->
+              <tr>
+                <td style="padding:0;">
+                  <p style="font-family:Arial,sans-serif; font-size: 14px; font-weight: 300;"><b>Condiciones de la Reserva</b></p>
+                  <p style="font-family:Arial,sans-serif; font-size: 14px; font-weight: 300;">
+                   Puedes hacer una reservación en estos 3 canales: Nuestra página web www.banhmi.ec y vía WhatsApp o llamada telefónica al siguiente número:  099 770 2994. <br>
+                          En caso de retraso, cancelaciones o cambio de hora de tu reserva por favor notifícanos vía WhatsApp o llamada telefónica, al: 099 770 2994.  <br>
+                          Las reservaciones solicitadas fuera de nuestros horarios de atención serán confirmadas dentro de los siguientes horarios: Martes a Sábado de 11 am - 10:30pm.
+                    </p>
 
-<!--                </td>-->
-<!--              </tr>-->
+                </td>
+              </tr>
               <tr>
                 <td align="center" style="text-align: center;">
                   <a href="https://www.godiip.com/" target="_blank">
@@ -87,4 +92,4 @@ const CanceledEmail = name => {
   `
 }
 
-export default CanceledEmail
+export default UnavailableEmail

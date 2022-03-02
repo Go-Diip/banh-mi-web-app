@@ -8,6 +8,7 @@ import clientNotification from "./emails/client-notification"
 import { STATUSES } from "./components/reservations-reporter/reservations-reporter.component"
 import moment from "moment"
 import "moment/locale/es"
+import unavailableEmail from "./emails/unavailable-email"
 
 export const isBrowser = () => typeof window !== "undefined"
 
@@ -15,6 +16,7 @@ export const emailTypes = {
   CUSTOMER_NOTIFICATION: "Customer Notification",
   CUSTOMER_CONFIRMATION: "Customer Confirmation",
   CUSTOMER_CANCELED: "Customer Canceled",
+  CUSTOMER_UNAVAILABLE: "Customer Unavailable",
   CLIENT_NOTIFICATION: "Client Notification",
 }
 
@@ -42,6 +44,15 @@ export const getEmailData = (
         subject: `Reservación Confirmada! ${name} ${formattedDate}`,
         html: approvedEmail(name, last_name, formattedDate, seats),
       }
+    case emailTypes.CUSTOMER_UNAVAILABLE:
+      return {
+        from: "Banh Mi  <no-reply@banhmi.ec>",
+        to: [email],
+        cc: "banhmireservas@gmail.com",
+        subject: "No pudimos confirmar tu reservación",
+        html: unavailableEmail(name),
+      }
+
     case emailTypes.CUSTOMER_CANCELED:
       return {
         from: "Banh Mi  <no-reply@banhmi.ec>",
@@ -50,6 +61,7 @@ export const getEmailData = (
         subject: "Reservación Cancelada",
         html: canceledEmail(name),
       }
+
     case emailTypes.CLIENT_NOTIFICATION:
       return {
         from: "Banhmi <no-reply@banhmi.ec>",
@@ -358,7 +370,7 @@ export const sendConfirmationSMSHost = async data => {
 
 export const sendUnavailableSMS = async data => {
   if (!data.phone) {
-    console.log("No phone provided. Was not able to send cancellation SMS.")
+    console.log("No phone provided. Was not able to send unavailable SMS.")
     return
   }
   const phoneFormatted = `+593${data.phone.substring(1)}`
@@ -369,6 +381,30 @@ export const sendUnavailableSMS = async data => {
         to: phoneFormatted,
         // prettier-ignore
         body: `Banh Mi: Hola, ${data.name}. Al momento no hemos podido confirmar tu reservacion. Pronto te contactaran directamente para poder asisitirte.`,
+      }).toString(),
+      {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+          Accept:
+            "application/json, application/xml, text/plain, text/html, *.*",
+        },
+      }
+    )
+  } catch (e) {}
+}
+export const sendCanceledSMS = async data => {
+  if (!data.phone) {
+    console.log("No phone provided. Was not able to send cancellation SMS.")
+    return
+  }
+  const phoneFormatted = `+593${data.phone.substring(1)}`
+  try {
+    return await twilioApi.post(
+      "/send-sms",
+      new URLSearchParams({
+        to: phoneFormatted,
+        // prettier-ignore
+        body: `Banh Mi: Tu reservacion ha sido cancelada. Te esperamos en Banh Mi en una proxima ocasion. Recuerda que puedes hacer tu reservacion visitando nuestra pagina web www.banhmi.ec o contactandonos via WhatsApp o llamada telefonica al siguiente numero 099 770 2994.`,
       }).toString(),
       {
         headers: {

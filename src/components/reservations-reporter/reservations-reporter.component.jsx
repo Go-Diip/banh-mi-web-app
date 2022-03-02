@@ -10,6 +10,7 @@ import Spinner from "../spinner/spinner.component"
 import {
   emailTypes,
   getFormattedReservationData,
+  sendCanceledSMS,
   sendConfirmationSMS,
   sendEmail,
   sendUnavailableSMS,
@@ -337,8 +338,13 @@ const ReservationsReporter = () => {
     }
 
     if (formData.status === STATUSES.unavailable) {
-      await sendEmail(formattedData, emailTypes.CUSTOMER_CANCELED)
+      await sendEmail(formattedData, emailTypes.CUSTOMER_UNAVAILABLE)
       await sendUnavailableSMS(formattedData)
+    }
+
+    if (formData.status === STATUSES.canceled) {
+      await sendEmail(formattedData, emailTypes.CUSTOMER_CANCELED)
+      await sendCanceledSMS(formattedData)
     }
 
     setIsLoading(false)

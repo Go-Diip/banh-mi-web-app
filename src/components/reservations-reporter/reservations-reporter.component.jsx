@@ -10,10 +10,9 @@ import Spinner from "../spinner/spinner.component"
 import {
   emailTypes,
   getFormattedReservationData,
-  sendCancellationSMS,
   sendConfirmationSMS,
-  sendConfirmationSMSHost,
   sendEmail,
+  sendUnavailableSMS,
 } from "../../utils"
 import Pepper from "../../assets/pepper-red.svg"
 import { auth, firestore } from "../../services/firebase"
@@ -38,6 +37,7 @@ export const STATUSES = {
   approved: "Aprobado",
   pending: "Pendiente",
   canceled: "Cancelado",
+  unavailable: "No Disponible",
 }
 
 const ReservationsReporter = () => {
@@ -84,6 +84,7 @@ const ReservationsReporter = () => {
           className: "approved",
         }
       case STATUSES.canceled:
+      case STATUSES.unavailable:
         return {
           className: "canceled",
         }
@@ -295,8 +296,7 @@ const ReservationsReporter = () => {
             status: "Cancelado",
           })
 
-          await sendEmail(formattedData, emailTypes.CUSTOMER_CANCELED)
-          await sendCancellationSMS(formattedData)
+          // await sendEmail(formattedData, emailTypes.CUSTOMER_CANCELED)
         })
       )
     }
@@ -336,9 +336,9 @@ const ReservationsReporter = () => {
       })
     }
 
-    if (formData.status === STATUSES.canceled) {
+    if (formData.status === STATUSES.unavailable) {
       await sendEmail(formattedData, emailTypes.CUSTOMER_CANCELED)
-      await sendCancellationSMS(formattedData)
+      await sendUnavailableSMS(formattedData)
     }
 
     setIsLoading(false)

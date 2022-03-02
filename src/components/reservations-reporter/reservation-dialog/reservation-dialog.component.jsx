@@ -103,6 +103,7 @@ const ReservationDialog = ({
                   options={[
                     STATUSES.pending,
                     STATUSES.approved,
+                    STATUSES.unavailable,
                     STATUSES.canceled,
                   ]}
                   name="status"

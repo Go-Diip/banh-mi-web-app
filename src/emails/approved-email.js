@@ -113,16 +113,16 @@ const ApprovedEmail = (name, lastName, date, seats) => {
           <td style="padding:30px; border-top: 1px solid lightgray">
             <table role="presentation"
                    style="width:100%;border-collapse:collapse;border:0;border-spacing:0;font-size:14px;font-family:Arial,sans-serif;">
-              <tr>
-                <td style="padding:0;">
-                  <p style="font-family:Arial,sans-serif; font-size: 14px; font-weight: 300; text-align: center; line-height: 21px">For athletes, high
-                    altitude produces two contradictory effects on performance. For explosive events
-                    (sprints up to 400 metres, long jump, triple jump) the reduction in atmospheric pressure means there
-                    is less resistance from the atmosphere and the athlete's performance will generally be better at
-                    high altitude.</p>
+<!--              <tr>-->
+<!--                <td style="padding:0;">-->
+<!--                  <p style="font-family:Arial,sans-serif; font-size: 14px; font-weight: 300; text-align: center; line-height: 21px">For athletes, high-->
+<!--                    altitude produces two contradictory effects on performance. For explosive events-->
+<!--                    (sprints up to 400 metres, long jump, triple jump) the reduction in atmospheric pressure means there-->
+<!--                    is less resistance from the atmosphere and the athlete's performance will generally be better at-->
+<!--                    high altitude.</p>-->
 
-                </td>
-              </tr>
+<!--                </td>-->
+<!--              </tr>-->
               <tr>
                 <td align="center" style="text-align: center;">
                   <a href="https://www.godiip.com/" target="_blank">

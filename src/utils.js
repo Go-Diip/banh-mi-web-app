@@ -31,7 +31,7 @@ export const getEmailData = (
         from: "Banh Mi <no-reply@banhmi.ec>",
         to: [email],
         cc: "banhmireservas@gmail.com",
-        subject: "Reservación Recibida",
+        subject: "Reservación Pre-aprobada",
         html: `<p>Recibimos tu reservacion ${name}!</p>`,
       }
     case emailTypes.CUSTOMER_CONFIRMATION:
@@ -356,7 +356,7 @@ export const sendConfirmationSMSHost = async data => {
   } catch (e) {}
 }
 
-export const sendCancellationSMS = async data => {
+export const sendUnavailableSMS = async data => {
   if (!data.phone) {
     console.log("No phone provided. Was not able to send cancellation SMS.")
     return

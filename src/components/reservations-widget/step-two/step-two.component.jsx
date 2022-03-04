@@ -9,6 +9,7 @@ import {
   InputAdornment,
   Radio,
   RadioGroup,
+  Tooltip,
 } from "@mui/material"
 import { Disclaimer, Subtitle } from "../reservations-widget.styles"
 import WidgetTextField from "../widget-text-field/widget-text-field.component"
@@ -120,12 +121,22 @@ const StepTwo = ({ setCurrentStep }) => {
                     control={<Radio />}
                     label="Restaurante"
                   />
-                  <S.CustomRadioButton
-                    value="segundo piso"
-                    control={<Radio />}
-                    label="Segundo Piso"
-                    disabled={!isBarAvailable}
-                  />
+                  {isBarAvailable ? (
+                    <S.CustomRadioButton
+                      value="segundo piso"
+                      control={<Radio />}
+                      label="Segundo Piso"
+                    />
+                  ) : (
+                    <Tooltip title="Esta área no se encuentra disponible en el horario seleccionado">
+                      <S.CustomRadioButton
+                        value="segundo piso"
+                        control={<Radio />}
+                        label="Segundo Piso"
+                        disabled
+                      />
+                    </Tooltip>
+                  )}
                 </RadioGroup>
               )}
               defaultValue="restaurante"

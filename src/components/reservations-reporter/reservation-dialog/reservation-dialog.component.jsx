@@ -67,7 +67,7 @@ const ReservationDialog = ({
       setSelectedDate(momentDate)
     } else {
       setValue("createdAt", new Date())
-      setValue("status", STATUSES.approved)
+      setValue("status", STATUSES.pending)
       setValue("table", "-")
       setValue("email", "")
       setValue("name", "")

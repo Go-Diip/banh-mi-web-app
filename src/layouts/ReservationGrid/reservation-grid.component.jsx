@@ -43,7 +43,7 @@ const ReservationGrid = ({ image, images, title, numDesc, number, button }) => {
                 {numDesc && number && <S.Desc>{parse(numDesc)}</S.Desc>}
                 <S.PhoneWrapper>
                   <PhoneIcon />
-                  <S.Phone href="tel:+593981244567">0981244567</S.Phone>
+                  <S.Phone href="tel:+593997702994">0997702994</S.Phone>
                 </S.PhoneWrapper>
               </S.ContentWrapper>
             </Container>

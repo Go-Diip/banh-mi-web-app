@@ -1,20 +1,22 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 
-export const colorsContext = React.createContext()
+export const ThemeContext = React.createContext()
 
 const Provider = props => {
-  const [savedColors, setSavedColors] = useState([])
+  const [hasLoadedOnce, setLoadedOnce] = useState(false)
+
+  useEffect(() => {
+    setLoadedOnce(true)
+  }, [])
 
   return (
-    <colorsContext.Provider
+    <ThemeContext.Provider
       value={{
-        savedColors,
-        addColor: color =>
-          setSavedColors(savedColors => [...savedColors, color]),
+        hasLoadedOnce,
       }}
     >
       {props.children}
-    </colorsContext.Provider>
+    </ThemeContext.Provider>
   )
 }
 

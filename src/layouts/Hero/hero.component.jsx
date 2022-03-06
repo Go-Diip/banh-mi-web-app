@@ -1,9 +1,12 @@
-import React from "react"
+import React, { useContext } from "react"
 import * as S from "./hero.styles"
 import { graphql, useStaticQuery } from "gatsby"
 import PepperIcon from "../../assets/pepper-red.svg"
+import { ThemeContext } from "../../provider"
 
 const Hero = ({ title }) => {
+  const { hasLoadedOnce } = useContext(ThemeContext)
+
   const staticQuery = useStaticQuery(graphql`
     query {
       bg: file(relativePath: { eq: "red-bg-new.png" }) {

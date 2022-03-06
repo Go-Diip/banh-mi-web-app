@@ -66,22 +66,22 @@ export const timeOptions = [
     value: "15:00",
     label: "3:00 PM",
   },
-  {
-    value: "18:00",
-    label: "6:00 PM",
-  },
-  {
-    value: "18:15",
-    label: "6:15 PM",
-  },
-  {
-    value: "18:30",
-    label: "6:30 PM",
-  },
-  {
-    value: "18:45",
-    label: "6:45 PM",
-  },
+  // {
+  //   value: "18:00",
+  //   label: "6:00 PM",
+  // },
+  // {
+  //   value: "18:15",
+  //   label: "6:15 PM",
+  // },
+  // {
+  //   value: "18:30",
+  //   label: "6:30 PM",
+  // },
+  // {
+  //   value: "18:45",
+  //   label: "6:45 PM",
+  // },
   {
     value: "19:00",
     label: "7:00 PM",

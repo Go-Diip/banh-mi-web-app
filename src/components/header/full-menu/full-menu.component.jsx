@@ -73,12 +73,15 @@ const FullMenu = ({ isActive, closeOpenMenu, isHome }) => {
               <S.CSLink href="/">
                 <S.MenuItem>Inicio</S.MenuItem>
               </S.CSLink>
-              <S.CSLink href="/reservaciones/">
+              <S.CSLink href="https://api.whatsapp.com/send?phone=593997702994&text=Hola!%20Quisiera%20realizar%20una%20reserva,%20un%20pedido">
                 <S.MenuItem>Reservaciones</S.MenuItem>
               </S.CSLink>
-              <S.CSLink href="/">
-                <S.MenuItem>Ordena Online</S.MenuItem>
-              </S.CSLink>
+              {/*<S.CSLink href="/reservaciones/">*/}
+              {/*  <S.MenuItem>Reservaciones</S.MenuItem>*/}
+              {/*</S.CSLink>*/}
+              {/*<S.CSLink href="/">*/}
+              {/*  <S.MenuItem>Ordena Online</S.MenuItem>*/}
+              {/*</S.CSLink>*/}
             </>
           )}
         </S.ItemsWrapper>

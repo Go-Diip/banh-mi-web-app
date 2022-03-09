@@ -54,9 +54,17 @@ const ReservationsWidget = () => {
     if (!shouldSubmit) return
     setIsLoading(true)
     const formattedData = getFormattedReservationData(data)
-    await setReservation({
+
+    const reservationRes = await setReservation({
       ...formattedData,
     })
+
+    if (reservationRes && reservationRes.error) {
+      console.log("reservation error:", reservationRes.error)
+      setIsLoading(false)
+      alert("Hubo un error creando tu reservación. Por favor intenta de nuevo")
+      return
+    }
     await sendNewReservationSMS({
       ...formattedData,
       date: `${moment(data.date, "YYYY/MM/DD").format("DD/MM/YYYY")} a las ${

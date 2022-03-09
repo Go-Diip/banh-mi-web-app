@@ -16,11 +16,17 @@ export const getReservations = async () => {
 
 export const setReservation = async data => {
   try {
-    return await firestore.collection("reservations").add({
-      ...data,
-    })
+    return firestore
+      .collection("reservations")
+      .add({
+        ...data,
+      })
+      .then(e => {})
+      .catch(e => ({
+        error: e,
+      }))
   } catch (e) {
-    return e
+    return { error: e }
   }
 }
 

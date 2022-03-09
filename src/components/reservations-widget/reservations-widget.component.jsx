@@ -8,7 +8,11 @@ import StepOne from "./step-one/step-one.component"
 import StepTwo from "./step-two/step-two.component"
 import StepThree from "./step-three/step-three.component"
 import { setReservation } from "../../services/reservations"
-import { getFormattedReservationData, sendNewReservationSMS } from "../../utils"
+import {
+  getFormattedReservationData,
+  sendNewReservationSMS,
+  isBrowser,
+} from "../../utils"
 import Spinner from "../spinner/spinner.component"
 import { navigate } from "gatsby-link"
 import moment from "moment"

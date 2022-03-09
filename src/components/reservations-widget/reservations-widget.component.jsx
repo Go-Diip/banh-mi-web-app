@@ -56,6 +56,13 @@ const ReservationsWidget = () => {
         data.time
       }`,
     })
+    if (isBrowser() && window.gtag) {
+      window.gtag("event", "form_submit", {
+        event_category: "Forms",
+        event_action: "Submit",
+        event_label: "Reservation",
+      })
+    }
     setOverviewData({
       ...formattedData,
       date: `${data.date} a las ${data.time}`,

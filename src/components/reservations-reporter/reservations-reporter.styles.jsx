@@ -28,6 +28,12 @@ export const Wrapper = styled.div`
       background-color: lightcoral;
     }
   }
+  .unavailable {
+    ${statusStyle};
+    > div {
+      background-color: orange;
+    }
+  }
 
   .MuiTableCell-root {
     padding-top: 0.5em;

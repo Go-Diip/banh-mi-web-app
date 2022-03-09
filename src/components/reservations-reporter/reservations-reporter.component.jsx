@@ -85,9 +85,12 @@ const ReservationsReporter = () => {
           className: "approved",
         }
       case STATUSES.canceled:
-      case STATUSES.unavailable:
         return {
           className: "canceled",
+        }
+      case STATUSES.unavailable:
+        return {
+          className: "unavailable",
         }
     }
   }

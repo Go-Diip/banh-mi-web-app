@@ -150,7 +150,10 @@ const Footer = ({ className }) => {
                   Trabaja con Nosotros
                 </S.WorkText>
                 <S.VerticalLine />
-                <S.ExternalLink href="https://www.godiip.com" target="_blank">
+                <S.ExternalLink
+                  href="https://www.godiip.com/?utm_source=banhmi+powered+by+link&utm_medium=link+on+bottom+of+website&utm_campaign=banhmi+powered+by+link"
+                  target="_blank"
+                >
                   <S.PoweredBy />
                 </S.ExternalLink>
               </S.RightWrapper>

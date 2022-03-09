@@ -32,7 +32,7 @@ export const getEmailData = (
       return {
         from: "Banh Mi <no-reply@banhmi.ec>",
         to: [email],
-        cc: "banhmireservas@gmail.com",
+        bcc: "banhmireservas@gmail.com",
         subject: "Reservación Pre-aprobada",
         html: `<p>Recibimos tu reservacion ${name}!</p>`,
       }
@@ -40,7 +40,7 @@ export const getEmailData = (
       return {
         from: "Banh Mi  <no-reply@banhmi.com>",
         to: [email],
-        cc: "banhmireservas@gmail.com",
+        bcc: "banhmireservas@gmail.com",
         subject: `Reservación Confirmada! ${name} ${formattedDate}`,
         html: approvedEmail(name, last_name, formattedDate, seats),
       }
@@ -48,7 +48,7 @@ export const getEmailData = (
       return {
         from: "Banh Mi  <no-reply@banhmi.ec>",
         to: [email],
-        cc: "banhmireservas@gmail.com",
+        bcc: "banhmireservas@gmail.com",
         subject: "No pudimos confirmar tu reservación",
         html: unavailableEmail(name),
       }
@@ -57,7 +57,7 @@ export const getEmailData = (
       return {
         from: "Banh Mi  <no-reply@banhmi.ec>",
         to: [email],
-        cc: "banhmireservas@gmail.com",
+        bcc: "banhmireservas@gmail.com",
         subject: "Reservación Cancelada",
         html: canceledEmail(name),
       }

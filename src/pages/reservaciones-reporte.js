@@ -6,7 +6,7 @@ import Login from "../components/login/login.component"
 
 const ReservacionesReporte = () => {
   const [user, setUser] = useState(null)
-  const [isReady, setIsReady] = useState(false)
+
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(userAuth => {
       const user = {
@@ -16,14 +16,13 @@ const ReservacionesReporte = () => {
       if (userAuth) {
         setUser(user)
       } else {
-        setUser(null)
+        setUser("none")
       }
     })
-    setIsReady(true)
-    return unsubscribe
+    return () => unsubscribe()
   }, [])
 
-  if (!isReady) return null
+  if (!user) return null
 
   return (
     <Layout
@@ -35,7 +34,7 @@ const ReservacionesReporte = () => {
         metaRobotsNofollow: "nofollow",
       }}
     >
-      {user ? <ReservationsReporter /> : <Login />}
+      {user === "none" ? <Login /> : <ReservationsReporter />}
     </Layout>
   )
 }

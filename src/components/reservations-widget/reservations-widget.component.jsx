@@ -16,6 +16,8 @@ import {
 import Spinner from "../spinner/spinner.component"
 import { navigate } from "gatsby-link"
 import moment from "moment"
+import firebase from "firebase/compat/app"
+import { auth } from "../../services/firebase"
 
 export const STEPS = {
   SELECT_TABLE: 0,
@@ -38,6 +40,7 @@ const ReservationsWidget = () => {
   const [isOpenDialog, setIsOpenDialog] = useState(false)
   const [overviewData, setOverviewData] = useState(null)
   const [shouldSubmit, setShouldSubmit] = useState(true)
+  const [user, setUser] = useState(null)
   const methods = useForm({
     mode: "onBlur",
     reValidateMode: "onBlur",
@@ -92,6 +95,27 @@ const ReservationsWidget = () => {
       setShouldSubmit(false)
     }
   }, [overviewData])
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(userAuth => {
+      const user = {
+        uid: userAuth?.uid,
+        email: userAuth?.email,
+      }
+      if (userAuth) {
+        setUser(user)
+      } else {
+        setUser("none")
+      }
+    })
+    return () => unsubscribe()
+  }, [])
+
+  useEffect(() => {
+    if (user === "none") {
+      auth.signInAnonymously()
+    }
+  }, [user])
 
   return (
     <FormProvider {...methods}>

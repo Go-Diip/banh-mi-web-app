@@ -14,21 +14,7 @@ import Visibility from "@mui/icons-material/Visibility"
 import VisibilityOff from "@mui/icons-material/VisibilityOff"
 import { IconButton, InputAdornment } from "@mui/material"
 import PepperIcon from "../../assets/pepper-red.svg"
-
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="black" align="center" {...props}>
-      {"Powered by "}
-      <Link
-        color="inherit"
-        target="_blank"
-        href="https://godiip.com?utm_source=banhmi+powered+by+link&utm_medium=link+on+login+of+reservations&utm_campaign=banhmi+powered+by+link"
-      >
-        Diip
-      </Link>
-    </Typography>
-  )
-}
+import PoweredBy from "../../assets/poweredby-dark.svg"
 
 export default function Login() {
   const emailRef = useRef(null)
@@ -172,7 +158,14 @@ export default function Login() {
             {/*</Grid>*/}
           </Box>
         </Box>
-        <Copyright sx={{ mt: 4, mb: 4 }} />
+        <Box textAlign="center" mt={1.5}>
+          <a
+            href="https://www.godiip.com/?utm_source=banhmi+powered+by+link&utm_medium=link+on+reservations+widget+signin&utm_campaign=banhmi+powered+by+link"
+            target="_blank"
+          >
+            <PoweredBy />
+          </a>
+        </Box>
       </Container>
     </S.Wrapper>
   )

@@ -10,7 +10,12 @@ const WidgetHeader = () => {
       <GatsbyLink to="/">
         <Logo style={{ height: "80px", width: "auto" }} />
       </GatsbyLink>
-      <PoweredBy />
+      <a
+        href="https://www.godiip.com/?utm_source=banhmi+powered+by+link&utm_medium=link+on+reservations+widget+header&utm_campaign=banhmi+powered+by+link"
+        target="_blank"
+      >
+        <PoweredBy />
+      </a>
     </S.Wrapper>
   )
 }

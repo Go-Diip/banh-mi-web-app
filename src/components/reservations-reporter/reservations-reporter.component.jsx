@@ -75,22 +75,23 @@ const ReservationsReporter = () => {
   }, [])
 
   const handleCellprops = (cellValue, rowIndex, columnIndex) => {
+    let className = "statusBtn "
     switch (cellValue) {
       case STATUSES.pending:
         return {
-          className: "pending",
+          className: (className += "pending"),
         }
       case STATUSES.approved:
         return {
-          className: "approved",
+          className: (className += "approved"),
         }
       case STATUSES.canceled:
         return {
-          className: "canceled",
+          className: (className += "canceled"),
         }
       case STATUSES.unavailable:
         return {
-          className: "unavailable",
+          className: (className += "unavailable"),
         }
     }
   }
@@ -103,6 +104,7 @@ const ReservationsReporter = () => {
         filter: false,
         sort: true,
         searchable: false,
+        setCellProps: () => ({ className: "date" }),
       },
     },
     {
@@ -167,6 +169,7 @@ const ReservationsReporter = () => {
       options: {
         filter: false,
         sort: true,
+        setCellProps: () => ({ className: "date" }),
       },
     },
     {

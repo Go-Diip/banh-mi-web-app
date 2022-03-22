@@ -10,6 +10,14 @@ const statusStyle = css`
 `
 
 export const Wrapper = styled.div`
+  .statusBtn {
+    min-width: 120px;
+  }
+
+  //.date {
+  //    min-width: 120px;
+  //}
+
   .pending {
     ${statusStyle};
     > div {

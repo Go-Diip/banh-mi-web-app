@@ -36,22 +36,16 @@ const FullMenu = ({ isActive, closeOpenMenu, isHome }) => {
               <S.CSLink href="/menu/" onClick={closeOpenMenu}>
                 <S.MenuItem>Menú</S.MenuItem>
               </S.CSLink>
-              <S.SLink
-                to="reservation"
-                smooth={true}
-                duration={1000}
-                onClick={closeOpenMenu}
-              >
+              <S.CSLink href="/reservaciones/">
                 <S.MenuItem>reservaciones</S.MenuItem>
-              </S.SLink>
-              <S.SLink
-                to="ordena-online"
-                smooth={true}
-                duration={1000}
-                onClick={closeOpenMenu}
+              </S.CSLink>
+              <S.CSLink
+                onClick={sendGtagOrderOnlineEvent}
+                href="https://www.rappi.com.ec/restaurantes/17168-banh-mi"
+                target="_blank"
               >
-                <S.MenuItem>ordenar online</S.MenuItem>
-              </S.SLink>
+                <S.MenuItem>Ordena Online</S.MenuItem>
+              </S.CSLink>
               <S.SLink
                 to="eventos-privados"
                 smooth={true}

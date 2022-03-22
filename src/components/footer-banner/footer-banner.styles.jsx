@@ -31,6 +31,7 @@ export const BannerWrapper = styled.div`
   margin-left: auto;
   ${({ theme }) => theme.breakpoints.down("sm")} {
     height: 485px;
+    margin: auto;
   }
 `
 

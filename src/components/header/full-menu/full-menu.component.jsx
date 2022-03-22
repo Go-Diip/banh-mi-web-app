@@ -4,6 +4,7 @@ import Fade from "@mui/material/Fade"
 import { Slide } from "@mui/material"
 import RowGrid from "../../row-grid/row-grid.component"
 import { graphql, useStaticQuery } from "gatsby"
+import { sendGtagOrderOnlineEvent } from "../../../gtag-utils"
 
 const FullMenu = ({ isActive, closeOpenMenu, isHome }) => {
   const staticQuery = useStaticQuery(graphql`
@@ -73,15 +74,19 @@ const FullMenu = ({ isActive, closeOpenMenu, isHome }) => {
               <S.CSLink href="/">
                 <S.MenuItem>Inicio</S.MenuItem>
               </S.CSLink>
-              <S.CSLink href="https://api.whatsapp.com/send?phone=593997702994&text=Hola!%20Quisiera%20realizar%20una%20reserva,%20un%20pedido">
-                <S.MenuItem>Reservaciones</S.MenuItem>
-              </S.CSLink>
-              {/*<S.CSLink href="/reservaciones/">*/}
+              {/*<S.CSLink href="https://api.whatsapp.com/send?phone=593997702994&text=Hola!%20Quisiera%20realizar%20una%20reserva,%20un%20pedido">*/}
               {/*  <S.MenuItem>Reservaciones</S.MenuItem>*/}
               {/*</S.CSLink>*/}
-              {/*<S.CSLink href="/">*/}
-              {/*  <S.MenuItem>Ordena Online</S.MenuItem>*/}
-              {/*</S.CSLink>*/}
+              <S.CSLink href="/reservaciones/">
+                <S.MenuItem>Reservaciones</S.MenuItem>
+              </S.CSLink>
+              <S.CSLink
+                onClick={sendGtagOrderOnlineEvent}
+                href="https://www.rappi.com.ec/restaurantes/17168-banh-mi"
+                target="_blank"
+              >
+                <S.MenuItem>Ordena Online</S.MenuItem>
+              </S.CSLink>
             </>
           )}
         </S.ItemsWrapper>

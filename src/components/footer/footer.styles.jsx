@@ -151,9 +151,19 @@ export const Phone = styled.a`
 `
 
 export const PhoneContainer = styled.div`
-  max-width: 300px;
+  //max-width: 300px;
   margin-left: auto;
   text-align: center;
+  a,
+  button {
+    display: block;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    &:first-child {
+      margin-bottom: 1rem;
+    }
+  }
 `
 
 export const FormWrapper = styled.div`

@@ -10,13 +10,12 @@ import TripIcon from "../../assets/trip.svg"
 import CustomButton from "../custom-button/custom-button.component"
 import FooterBanner from "../footer-banner/footer-banner.component"
 import FooterForm from "../footer-form/footer-form.component"
-import { Modal } from "@mui/material"
 import PhoneIcon from "../../assets/phone.svg"
-import FooterModal from "../work-with-us-form/work-with-us-form.component"
 import { graphql, useStaticQuery } from "gatsby"
 import useMediaQuery from "@mui/material/useMediaQuery"
 import CustomDialog from "../custom-dialog/custom-dialog.component"
 import WorkWithUsFormComponent from "../work-with-us-form/work-with-us-form.component"
+import { sendGtagOrderOnlineEvent } from "../../gtag-utils"
 
 const Footer = ({ className }) => {
   const [open, setOpen] = useState(false)
@@ -58,8 +57,20 @@ const Footer = ({ className }) => {
                   {!isMD && <FooterForm />}
                   {isSM && (
                     <S.PhoneContainer>
-                      <CustomButton className="lightBorder">
+                      <CustomButton
+                        className="lightBorder"
+                        onClick={sendGtagOrderOnlineEvent}
+                        href="https://www.rappi.com.ec/restaurantes/17168-banh-mi"
+                        target="_blank"
+                      >
                         ordena online
+                      </CustomButton>
+                      <CustomButton
+                        className="lightBorder"
+                        href="/reservaciones/"
+                        fullWidth
+                      >
+                        reservaciones
                       </CustomButton>
                     </S.PhoneContainer>
                   )}
@@ -98,16 +109,22 @@ const Footer = ({ className }) => {
                       </S.PhoneWrapper>
                     </S.InfoWrapper>
                   </Grid>
-                  <Grid item xs={12} sm={4}>
+                  <Grid item xs={12} sm={12} lg={4}>
                     {!isSM && (
                       <S.PhoneContainer>
-                        {/*<CustomButton className="lightBorder">*/}
-                        {/*  ordenar online*/}
-                        {/*</CustomButton>*/}
                         <CustomButton
                           className="lightBorder"
-                          href="https://api.whatsapp.com/send?phone=593997702994&text=Hola!%20Quisiera%20realizar%20una%20reserva,%20un%20pedido4"
+                          onClick={sendGtagOrderOnlineEvent}
+                          href="https://www.rappi.com.ec/restaurantes/17168-banh-mi"
+                          fullWidth
                           target="_blank"
+                        >
+                          ordenar online
+                        </CustomButton>
+                        <CustomButton
+                          className="lightBorder"
+                          href="/reservaciones/"
+                          fullWidth
                         >
                           reservaciones
                         </CustomButton>

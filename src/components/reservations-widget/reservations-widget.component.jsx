@@ -18,6 +18,7 @@ import { navigate } from "gatsby-link"
 import moment from "moment"
 import firebase from "firebase/compat/app"
 import { auth } from "../../services/firebase"
+import { sendGtagReservationMadeEvent } from "../../gtag-utils"
 
 export const STEPS = {
   SELECT_TABLE: 0,
@@ -71,13 +72,7 @@ const ReservationsWidget = () => {
         data.time
       }`,
     })
-    if (isBrowser() && window.gtag) {
-      window.gtag("event", "form_submit", {
-        event_category: "Forms",
-        event_action: "Submit",
-        event_label: "Reservation",
-      })
-    }
+    sendGtagReservationMadeEvent()
     setOverviewData({
       ...formattedData,
       date: `${data.date} a las ${data.time}`,

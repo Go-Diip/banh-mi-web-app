@@ -3,8 +3,7 @@ import * as S from "./footer-form.styles"
 import { Grid, Typography } from "@mui/material"
 import { useForm } from "react-hook-form"
 import addToMailchimp from "gatsby-plugin-mailchimp"
-import CustomButton from "../custom-button/custom-button.component"
-import { SubscribeBtn } from "./footer-form.styles"
+import { sendGtagNewsletterSubmit } from "../../gtag-utils"
 
 const FooterForm = ({}) => {
   const { register, handleSubmit, errors, control } = useForm({
@@ -21,6 +20,7 @@ const FooterForm = ({}) => {
 
     if (result === "success") {
       setSuccessMessage("Gracias por subscribirte")
+      sendGtagNewsletterSubmit()
     }
     setIsLoading(false)
   }

@@ -16,6 +16,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import { useForm } from "react-hook-form"
 import { contactFormApi } from "../../apis/apis"
 import CustomInput from "../custom-input/custom-input.component"
+import { sendGtagPrivateEventSubmit } from "../../gtag-utils"
 
 const ReservationForm = ({}) => {
   const [age, setAge] = React.useState("")
@@ -56,6 +57,7 @@ const ReservationForm = ({}) => {
         if (response.data) {
           if (response.data.status === "mail_sent") {
             setSuccessMessage(response.data.message)
+            sendGtagPrivateEventSubmit()
           } else {
             setErrorMessage(response.data.message)
           }

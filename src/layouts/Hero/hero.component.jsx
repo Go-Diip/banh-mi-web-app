@@ -3,6 +3,7 @@ import * as S from "./hero.styles"
 import { graphql, useStaticQuery } from "gatsby"
 import PepperIcon from "../../assets/pepper-red.svg"
 import { ThemeContext } from "../../provider"
+import { sendGtagOrderOnlineEvent } from "../../gtag-utils"
 
 const Hero = ({ title }) => {
   const { hasLoadedOnce } = useContext(ThemeContext)
@@ -33,17 +34,24 @@ const Hero = ({ title }) => {
               <S.LogoVertical />
               {/*<S.Title>{title}</S.Title>*/}
               <S.ButtonWrapper>
-                {/*<S.Button className="lightBorderWhite" href="/reservaciones/">*/}
+                <S.Button className="lightBorderWhite" href="/reservaciones/">
+                  reservaciones
+                </S.Button>
+                {/*<S.Button*/}
+                {/*  className="lightBorderWhite"*/}
+                {/*  href="https://api.whatsapp.com/send?phone=593997702994&text=Hola!%20Quisiera%20realizar%20una%20reserva,%20un%20pedido"*/}
+                {/*  target="_blank"*/}
+                {/*>*/}
                 {/*  reservaciones*/}
                 {/*</S.Button>*/}
                 <S.Button
                   className="lightBorderWhite"
-                  href="https://api.whatsapp.com/send?phone=593997702994&text=Hola!%20Quisiera%20realizar%20una%20reserva,%20un%20pedido"
+                  onClick={sendGtagOrderOnlineEvent}
+                  href="https://www.rappi.com.ec/restaurantes/17168-banh-mi"
                   target="_blank"
                 >
-                  reservaciones
+                  ordenar online
                 </S.Button>
-                {/*<S.Button className="lightBorderWhite">ordenar online</S.Button>*/}
               </S.ButtonWrapper>
             </S.ContentWrapper>
           </S.CustomContainer>

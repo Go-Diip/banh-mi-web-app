@@ -13,6 +13,7 @@ import CustomButton from "../custom-button/custom-button.component"
 import { graphql, useStaticQuery } from "gatsby"
 import { useForm } from "react-hook-form"
 import { contactFormApi } from "../../apis/apis"
+import { sendGtagWorkWithUsSubmit } from "../../gtag-utils"
 
 const WorkWithUsForm = ({}) => {
   const { register, handleSubmit, errors, control } = useForm({
@@ -48,6 +49,7 @@ const WorkWithUsForm = ({}) => {
         if (response.data) {
           if (response.data.status === "mail_sent") {
             setSuccessMessage(response.data.message)
+            sendGtagWorkWithUsSubmit()
           } else {
             setErrorMessage(response.data.message)
           }

@@ -156,7 +156,7 @@ const Footer = ({ className }) => {
                   <FacebookIcon />
                 </S.ExternalLink>
                 <S.ExternalLink
-                  href="https://www.tripadvisor.com/Restaurant_Review-g60763-d425838-Reviews-Gnocco-New_York_City_New_York.html"
+                  href="https://www.tripadvisor.com/Restaurant_Review-g294308-d8512340-Reviews-Banh_Mi-Quito_Pichincha_Province.html"
                   target="_blank"
                 >
                   <TripIcon />

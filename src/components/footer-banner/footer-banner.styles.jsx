@@ -84,6 +84,6 @@ export const MobileImage = styled(CustomImage)`
 `
 
 export const MobileWrapper = styled(SectionWrapper)`
-  background-color: black;
+  background-color: #111212;
   padding: 0;
 `

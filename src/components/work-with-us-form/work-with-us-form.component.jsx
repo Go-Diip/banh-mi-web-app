@@ -138,6 +138,9 @@ const WorkWithUsForm = ({}) => {
                 </MenuItem>
                 <MenuItem value="cocinero">Cocinero</MenuItem>
                 <MenuItem value="mesero">Mesero</MenuItem>
+                <MenuItem value="bartender">Bartender</MenuItem>
+                <MenuItem value="administrativo">Administrativo</MenuItem>
+                <MenuItem value="cajero">Cajero</MenuItem>
                 {/*<MenuItem value={30}>Thirty</MenuItem>*/}
               </S.CustomSelect>
             </FormControl>

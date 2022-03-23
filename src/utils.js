@@ -334,7 +334,7 @@ export const sendNewReservationSMS = async data => {
       new URLSearchParams({
         to: phoneFormatted,
         // prettier-ignore
-        body: `Banh Mi: Nueva reservación de ${data.name} el dia ${data.date}.`,
+        body: `Banh Mi: Nueva reservación de ${removeAccents(data.name)} ${removeAccents(data.last_name)} para el dia ${data.date}.`,
       }).toString(),
       {
         headers: {
@@ -355,7 +355,7 @@ export const sendConfirmationSMSHost = async data => {
       new URLSearchParams({
         to: phoneFormatted,
         // prettier-ignore
-        body: `Banh Mi: Reservacion confirmada para ${data.name} el dia ${data.date}.`,
+        body: `Banh Mi: Reservacion confirmada para ${removeAccents(data.name)} el dia ${data.date}.`,
       }).toString(),
       {
         headers: {
@@ -380,7 +380,7 @@ export const sendUnavailableSMS = async data => {
       new URLSearchParams({
         to: phoneFormatted,
         // prettier-ignore
-        body: `Banh Mi: Hola, ${data.name}. Al momento no hemos podido confirmar tu reservacion. Pronto te contactaran directamente para poder asisitirte.`,
+        body: `Banh Mi: Hola, ${removeAccents(data.name)}. Al momento no hemos podido confirmar tu reservacion. Pronto te contactaran directamente para poder asisitirte.`,
       }).toString(),
       {
         headers: {
@@ -415,4 +415,9 @@ export const sendCanceledSMS = async data => {
       }
     )
   } catch (e) {}
+}
+
+export const removeAccents = str => {
+  if (!str) return null
+  return str.normalize("NFD").replace(/\p{Diacritic}/gu, "")
 }

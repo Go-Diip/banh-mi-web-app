@@ -82,7 +82,7 @@ const Footer = ({ className }) => {
                     <S.Text>
                       {parse(
                         "<a href='https://goo.gl/maps/LKy1qzYiUFz4cQkS7' target='_blank'><strong>Dirección:</strong><br>" +
-                          "Andalucía N24-234 y Cordero<br>Quito, Ecuador</a>"
+                          "Andalucía N24-234 y Luis Cordero<br>Sector La Floresta.<br>Quito, Ecuador</a>"
                       )}
                     </S.Text>
                   </Grid>

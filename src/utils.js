@@ -41,7 +41,7 @@ export const getEmailData = (
         from: "Banh Mi  <no-reply@banhmi.com>",
         to: [email],
         bcc: "banhmireservas@gmail.com",
-        subject: `Reservación Confirmada! ${name} ${formattedDate}`,
+        subject: `¡Reservación Confirmada! ${name} ${last_name} ${formattedDate}`,
         html: approvedEmail(name, last_name, formattedDate, seats),
       }
     case emailTypes.CUSTOMER_UNAVAILABLE:
@@ -49,7 +49,7 @@ export const getEmailData = (
         from: "Banh Mi  <no-reply@banhmi.ec>",
         to: [email],
         bcc: "banhmireservas@gmail.com",
-        subject: "No pudimos confirmar tu reservación",
+        subject: "¡Reservación No Disponible!",
         html: unavailableEmail(name),
       }
 
@@ -58,7 +58,7 @@ export const getEmailData = (
         from: "Banh Mi  <no-reply@banhmi.ec>",
         to: [email],
         bcc: "banhmireservas@gmail.com",
-        subject: "Reservación Cancelada",
+        subject: "¡Reservación Cancelada!",
         html: canceledEmail(name),
       }
 

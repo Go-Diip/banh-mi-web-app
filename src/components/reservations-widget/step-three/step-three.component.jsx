@@ -115,7 +115,7 @@ const StepThree = () => {
             <li>
               Las reservaciones solicitadas fuera de nuestros horarios de
               atención serán confirmadas dentro de los siguientes horarios:
-              Martes a Sábado de 11 am - 10:30pm.
+              Martes a Sábado de 11:30 am - 10:30pm.
             </li>
           </ul>
         </S.ImportantInfo>

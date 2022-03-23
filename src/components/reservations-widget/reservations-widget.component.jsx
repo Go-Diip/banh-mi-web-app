@@ -41,6 +41,7 @@ const ReservationsWidget = () => {
   const [isOpenDialog, setIsOpenDialog] = useState(false)
   const [overviewData, setOverviewData] = useState(null)
   const [shouldSubmit, setShouldSubmit] = useState(true)
+  const [overviewText, setOverviewText] = useState("")
   const [user, setUser] = useState(null)
   const methods = useForm({
     mode: "onBlur",
@@ -93,6 +94,25 @@ const ReservationsWidget = () => {
   }
 
   useEffect(() => {
+    const rightNowTime = moment()
+    const minTime = moment("11:30", "H:mm")
+    const maxTime = moment("22:30", "H:mm")
+    const isSunday = moment().day() === 0
+    const isMonday = moment().day() === 1
+    if (
+      rightNowTime.isBefore(minTime) ||
+      rightNowTime.isAfter(maxTime) ||
+      isSunday ||
+      isMonday
+    ) {
+      setOverviewText(
+        "Hemos recibido tu solicitud de reservación. Recibirás la confirmación vía SMS y correo electrónico durante nuestro horario de atención para reservaciones: Martes a Sábado de 11:30am a 10:30pm.  "
+      )
+    } else {
+      setOverviewText(
+        "Hemos recibido tu solicitud de reservación. En máximo 10 minutos recibirás un mensaje vía SMS y un correo electrónico con la confirmación de tu reservación."
+      )
+    }
     if (overviewData) {
       setIsOpenDialog(true)
       setShouldSubmit(false)
@@ -165,11 +185,7 @@ const ReservationsWidget = () => {
           <Grid container spacing={5} alignItems="center">
             <Grid item xs={12} sm={6}>
               <S.ModalName>Hola {overviewData?.name}</S.ModalName>
-              <S.ModalDescription>
-                Hemos recibido tu solicitud de reservación. En máximo 10 minutos
-                recibirás un mensaje vía SMS y un correo electrónico con la
-                confirmación de tu reservación.
-              </S.ModalDescription>
+              <S.ModalDescription>${overviewText}</S.ModalDescription>
             </Grid>
             <Grid item xs={12} sm={6}>
               <S.ModalLabel sx={{ marginBottom: "1em" }}>

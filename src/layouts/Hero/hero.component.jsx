@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect } from "react"
 import * as S from "./hero.styles"
 import { graphql, useStaticQuery } from "gatsby"
 import PepperIcon from "../../assets/pepper-red.svg"

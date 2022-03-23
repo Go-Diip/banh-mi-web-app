@@ -334,7 +334,7 @@ export const sendNewReservationSMS = async data => {
       new URLSearchParams({
         to: phoneFormatted,
         // prettier-ignore
-        body: `Banh Mi: Nueva reservación de ${removeAccents(data.name)} ${removeAccents(data.last_name)} para el dia ${data.date}.`,
+        body: `Banh Mi: Nueva reservacion de ${removeAccents(data.name)} ${removeAccents(data.last_name)} para el dia ${data.date}.`,
       }).toString(),
       {
         headers: {

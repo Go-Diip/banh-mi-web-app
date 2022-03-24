@@ -50,7 +50,6 @@ const ReservationDialog = ({
   useEffect(() => {
     if (data && shouldEdit) {
       const momentDate = moment(data.date, "DD/MM/YYYY kk:mm")
-      console.log("current date", momentDate)
       setValue("createdAt", data.createdAt)
       setValue("status", data.status)
       setValue("table", data.table)

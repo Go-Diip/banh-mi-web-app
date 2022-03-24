@@ -270,21 +270,23 @@ const ReservationsReporter = () => {
       await Promise.all(
         selectedRows.map(async ({ dataIndex }) => {
           const currentData = data[dataIndex]
-          const formattedData = getFormattedReservationData(currentData)
-          await updateReservationData(currentData.id, {
-            ...formattedData,
-            status: "Aprobado",
-          })
+          if (currentData.status !== STATUSES.approved) {
+            const formattedData = getFormattedReservationData(currentData)
+            await updateReservationData(currentData.id, {
+              ...formattedData,
+              status: "Aprobado",
+            })
 
-          await sendEmail(formattedData, emailTypes.CUSTOMER_CONFIRMATION)
-          await sendConfirmationSMS({
-            ...formattedData,
-            date: `${moment(currentData.date, "DD-MM-YYYY HH:mm").format(
-              "DD/MM/YYYY"
-            )} a las ${moment(currentData.date, "DD-MM-YYYY HH:mm").format(
-              "HH:mm"
-            )}`,
-          })
+            await sendEmail(formattedData, emailTypes.CUSTOMER_CONFIRMATION)
+            await sendConfirmationSMS({
+              ...formattedData,
+              date: `${moment(currentData.date, "DD-MM-YYYY HH:mm").format(
+                "DD/MM/YYYY"
+              )} a las ${moment(currentData.date, "DD-MM-YYYY HH:mm").format(
+                "HH:mm"
+              )}`,
+            })
+          }
         })
       )
     }
@@ -297,13 +299,14 @@ const ReservationsReporter = () => {
       await Promise.all(
         selectedRows.map(async ({ dataIndex }) => {
           const currentData = data[dataIndex]
-          const formattedData = getFormattedReservationData(currentData)
-          await updateReservationData(currentData.id, {
-            ...formattedData,
-            status: "Cancelado",
-          })
-
-          // await sendEmail(formattedData, emailTypes.CUSTOMER_CANCELED)
+          if (currentData.status !== STATUSES.canceled) {
+            const formattedData = getFormattedReservationData(currentData)
+            await updateReservationData(currentData.id, {
+              ...formattedData,
+              status: "Cancelado",
+            })
+            await sendEmail(formattedData, emailTypes.CUSTOMER_CANCELED)
+          }
         })
       )
     }
@@ -327,14 +330,16 @@ const ReservationsReporter = () => {
     setIsLoading(true)
 
     if (shouldEdit) {
-      console.log("formattedData", formattedData)
       await updateReservationData(currentReservationData.id, formattedData)
     } else {
       await setReservation({
         ...formattedData,
       })
     }
-    if (formData.status === STATUSES.approved) {
+    if (
+      formData.status === STATUSES.approved &&
+      currentReservationData.status !== STATUSES.approved
+    ) {
       await sendEmail(formattedData, emailTypes.CUSTOMER_CONFIRMATION)
       await sendConfirmationSMS({
         ...formattedData,
@@ -344,12 +349,18 @@ const ReservationsReporter = () => {
       })
     }
 
-    if (formData.status === STATUSES.unavailable) {
+    if (
+      formData.status === STATUSES.unavailable &&
+      currentReservationData.status !== STATUSES.unavailable
+    ) {
       await sendEmail(formattedData, emailTypes.CUSTOMER_UNAVAILABLE)
       await sendUnavailableSMS(formattedData)
     }
 
-    if (formData.status === STATUSES.canceled) {
+    if (
+      formData.status === STATUSES.canceled &&
+      currentReservationData.status !== STATUSES.canceled
+    ) {
       await sendEmail(formattedData, emailTypes.CUSTOMER_CANCELED)
       await sendCanceledSMS(formattedData)
     }

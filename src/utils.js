@@ -279,7 +279,9 @@ export const getFormattedReservationData = data => {
     ? new Date(`${data.date} ${data.time}`)
     : moment(data.date, "DD-MM-YYYY HH:mm").toDate()
 
-  const createdAt = date.createdAt ? new Date(date.createdAt) : new Date()
+  const createdAt = data.createdAt
+    ? moment(data.createdAt, "DD-MM-YYYY HH:mm").toDate()
+    : new Date()
   // const phoneFormatted = `+593${data.phone.substring(1)}`
   return {
     createdAt,

@@ -327,6 +327,7 @@ const ReservationsReporter = () => {
     setIsLoading(true)
 
     if (shouldEdit) {
+      console.log("formattedData", formattedData)
       await updateReservationData(currentReservationData.id, formattedData)
     } else {
       await setReservation({

@@ -270,7 +270,7 @@ const ReservationsReporter = () => {
       await Promise.all(
         selectedRows.map(async ({ dataIndex }) => {
           const currentData = data[dataIndex]
-          if (currentData.status !== STATUSES.approved) {
+          if (currentData?.status !== STATUSES.approved) {
             const formattedData = getFormattedReservationData(currentData)
             await updateReservationData(currentData.id, {
               ...formattedData,
@@ -299,7 +299,7 @@ const ReservationsReporter = () => {
       await Promise.all(
         selectedRows.map(async ({ dataIndex }) => {
           const currentData = data[dataIndex]
-          if (currentData.status !== STATUSES.canceled) {
+          if (currentData?.status !== STATUSES.canceled) {
             const formattedData = getFormattedReservationData(currentData)
             await updateReservationData(currentData.id, {
               ...formattedData,

@@ -337,8 +337,8 @@ const ReservationsReporter = () => {
       })
     }
     if (
-      formData.status === STATUSES.approved &&
-      currentReservationData.status !== STATUSES.approved
+      formData.status === STATUSES?.approved &&
+      currentReservationData?.status !== STATUSES?.approved
     ) {
       await sendEmail(formattedData, emailTypes.CUSTOMER_CONFIRMATION)
       await sendConfirmationSMS({
@@ -350,8 +350,8 @@ const ReservationsReporter = () => {
     }
 
     if (
-      formData.status === STATUSES.unavailable &&
-      currentReservationData.status !== STATUSES.unavailable
+      formData.status === STATUSES?.unavailable &&
+      currentReservationData?.status !== STATUSES?.unavailable
     ) {
       await sendEmail(formattedData, emailTypes.CUSTOMER_UNAVAILABLE)
       await sendUnavailableSMS(formattedData)
@@ -359,7 +359,7 @@ const ReservationsReporter = () => {
 
     if (
       formData.status === STATUSES.canceled &&
-      currentReservationData.status !== STATUSES.canceled
+      currentReservationData?.status !== STATUSES.canceled
     ) {
       await sendEmail(formattedData, emailTypes.CUSTOMER_CANCELED)
       await sendCanceledSMS(formattedData)

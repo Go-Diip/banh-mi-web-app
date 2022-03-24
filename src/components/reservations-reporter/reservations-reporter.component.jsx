@@ -63,10 +63,10 @@ const ReservationsReporter = () => {
           id: doc.id,
           date: moment
             .unix(doc.data()?.date?.seconds)
-            .format("DD/MM/YYYY kk:mm"),
+            .format("DD/MM/YYYY HH:mm"),
           createdAt: moment
             .unix(doc.data()?.createdAt?.seconds)
-            .format("DD/MM/YYYY kk:mm"),
+            .format("DD/MM/YYYY HH:mm"),
         }))
         setData(listItems)
       })

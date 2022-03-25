@@ -279,7 +279,9 @@ export const getFormattedReservationData = data => {
     ? new Date(`${data.date} ${data.time}`)
     : moment(data.date, "DD-MM-YYYY HH:mm").toDate()
 
-  const createdAt = date.createdAt ? new Date(date.createdAt) : new Date()
+  const createdAt = data.createdAt
+    ? moment(data.createdAt, "DD-MM-YYYY HH:mm").toDate()
+    : new Date()
   // const phoneFormatted = `+593${data.phone.substring(1)}`
   return {
     createdAt,
@@ -291,7 +293,7 @@ export const getFormattedReservationData = data => {
     date,
     seats: data.seats ? parseInt(data.seats) : "",
     occasion: data.occasion,
-    table: data.table ?? "-",
+    table: data.table ?? "",
     notes: data.notes ?? "",
     status: data.status ?? STATUSES.pending,
   }
@@ -334,7 +336,7 @@ export const sendNewReservationSMS = async data => {
       new URLSearchParams({
         to: phoneFormatted,
         // prettier-ignore
-        body: `Banh Mi: Nueva reservación de ${data.name} el dia ${data.date}.`,
+        body: `Banh Mi: Nueva reservacion de ${removeAccents(data.name)} ${removeAccents(data.last_name)} para el dia ${data.date}.`,
       }).toString(),
       {
         headers: {
@@ -355,7 +357,7 @@ export const sendConfirmationSMSHost = async data => {
       new URLSearchParams({
         to: phoneFormatted,
         // prettier-ignore
-        body: `Banh Mi: Reservacion confirmada para ${data.name} el dia ${data.date}.`,
+        body: `Banh Mi: Reservacion confirmada para ${removeAccents(data.name)} el dia ${data.date}.`,
       }).toString(),
       {
         headers: {
@@ -380,7 +382,7 @@ export const sendUnavailableSMS = async data => {
       new URLSearchParams({
         to: phoneFormatted,
         // prettier-ignore
-        body: `Banh Mi: Hola, ${data.name}. Al momento no hemos podido confirmar tu reservacion. Pronto te contactaran directamente para poder asisitirte.`,
+        body: `Banh Mi: Hola, ${removeAccents(data.name)}. Al momento no hemos podido confirmar tu reservacion. Pronto te contactaran directamente para poder asisitirte.`,
       }).toString(),
       {
         headers: {
@@ -415,4 +417,9 @@ export const sendCanceledSMS = async data => {
       }
     )
   } catch (e) {}
+}
+
+export const removeAccents = str => {
+  if (!str) return null
+  return str.normalize("NFD").replace(/\p{Diacritic}/gu, "")
 }

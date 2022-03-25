@@ -48,7 +48,7 @@ const StepTwo = ({ setCurrentStep }) => {
 
   return (
     <S.Wrapper>
-      <Grid container spacing={4}>
+      <Grid container spacing={{ xs: 1, md: 4 }}>
         <Grid item xs={12} md={7}>
           <Subtitle>Datos</Subtitle>
           <WidgetTextField
@@ -62,7 +62,7 @@ const StepTwo = ({ setCurrentStep }) => {
             name={inputNames[1]}
             label="Apellidos"
             isRequired
-            placeholder="Tus dos apellido"
+            placeholder="Tus dos apellidos"
             autoComplete="family-name"
           />
           <WidgetTextField

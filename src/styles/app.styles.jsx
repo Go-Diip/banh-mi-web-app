@@ -210,6 +210,11 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .reservationsTable {
+    table {
+      .MuiCheckbox-root {
+        min-width: 40px;
+      }
+    }
     .MuiCheckbox-root {
       .MuiSvgIcon-root {
         fill: rgba(0, 0, 0, 0.54);;

@@ -34,7 +34,7 @@ const StepThree = () => {
   const { register, getValues } = useFormContext()
   const values = getValues(["name", "seats", "date", "time", "area"])
   return (
-    <Grid container spacing={4}>
+    <Grid container spacing={{ xs: 1, md: 4 }}>
       <Grid item xs={12} md={6}>
         <S.Title>Tu Reserva</S.Title>
         <S.ReviewBox>

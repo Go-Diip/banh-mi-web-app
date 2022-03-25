@@ -7,7 +7,7 @@ export const getReservations = async () => {
     return snapshot.docs.map(doc => ({
       ...doc.data(),
       id: doc.id,
-      date: moment.unix(doc.data().date.seconds).format("DD/MM/YYYY kk:mm"),
+      date: moment.unix(doc.data().date.seconds).format("DD/MM/YYYY HH:mm"),
     }))
   } catch (e) {
     return e

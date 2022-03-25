@@ -185,7 +185,7 @@ const ReservationsWidget = () => {
           <Grid container spacing={5} alignItems="center">
             <Grid item xs={12} sm={6}>
               <S.ModalName>Hola {overviewData?.name}</S.ModalName>
-              <S.ModalDescription>${overviewText}</S.ModalDescription>
+              <S.ModalDescription>{overviewText}</S.ModalDescription>
             </Grid>
             <Grid item xs={12} sm={6}>
               <S.ModalLabel sx={{ marginBottom: "1em" }}>

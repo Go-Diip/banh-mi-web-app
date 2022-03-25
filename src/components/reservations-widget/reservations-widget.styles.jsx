@@ -78,7 +78,7 @@ export const MainWrapper = styled.div`
 `
 
 export const StepperTabs = styled(Tabs)`
-  margin-bottom: 2.5em;
+  margin-bottom: 1.5rem;
   .MuiTab-root {
     color: ${({ theme }) => theme.palette.text.primary};
     opacity: 0.5;
@@ -91,12 +91,18 @@ export const StepperTabs = styled(Tabs)`
       color: ${({ theme }) => theme.palette.text.primary} !important;
     }
   }
+  ${({ theme }) => theme.breakpoints.up("md")} {
+    margin-bottom: 2.5rem;
+  }
 `
 
 export const Subtitle = styled(Typography)`
   font-size: ${({ theme }) => theme.typography.pxToRem(18)};
   font-weight: 500;
-  margin-bottom: 1em;
+  margin-bottom: 0.5rem;
+  ${({ theme }) => theme.breakpoints.up("md")} {
+    margin-bottom: 1rem;
+  } ;
 `
 
 export const Disclaimer = styled.div`

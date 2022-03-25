@@ -119,7 +119,7 @@ const Footer = ({ className }) => {
                           fullWidth
                           target="_blank"
                         >
-                          ordenar online
+                          ordena online
                         </CustomButton>
                         <CustomButton
                           className="lightBorder"

@@ -44,7 +44,7 @@ const FullMenu = ({ isActive, closeOpenMenu, isHome }) => {
                 href="https://www.rappi.com.ec/restaurantes/17168-banh-mi"
                 target="_blank"
               >
-                <S.MenuItem>Ordenar Online</S.MenuItem>
+                <S.MenuItem>Ordena Online</S.MenuItem>
               </S.CSLink>
               <S.SLink
                 to="eventos-privados"

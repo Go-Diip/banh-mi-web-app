@@ -408,33 +408,39 @@ const ReservationsReporter = () => {
         ...formattedData,
       })
     }
-    if (
-      formData.status === STATUSES?.approved &&
-      currentReservationData?.status !== STATUSES?.approved
-    ) {
-      await sendEmail(formattedData, emailTypes.CUSTOMER_CONFIRMATION)
-      await sendConfirmationSMS({
-        ...formattedData,
-        date: `${moment(formData.date, "YYYY/MM/DD").format(
-          "DD/MM/YYYY"
-        )} a las ${formData.time}`,
-      })
+    if (formData.status === STATUSES.approved) {
+      if (
+        !currentReservationData ||
+        currentReservationData?.status !== STATUSES.approved
+      ) {
+        await sendEmail(formattedData, emailTypes.CUSTOMER_CONFIRMATION)
+        await sendConfirmationSMS({
+          ...formattedData,
+          date: `${moment(formData.date, "YYYY/MM/DD").format(
+            "DD/MM/YYYY"
+          )} a las ${formData.time}`,
+        })
+      }
     }
 
-    if (
-      formData.status === STATUSES?.unavailable &&
-      currentReservationData?.status !== STATUSES?.unavailable
-    ) {
-      await sendEmail(formattedData, emailTypes.CUSTOMER_UNAVAILABLE)
-      await sendUnavailableSMS(formattedData)
+    if (formData.status === STATUSES.unavailable) {
+      if (
+        !currentReservationData ||
+        currentReservationData?.status !== STATUSES.unavailable
+      ) {
+        await sendEmail(formattedData, emailTypes.CUSTOMER_UNAVAILABLE)
+        await sendUnavailableSMS(formattedData)
+      }
     }
 
-    if (
-      formData.status === STATUSES.canceled &&
-      currentReservationData?.status !== STATUSES.canceled
-    ) {
-      await sendEmail(formattedData, emailTypes.CUSTOMER_CANCELED)
-      await sendCanceledSMS(formattedData)
+    if (formData.status === STATUSES.canceled) {
+      if (
+        !currentReservationData ||
+        currentReservationData?.status !== STATUSES.canceled
+      ) {
+        await sendEmail(formattedData, emailTypes.CUSTOMER_CANCELED)
+        await sendCanceledSMS(formattedData)
+      }
     }
 
     setIsLoading(false)

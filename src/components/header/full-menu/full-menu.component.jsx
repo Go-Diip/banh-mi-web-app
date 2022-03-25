@@ -1,8 +1,5 @@
 import React from "react"
 import * as S from "./full-menu.styles"
-import Fade from "@mui/material/Fade"
-import { Slide } from "@mui/material"
-import RowGrid from "../../row-grid/row-grid.component"
 import { graphql, useStaticQuery } from "gatsby"
 import { sendGtagOrderOnlineEvent } from "../../../gtag-utils"
 
@@ -17,12 +14,6 @@ const FullMenu = ({ isActive, closeOpenMenu, isHome }) => {
     }
   `)
 
-  const sliderImages = [
-    { image: staticQuery.menu },
-    { image: staticQuery.menu },
-    { image: staticQuery.menu },
-    { image: staticQuery.menu },
-  ]
   return (
     <S.MenuWrapper isactive={isActive}>
       <S.Wrapper>
@@ -44,7 +35,7 @@ const FullMenu = ({ isActive, closeOpenMenu, isHome }) => {
                 href="https://www.rappi.com.ec/restaurantes/17168-banh-mi"
                 target="_blank"
               >
-                <S.MenuItem>Ordenar Online</S.MenuItem>
+                <S.MenuItem>Ordena Online</S.MenuItem>
               </S.CSLink>
               <S.SLink
                 to="eventos-privados"

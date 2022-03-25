@@ -329,7 +329,7 @@ const ReservationsReporter = () => {
       setIsLoading(true)
       await Promise.all(
         selectedRows.map(async ({ dataIndex }) => {
-          await deleteReservation(data[dataIndex].id)
+          await deleteReservation(dataToShow[dataIndex].id)
         })
       )
     }
@@ -341,7 +341,7 @@ const ReservationsReporter = () => {
       setIsLoading(true)
       await Promise.all(
         selectedRows.map(async ({ dataIndex }) => {
-          const currentData = data[dataIndex]
+          const currentData = dataToShow[dataIndex]
           if (currentData?.status !== STATUSES.approved) {
             const formattedData = getFormattedReservationData(currentData)
             await updateReservationData(currentData.id, {
@@ -370,7 +370,7 @@ const ReservationsReporter = () => {
       setIsLoading(true)
       await Promise.all(
         selectedRows.map(async ({ dataIndex }) => {
-          const currentData = data[dataIndex]
+          const currentData = dataToShow[dataIndex]
           if (currentData?.status !== STATUSES.canceled) {
             const formattedData = getFormattedReservationData(currentData)
             await updateReservationData(currentData.id, {
@@ -399,7 +399,7 @@ const ReservationsReporter = () => {
 
   const handleDataInput = async formData => {
     const formattedData = getFormattedReservationData(formData)
-    const currentReservationData = data[selectedDataIndex]
+    const currentReservationData = dataToShow[selectedDataIndex]
     setIsLoading(true)
 
     if (shouldEdit) {
@@ -470,7 +470,7 @@ const ReservationsReporter = () => {
         isLoading={isLoading}
         onClose={() => setIsOpenDialog(false)}
         open={isOpenDialog}
-        data={data[selectedDataIndex]}
+        data={dataToShow[selectedDataIndex]}
       />
 
       <Dialog

@@ -28,17 +28,28 @@ import {
   Typography,
   DialogContent,
   Grid,
+  InputLabel,
+  Select,
+  FormControl,
+  MenuItem,
 } from "@mui/material"
 import LogoutIcon from "@mui/icons-material/Logout"
 import CustomButton from "../custom-button/custom-button.component"
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever"
 import { CheckCircle, DoDisturb } from "@mui/icons-material"
+import WidgetSelect from "../reservations-widget/widget-select/widget-select.component"
 
 export const STATUSES = {
   approved: "Aprobado",
   pending: "Pendiente",
   canceled: "Cancelado",
   unavailable: "No Disponible",
+}
+
+export const TURNS = {
+  all: "todos",
+  lunch: "almuerzo",
+  dinner: "cena",
 }
 
 const ReservationsReporter = () => {
@@ -48,6 +59,8 @@ const ReservationsReporter = () => {
   const [isOpenDialog, setIsOpenDialog] = useState(false)
   const [data, setData] = useState([])
   const [isWarningDialogOpen, setIsWarningDialogOpen] = useState(false)
+  const [dataToShow, setDataToShow] = useState([])
+  const [turn, setTurn] = useState(TURNS.all)
 
   useEffect(() => {
     //added variable unsubscribe
@@ -73,6 +86,46 @@ const ReservationsReporter = () => {
     //called the unsubscribe--closing connection to Firestore.
     return () => unsubscribe()
   }, [])
+
+  useEffect(() => {
+    if (data && data.length && turn) {
+      const lunchMin = moment("12:29", "HH:mm")
+      const lunchMax = moment("15:30", "HH:mm")
+      const dinnerMin = moment("18:59", "HH:mm")
+      const dinnerMax = moment("23:59", "HH:mm")
+      let filteredData = data
+
+      if (turn === TURNS.dinner) {
+        filteredData = data.filter(item => {
+          const reservationTimeString = moment(
+            item.date,
+            "DD/MM/YYYY HH:mm"
+          ).format("HH:mm")
+          const reservationTime = moment(reservationTimeString, "HH:mm")
+          return (
+            reservationTime.isAfter(dinnerMin) &&
+            reservationTime.isBefore(dinnerMax)
+          )
+        })
+      }
+
+      if (turn === TURNS.lunch) {
+        filteredData = data.filter(item => {
+          const reservationTimeString = moment(
+            item.date,
+            "DD/MM/YYYY HH:mm"
+          ).format("HH:mm")
+          const reservationTime = moment(reservationTimeString, "HH:mm")
+          return (
+            reservationTime.isAfter(lunchMin) &&
+            reservationTime.isBefore(lunchMax)
+          )
+        })
+      }
+
+      setDataToShow(filteredData)
+    }
+  }, [data, turn])
 
   const handleCellprops = (cellValue, rowIndex, columnIndex) => {
     let className = "statusBtn "
@@ -222,7 +275,26 @@ const ReservationsReporter = () => {
           <LogoutIcon />
         </IconButton>
       </Tooltip>
+      <ExtraFilters />
     </>
+  )
+
+  const ExtraFilters = () => (
+    <S.FilterWrapper>
+      <FormControl fullWidth>
+        <InputLabel id="turnos">Turnos</InputLabel>
+        <Select
+          labelId="turnos"
+          value={turn}
+          label="Turnos"
+          onChange={e => setTurn(e.target.value)}
+        >
+          <MenuItem value={TURNS.all}>Todos</MenuItem>
+          <MenuItem value={TURNS.lunch}>Almuerzo</MenuItem>
+          <MenuItem value={TURNS.dinner}>Cena</MenuItem>
+        </Select>
+      </FormControl>
+    </S.FilterWrapper>
   )
 
   const HeaderSelectedElements = ({ data }) => (
@@ -380,7 +452,7 @@ const ReservationsReporter = () => {
             <span style={{ marginLeft: "0.5rem" }}>Bahn Mi Reservaciones</span>
           </Box>
         }
-        data={data}
+        data={dataToShow}
         columns={columns}
         options={options}
       />

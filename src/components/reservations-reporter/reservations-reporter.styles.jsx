@@ -81,3 +81,24 @@ export const CloseIconButton = styled(IconButton)`
   right: 1rem;
   color: ${({ theme }) => theme.palette.inputs.main};
 `
+
+export const FilterWrapper = styled.div`
+  margin-top: 1rem;
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    margin-left: 0;
+  }
+
+  .MuiInputLabel-root {
+    color: black;
+  }
+  .MuiFormControl-root {
+    min-width: 150px;
+    max-width: 150px;
+    color: black;
+  }
+
+  .MuiSelect-select {
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    text-align: left;
+  }
+`

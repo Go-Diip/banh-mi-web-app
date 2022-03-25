@@ -1,8 +1,5 @@
 import React from "react"
 import * as S from "./full-menu.styles"
-import Fade from "@mui/material/Fade"
-import { Slide } from "@mui/material"
-import RowGrid from "../../row-grid/row-grid.component"
 import { graphql, useStaticQuery } from "gatsby"
 import { sendGtagOrderOnlineEvent } from "../../../gtag-utils"
 
@@ -17,12 +14,6 @@ const FullMenu = ({ isActive, closeOpenMenu, isHome }) => {
     }
   `)
 
-  const sliderImages = [
-    { image: staticQuery.menu },
-    { image: staticQuery.menu },
-    { image: staticQuery.menu },
-    { image: staticQuery.menu },
-  ]
   return (
     <S.MenuWrapper isactive={isActive}>
       <S.Wrapper>

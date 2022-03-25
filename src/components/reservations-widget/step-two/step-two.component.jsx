@@ -62,7 +62,7 @@ const StepTwo = ({ setCurrentStep }) => {
             name={inputNames[1]}
             label="Apellidos"
             isRequired
-            placeholder="Tus dos apellido"
+            placeholder="Tus dos apellidos"
             autoComplete="family-name"
           />
           <WidgetTextField

@@ -315,7 +315,7 @@ export const sendConfirmationSMS = async data => {
       new URLSearchParams({
         to: phoneFormatted,
         // prettier-ignore
-        body: `Banh Mi: Hola, ${data.name}. Tu reservacion el dia ${data.date} esta confirmada.`,
+        body: `Banh Mi: Hola, ${removeAccents(data.name)}. Tu reservacion el dia ${data.date} esta confirmada.`,
       }).toString(),
       {
         headers: {

@@ -179,6 +179,7 @@ const ReservationsWidget = () => {
           </form>
         </S.MainWrapper>
         <S.CustomModal
+          disableEscapeKeyDown={true}
           onClose={() => setIsOpenDialog(false)}
           open={isOpenDialog}
         >

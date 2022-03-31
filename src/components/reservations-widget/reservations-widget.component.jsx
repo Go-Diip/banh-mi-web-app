@@ -19,6 +19,7 @@ import moment from "moment"
 import firebase from "firebase/compat/app"
 import { auth } from "../../services/firebase"
 import { sendGtagReservationMadeEvent } from "../../gtag-utils"
+import addToMailchimp from "gatsby-plugin-mailchimp"
 
 export const STEPS = {
   SELECT_TABLE: 0,
@@ -67,17 +68,28 @@ const ReservationsWidget = () => {
       alert("Hubo un error creando tu reservación. Por favor intenta de nuevo")
       return
     }
+
     await sendNewReservationSMS({
       ...formattedData,
       date: `${moment(data.date, "YYYY/MM/DD").format("DD/MM/YYYY")} a las ${
         data.time
       }`,
     })
+
+    await addToMailchimp(data.email, {
+      EMAIL: data.email,
+      NAME: data.name,
+      LAST_NAME: data.last_name,
+      PHONE: data.phone,
+    })
+
     sendGtagReservationMadeEvent()
+
     setOverviewData({
       ...formattedData,
       date: `${data.date} a las ${data.time}`,
     })
+
     setIsLoading(false)
     // await Promise.all([
     //   setReservation({

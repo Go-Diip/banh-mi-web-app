@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import {
   deleteReservation,
   setReservation,
@@ -37,7 +37,8 @@ import LogoutIcon from "@mui/icons-material/Logout"
 import CustomButton from "../custom-button/custom-button.component"
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever"
 import { CheckCircle, DoDisturb } from "@mui/icons-material"
-import WidgetSelect from "../reservations-widget/widget-select/widget-select.component"
+import { ToastContainer, toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 
 export const STATUSES = {
   approved: "Aprobado",
@@ -61,6 +62,7 @@ const ReservationsReporter = () => {
   const [isWarningDialogOpen, setIsWarningDialogOpen] = useState(false)
   const [dataToShow, setDataToShow] = useState([])
   const [turn, setTurn] = useState(TURNS.all)
+  const prevDataRef = useRef()
 
   useEffect(() => {
     //added variable unsubscribe
@@ -89,6 +91,15 @@ const ReservationsReporter = () => {
 
   useEffect(() => {
     if (data && data.length && turn) {
+      const prevData = prevDataRef.current
+      if (prevData && prevData.length) {
+        if (data.length > prevData.length) {
+          const lastReservation = data[0]
+          if (lastReservation.source === "web") {
+            toast.warn("Nueva reservación recibida")
+          }
+        }
+      }
       const lunchMin = moment("12:29", "HH:mm")
       const lunchMax = moment("15:30", "HH:mm")
       const dinnerMin = moment("18:59", "HH:mm")
@@ -122,7 +133,7 @@ const ReservationsReporter = () => {
           )
         })
       }
-
+      prevDataRef.current = data
       setDataToShow(filteredData)
     }
   }, [data, turn])
@@ -450,6 +461,7 @@ const ReservationsReporter = () => {
 
   return (
     <S.Wrapper>
+      <ToastContainer />
       {isLoading && <Spinner />}
       <LoadableMuiDataTable
         className="reservationsTable"

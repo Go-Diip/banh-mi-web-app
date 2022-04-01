@@ -58,9 +58,12 @@ const ReservationsWidget = () => {
     setIsLoading(true)
     const formattedData = getFormattedReservationData(data)
 
-    const reservationRes = await setReservation({
-      ...formattedData,
-    })
+    const reservationRes = await setReservation(
+      {
+        ...formattedData,
+      },
+      "web"
+    )
 
     if (reservationRes && reservationRes.error) {
       console.log("reservation error:", reservationRes.error)

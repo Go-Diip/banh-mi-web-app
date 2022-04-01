@@ -14,12 +14,13 @@ export const getReservations = async () => {
   }
 }
 
-export const setReservation = async data => {
+export const setReservation = async (data, source = "portal") => {
   try {
     return firestore
       .collection("reservations")
       .add({
         ...data,
+        source,
       })
       .then(e => {})
       .catch(e => ({

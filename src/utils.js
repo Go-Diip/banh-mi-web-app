@@ -406,7 +406,8 @@ export const sendCanceledSMS = async data => {
       new URLSearchParams({
         to: phoneFormatted,
         // prettier-ignore
-        body: `Banh Mi: Tu reservacion ha sido cancelada. Te esperamos en Banh Mi en una proxima ocasion. Recuerda que puedes hacer tu reservacion visitando nuestra pagina web www.banhmi.ec o contactandonos via WhatsApp o llamada telefonica al siguiente numero 099 770 2994.`,
+        // body: `Banh Mi: Tu reservacion ha sido cancelada. Te esperamos en Banh Mi en una proxima ocasion. Recuerda que puedes hacer tu reservacion visitando nuestra pagina web www.banhmi.ec o contactandonos via WhatsApp o llamada telefonica al siguiente numero 099 770 2994.`,
+        body: `Banh Mi: Tu reservacion ha sido cancelada. Te esperamos en Banh Mi en una proxima ocasion.`,
       }).toString(),
       {
         headers: {

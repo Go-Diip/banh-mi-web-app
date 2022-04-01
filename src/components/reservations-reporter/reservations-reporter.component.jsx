@@ -99,7 +99,7 @@ const ReservationsReporter = () => {
         if (data.length > prevData.length) {
           const lastReservation = data[0]
           if (lastReservation.source === "web") {
-            toast.warn("Nueva reservación recibida")
+            toast.info("Nueva reservación recibida")
             play()
           }
         }

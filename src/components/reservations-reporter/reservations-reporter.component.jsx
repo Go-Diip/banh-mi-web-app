@@ -39,6 +39,8 @@ import DeleteForeverIcon from "@mui/icons-material/DeleteForever"
 import { CheckCircle, DoDisturb } from "@mui/icons-material"
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
+import reservationSound from "../../assets/new-reservation-alert.mp3"
+import useSound from "use-sound"
 
 export const STATUSES = {
   approved: "Aprobado",
@@ -63,6 +65,7 @@ const ReservationsReporter = () => {
   const [dataToShow, setDataToShow] = useState([])
   const [turn, setTurn] = useState(TURNS.all)
   const prevDataRef = useRef()
+  const [play] = useSound(reservationSound)
 
   useEffect(() => {
     //added variable unsubscribe
@@ -97,6 +100,7 @@ const ReservationsReporter = () => {
           const lastReservation = data[0]
           if (lastReservation.source === "web") {
             toast.warn("Nueva reservación recibida")
+            play()
           }
         }
       }

@@ -12,7 +12,7 @@ const Reservations = () => {
   }, [])
   return (
     <Layout
-      seo={{ title: "Reservations" }}
+      seo={{ title: "Reservaciones | Banh Mi " }}
       showFooter={false}
       showHeader={false}
     >

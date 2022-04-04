@@ -147,7 +147,8 @@ const ReservationDialog = ({
                   label="Teléfono"
                   placeholder="Teléfono celular"
                   // validate={validatePhone}
-                  type="number"
+                  type="tel"
+                  pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
                   customError="Por favor ingresa un número válido de 10 digitos"
                   InputProps={{
                     endAdornment: (

@@ -150,6 +150,12 @@ const ReservationsWidget = () => {
   }, [])
 
   useEffect(() => {
+    if (isBrowser()) {
+      window.scrollTo(0, 0)
+    }
+  }, [currentStep])
+
+  useEffect(() => {
     if (user === "none") {
       auth.signInAnonymously()
     }

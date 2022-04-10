@@ -109,14 +109,14 @@ const ReservationsWidget = () => {
   }
 
   useEffect(() => {
-    const rightNowTime = moment()
+    const currentTime = moment()
     const minTime = moment("11:30", "H:mm")
     const maxTime = moment("22:30", "H:mm")
     const isSunday = moment().day() === 0
     const isMonday = moment().day() === 1
     if (
-      rightNowTime.isBefore(minTime) ||
-      rightNowTime.isAfter(maxTime) ||
+      currentTime.isBefore(minTime) ||
+      currentTime.isAfter(maxTime) ||
       isSunday ||
       isMonday
     ) {

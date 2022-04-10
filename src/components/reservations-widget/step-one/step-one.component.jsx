@@ -19,7 +19,12 @@ import "moment/locale/es"
 import { useFormContext } from "react-hook-form"
 import { Disclaimer } from "../reservations-widget.styles"
 import { disableMondays } from "../../../utils"
-export const MIN_DATE = moment(new Date())
+
+const CURRENT_DATE = moment()
+export const MIN_DATE =
+  CURRENT_DATE.day() === 0 || CURRENT_DATE.day() === 1
+    ? moment().day(2)
+    : CURRENT_DATE
 export const MAX_DATE = moment(MIN_DATE).add(4, "week")
 export const timeOptions = [
   {

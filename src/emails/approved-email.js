@@ -1,4 +1,8 @@
-const ApprovedEmail = (name, lastName, date, seats) => {
+const ApprovedEmail = (name, lastName, date, seats, area) => {
+  const areaText =
+    area === "segundo piso"
+      ? `<p style="font-family:Arial,sans-serif; font-size: 14px; color: #111212; font-weight: 300; margin: 0; line-height: 20px; padding:0"><b>Requisito Obligatorio:</b> Para reservaciones en el área del Segundo Piso (Bar) todos los asistentes deben de cumplir con la mayoría de edad.</p>`
+      : ""
   return `
     <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -95,6 +99,7 @@ const ApprovedEmail = (name, lastName, date, seats) => {
                           style="font-family:Arial,sans-serif; font-size: 14px; font-weight: 500; line-height: 21px; color: #111212; margin-top: 0; padding:0;">
                           Políticas de Reservaciones
                         </p>
+                          ${areaText}
                         <p
                           style="font-family:Arial,sans-serif; font-size: 14px; color: #111212; font-weight: 300; margin: 0; line-height: 20px; padding:0">
                           Puedes hacer una reservación en estos 3 canales: Nuestra página web www.banhmi.ec y vía WhatsApp o llamada telefónica al siguiente número:  099 770 2994. <br>

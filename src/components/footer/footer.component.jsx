@@ -63,7 +63,7 @@ const Footer = ({ className }) => {
                         href="https://www.rappi.com.ec/restaurantes/17168-banh-mi"
                         target="_blank"
                       >
-                        ordenar
+                        ordenar online
                       </CustomButton>
                       <CustomButton
                         className="lightBorder"

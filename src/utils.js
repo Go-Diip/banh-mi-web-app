@@ -21,7 +21,7 @@ export const emailTypes = {
 }
 
 export const getEmailData = (
-  { email, name, last_name, table, seats, date },
+  { email, name, last_name, table, seats, date, area },
   emailType
 ) => {
   const formattedDate = moment(date, "DD MMM YYYY hh:mm", "es").format(
@@ -42,7 +42,7 @@ export const getEmailData = (
         to: [email],
         bcc: "banhmireservas@gmail.com",
         subject: `¡Reservación Confirmada! ${name} ${last_name} ${formattedDate}`,
-        html: approvedEmail(name, last_name, formattedDate, seats),
+        html: approvedEmail(name, last_name, formattedDate, seats, area),
       }
     case emailTypes.CUSTOMER_UNAVAILABLE:
       return {

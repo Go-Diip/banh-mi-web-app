@@ -24,7 +24,7 @@ import moment from "moment"
 const inputNames = ["name", "last_name", "phone", "email", "area"]
 
 const StepTwo = ({ setCurrentStep }) => {
-  const { trigger, control, getValues, setValue } = useFormContext()
+  const { trigger, control, getValues, watch, setValue } = useFormContext()
   const [isBarAvailable, setIsBarAvailable] = useState(true)
   const handleNext = () => {
     trigger(inputNames).then(res => {
@@ -33,6 +33,9 @@ const StepTwo = ({ setCurrentStep }) => {
       }
     })
   }
+
+  const area = watch("area")
+  console.log("area", area)
 
   useEffect(() => {
     const selectedTime = moment(getValues("time"), "H:mm")
@@ -144,6 +147,13 @@ const StepTwo = ({ setCurrentStep }) => {
               name={inputNames[4]}
               control={control}
             />
+            {area === "segundo piso" && (
+              <Typography sx={{ marginTop: "1rem" }}>
+                <b>Requisito Obligatorio:</b> Para reservaciones en el área del
+                Segundo Piso (Bar) todos los asistentes deben de cumplir con la
+                mayoría de edad.
+              </Typography>
+            )}
           </FormControl>
           <Button
             fullWidth

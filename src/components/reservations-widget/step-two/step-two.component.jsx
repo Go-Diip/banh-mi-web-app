@@ -35,7 +35,6 @@ const StepTwo = ({ setCurrentStep }) => {
   }
 
   const area = watch("area")
-  console.log("area", area)
 
   useEffect(() => {
     const selectedTime = moment(getValues("time"), "H:mm")

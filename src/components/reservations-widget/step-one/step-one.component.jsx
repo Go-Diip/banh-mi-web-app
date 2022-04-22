@@ -261,7 +261,7 @@ const StepOne = ({ setCurrentStep }) => {
             type="button"
             onClick={() => setCurrentStep(STEPS.PERSONAL_DATA)}
           >
-            Reservar
+            Continuar
             <ArrowForwardIcon />
           </Button>
         </Grid>

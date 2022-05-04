@@ -22,10 +22,11 @@ import DateAdapter from "@mui/lab/AdapterMoment"
 import "moment/locale/es"
 import AccessTimeIcon from "@mui/icons-material/AccessTime"
 import {
+  EXCEPCIONAL_TIME_OPTIONS,
   MAX_DATE,
   MIN_DATE,
   seatsOptions,
-  timeOptions,
+  TIME_OPTIONS,
 } from "../../reservations-widget/step-one/step-one.component"
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday"
 import moment from "moment"
@@ -45,6 +46,11 @@ const ReservationDialog = ({
     mode: "onBlur",
     reValidateMode: "onBlur",
   })
+  const isExceptionalDate =
+    selectedDate.format("DD MMM YYYY") === "08 may. 2022"
+  const timeOptions = isExceptionalDate
+    ? EXCEPCIONAL_TIME_OPTIONS
+    : TIME_OPTIONS
   const { handleSubmit, register, setValue } = methods
 
   useEffect(() => {
@@ -160,10 +166,16 @@ const ReservationDialog = ({
                 />
               </Grid>
               <Grid item xs={12} md={6}>
-                <WidgetSelect
-                  options={seatsOptions}
+                {/*<WidgetSelect*/}
+                {/*  options={seatsOptions}*/}
+                {/*  name="seats"*/}
+                {/*  label="Puestos"*/}
+                {/*/>*/}
+                <WidgetTextField
                   name="seats"
                   label="Puestos"
+                  placeholder="Puestos"
+                  type="number"
                 />
               </Grid>
               <Grid item xs={12} md={6}>

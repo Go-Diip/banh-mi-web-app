@@ -300,7 +300,11 @@ export const getFormattedReservationData = data => {
 }
 
 export const disableMondays = date => {
-  return date.day() === 1 || date.day() === 0
+  const excepcionalDate = "08 may. 2022"
+  const dateString = date.format("DD MMM YYYY")
+  return (
+    (date.day() === 1 || date.day() === 0) && dateString !== excepcionalDate
+  )
 }
 
 export const sendConfirmationSMS = async data => {

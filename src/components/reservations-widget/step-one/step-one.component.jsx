@@ -26,7 +26,7 @@ export const MIN_DATE =
     ? moment().day(2)
     : CURRENT_DATE
 export const MAX_DATE = moment(MIN_DATE).add(4, "week")
-export const timeOptions = [
+export const TIME_OPTIONS = [
   {
     value: "12:30",
     label: "12:30 PM",
@@ -136,6 +136,60 @@ export const timeOptions = [
     label: "10:00 PM",
   },
 ]
+export const EXCEPCIONAL_TIME_OPTIONS = [
+  {
+    value: "13:00",
+    label: "1:00 PM",
+  },
+  {
+    value: "13:15",
+    label: "1:15 PM",
+  },
+  {
+    value: "13:30",
+    label: "1:30 PM",
+  },
+  {
+    value: "13:45",
+    label: "1:45 PM",
+  },
+  {
+    value: "14:00",
+    label: "2:00 PM",
+  },
+  {
+    value: "14:15",
+    label: "2:15 PM",
+  },
+  {
+    value: "14:30",
+    label: "2:30 PM",
+  },
+  {
+    value: "14:45",
+    label: "2:45 PM",
+  },
+  {
+    value: "15:00",
+    label: "3:00 PM",
+  },
+  {
+    value: "15:15",
+    label: "3:15 PM",
+  },
+  {
+    value: "15:30",
+    label: "3:30 PM",
+  },
+  {
+    value: "15:45",
+    label: "3:45 PM",
+  },
+  {
+    value: "16:00",
+    label: "4:00 PM",
+  },
+]
 export const seatsOptions = [
   {
     value: 1,
@@ -182,6 +236,11 @@ const StepOne = ({ setCurrentStep }) => {
   const { register, setValue } = useFormContext()
   const [selectedDate, setSelectedDate] = useState(MIN_DATE)
   const [dateOpen, setDateOpen] = useState(false)
+  const isExceptionalDate =
+    selectedDate.format("DD MMM YYYY") === "08 may. 2022"
+  const timeOptions = isExceptionalDate
+    ? EXCEPCIONAL_TIME_OPTIONS
+    : TIME_OPTIONS
 
   useEffect(() => {
     setValue("date", moment(selectedDate).format("YYYY/MM/DD"))

@@ -386,7 +386,7 @@ export const sendUnavailableSMS = async data => {
       new URLSearchParams({
         to: phoneFormatted,
         // prettier-ignore
-        body: `Banh Mi: Hola, ${removeAccents(data.name)}. Al momento no hemos podido confirmar tu reservacion. Pronto te contactaran directamente para poder asisitirte.`,
+        body: `Banh Mi: Hola, ${removeAccents(data.name)}. Al momento no hemos podido confirmar tu reservacion. Pronto te contactaran directamente para poder asistirte.`,
       }).toString(),
       {
         headers: {

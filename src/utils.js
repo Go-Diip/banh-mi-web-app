@@ -376,11 +376,12 @@ export const sendNewReservationSMS = async data => {
 
 export const sendWhatsappMsg = async (text, phone) => {
   try {
-    return await window.fetch(`/.netlify/functions/send-whatsapp-message`, {
+    // return await window.fetch(`/.netlify/functions/send-whatsapp-message`, {
+    return await window.fetch(`/api/send-whatsapp-message`, {
       method: `POST`,
-      // headers: {
-      //   "content-type": "application/json",
-      // },
+      headers: {
+        "content-type": "application/json",
+      },
       body: JSON.stringify({ text, phone }),
     })
   } catch (e) {

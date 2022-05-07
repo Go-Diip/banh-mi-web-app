@@ -74,12 +74,12 @@ const ReservationsWidget = () => {
       return
     }
 
-    // await sendNewReservationSMS({
-    //   ...formattedData,
-    //   date: `${moment(data.date, "YYYY/MM/DD").format("DD/MM/YYYY")} a las ${
-    //     data.time
-    //   }`,
-    // })
+    await sendNewReservationSMS({
+      ...formattedData,
+      date: `${moment(data.date, "YYYY/MM/DD").format("DD/MM/YYYY")} a las ${
+        data.time
+      }`,
+    })
 
     await sendWhatsappMsg(
       getWhatsappTemplateMsg(whatsappTemplates.RESERVATION_NEW, {

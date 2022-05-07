@@ -168,8 +168,7 @@ const StepTwo = ({ setCurrentStep }) => {
       <Disclaimer>
         <Typography>
           Asegúrate de colocar tus datos correctamente. La confirmación de tu
-          reservación será enviada a tu correo electrónico y por mensaje de
-          texto.
+          reservación será enviada a tu correo electrónico y por WhatsApp.
         </Typography>
       </Disclaimer>
     </S.Wrapper>

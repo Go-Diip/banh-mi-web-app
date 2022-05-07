@@ -12,6 +12,7 @@ import {
   getFormattedReservationData,
   getWhatsappTemplateMsg,
   isBrowser,
+  sendNewReservationSMS,
   sendWhatsappMsg,
   whatsappTemplates,
 } from "../../utils"
@@ -72,6 +73,13 @@ const ReservationsWidget = () => {
       alert("Hubo un error creando tu reservación. Por favor intenta de nuevo")
       return
     }
+
+    await sendNewReservationSMS({
+      ...formattedData,
+      date: `${moment(data.date, "YYYY/MM/DD").format("DD/MM/YYYY")} a las ${
+        data.time
+      }`,
+    })
 
     await sendWhatsappMsg(
       getWhatsappTemplateMsg(whatsappTemplates.RESERVATION_NEW, {

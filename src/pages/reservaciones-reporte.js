@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react"
-import ReservationsReporter from "../components/reservations-reporter/reservations-reporter.component"
 import { auth } from "../services/firebase"
 import Layout from "../components/layout"
 import Login from "../components/login/login.component"
+import ReservationsReporter from "../components/reservations-reporter/reservations-reporter.component"
 
 const ReservacionesReporte = () => {
   const [user, setUser] = useState(null)

@@ -22,7 +22,7 @@ export default function handler(req, res) {
     location: "Andalucía N24-234 y, Quito 170143",
     geo: { lat: -0.20641203783465234, lon: -78.48452230059952 },
     status: "CONFIRMED",
-    productId: "myproduct",
+    // productId: "myproduct",
     organizer: { name: "Banh Mi", email: "banhmireservas@gmail.com" },
     attendees: [
       { name: `${data.firstName} ${data.lastName}`, email: data.email },

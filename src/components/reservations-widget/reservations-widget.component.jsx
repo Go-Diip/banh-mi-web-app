@@ -10,13 +10,14 @@ import StepThree from "./step-three/step-three.component"
 import { setReservation } from "../../services/reservations"
 import {
   getFormattedReservationData,
-  sendNewReservationSMS,
+  getWhatsappTemplateMsg,
   isBrowser,
+  sendWhatsappMsg,
+  whatsappTemplates,
 } from "../../utils"
 import Spinner from "../spinner/spinner.component"
 import { navigate } from "gatsby-link"
 import moment from "moment"
-import firebase from "firebase/compat/app"
 import { auth } from "../../services/firebase"
 import { sendGtagReservationMadeEvent } from "../../gtag-utils"
 import addToMailchimp from "gatsby-plugin-mailchimp"
@@ -72,12 +73,15 @@ const ReservationsWidget = () => {
       return
     }
 
-    await sendNewReservationSMS({
-      ...formattedData,
-      date: `${moment(data.date, "YYYY/MM/DD").format("DD/MM/YYYY")} a las ${
-        data.time
-      }`,
-    })
+    await sendWhatsappMsg(
+      getWhatsappTemplateMsg(whatsappTemplates.RESERVATION_NEW, {
+        ...formattedData,
+        date: `${moment(data.date, "YYYY/MM/DD").format("DD/MM/YYYY")} a las ${
+          data.time
+        }`,
+      }),
+      "0997702994"
+    )
 
     await addToMailchimp(data.email, {
       EMAIL: data.email,
@@ -121,11 +125,11 @@ const ReservationsWidget = () => {
       isMonday
     ) {
       setOverviewText(
-        "Hemos recibido tu solicitud de reservación. Recibirás la confirmación vía SMS y correo electrónico durante nuestro horario de atención para reservaciones: Martes a Sábado de 11:30am a 10:30pm.  "
+        "Hemos recibido tu solicitud de reservación. Recibirás la confirmación vía WhatsApp y correo electrónico durante nuestro horario de atención para reservaciones: Martes a Sábado de 11:30am a 10:30pm.  "
       )
     } else {
       setOverviewText(
-        "Hemos recibido tu solicitud de reservación. En máximo 10 minutos recibirás un mensaje vía SMS y un correo electrónico con la confirmación de tu reservación."
+        "Hemos recibido tu solicitud de reservación. En máximo 10 minutos recibirás un mensaje vía WhatsApp y un correo electrónico con la confirmación de tu reservación."
       )
     }
     if (overviewData) {

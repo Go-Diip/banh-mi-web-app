@@ -5,10 +5,10 @@ import CryptoJS from "crypto-js"
 import canceledEmail from "./emails/canceled-email"
 import approvedEmail from "./emails/approved-email"
 import clientNotification from "./emails/client-notification"
-import { STATUSES } from "./components/reservations-reporter/reservations-reporter.component"
 import moment from "moment"
 import "moment/locale/es"
 import unavailableEmail from "./emails/unavailable-email"
+import { STATUSES } from "./components/reservations-reporter/reservations-reporter.component"
 
 export const isBrowser = () => typeof window !== "undefined"
 
@@ -18,6 +18,27 @@ export const emailTypes = {
   CUSTOMER_CANCELED: "Customer Canceled",
   CUSTOMER_UNAVAILABLE: "Customer Unavailable",
   CLIENT_NOTIFICATION: "Client Notification",
+}
+
+export const whatsappTemplates = {
+  RESERVATION_NEW: "reservation_new",
+  RESERVATION_NOT_AVAILABLE: "reservation_not_available",
+  RESERVATION_CANCELED: "reservation_canceled",
+  RESERVATION_CONFIRMED: "reservation_confirmed",
+}
+
+export const getWhatsappTemplateMsg = (templateName, data) => {
+  const { email, name, last_name, table, seats, date, area } = data
+  switch (templateName) {
+    case whatsappTemplates.RESERVATION_NEW:
+      return `Nueva reservación de ${name} ${last_name} para el día ${date}.`
+    case whatsappTemplates.RESERVATION_CONFIRMED:
+      return `Hola, ${name}. Tu reservación el día ${date} esta confirmada.`
+    case whatsappTemplates.RESERVATION_NOT_AVAILABLE:
+      return `Hola, ${name}. Al momento no hemos podido confirmar tu reservación. Pronto te contactaran directamente para poder asistirte.`
+    case whatsappTemplates.RESERVATION_CANCELED:
+      return `Tu reservación ha sido cancelada. Te esperamos en Banh Mi en una próxima ocasión.`
+  }
 }
 
 export const getEmailData = (
@@ -40,7 +61,7 @@ export const getEmailData = (
       return {
         from: "Banh Mi  <no-reply@banhmi.com>",
         to: [email],
-        bcc: "banhmireservas@gmail.com",
+        // bcc: "banhmireservas@gmail.com",
         subject: `¡Reservación Confirmada! ${name} ${last_name} ${formattedDate}`,
         html: approvedEmail(name, last_name, formattedDate, seats, area),
       }
@@ -48,7 +69,7 @@ export const getEmailData = (
       return {
         from: "Banh Mi  <no-reply@banhmi.ec>",
         to: [email],
-        bcc: "banhmireservas@gmail.com",
+        // bcc: "banhmireservas@gmail.com",
         subject: "¡Reservación No Disponible!",
         html: unavailableEmail(name),
       }
@@ -57,7 +78,7 @@ export const getEmailData = (
       return {
         from: "Banh Mi  <no-reply@banhmi.ec>",
         to: [email],
-        bcc: "banhmireservas@gmail.com",
+        // bcc: "banhmireservas@gmail.com",
         subject: "¡Reservación Cancelada!",
         html: canceledEmail(name),
       }
@@ -351,6 +372,20 @@ export const sendNewReservationSMS = async data => {
       }
     )
   } catch (e) {}
+}
+
+export const sendWhatsappMsg = async (text, phone) => {
+  try {
+    return await window.fetch(`/api/send-whatsapp-message`, {
+      method: `POST`,
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ text, phone }),
+    })
+  } catch (e) {
+    return e
+  }
 }
 
 export const sendConfirmationSMSHost = async data => {

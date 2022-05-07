@@ -10,10 +10,10 @@ import Spinner from "../spinner/spinner.component"
 import {
   emailTypes,
   getFormattedReservationData,
-  sendCanceledSMS,
-  sendConfirmationSMS,
+  getWhatsappTemplateMsg,
   sendEmail,
-  sendUnavailableSMS,
+  sendWhatsappMsg,
+  whatsappTemplates,
 } from "../../utils"
 import Pepper from "../../assets/pepper-red.svg"
 import { auth, firestore } from "../../services/firebase"
@@ -365,14 +365,18 @@ const ReservationsReporter = () => {
             })
 
             await sendEmail(formattedData, emailTypes.CUSTOMER_CONFIRMATION)
-            await sendConfirmationSMS({
-              ...formattedData,
-              date: `${moment(currentData.date, "DD-MM-YYYY HH:mm").format(
-                "DD/MM/YYYY"
-              )} a las ${moment(currentData.date, "DD-MM-YYYY HH:mm").format(
-                "HH:mm"
-              )}`,
-            })
+
+            await sendWhatsappMsg(
+              getWhatsappTemplateMsg(whatsappTemplates.RESERVATION_CONFIRMED, {
+                ...formattedData,
+                date: `${moment(currentData.date, "DD-MM-YYYY HH:mm").format(
+                  "DD/MM/YYYY"
+                )} a las ${moment(currentData.date, "DD-MM-YYYY HH:mm").format(
+                  "HH:mm"
+                )}`,
+              }),
+              formattedData.phone
+            )
           }
         })
       )
@@ -393,6 +397,13 @@ const ReservationsReporter = () => {
               status: "Cancelado",
             })
             await sendEmail(formattedData, emailTypes.CUSTOMER_CANCELED)
+            await sendWhatsappMsg(
+              getWhatsappTemplateMsg(
+                whatsappTemplates.RESERVATION_CANCELED,
+                formattedData
+              ),
+              formattedData.phone
+            )
           }
         })
       )
@@ -430,12 +441,16 @@ const ReservationsReporter = () => {
         currentReservationData?.status !== STATUSES.approved
       ) {
         await sendEmail(formattedData, emailTypes.CUSTOMER_CONFIRMATION)
-        await sendConfirmationSMS({
-          ...formattedData,
-          date: `${moment(formData.date, "YYYY/MM/DD").format(
-            "DD/MM/YYYY"
-          )} a las ${formData.time}`,
-        })
+
+        await sendWhatsappMsg(
+          getWhatsappTemplateMsg(whatsappTemplates.RESERVATION_CONFIRMED, {
+            ...formattedData,
+            date: `${moment(formData.date, "YYYY/MM/DD").format(
+              "DD/MM/YYYY"
+            )} a las ${formData.time}`,
+          }),
+          formattedData.phone
+        )
       }
     }
 
@@ -445,7 +460,14 @@ const ReservationsReporter = () => {
         currentReservationData?.status !== STATUSES.unavailable
       ) {
         await sendEmail(formattedData, emailTypes.CUSTOMER_UNAVAILABLE)
-        await sendUnavailableSMS(formattedData)
+        // await sendUnavailableSMS(formattedData)
+        await sendWhatsappMsg(
+          getWhatsappTemplateMsg(
+            whatsappTemplates.RESERVATION_NOT_AVAILABLE,
+            formattedData
+          ),
+          formattedData.phone
+        )
       }
     }
 
@@ -455,7 +477,14 @@ const ReservationsReporter = () => {
         currentReservationData?.status !== STATUSES.canceled
       ) {
         await sendEmail(formattedData, emailTypes.CUSTOMER_CANCELED)
-        await sendCanceledSMS(formattedData)
+        // await sendCanceledSMS(formattedData)
+        await sendWhatsappMsg(
+          getWhatsappTemplateMsg(
+            whatsappTemplates.RESERVATION_CANCELED,
+            formattedData
+          ),
+          formattedData.phone
+        )
       }
     }
 

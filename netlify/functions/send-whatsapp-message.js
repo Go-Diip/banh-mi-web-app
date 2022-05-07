@@ -1,4 +1,4 @@
-exports.handler = function (event, context, callback) {
+exports.handler = (event, context) => {
   const accountSid = `${process.env.TWILIO_ACCOUNT_SID}` // Your Account SID from www.twilio.com/console
   const authToken = `${process.env.TWILIO_AUTH_TOKEN}` // Your Auth Token from www.twilio.com/console
   const { phone, text } = event.body
@@ -20,16 +20,9 @@ exports.handler = function (event, context, callback) {
       to: `whatsapp:${phoneFormatted}`, // Text this number
       from: "whatsapp:+17869778091", // From a valid Twilio number
     })
-    .then(message =>
-      callback(null, {
-        statusCode: 200,
-        body: JSON.stringify(message),
-      })
-    )
-    .catch(e =>
-      callback(null, {
-        statusCode: 400,
-        body: JSON.stringify(error),
-      })
-    )
+    .then(message => ({ statusCode: 200, body: JSON.stringify({ message }) }))
+    .catch(e => ({
+      statusCode: 500,
+      body: JSON.stringify({ error: "Failed fetching data" }),
+    }))
 }

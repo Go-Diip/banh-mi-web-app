@@ -61,7 +61,7 @@ export const getEmailData = (
       return {
         from: "Banh Mi  <no-reply@banhmi.com>",
         to: [email],
-        // bcc: "banhmireservas@gmail.com",
+        bcc: "banhmireservas@gmail.com",
         subject: `¡Reservación Confirmada! ${name} ${last_name} ${formattedDate}`,
         html: approvedEmail(name, last_name, formattedDate, seats, area),
       }
@@ -69,7 +69,7 @@ export const getEmailData = (
       return {
         from: "Banh Mi  <no-reply@banhmi.ec>",
         to: [email],
-        // bcc: "banhmireservas@gmail.com",
+        bcc: "banhmireservas@gmail.com",
         subject: "¡Reservación No Disponible!",
         html: unavailableEmail(name),
       }

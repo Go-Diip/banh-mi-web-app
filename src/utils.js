@@ -267,25 +267,25 @@ export const sendEmail = async (data, emailType) => {
     console.log("Was not able to send the email. No email address provided.")
     return
   }
-  const formData = require("form-data")
-  const Mailgun = require("mailgun.js")
-  const mailgun = new Mailgun(formData)
-  const mg = mailgun.client({
-    username: process.env.GATSBY_MAILGUN_USERNAME,
-    key: process.env.GATSBY_MAILGUN_API_KEY,
-  })
-
-  // mg.messages.create('mg.godiip.com', {
-  //   from: "Excited User <mailgun@sandbox-123.mailgun.org>",
-  //   to: ["valladarespaul@gmail.com"],
-  //   subject: "Hello",
-  //   text: "Testing some Mailgun awesomness!",
-  //   html: "<h1>Testing some Mailgun awesomness!</h1>"
-  // })
-  //   .then(msg => console.log(msg)) // logs response data
-  //   .catch(err => console.log(err)); // logs any error
-
   try {
+    const formData = require("form-data")
+    const Mailgun = require("mailgun.js")
+    const mailgun = new Mailgun(formData)
+    const mg = mailgun.client({
+      username: process.env.GATSBY_MAILGUN_USERNAME,
+      key: process.env.GATSBY_MAILGUN_API_KEY,
+    })
+
+    // mg.messages.create('mg.godiip.com', {
+    //   from: "Excited User <mailgun@sandbox-123.mailgun.org>",
+    //   to: ["valladarespaul@gmail.com"],
+    //   subject: "Hello",
+    //   text: "Testing some Mailgun awesomness!",
+    //   html: "<h1>Testing some Mailgun awesomness!</h1>"
+    // })
+    //   .then(msg => console.log(msg)) // logs response data
+    //   .catch(err => console.log(err)); // logs any error
+
     return await mg.messages.create(
       "mg.banhmi.ec",
       getEmailData(data, emailType)

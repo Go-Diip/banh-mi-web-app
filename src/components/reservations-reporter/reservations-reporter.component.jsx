@@ -74,7 +74,7 @@ const ReservationsReporter = () => {
       // .where("status", "==", "Pendiente")
       .orderBy("createdAt", "desc")
       // .orderBy("status", "desc")
-      .limit(500)
+      .limit(1000)
       .onSnapshot(snapshot => {
         const listItems = snapshot.docs.map(doc => ({
           ...doc.data(),
@@ -415,7 +415,7 @@ const ReservationsReporter = () => {
     filterType: "multiselect",
     responsive: "standard",
     count: data.length,
-    rowsPerPage: 100,
+    rowsPerPage: 50,
     onCellClick: handleCellClick,
     // selectableRows: "none",
     // onRowsDelete: handleDelete,

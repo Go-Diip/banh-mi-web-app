@@ -390,6 +390,21 @@ export const sendWhatsappMsg = async (text, phone) => {
   }
 }
 
+export const sendEmailServer = async (data, emailType) => {
+  try {
+    return await window.fetch(`/api/send-email`, {
+      method: `POST`,
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ data, emailData: getEmailData(data, emailType) }),
+    })
+  } catch (e) {
+    console.log("e", e)
+    return e
+  }
+}
+
 export const sendConfirmationSMSHost = async data => {
   const phoneFormatted = `+593997702994`
   try {

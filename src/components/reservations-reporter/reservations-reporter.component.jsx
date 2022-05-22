@@ -12,6 +12,7 @@ import {
   getFormattedReservationData,
   getWhatsappTemplateMsg,
   sendEmail,
+  sendEmailServer,
   sendWhatsappMsg,
   whatsappTemplates,
 } from "../../utils"
@@ -364,7 +365,11 @@ const ReservationsReporter = () => {
               status: "Aprobado",
             })
 
-            await sendEmail(formattedData, emailTypes.CUSTOMER_CONFIRMATION)
+            // await sendEmail(formattedData, emailTypes.CUSTOMER_CONFIRMATION)
+            await sendEmailServer(
+              formattedData,
+              emailTypes.CUSTOMER_CONFIRMATION
+            )
 
             await sendWhatsappMsg(
               getWhatsappTemplateMsg(whatsappTemplates.RESERVATION_CONFIRMED, {
@@ -440,7 +445,8 @@ const ReservationsReporter = () => {
         !currentReservationData ||
         currentReservationData?.status !== STATUSES.approved
       ) {
-        await sendEmail(formattedData, emailTypes.CUSTOMER_CONFIRMATION)
+        // await sendEmail(formattedData, emailTypes.CUSTOMER_CONFIRMATION)
+        await sendEmailServer(formattedData, emailTypes.CUSTOMER_CONFIRMATION)
 
         await sendWhatsappMsg(
           getWhatsappTemplateMsg(whatsappTemplates.RESERVATION_CONFIRMED, {

@@ -138,7 +138,7 @@ const Footer = ({ className }) => {
             <S.PoweredWrapper>
               <S.LogoWrapper>
                 <S.ExternalLink
-                  href="https://www.instagram.com/banhmisanducheria/"
+                  href="https://www.instagram.com/banhmi.ec/"
                   target="_blank"
                 >
                   <InstagramIcon />
@@ -150,7 +150,7 @@ const Footer = ({ className }) => {
                   <GoogleIcon />
                 </S.ExternalLink>
                 <S.ExternalLink
-                  href="https://www.facebook.com/banhmisanducheria"
+                  href="https://www.facebook.com/banhmi.ec"
                   target="_blank"
                 >
                   <FacebookIcon />

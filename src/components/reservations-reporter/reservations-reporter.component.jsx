@@ -33,6 +33,7 @@ import {
   Select,
   FormControl,
   MenuItem,
+  useMediaQuery,
 } from "@mui/material"
 import LogoutIcon from "@mui/icons-material/Logout"
 import CustomButton from "../custom-button/custom-button.component"
@@ -42,6 +43,7 @@ import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import reservationSound from "../../assets/new-reservation-alert.mp3"
 import useSound from "use-sound"
+import { use100vh } from "react-div-100vh"
 
 export const STATUSES = {
   approved: "Aprobado",
@@ -67,6 +69,8 @@ const ReservationsReporter = () => {
   const [turn, setTurn] = useState(TURNS.all)
   const prevDataRef = useRef()
   const [play] = useSound(reservationSound)
+  const isXs = useMediaQuery(theme.breakpoints.down("sm"))
+  const height = use100vh()
 
   useEffect(() => {
     //added variable unsubscribe
@@ -439,7 +443,7 @@ const ReservationsReporter = () => {
     fixedHeader: true,
     count: data.length,
     rowsPerPage: 50,
-    tableBodyHeight: "calc(100vh - 95px)",
+    tableBodyHeight: isXs ? `${height - 141}px` : `${height - 95}px`,
     onCellClick: handleCellClick,
     // selectableRows: "none",
     // onRowsDelete: handleDelete,

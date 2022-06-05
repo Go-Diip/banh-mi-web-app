@@ -44,6 +44,7 @@ import "react-toastify/dist/ReactToastify.css"
 import reservationSound from "../../assets/new-reservation-alert.mp3"
 import useSound from "use-sound"
 import { use100vh } from "react-div-100vh"
+import { useTheme } from "@mui/styles"
 
 export const STATUSES = {
   approved: "Aprobado",
@@ -69,6 +70,7 @@ const ReservationsReporter = () => {
   const [turn, setTurn] = useState(TURNS.all)
   const prevDataRef = useRef()
   const [play] = useSound(reservationSound)
+  const theme = useTheme()
   const isXs = useMediaQuery(theme.breakpoints.down("sm"))
   const height = use100vh()
 

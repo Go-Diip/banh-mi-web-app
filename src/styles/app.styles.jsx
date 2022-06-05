@@ -215,6 +215,12 @@ export const GlobalStyles = createGlobalStyle`
         min-width: 40px;
       }
     }
+    .MuiTableHead-root {
+      .MuiTableRow-root {
+        position: relative;
+        z-index: 103;
+      }
+    }
     .MuiCheckbox-root {
       .MuiSvgIcon-root {
         fill: rgba(0, 0, 0, 0.54);;

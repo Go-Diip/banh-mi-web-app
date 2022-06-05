@@ -436,8 +436,10 @@ const ReservationsReporter = () => {
   const options = {
     filterType: "multiselect",
     responsive: "standard",
+    fixedHeader: true,
     count: data.length,
     rowsPerPage: 50,
+    tableBodyHeight: "calc(100vh - 95px)",
     onCellClick: handleCellClick,
     // selectableRows: "none",
     // onRowsDelete: handleDelete,

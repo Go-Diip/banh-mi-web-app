@@ -182,6 +182,23 @@ const ReservationsReporter = () => {
       options: {
         filter: false,
         sort: true,
+        setCellProps: () => ({
+          style: {
+            position: "sticky",
+            left: 0,
+            background: "white",
+            zIndex: 101,
+          },
+        }),
+        // setCellHeaderProps: () => ({
+        //   style: {
+        //     position: "sticky",
+        //     left: 0,
+        //     top: 0, //Incase Header is Fixed
+        //     background: "white",
+        //     zIndex: 102,
+        //   },
+        // }),
       },
     },
     {

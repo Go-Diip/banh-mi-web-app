@@ -532,7 +532,9 @@ const ReservationsReporter = () => {
         title={
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <Pepper />
-            <span style={{ marginLeft: "0.5rem" }}>Bahn Mi Reservaciones</span>
+            <span style={{ marginLeft: "0.5rem" }}>
+              Banh Mi - Reservaciones
+            </span>
           </Box>
         }
         data={dataToShow}
@@ -566,7 +568,11 @@ const ReservationsReporter = () => {
               </CustomButton>
             </Grid>
             <Grid item xs={6}>
-              <CustomButton className="darkBorder" fullWidth>
+              <CustomButton
+                className="darkBorder"
+                fullWidth
+                onClick={() => setIsWarningDialogOpen(false)}
+              >
                 Cancelar
               </CustomButton>
             </Grid>

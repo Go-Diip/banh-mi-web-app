@@ -376,6 +376,10 @@ export const sendNewReservationSMS = async data => {
 }
 
 export const sendWhatsappMsg = async (text, phone) => {
+  if (!phone) {
+    console.log("No phone provided. Was not able to send WhatsApp message.")
+    return
+  }
   try {
     // return await window.fetch(`/.netlify/functions/send-whatsapp-message`, {
     return await window.fetch(`/api/send-whatsapp-message`, {

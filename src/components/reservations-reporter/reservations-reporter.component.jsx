@@ -394,7 +394,7 @@ const ReservationsReporter = () => {
               emailTypes.CUSTOMER_CONFIRMATION
             )
 
-            await sendWhatsappMsg(
+            const whatsaRes = await sendWhatsappMsg(
               getWhatsappTemplateMsg(whatsappTemplates.RESERVATION_CONFIRMED, {
                 ...formattedData,
                 date: `${moment(currentData.date, "DD-MM-YYYY HH:mm").format(
@@ -405,6 +405,8 @@ const ReservationsReporter = () => {
               }),
               formattedData.phone
             )
+
+            console.log("whatsAppRes", whatsaRes)
           }
         })
       )
@@ -473,7 +475,7 @@ const ReservationsReporter = () => {
         // await sendEmail(formattedData, emailTypes.CUSTOMER_CONFIRMATION)
         await sendEmailServer(formattedData, emailTypes.CUSTOMER_CONFIRMATION)
 
-        await sendWhatsappMsg(
+        const whatsaRes = await sendWhatsappMsg(
           getWhatsappTemplateMsg(whatsappTemplates.RESERVATION_CONFIRMED, {
             ...formattedData,
             date: `${moment(formData.date, "YYYY/MM/DD").format(
@@ -482,6 +484,8 @@ const ReservationsReporter = () => {
           }),
           formattedData.phone
         )
+
+        console.log("whatsAppRes", whatsaRes)
       }
     }
 

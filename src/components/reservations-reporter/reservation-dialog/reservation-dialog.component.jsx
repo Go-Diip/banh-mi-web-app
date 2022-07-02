@@ -21,16 +21,17 @@ import { DatePicker, LocalizationProvider } from "@mui/lab"
 import DateAdapter from "@mui/lab/AdapterMoment"
 import "moment/locale/es"
 import AccessTimeIcon from "@mui/icons-material/AccessTime"
-import {
-  EXCEPCIONAL_TIME_OPTIONS,
-  MAX_DATE,
-  MIN_DATE,
-  seatsOptions,
-  TIME_OPTIONS,
-} from "../../reservations-widget/step-one/step-one.component"
+
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday"
 import moment from "moment"
 import { STATUSES } from "../reservations-reporter.component"
+import {
+  EXCEPTIONAL_DATES,
+  EXCEPTIONAL_TIMES,
+  MAX_DATE,
+  MIN_DATE,
+  TIME_OPTIONS,
+} from "../../../constants"
 
 const ReservationDialog = ({
   onClose,
@@ -46,11 +47,10 @@ const ReservationDialog = ({
     mode: "onBlur",
     reValidateMode: "onBlur",
   })
-  const isExceptionalDate =
-    selectedDate.format("DD MMM YYYY") === "08 may. 2022"
-  const timeOptions = isExceptionalDate
-    ? EXCEPCIONAL_TIME_OPTIONS
-    : TIME_OPTIONS
+  const isExceptionalDate = EXCEPTIONAL_DATES.includes(
+    selectedDate.format("DD MMM YYYY")
+  )
+  const timeOptions = isExceptionalDate ? EXCEPTIONAL_TIMES : TIME_OPTIONS
   const { handleSubmit, register, setValue } = methods
 
   useEffect(() => {

@@ -19,228 +19,23 @@ import "moment/locale/es"
 import { useFormContext } from "react-hook-form"
 import { Disclaimer } from "../reservations-widget.styles"
 import { disableMondays } from "../../../utils"
+import {
+  EXCEPTIONAL_DATES,
+  EXCEPTIONAL_TIMES,
+  MAX_DATE,
+  MIN_DATE,
+  SEAT_OPTIONS,
+  TIME_OPTIONS,
+} from "../../../constants"
 
-const CURRENT_DATE = moment()
-export const MIN_DATE =
-  CURRENT_DATE.day() === 0 || CURRENT_DATE.day() === 1
-    ? moment().day(2)
-    : CURRENT_DATE
-export const MAX_DATE = moment(MIN_DATE).add(4, "week")
-export const TIME_OPTIONS = [
-  {
-    value: "12:30",
-    label: "12:30 PM",
-  },
-  {
-    value: "12:45",
-    label: "12:45 PM",
-  },
-  {
-    value: "13:00",
-    label: "1:00 PM",
-  },
-  {
-    value: "13:15",
-    label: "1:15 PM",
-  },
-  {
-    value: "13:30",
-    label: "1:30 PM",
-  },
-  {
-    value: "13:45",
-    label: "1:45 PM",
-  },
-  {
-    value: "14:00",
-    label: "2:00 PM",
-  },
-  {
-    value: "14:15",
-    label: "2:15 PM",
-  },
-  {
-    value: "14:30",
-    label: "2:30 PM",
-  },
-  {
-    value: "14:45",
-    label: "2:45 PM",
-  },
-  {
-    value: "15:00",
-    label: "3:00 PM",
-  },
-  // {
-  //   value: "18:00",
-  //   label: "6:00 PM",
-  // },
-  // {
-  //   value: "18:15",
-  //   label: "6:15 PM",
-  // },
-  // {
-  //   value: "18:30",
-  //   label: "6:30 PM",
-  // },
-  // {
-  //   value: "18:45",
-  //   label: "6:45 PM",
-  // },
-  {
-    value: "19:00",
-    label: "7:00 PM",
-  },
-  {
-    value: "19:15",
-    label: "7:15 PM",
-  },
-  {
-    value: "19:30",
-    label: "7:30 PM",
-  },
-  {
-    value: "20:00",
-    label: "8:00 PM",
-  },
-  {
-    value: "20:15",
-    label: "8:15 PM",
-  },
-  {
-    value: "20:30",
-    label: "8:30 PM",
-  },
-  {
-    value: "20:45",
-    label: "8:45 PM",
-  },
-  {
-    value: "21:00",
-    label: "9:00 PM",
-  },
-  {
-    value: "21:15",
-    label: "9:15 PM",
-  },
-  {
-    value: "21:30",
-    label: "9:30 PM",
-  },
-  {
-    value: "21:45",
-    label: "9:45 PM",
-  },
-  {
-    value: "22:00",
-    label: "10:00 PM",
-  },
-]
-export const EXCEPCIONAL_TIME_OPTIONS = [
-  {
-    value: "13:00",
-    label: "1:00 PM",
-  },
-  {
-    value: "13:15",
-    label: "1:15 PM",
-  },
-  {
-    value: "13:30",
-    label: "1:30 PM",
-  },
-  {
-    value: "13:45",
-    label: "1:45 PM",
-  },
-  {
-    value: "14:00",
-    label: "2:00 PM",
-  },
-  {
-    value: "14:15",
-    label: "2:15 PM",
-  },
-  {
-    value: "14:30",
-    label: "2:30 PM",
-  },
-  {
-    value: "14:45",
-    label: "2:45 PM",
-  },
-  {
-    value: "15:00",
-    label: "3:00 PM",
-  },
-  {
-    value: "15:15",
-    label: "3:15 PM",
-  },
-  {
-    value: "15:30",
-    label: "3:30 PM",
-  },
-  {
-    value: "15:45",
-    label: "3:45 PM",
-  },
-  {
-    value: "16:00",
-    label: "4:00 PM",
-  },
-]
-export const seatsOptions = [
-  {
-    value: 1,
-    label: "1 Persona",
-  },
-  {
-    value: 2,
-    label: "2 Personas",
-  },
-  {
-    value: 3,
-    label: "3 Personas",
-  },
-  {
-    value: 4,
-    label: "4 Personas",
-  },
-  {
-    value: 5,
-    label: "5 Personas",
-  },
-  {
-    value: 6,
-    label: "6 Personas",
-  },
-  {
-    value: 7,
-    label: "7 Personas",
-  },
-  {
-    value: 8,
-    label: "8 Personas",
-  },
-  {
-    value: 9,
-    label: "9 Personas",
-  },
-  {
-    value: 10,
-    label: "10 Personas",
-  },
-]
 const StepOne = ({ setCurrentStep }) => {
   const { register, setValue } = useFormContext()
   const [selectedDate, setSelectedDate] = useState(MIN_DATE)
   const [dateOpen, setDateOpen] = useState(false)
-  const isExceptionalDate =
-    selectedDate.format("DD MMM YYYY") === "08 may. 2022"
-  const timeOptions = isExceptionalDate
-    ? EXCEPCIONAL_TIME_OPTIONS
-    : TIME_OPTIONS
+  const isExceptionalDate = EXCEPTIONAL_DATES.includes(
+    selectedDate.format("DD MMM YYYY")
+  )
+  const timeOptions = isExceptionalDate ? EXCEPTIONAL_TIMES : TIME_OPTIONS
 
   useEffect(() => {
     setValue("date", moment(selectedDate).format("YYYY/MM/DD"))
@@ -255,10 +50,10 @@ const StepOne = ({ setCurrentStep }) => {
       <Grid container>
         <Grid item xs={12} md>
           <WidgetSelect
-            options={seatsOptions}
+            options={SEAT_OPTIONS}
             name="seats"
             label="Personas"
-            defaultValue={seatsOptions[0].value}
+            defaultValue={SEAT_OPTIONS[0].value}
             isRequired
           />
         </Grid>
@@ -304,7 +99,7 @@ const StepOne = ({ setCurrentStep }) => {
             options={timeOptions}
             name="time"
             label="Hora"
-            defaultValue={timeOptions[0].value}
+            defaultValue={TIME_OPTIONS[0].value}
             startAdornment={
               <InputAdornment position="start">
                 <AccessTimeIcon />

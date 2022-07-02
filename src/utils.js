@@ -9,6 +9,7 @@ import moment from "moment"
 import "moment/locale/es"
 import unavailableEmail from "./emails/unavailable-email"
 import { STATUSES } from "./components/reservations-reporter/reservations-reporter.component"
+import { EXCEPTIONAL_DATES } from "./constants"
 
 export const isBrowser = () => typeof window !== "undefined"
 
@@ -321,10 +322,11 @@ export const getFormattedReservationData = data => {
 }
 
 export const disableMondays = date => {
-  const excepcionalDate = "08 may. 2022"
   const dateString = date.format("DD MMM YYYY")
+  console.log("dateString", dateString)
   return (
-    (date.day() === 1 || date.day() === 0) && dateString !== excepcionalDate
+    (date.day() === 1 || date.day() === 0) &&
+    !EXCEPTIONAL_DATES.includes(dateString)
   )
 }
 

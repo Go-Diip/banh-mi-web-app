@@ -323,7 +323,6 @@ export const getFormattedReservationData = data => {
 
 export const disableMondays = date => {
   const dateString = date.format("DD MMM YYYY")
-  console.log("dateString", dateString)
   return (
     (date.day() === 1 || date.day() === 0) &&
     !EXCEPTIONAL_DATES.includes(dateString)
@@ -393,6 +392,10 @@ export const sendWhatsappMsg = async (text, phone) => {
 }
 
 export const sendEmailServer = async (data, emailType) => {
+  if (!data.email) {
+    console.log("Was not able to send the email. No email address provided.")
+    return
+  }
   try {
     return await window.fetch(`/api/send-email`, {
       method: `POST`,

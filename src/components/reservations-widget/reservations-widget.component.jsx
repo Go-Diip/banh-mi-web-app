@@ -3,7 +3,7 @@ import * as S from "./reservations-widget.styles.jsx"
 import WidgetHeader from "./widget-header/widget-header.component"
 import { graphql, useStaticQuery } from "gatsby"
 import { FormProvider, useForm } from "react-hook-form"
-import { Grid, Tab } from "@mui/material"
+import { Grid, Tab, Typography } from "@mui/material"
 import StepOne from "./step-one/step-one.component"
 import StepTwo from "./step-two/step-two.component"
 import StepThree from "./step-three/step-three.component"
@@ -22,6 +22,7 @@ import moment from "moment"
 import { auth } from "../../services/firebase"
 import { sendGtagReservationMadeEvent } from "../../gtag-utils"
 import addToMailchimp from "gatsby-plugin-mailchimp"
+import { Disclaimer } from "./reservations-widget.styles.jsx"
 
 export const STEPS = {
   SELECT_TABLE: 0,
@@ -199,17 +200,40 @@ const ReservationsWidget = () => {
               disabled={currentStep <= STEPS.FINALIZE}
             />
           </S.StepperTabs>
-          <form onSubmit={methods.handleSubmit(onSubmit)}>
-            {currentStep === STEPS.SELECT_TABLE && (
-              <StepOne setCurrentStep={setCurrentStep} />
-            )}
-            {currentStep === STEPS.PERSONAL_DATA && (
-              <StepTwo setCurrentStep={setCurrentStep} />
-            )}
-            {currentStep === STEPS.FINALIZE && (
-              <StepThree setCurrentStep={setCurrentStep} />
-            )}
-          </form>
+          <S.StepsWrapper>
+            <form onSubmit={methods.handleSubmit(onSubmit)}>
+              {currentStep === STEPS.SELECT_TABLE && (
+                <StepOne setCurrentStep={setCurrentStep} />
+              )}
+              {currentStep === STEPS.PERSONAL_DATA && (
+                <StepTwo setCurrentStep={setCurrentStep} />
+              )}
+              {currentStep === STEPS.FINALIZE && (
+                <StepThree setCurrentStep={setCurrentStep} />
+              )}
+            </form>
+          </S.StepsWrapper>
+          <Disclaimer>
+            <Grid container spacing={3}>
+              <Grid item xs={12} md={8}>
+                {/*<Typography>Horario de atención: Martes a Sábado</Typography>*/}
+              </Grid>
+              <Grid item xs={12} md={4}>
+                <Typography>
+                  <b>Horario </b>
+                </Typography>
+                <Typography>Martes a Sábado:</Typography>
+                <Typography>
+                  Restaurante <br /> 12:30pm - 3:30pm 7:00pm - 10:30pm
+                </Typography>
+                <Typography>
+                  Segundo Piso <br />
+                  7:00pm - 12:00am
+                </Typography>
+                <Typography>Domingo y Lunes: cerrados</Typography>
+              </Grid>
+            </Grid>
+          </Disclaimer>
         </S.MainWrapper>
         <S.CustomModal
           disableEscapeKeyDown={true}

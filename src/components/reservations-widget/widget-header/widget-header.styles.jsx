@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   padding-bottom: 0.5em;
   margin-bottom: 1rem;
   ${({ theme }) => theme.breakpoints.up("md")} {
-    margin-bottom: 3em;
+    margin-bottom: 2rem;
   }
 `
 

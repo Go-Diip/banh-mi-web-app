@@ -24,7 +24,7 @@ export const Wrapper = styled.div`
   }
 
   ${({ theme }) => theme.breakpoints.up("md")} {
-    min-height: 600px;
+    //min-height: 600px;
     height: 100vh;
     overflow: hidden;
   }
@@ -64,13 +64,15 @@ export const ImageWrapper = styled(CustomBgImage)`
 export const MainWrapper = styled.div`
   flex: 1;
   padding: 2em;
-  height: 100%;
+  min-height: 100vh;
   position: relative;
   z-index: 2;
   color: ${({ theme }) => theme.palette.text.primary};
   overflow-y: auto;
+  height: 100%;
+
   ${({ theme }) => theme.breakpoints.up("lg")} {
-    padding: 4em;
+    padding: 3rem 3rem 1.5rem;
     max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
@@ -94,6 +96,10 @@ export const StepperTabs = styled(Tabs)`
   ${({ theme }) => theme.breakpoints.up("md")} {
     margin-bottom: 2.5rem;
   }
+`
+
+export const StepsWrapper = styled.div`
+  min-height: calc(100vh - 300px - 260px);
 `
 
 export const Subtitle = styled(Typography)`

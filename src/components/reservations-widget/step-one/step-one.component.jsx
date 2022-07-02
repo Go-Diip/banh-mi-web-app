@@ -120,27 +120,6 @@ const StepOne = ({ setCurrentStep }) => {
           </Button>
         </Grid>
       </Grid>
-      <Disclaimer>
-        <Grid container spacing={3}>
-          <Grid item xs={12} md={8}>
-            {/*<Typography>Horario de atención: Martes a Sábado</Typography>*/}
-          </Grid>
-          <Grid item xs={12} md={4}>
-            <Typography>
-              <b>Horario </b>
-            </Typography>
-            <Typography>Martes a Sábado:</Typography>
-            <Typography>
-              Restaurante <br /> 12:30pm - 3:30pm 7:00pm - 10:30pm
-            </Typography>
-            <Typography>
-              Segundo Piso <br />
-              7:00pm - 12:00am
-            </Typography>
-            <Typography>Domingo y Lunes: cerrados</Typography>
-          </Grid>
-        </Grid>
-      </Disclaimer>
     </S.Wrapper>
   )
 }

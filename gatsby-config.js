@@ -19,7 +19,6 @@ module.exports = {
     // FAST_REFRESH: true,
   },
   plugins: [
-    // `gatsby-plugin-preact`,
     {
       resolve: `gatsby-plugin-advanced-sitemap`,
       options: {
@@ -27,6 +26,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-gatsby-cloud`,
+    `gatsby-plugin-preact`,
     // Make sure this plugin is first in the array of plugins
     // {
     //   resolve: `gatsby-plugin-google-analytics`,

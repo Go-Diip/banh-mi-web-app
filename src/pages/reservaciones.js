@@ -11,7 +11,11 @@ const Reservations = () => {
   // }, [])
   return (
     <Layout
-      seo={{ title: "Reservaciones | Banh Mi " }}
+      seo={{
+        title: "Reservaciones | Banh Mi ",
+        metaRobotsNoindex: "index",
+        metaRobotsNofollow: "follow",
+      }}
       showFooter={false}
       showHeader={false}
     >

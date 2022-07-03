@@ -8,6 +8,7 @@ const WidgetTextField = ({
   name,
   isRequired = false,
   customError,
+  defaultValue,
   minLength,
   pattern,
   validate,

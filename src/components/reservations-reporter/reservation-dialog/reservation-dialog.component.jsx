@@ -51,10 +51,11 @@ const ReservationDialog = ({
     selectedDate.format("DD MMM YYYY")
   )
   const timeOptions = isExceptionalDate ? EXCEPTIONAL_TIMES : TIME_OPTIONS
-  const { handleSubmit, register, setValue } = methods
+  const { handleSubmit, register, setValue, getValues } = methods
+  const isReady = !shouldEdit || (shouldEdit && getValues("name"))
 
   useEffect(() => {
-    if (data && shouldEdit) {
+    if (data) {
       const momentDate = moment(data.date, "DD/MM/YYYY HH:mm")
       setValue("createdAt", data.createdAt)
       setValue("status", data.status)
@@ -99,187 +100,194 @@ const ReservationDialog = ({
         <Typography sx={{ marginBottom: "1em" }}>
           {shouldEdit ? "Actualizar reservación" : "Añadir Reservación"}
         </Typography>
-        <FormProvider {...methods}>
-          <form onSubmit={handleSubmit(handleDataInput)}>
-            <input type="hidden" {...register("createdAt")} />
-            <Grid container spacing={2}>
-              <Grid item xs={12} md={6}>
-                <WidgetSelect
-                  options={[
-                    STATUSES.pending,
-                    STATUSES.approved,
-                    STATUSES.unavailable,
-                    STATUSES.canceled,
-                  ]}
-                  name="status"
-                  label="Estado"
-                  isRequired
-                />
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <WidgetTextField name="table" label="Mesa" placeholder="Mesa" />
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <WidgetTextField
-                  name="name"
-                  label="Nombre"
-                  placeholder="Nombre"
-                />
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <WidgetTextField
-                  name="last_name"
-                  label="Apellidos"
-                  placeholder="Apellidos"
-                />
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <WidgetTextField
-                  name="email"
-                  label="Email"
-                  placeholder="Email"
-                  InputProps={{
-                    endAdornment: (
-                      <InputAdornment position="end">
-                        <EmailIcon />
-                      </InputAdornment>
-                    ),
-                  }}
-                />
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <WidgetTextField
-                  name="phone"
-                  label="Teléfono"
-                  placeholder="Teléfono celular"
-                  // validate={validatePhone}
-                  type="tel"
-                  pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
-                  customError="Por favor ingresa un número válido de 10 digitos"
-                  InputProps={{
-                    endAdornment: (
-                      <InputAdornment position="end">
-                        <LocalPhoneIcon />
-                      </InputAdornment>
-                    ),
-                  }}
-                />
-              </Grid>
-              <Grid item xs={12} md={6}>
-                {/*<WidgetSelect*/}
-                {/*  options={seatsOptions}*/}
-                {/*  name="seats"*/}
-                {/*  label="Puestos"*/}
-                {/*/>*/}
-                <WidgetTextField
-                  name="seats"
-                  label="Puestos"
-                  placeholder="Puestos"
-                  type="number"
-                />
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <LocalizationProvider dateAdapter={DateAdapter} locale="es">
-                  <DatePicker
-                    label="Fecha"
-                    inputFormat="MMM DD"
-                    autoOk
-                    open={dateOpen}
-                    onOpen={() => setDateOpen(true)}
-                    onClose={() => setDateOpen(false)}
-                    value={selectedDate}
-                    onChange={date => setSelectedDate(date)}
-                    minDate={MIN_DATE}
-                    maxDate={MAX_DATE}
-                    variant="inline"
-                    inputVariant="outlined"
-                    shouldDisableDate={disableMondays}
+        {isReady && (
+          <FormProvider {...methods}>
+            <form onSubmit={handleSubmit(handleDataInput)}>
+              <input type="hidden" {...register("createdAt")} />
+              <Grid container spacing={2}>
+                <Grid item xs={12} md={6}>
+                  <WidgetSelect
+                    options={[
+                      STATUSES.pending,
+                      STATUSES.approved,
+                      STATUSES.unavailable,
+                      STATUSES.canceled,
+                    ]}
+                    name="status"
+                    label="Estado"
+                    isRequired
+                  />
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <WidgetTextField
+                    name="table"
+                    label="Mesa"
+                    placeholder="Mesa"
+                  />
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <WidgetTextField
+                    defaultValue={data?.name}
+                    name="name"
+                    label="Nombre"
+                    placeholder="Nombre"
+                  />
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <WidgetTextField
+                    name="last_name"
+                    label="Apellidos"
+                    placeholder="Apellidos"
+                  />
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <WidgetTextField
+                    name="email"
+                    label="Email"
+                    placeholder="Email"
                     InputProps={{
-                      startAdornment: (
-                        <InputAdornment position="start">
-                          <CalendarTodayIcon />
+                      endAdornment: (
+                        <InputAdornment position="end">
+                          <EmailIcon />
                         </InputAdornment>
                       ),
                     }}
-                    disablePast={true}
-                    InputAdornmentProps={{ position: "start" }}
-                    renderInput={params => (
-                      <TextField
-                        className="date"
-                        fullWidth
-                        onClick={() => setDateOpen(true)}
-                        {...register("date")}
-                        {...params}
-                      />
-                    )}
                   />
-                </LocalizationProvider>
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <WidgetTextField
+                    name="phone"
+                    label="Teléfono"
+                    placeholder="Teléfono celular"
+                    // validate={validatePhone}
+                    type="tel"
+                    pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+                    customError="Por favor ingresa un número válido de 10 digitos"
+                    InputProps={{
+                      endAdornment: (
+                        <InputAdornment position="end">
+                          <LocalPhoneIcon />
+                        </InputAdornment>
+                      ),
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  {/*<WidgetSelect*/}
+                  {/*  options={seatsOptions}*/}
+                  {/*  name="seats"*/}
+                  {/*  label="Puestos"*/}
+                  {/*/>*/}
+                  <WidgetTextField
+                    name="seats"
+                    label="Puestos"
+                    placeholder="Puestos"
+                    type="number"
+                  />
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <LocalizationProvider dateAdapter={DateAdapter} locale="es">
+                    <DatePicker
+                      label="Fecha"
+                      inputFormat="MMM DD"
+                      autoOk
+                      open={dateOpen}
+                      onOpen={() => setDateOpen(true)}
+                      onClose={() => setDateOpen(false)}
+                      value={selectedDate}
+                      onChange={date => setSelectedDate(date)}
+                      minDate={MIN_DATE}
+                      maxDate={MAX_DATE}
+                      variant="inline"
+                      inputVariant="outlined"
+                      shouldDisableDate={disableMondays}
+                      InputProps={{
+                        startAdornment: (
+                          <InputAdornment position="start">
+                            <CalendarTodayIcon />
+                          </InputAdornment>
+                        ),
+                      }}
+                      disablePast={true}
+                      InputAdornmentProps={{ position: "start" }}
+                      renderInput={params => (
+                        <TextField
+                          className="date"
+                          fullWidth
+                          onClick={() => setDateOpen(true)}
+                          {...register("date")}
+                          {...params}
+                        />
+                      )}
+                    />
+                  </LocalizationProvider>
+                </Grid>
+
+                <Grid item xs={12} md={6}>
+                  <WidgetSelect
+                    options={timeOptions}
+                    name="time"
+                    label="Hora"
+                    startAdornment={
+                      <InputAdornment position="start">
+                        <AccessTimeIcon />
+                      </InputAdornment>
+                    }
+                    isRequired
+                  />
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <WidgetSelect
+                    options={[
+                      {
+                        label: "Restaurante",
+                        value: "restaurante",
+                      },
+                      {
+                        label: "Segundo Piso",
+                        value: "segundo piso",
+                      },
+                    ]}
+                    name="area"
+                    label="Ambiente"
+                    isRequired
+                  />
+                </Grid>
+                <Grid item xs={12} md={12}>
+                  <WidgetSelect
+                    options={reasonOptions}
+                    name="occasion"
+                    label="Ocasión (opcional)"
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <WidgetTextField
+                    name="notes"
+                    label="Notas"
+                    placeholder="Notas"
+                    multiline
+                    rows={2}
+                  />
+                </Grid>
               </Grid>
 
-              <Grid item xs={12} md={6}>
-                <WidgetSelect
-                  options={timeOptions}
-                  name="time"
-                  label="Hora"
-                  startAdornment={
-                    <InputAdornment position="start">
-                      <AccessTimeIcon />
-                    </InputAdornment>
-                  }
-                  isRequired
-                />
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <WidgetSelect
-                  options={[
-                    {
-                      label: "Restaurante",
-                      value: "restaurante",
-                    },
-                    {
-                      label: "Segundo Piso",
-                      value: "segundo piso",
-                    },
-                  ]}
-                  name="area"
-                  label="Ambiente"
-                  isRequired
-                />
-              </Grid>
-              <Grid item xs={12} md={12}>
-                <WidgetSelect
-                  options={reasonOptions}
-                  name="occasion"
-                  label="Ocasión (opcional)"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <WidgetTextField
-                  name="notes"
-                  label="Notas"
-                  placeholder="Notas"
-                  multiline
-                  rows={2}
-                />
-              </Grid>
-            </Grid>
-
-            <CustomButton
-              style={{ marginTop: "1.5em" }}
-              fullWidth
-              disabled={!!isLoading}
-              type="submit"
-            >
-              Guardar
-              {isLoading && (
-                <CircularProgress
-                  style={{ marginLeft: ".5em", color: "black" }}
-                  size={20}
-                />
-              )}
-            </CustomButton>
-          </form>
-        </FormProvider>
+              <CustomButton
+                style={{ marginTop: "1.5em" }}
+                fullWidth
+                disabled={!!isLoading}
+                type="submit"
+              >
+                Guardar
+                {isLoading && (
+                  <CircularProgress
+                    style={{ marginLeft: ".5em", color: "black" }}
+                    size={20}
+                  />
+                )}
+              </CustomButton>
+            </form>
+          </FormProvider>
+        )}
       </S.DialogWrapper>
     </Dialog>
   )

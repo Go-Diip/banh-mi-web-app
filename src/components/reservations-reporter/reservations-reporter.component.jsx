@@ -70,6 +70,8 @@ const ReservationsReporter = () => {
   const [turn, setTurn] = useState(TURNS.all)
   const prevDataRef = useRef()
   const [play] = useSound(reservationSound)
+  const selectedItemData =
+    dataToShow && selectedDataIndex >= 0 ? dataToShow[selectedDataIndex] : null
   const theme = useTheme()
   const isXs = useMediaQuery(theme.breakpoints.down("sm"))
   const height = use100vh()
@@ -550,9 +552,12 @@ const ReservationsReporter = () => {
         handleDataInput={handleDataInput}
         shouldEdit={shouldEdit}
         isLoading={isLoading}
-        onClose={() => setIsOpenDialog(false)}
+        onClose={() => {
+          setIsOpenDialog(false)
+          setSelectedDataIndex(null)
+        }}
         open={isOpenDialog}
-        data={dataToShow[selectedDataIndex]}
+        data={selectedItemData}
       />
 
       <Dialog

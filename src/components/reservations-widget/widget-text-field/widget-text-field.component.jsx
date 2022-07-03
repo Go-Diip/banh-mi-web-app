@@ -8,7 +8,6 @@ const WidgetTextField = ({
   name,
   isRequired = false,
   customError,
-  defaultValue,
   minLength,
   pattern,
   validate,
@@ -29,7 +28,6 @@ const WidgetTextField = ({
     <Controller
       control={control}
       name={name}
-      defaultValue=""
       rules={{
         required: isRequired,
         validate: validate ? value => validate(value) : null,

@@ -6,8 +6,6 @@ import { ThemeContext } from "../../provider"
 import { sendGtagOrderOnlineEvent } from "../../gtag-utils"
 
 const Hero = ({ title }) => {
-  const { hasLoadedOnce } = useContext(ThemeContext)
-
   const staticQuery = useStaticQuery(graphql`
     query {
       bg: file(relativePath: { eq: "red-bg-new.png" }) {
@@ -20,12 +18,12 @@ const Hero = ({ title }) => {
 
   return (
     <S.Wrapper>
-      <S.Circle>
-        <S.Pepper>
-          <div />
-          <PepperIcon />
-        </S.Pepper>
-      </S.Circle>
+      {/*<S.Circle>*/}
+      {/*  <S.Pepper>*/}
+      {/*    <div />*/}
+      {/*    <PepperIcon />*/}
+      {/*  </S.Pepper>*/}
+      {/*</S.Circle>*/}
       <S.BgImage img={staticQuery.bg} tag="div">
         <S.TopWrapper>
           {/*<S.Pepper />*/}

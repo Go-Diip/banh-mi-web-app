@@ -98,8 +98,8 @@ export const Pepper = styled.div`
 
 export const LogoVertical = styled(LogoMenu)`
   margin: auto;
-  opacity: 0;
-  animation: ${fadeIn} 0.7s linear 1.9s forwards;
+  //opacity: 0;
+  //animation: ${fadeIn} 0.7s linear 1.9s forwards;
 `
 
 export const Logo = styled(WhiteLogo)``
@@ -122,14 +122,14 @@ export const ButtonWrapper = styled.div`
 export const Button = styled(CustomButton)`
   margin: 0 0 1em;
   min-width: 275px;
-  opacity: 0;
-  will-change: opacity;
+  //opacity: 0;
+  //will-change: opacity;
   &:first-child {
-    animation: ${fadeIn} 0.7s linear 2.1s forwards;
+    // animation: ${fadeIn} 0.7s linear 2.1s forwards;
   }
 
   &:last-child {
-    animation: ${fadeIn} 0.7s linear 2.3s forwards;
+    //animation: ${fadeIn} 0.7s linear 2.3s forwards;
   }
 `
 
@@ -167,9 +167,9 @@ export const BgImage = styled(CustomBgImage)`
   height: 100%;
   position: relative;
   z-index: 2;
-  will-change: transform;
-  transform: translateY(100%);
-  animation: ${slideUp} 0.4s linear 1.5s forwards;
+  //will-change: transform;
+  //transform: translateY(100%);
+  //animation: ${slideUp} 0.4s linear 1.5s forwards;
 `
 
 export const Circle = styled.div`

@@ -68,7 +68,7 @@ const StepOne = ({ setCurrentStep }) => {
               onClose={() => setDateOpen(false)}
               value={selectedDate}
               onChange={date => setSelectedDate(date)}
-              // minDate={MIN_DATE}
+              minDate={MIN_DATE}
               maxDate={MAX_DATE}
               shouldDisableDate={disableMondays}
               variant="inline"

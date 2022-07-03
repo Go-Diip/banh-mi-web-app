@@ -45,13 +45,6 @@ export const SEAT_OPTIONS = [
 
 export const CURRENT_DATE = moment()
 
-export const MIN_DATE =
-  CURRENT_DATE.day() === 0 || CURRENT_DATE.day() === 1
-    ? moment().day(2)
-    : CURRENT_DATE
-
-export const MAX_DATE = moment(MIN_DATE).add(5, "week")
-
 export const EXCEPTIONAL_DATES = [
   "03 jul. 2022",
   "10 jul. 2022",
@@ -59,6 +52,14 @@ export const EXCEPTIONAL_DATES = [
   "24 jul. 2022",
   "31 jul. 2022",
 ]
+
+export const MIN_DATE =
+  (CURRENT_DATE.day() === 0 || CURRENT_DATE.day() === 1) &&
+  !EXCEPTIONAL_DATES.includes(CURRENT_DATE.format("DD MMM YYYY"))
+    ? moment().day(2)
+    : CURRENT_DATE
+
+export const MAX_DATE = moment(MIN_DATE).add(5, "week")
 
 export const TIME_OPTIONS = [
   {

@@ -7,7 +7,7 @@ export default function handler(req, res) {
     // console.log(req.body)
 
     if (!phone) {
-      res.send("No phone provided. Was not able to send unavailable SMS.")
+      res.send("No phone provided. Was not able to send WhatsApp message.")
     }
     const phoneFormatted = `+593${phone
       .substring(1)

@@ -9,7 +9,10 @@ export default function handler(req, res) {
     if (!phone) {
       res.send("No phone provided. Was not able to send unavailable SMS.")
     }
-    const phoneFormatted = `+593${phone.substring(1)}`
+    const phoneFormatted = `+593${phone
+      .substring(1)
+      .replace(/\s/g, "")
+      .replace("-", "")}`
 
     const twilio = require("twilio")
     const client = new twilio(accountSid, authToken)

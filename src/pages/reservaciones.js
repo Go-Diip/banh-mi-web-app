@@ -14,6 +14,7 @@ const Reservations = () => {
     <Layout
       seo={{
         title: "Reservaciones | Banh Mi ",
+        metaDesc: "Reserva una mesa en Banh Mi",
         metaRobotsNoindex: "index",
         metaRobotsNofollow: "follow",
       }}

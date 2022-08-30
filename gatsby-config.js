@@ -10,6 +10,7 @@ require("dotenv").config({
 console.log(`This WordPress Endpoint is used: '${process.env.WORDPRESS_URL}'`)
 
 module.exports = {
+  trailingSlash: "always",
   siteMetadata: {
     siteUrl: `https://www.banhmi.ec`,
   },

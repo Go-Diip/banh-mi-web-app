@@ -34,11 +34,10 @@ function SEO({ data, meta }) {
     openGraphAuthor,
   } = data
 
-  // TODO replace with domain before going live
   const schemaOrgJSONLD = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    url: "https://DOMAIN-NAME.com",
+    url: "https://www.banhmi.ec",
     name: title,
     description: opengraphDescription,
   }

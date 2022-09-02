@@ -61,7 +61,9 @@ function SEO({ data, meta }) {
         <meta name="robots" content="noindex" />
       )}
 
-      {canonical && <link rel="canonical" href={canonical} />}
+      {canonical && (
+        <link rel="canonical" href={`https://www.banhmi.ec${canonical}`} />
+      )}
 
       {/* OpenGraph tags */}
 

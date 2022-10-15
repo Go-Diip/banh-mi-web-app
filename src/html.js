@@ -32,16 +32,6 @@ export default function HTML(props) {
         {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>
-        {isProduction && (
-          <>
-            <noscript
-              dangerouslySetInnerHTML={{
-                __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NNNS44D"
-                        height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
-              }}
-            />
-          </>
-        )}
         {props.preBodyComponents}
         <div
           key={`body`}

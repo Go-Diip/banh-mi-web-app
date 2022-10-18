@@ -8,8 +8,6 @@ import {
   Typography,
 } from "@mui/material"
 import WidgetSelect from "../widget-select/widget-select.component"
-import { DatePicker, LocalizationProvider } from "@mui/lab"
-import DateAdapter from "@mui/lab/AdapterMoment"
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
 import { STEPS } from "../reservations-widget.component"
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday"
@@ -17,8 +15,10 @@ import AccessTimeIcon from "@mui/icons-material/AccessTime"
 import moment from "moment"
 import "moment/locale/es"
 import { useFormContext } from "react-hook-form"
-import { Disclaimer } from "../reservations-widget.styles"
 import { disableMondays } from "../../../utils"
+import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment"
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider"
+import { DatePicker } from "@mui/x-date-pickers/DatePicker"
 import {
   EXCEPTIONAL_DATES,
   EXCEPTIONAL_TIMES,
@@ -58,7 +58,7 @@ const StepOne = ({ setCurrentStep }) => {
           />
         </Grid>
         <Grid item xs={12} md>
-          <LocalizationProvider dateAdapter={DateAdapter} locale="es">
+          <LocalizationProvider dateAdapter={AdapterMoment} locale="es">
             <DatePicker
               label="Fecha"
               inputFormat="MMM DD"
@@ -67,6 +67,7 @@ const StepOne = ({ setCurrentStep }) => {
               onOpen={() => setDateOpen(true)}
               onClose={() => setDateOpen(false)}
               value={selectedDate}
+              date={selectedDate}
               onChange={date => setSelectedDate(date)}
               minDate={MIN_DATE}
               maxDate={MAX_DATE}

@@ -17,10 +17,11 @@ import { disableMondays, validatePhone } from "../../../utils"
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone"
 import { FormProvider, useForm } from "react-hook-form"
 import WidgetSelect from "../../reservations-widget/widget-select/widget-select.component"
-import { DatePicker, LocalizationProvider } from "@mui/lab"
-import DateAdapter from "@mui/lab/AdapterMoment"
 import "moment/locale/es"
 import AccessTimeIcon from "@mui/icons-material/AccessTime"
+import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment"
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider"
+import { DatePicker } from "@mui/x-date-pickers/DatePicker"
 
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday"
 import moment from "moment"
@@ -186,7 +187,7 @@ const ReservationDialog = ({
                   />
                 </Grid>
                 <Grid item xs={12} md={6}>
-                  <LocalizationProvider dateAdapter={DateAdapter} locale="es">
+                  <LocalizationProvider dateAdapter={AdapterMoment} locale="es">
                     <DatePicker
                       label="Fecha"
                       inputFormat="MMM DD"

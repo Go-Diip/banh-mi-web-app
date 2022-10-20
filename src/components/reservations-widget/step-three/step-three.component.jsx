@@ -100,6 +100,9 @@ const StepThree = () => {
               con la confirmación en un tiempo máximo de 10 minutos.
             </li>
             <li>
+              Cuentas con 10 minutos de espera desde la hora de tu reservación.
+            </li>
+            <li>
               En caso de retraso, cancelaciones o cambio de hora de tu reserva
               por favor notifícanos vía WhatsApp o llamada telefónica, al: 099
               770 2994.

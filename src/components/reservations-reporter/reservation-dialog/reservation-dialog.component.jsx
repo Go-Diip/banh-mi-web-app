@@ -248,6 +248,10 @@ const ReservationDialog = ({
                         label: "Segundo Piso",
                         value: "segundo piso",
                       },
+                      {
+                        label: "Privado",
+                        value: "privado",
+                      },
                     ]}
                     name="area"
                     label="Ambiente"

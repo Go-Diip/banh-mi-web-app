@@ -5,7 +5,7 @@ const ApprovedEmail = (name, lastName, date, seats, area) => {
       : ""
   return `
     <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">

@@ -22,10 +22,10 @@ export const emailTypes = {
 }
 
 export const whatsappTemplates = {
-  RESERVATION_NEW: "reservation_new",
-  RESERVATION_NOT_AVAILABLE: "reservation_not_available",
-  RESERVATION_CANCELED: "reservation_canceled",
-  RESERVATION_CONFIRMED: "reservation_confirmed_2",
+  RESERVATION_NEW: "reservation_new_host_2",
+  RESERVATION_NOT_AVAILABLE: "reservation_not_available_1",
+  RESERVATION_CANCELED: "reservation_canceled_1",
+  RESERVATION_CONFIRMED: "reservation_confirmed_3",
 }
 
 export const getWhatsappTemplateMsg = (templateName, data) => {
@@ -36,7 +36,7 @@ export const getWhatsappTemplateMsg = (templateName, data) => {
     case whatsappTemplates.RESERVATION_CONFIRMED:
       return `Hola, ${name}. Tu reservación el día ${date} esta confirmada. Cuentas con 10 minutos de espera desde la hora de tu reservación. Para retrasos o cambios comunícate con nosotros al 099 770 2994.`
     case whatsappTemplates.RESERVATION_NOT_AVAILABLE:
-      return `Hola, ${name}. Al momento no hemos podido confirmar tu reservación. Pronto te contactaran directamente para poder asistirte.`
+      return `Hola, ${name}. Al momento no hemos podido confirmar tu reservación. Pronto te contactarán directamente para poder asistirte.`
     case whatsappTemplates.RESERVATION_CANCELED:
       return `Tu reservación ha sido cancelada. Te esperamos en Banh Mi en una próxima ocasión.`
   }

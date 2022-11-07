@@ -21,7 +21,7 @@ export default function handler(req, res) {
       .create({
         body: text,
         to: `whatsapp:${phoneFormatted}`, // Text this number
-        from: "whatsapp:+17869778091", // From a valid Twilio number
+        from: "whatsapp:+12343124766", // From a valid Twilio number
       })
       .then(message => res.send(message))
       .catch(e => res.send(e))

@@ -15,6 +15,8 @@ export const query = graphql`
         }
       }
     }
+    title
+    description
     image {
       altText
       sourceUrl
@@ -23,6 +25,20 @@ export const query = graphql`
         childImageSharp {
           gatsbyImageData(layout: FULL_WIDTH, quality: 100)
         }
+      }
+    }
+    buttons {
+      buttonTitle
+      fileOrLink
+      fileDoc {
+        altText
+        title
+        mediaItemUrl
+      }
+      link {
+        target
+        title
+        url
       }
     }
   }

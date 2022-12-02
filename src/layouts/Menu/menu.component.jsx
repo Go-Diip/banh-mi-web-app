@@ -61,7 +61,7 @@ const Menu = ({ image, images, title, description, buttons }) => {
                         ) : (
                           <S.Button
                             className="darkBorder"
-                            onClick={() => downloadFile(fileDoc.mediaItemUrl)}
+                            onClick={() => downloadFile(fileDoc?.mediaItemUrl)}
                           >
                             {buttonTitle}
                           </S.Button>

@@ -28,7 +28,7 @@ const Menu = ({ image, images, title, description, buttons }) => {
   `)
 
   const downloadFile = fileUrl => {
-    if (isBrowser()) {
+    if (isBrowser() && fileUrl) {
       const element = document.createElement("a")
       element.setAttribute("href", fileUrl)
       element.setAttribute("target", "_blank")

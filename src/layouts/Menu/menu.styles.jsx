@@ -3,6 +3,7 @@ import SectionWrapper from "../../components/section-wrapper/section-wrapper.com
 import PepperMenu from "../../assets/redPepper.svg"
 import PepperIcon from "../../assets/pepperBlack.svg"
 import CustomBgImage from "../../components/custom-bg-image/custom-bg-image.component"
+import CustomButton from "../../components/custom-button/custom-button.component"
 
 export const RightWrapper = styled.div`
   height: 100%;
@@ -66,6 +67,19 @@ export const MenuDescription = styled.span`
   color: #091211;
   padding: 2em 0;
   text-align: center;
+`
+
+export const ButtonsWrapper = styled.div`
+  max-width: 200px;
+  width: 100%;
+`
+
+export const Button = styled(CustomButton)`
+  letter-spacing: 0.02em;
+  font-size: 1rem;
+  text-transform: uppercase;
+  width: 100%;
+  margin-bottom: 0.875rem;
 `
 
 export const FadeWrapper = styled.div`

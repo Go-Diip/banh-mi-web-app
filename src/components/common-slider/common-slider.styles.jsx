@@ -13,6 +13,16 @@ const imageHeightRule = css`
   ${({ theme }) => theme.breakpoints.up("lg")} {
     height: 800px;
   }
+
+  &.medium-slider {
+    ${({ theme }) => theme.breakpoints.up("lg")} {
+      height: 550px !important;
+
+      img {
+        height: 550px !important;
+      }
+    }
+  }
 `
 
 export const Wrapper = styled.div`

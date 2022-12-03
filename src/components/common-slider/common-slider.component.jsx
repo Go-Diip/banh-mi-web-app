@@ -4,7 +4,7 @@ import "../../../node_modules/slick-carousel/slick/slick-theme.css"
 import "../../../node_modules/slick-carousel/slick/slick.css"
 import { Container } from "@mui/material"
 
-const CommonSlider = ({ images, haveIcon }) => {
+const CommonSlider = ({ images, haveIcon, classSlider }) => {
   const sliderSettings = {
     infinite: true,
     speed: 500,
@@ -23,7 +23,7 @@ const CommonSlider = ({ images, haveIcon }) => {
     slider.slickPrev()
   }
   return (
-    <S.Wrapper>
+    <S.Wrapper className={classSlider}>
       {haveIcon && (
         <Container maxWidth="xl">
           <S.Icon />
@@ -31,11 +31,15 @@ const CommonSlider = ({ images, haveIcon }) => {
       )}
       <S.CustomSlider ref={c => (slider = c)} {...sliderSettings}>
         {images.map(({ image }, index) => (
-            <S.SlideImage key={`image-slide-${index}`} img={image} />
+          <S.SlideImage key={`image-slide-${index}`} img={image} />
         ))}
       </S.CustomSlider>
-      <S.LArrow onClick={previous} />
-      <S.RArrow onClick={next} />
+      {images?.length > 1 && (
+        <>
+          <S.LArrow onClick={previous} />
+          <S.RArrow onClick={next} />
+        </>
+      )}
     </S.Wrapper>
   )
 }

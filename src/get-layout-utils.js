@@ -5,6 +5,7 @@ import AboutUsSection from "./layouts/AboutUsSection"
 import Menu from "./layouts/Menu"
 import Hero from "./layouts/Hero"
 import FullMenu from "./layouts/FullMenu"
+import PromoGrid from "./layouts/PromoGrid"
 
 export const getPageLayout = layout => {
   const layoutName = layout?.fieldGroupName?.split("_").pop().trim()
@@ -22,5 +23,7 @@ export const getPageLayout = layout => {
       return <Hero {...layout} />
     case "FullMenu":
       return <FullMenu {...layout} />
+    case "PromoGrid":
+      return <PromoGrid {...layout} />
   }
 }

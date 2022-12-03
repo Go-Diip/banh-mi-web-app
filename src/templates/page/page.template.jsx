@@ -63,6 +63,9 @@ export const query = graphql`
           ... on WpPage_Pagebuilder_Layouts_FullMenu {
             ...FullMenu
           }
+          ... on WpPage_Pagebuilder_Layouts_PromoGrid {
+            ...PromoGrid
+          }
         }
         pageConfiguration {
           hideFooter

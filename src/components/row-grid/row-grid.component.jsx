@@ -10,13 +10,14 @@ const RowGrid = ({
   children,
   bgColor,
   reverse,
+  classSlider,
 }) => {
   return (
     <S.Wrapper style={{ background: bgColor }}>
       <Grid container direction={reverse && "row-reverse"}>
         <Grid item xs={12} md={6}>
           {isSlider ? (
-            <CommonSlider images={sliderImages} />
+            <CommonSlider images={sliderImages} classSlider={classSlider} />
           ) : (
             <S.Image img={image} />
           )}

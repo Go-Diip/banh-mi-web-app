@@ -24,9 +24,9 @@ const FullMenu = ({ isActive, closeOpenMenu, isHome }) => {
               <S.CSLink href="/" onClick={closeOpenMenu}>
                 <S.MenuItem>Inicio</S.MenuItem>
               </S.CSLink>
-              <S.CSLink href="/menu/" onClick={closeOpenMenu}>
+              <S.SLink to='promos-cocktails' smooth={true} duration={1000} onClick={closeOpenMenu}>
                 <S.MenuItem>Menú</S.MenuItem>
-              </S.CSLink>
+              </S.SLink>
               <S.CSLink href="/reservaciones/">
                 <S.MenuItem>reservaciones</S.MenuItem>
               </S.CSLink>
@@ -41,6 +41,7 @@ const FullMenu = ({ isActive, closeOpenMenu, isHome }) => {
                 to="eventos-privados"
                 smooth={true}
                 duration={1000}
+                offset={-100}
                 onClick={closeOpenMenu}
               >
                 <S.MenuItem>eventos privados</S.MenuItem>

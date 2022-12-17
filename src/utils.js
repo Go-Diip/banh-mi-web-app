@@ -325,7 +325,6 @@ export const disableMondays = date => {
   const dateString = date.format("DD MMM YYYY")
   const isSunday = date.day() === 0
   const isMonday = date.day() === 1
-  console.log("dateString", dateString)
   return (
     (isSunday || isMonday || CLOSE_DATES.includes(dateString)) &&
     !EXCEPTIONAL_DATES.includes(dateString)

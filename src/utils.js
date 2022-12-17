@@ -9,7 +9,7 @@ import moment from "moment"
 import "moment/locale/es"
 import unavailableEmail from "./emails/unavailable-email"
 import { STATUSES } from "./components/reservations-reporter/reservations-reporter.component"
-import { EXCEPTIONAL_DATES } from "./constants"
+import { CLOSE_DATES, EXCEPTIONAL_DATES } from "./constants"
 
 export const isBrowser = () => typeof window !== "undefined"
 
@@ -323,8 +323,11 @@ export const getFormattedReservationData = data => {
 
 export const disableMondays = date => {
   const dateString = date.format("DD MMM YYYY")
+  const isSunday = date.day() === 0
+  const isMonday = date.day() === 1
+  console.log("dateString", dateString)
   return (
-    (date.day() === 1 || date.day() === 0) &&
+    (isSunday || isMonday || CLOSE_DATES.includes(dateString)) &&
     !EXCEPTIONAL_DATES.includes(dateString)
   )
 }

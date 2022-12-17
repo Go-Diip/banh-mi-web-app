@@ -45,6 +45,7 @@ export const SEAT_OPTIONS = [
 
 export const CURRENT_DATE = moment()
 
+// Days restaurant will open regardless of being sunday or monday
 export const EXCEPTIONAL_DATES = [
   "03 jul. 2022",
   "10 jul. 2022",
@@ -52,6 +53,9 @@ export const EXCEPTIONAL_DATES = [
   "24 jul. 2022",
   "31 jul. 2022",
 ]
+
+// Days restaurant will open regardless of being any day from tuesday to saturday
+export const CLOSE_DATES = ["27 dic. 2022"]
 
 export const MIN_DATE =
   (CURRENT_DATE.day() === 0 || CURRENT_DATE.day() === 1) &&

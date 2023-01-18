@@ -9,7 +9,14 @@ import moment from "moment"
 import "moment/locale/es"
 import unavailableEmail from "./emails/unavailable-email"
 import { STATUSES } from "./components/reservations-reporter/reservations-reporter.component"
-import { CLOSE_DATES, EXCEPTIONAL_DATES } from "./constants"
+import {
+  ALL_TIME_OPTIONS,
+  BLOCKED_TIMES_DATE,
+  CLOSE_DATES,
+  EXCEPTIONAL_DATES,
+  BLOCKED_TIMES,
+  BLOCKED_TIMES_DATES,
+} from "./constants"
 
 export const isBrowser = () => typeof window !== "undefined"
 
@@ -322,7 +329,7 @@ export const getFormattedReservationData = data => {
 }
 
 export const disableMondays = date => {
-  const dateString = date.format("DD MMM YYYY")
+  const dateString = date.format("YYYY-MM-DD ")
   const isSunday = date.day() === 0
   const isMonday = date.day() === 1
   return (
@@ -490,4 +497,26 @@ export const sendCanceledSMS = async data => {
 export const removeAccents = str => {
   if (!str) return null
   return str.normalize("NFD").replace(/\p{Diacritic}/gu, "")
+}
+
+export const getTimeOptions = date => {
+  const currentTime = moment(new Date())
+  const isSameDay = moment(date).isSame(currentTime, "day")
+
+  let timeOptions = ALL_TIME_OPTIONS
+
+  if (isSameDay) {
+    timeOptions = timeOptions.filter(time => {
+      return moment(time.value, "HH:mm").isAfter(currentTime)
+    })
+  }
+
+  const selectedDate = date.format("YYYY-MM-DD")
+  if (BLOCKED_TIMES_DATES.includes(selectedDate)) {
+    timeOptions = timeOptions.filter(
+      time => !BLOCKED_TIMES.some(t => t.value === time.value)
+    )
+  }
+
+  return timeOptions
 }

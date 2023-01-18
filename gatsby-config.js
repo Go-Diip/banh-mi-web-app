@@ -27,7 +27,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-gatsby-cloud`,
-    `gatsby-plugin-preact`,
+    // `gatsby-plugin-preact`,
     // Make sure this plugin is first in the array of plugins
     // {
     //   resolve: `gatsby-plugin-google-analytics`,

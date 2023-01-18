@@ -15,7 +15,7 @@ import AccessTimeIcon from "@mui/icons-material/AccessTime"
 import moment from "moment"
 import "moment/locale/es"
 import { useFormContext } from "react-hook-form"
-import { disableMondays } from "../../../utils"
+import { disableMondays, getTimeOptions } from "../../../utils"
 import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment"
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider"
 import { DatePicker } from "@mui/x-date-pickers/DatePicker"
@@ -25,7 +25,6 @@ import {
   MAX_DATE,
   MIN_DATE,
   SEAT_OPTIONS,
-  TIME_OPTIONS,
 } from "../../../constants"
 
 const StepOne = ({ setCurrentStep }) => {
@@ -35,7 +34,9 @@ const StepOne = ({ setCurrentStep }) => {
   const isExceptionalDate = EXCEPTIONAL_DATES.includes(
     selectedDate.format("DD MMM YYYY")
   )
-  const timeOptions = isExceptionalDate ? EXCEPTIONAL_TIMES : TIME_OPTIONS
+  const timeOptions = isExceptionalDate
+    ? EXCEPTIONAL_TIMES
+    : getTimeOptions(selectedDate)
 
   useEffect(() => {
     setValue("date", moment(selectedDate).format("YYYY/MM/DD"))
@@ -100,7 +101,7 @@ const StepOne = ({ setCurrentStep }) => {
             options={timeOptions}
             name="time"
             label="Hora"
-            defaultValue={TIME_OPTIONS[0].value}
+            defaultValue={timeOptions[0]?.value}
             startAdornment={
               <InputAdornment position="start">
                 <AccessTimeIcon />

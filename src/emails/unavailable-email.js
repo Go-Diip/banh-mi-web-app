@@ -44,14 +44,10 @@ const UnavailableEmail = name => {
                     Hola, ${name}
                   </p>
                   <p style="font-family:Arial,sans-serif; font-size: 18px; margin-bottom: 16px; font-weight: 300;">
-                    Al momento <span style="color: #811E1A">no hemos podido confirmar tu reservación.</span> En pocos
-                    minutos te contactará alguien de nuestro equipo para poder asisitirte con tu
-                    reservación.
+                   
+                    <span style="color: #811E1A">No disponemos de mesas en el horario solicitado.</span> Puedes comunicarte con nuestro equipo o visitar nuestra página web para conocer nuestra disponibilidad en próximos horarios.
                   </p>
-                  <p style="font-family:Arial,sans-serif; font-size: 18px; margin-bottom: 16px; font-weight: 300;">
-                    <b style="font-style: italic">Atención:</b> Se te contactará al número de teléfono proporcionado al
-                    momento que solicitaste la reservación.
-                  </p>
+                 
                 </td>
               </tr>
             </table>

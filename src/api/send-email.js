@@ -8,7 +8,9 @@ export default function handler(req, res) {
     const { data, emailData } = req.body
 
     const st = new Date(data.date)
-    const meetingEvent = {
+    const event = {
+      title: "Reservación en Banh Mi",
+      description: "Rervación de mesa en Banh Mi.",
       start: [
         st.getFullYear(),
         st.getMonth(),
@@ -17,25 +19,28 @@ export default function handler(req, res) {
         st.getMinutes(),
       ],
       duration: { hours: 1, minutes: 0 },
-      title: `Reservación en Banh Mi`,
-      description: "Rervación de mesa en Banh Mi.",
+      status: "CONFIRMED",
+      busyStatus: "BUSY",
+      organizer: { name: "Banh Mi", email: "banhmireservas@gmail.com" },
       location: "Andalucía N24-234 y, Quito 170143",
       geo: { lat: -0.20641203783465234, lon: -78.48452230059952 },
-      status: "CONFIRMED",
-      organizer: { name: "Banh Mi", email: "banhmireservas@gmail.com" },
       attendees: [
         { name: `${data.firstName} ${data.lastName}`, email: data.email },
       ],
     }
 
-    const icsFile = ics.createEvent(meetingEvent)
-    const fileData = new Buffer(icsFile.value)
-    if (fileData) {
-      emailData.attachment = {
-        data: fileData,
-        filename: "Reservation Invite.ics",
-        contentType: "text/calendar",
+    try {
+      const icsFile = ics.createEvent(event)
+      const fileData = new Buffer(icsFile.value)
+      if (fileData) {
+        emailData.attachment = {
+          data: fileData,
+          filename: "Reservation Invite.ics",
+          contentType: "text/calendar",
+        }
       }
+    } catch (error) {
+      console.log("Error creating icsFile", error)
     }
 
     const mg = mailgun.client({
@@ -48,6 +53,7 @@ export default function handler(req, res) {
       .then(message => res.send(message))
       .catch(e => res.send(e))
   } catch (e) {
+    console.log("ERROR", e)
     res.send(e)
   }
 }

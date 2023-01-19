@@ -27,8 +27,10 @@ import {
   SEAT_OPTIONS,
 } from "../../../constants"
 
+const inputNames = ["seats", "date", "time"]
+
 const StepOne = ({ setCurrentStep }) => {
-  const { register, setValue } = useFormContext()
+  const { register, setValue, trigger } = useFormContext()
   const [selectedDate, setSelectedDate] = useState(MIN_DATE)
   const [dateOpen, setDateOpen] = useState(false)
   const isExceptionalDate = EXCEPTIONAL_DATES.includes(
@@ -38,9 +40,21 @@ const StepOne = ({ setCurrentStep }) => {
     ? EXCEPTIONAL_TIMES
     : getTimeOptions(selectedDate)
 
+  const handleNext = () => {
+    trigger(inputNames).then(res => {
+      if (res) {
+        setCurrentStep(STEPS.FINALIZE)
+      }
+    })
+  }
+
   useEffect(() => {
     setValue("date", moment(selectedDate).format("YYYY/MM/DD"))
   }, [selectedDate])
+
+  useEffect(() => {
+    setValue("time", timeOptions[0]?.value)
+  }, [timeOptions])
 
   // useEffect(() => {
   //   setValue("time", moment(selectedTime).format("HH:mm:ss"))
@@ -52,7 +66,7 @@ const StepOne = ({ setCurrentStep }) => {
         <Grid item xs={12} md>
           <WidgetSelect
             options={SEAT_OPTIONS}
-            name="seats"
+            name={inputNames[0]}
             label="Personas"
             defaultValue={SEAT_OPTIONS[0].value}
             isRequired
@@ -89,7 +103,7 @@ const StepOne = ({ setCurrentStep }) => {
                   className="date"
                   fullWidth
                   onClick={() => setDateOpen(true)}
-                  {...register("date")}
+                  {...register(inputNames[1], { required: true })}
                   {...params}
                 />
               )}
@@ -99,9 +113,8 @@ const StepOne = ({ setCurrentStep }) => {
         <Grid item xs={12} md>
           <WidgetSelect
             options={timeOptions}
-            name="time"
+            name={inputNames[2]}
             label="Hora"
-            defaultValue={timeOptions[0]?.value}
             startAdornment={
               <InputAdornment position="start">
                 <AccessTimeIcon />
@@ -115,7 +128,7 @@ const StepOne = ({ setCurrentStep }) => {
             fullWidth
             className="continueBtn"
             type="button"
-            onClick={() => setCurrentStep(STEPS.PERSONAL_DATA)}
+            onClick={handleNext}
           >
             Continuar
             <ArrowForwardIcon />

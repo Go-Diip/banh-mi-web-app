@@ -71,7 +71,9 @@ const ReservationsWidget = () => {
     if (reservationRes && reservationRes.error) {
       console.log("reservation error:", reservationRes.error)
       setIsLoading(false)
-      alert("Hubo un error creando tu reservación. Por favor intenta de nuevo")
+      alert(
+        "Hubo un error creando tu reservación. Por favor revisa la información ingresada e intenta de nuevo"
+      )
       return
     }
 

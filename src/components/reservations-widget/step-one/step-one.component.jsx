@@ -43,7 +43,7 @@ const StepOne = ({ setCurrentStep }) => {
   const handleNext = () => {
     trigger(inputNames).then(res => {
       if (res) {
-        setCurrentStep(STEPS.FINALIZE)
+        setCurrentStep(STEPS.PERSONAL_DATA)
       }
     })
   }

@@ -178,7 +178,7 @@ export const ALL_TIME_OPTIONS = [
 ]
 
 // TODO edit this manually everytime the restaurant requires to block times with the required day
-export const BLOCKED_TIMES_DATES = ["2023-01-21"]
+export const BLOCKED_TIMES_DATES = ["2023-01-27"]
 export const BLOCKED_TIMES = [
   // {
   //   value: "12:30",
@@ -224,18 +224,18 @@ export const BLOCKED_TIMES = [
   //   value: "15:00",
   //   label: "3:00 PM",
   // },
-  {
-    value: "19:00",
-    label: "7:00 PM",
-  },
-  {
-    value: "19:15",
-    label: "7:15 PM",
-  },
-  {
-    value: "19:30",
-    label: "7:30 PM",
-  },
+  // {
+  //   value: "19:00",
+  //   label: "7:00 PM",
+  // },
+  // {
+  //   value: "19:15",
+  //   label: "7:15 PM",
+  // },
+  // {
+  //   value: "19:30",
+  //   label: "7:30 PM",
+  // },
   {
     value: "20:00",
     label: "8:00 PM",
@@ -256,10 +256,10 @@ export const BLOCKED_TIMES = [
     value: "21:00",
     label: "9:00 PM",
   },
-  {
-    value: "21:15",
-    label: "9:15 PM",
-  },
+  // {
+  //   value: "21:15",
+  //   label: "9:15 PM",
+  // },
   // {
   //   value: "21:30",
   //   label: "9:30 PM",

@@ -11,11 +11,11 @@ import unavailableEmail from "./emails/unavailable-email"
 import { STATUSES } from "./components/reservations-reporter/reservations-reporter.component"
 import {
   ALL_TIME_OPTIONS,
-  BLOCKED_TIMES_DATE,
   CLOSE_DATES,
   EXCEPTIONAL_DATES,
   BLOCKED_TIMES,
-  BLOCKED_TIMES_DATES,
+  AREAS,
+  BLOCKED_DATES,
 } from "./constants"
 
 export const isBrowser = () => typeof window !== "undefined"
@@ -511,12 +511,33 @@ export const getTimeOptions = date => {
     })
   }
 
-  const selectedDate = date.format("YYYY-MM-DD")
-  if (BLOCKED_TIMES_DATES.includes(selectedDate)) {
-    timeOptions = timeOptions.filter(
-      time => !BLOCKED_TIMES.some(t => t.value === time.value)
-    )
-  }
+  // const selectedDate = date.format("YYYY-MM-DD")
+  // if (BLOCKED_DATES.includes(selectedDate)) {
+  //   timeOptions = timeOptions.filter(
+  //     time => !BLOCKED_TIMES.some(t => t.value === time.value)
+  //   )
+  // }
 
   return timeOptions
+}
+
+export const getBlockedAreas = (date, time) => {
+  if (!date || !time) return null
+  const selectedDate = date.format("YYYY-MM-DD")
+  const selectedTime = time
+
+  const blockedTime = BLOCKED_DATES.includes(selectedDate)
+    ? BLOCKED_TIMES.find(t => t.value === selectedTime)
+    : null
+
+  if (blockedTime) {
+    if (!blockedTime.area) {
+      // Return all areas if no area is specified
+      return AREAS
+    }
+
+    return [blockedTime.area]
+  }
+
+  return null
 }

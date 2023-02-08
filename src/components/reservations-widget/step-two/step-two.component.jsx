@@ -17,15 +17,20 @@ import LocalPhoneIcon from "@mui/icons-material/LocalPhone"
 import EmailIcon from "@mui/icons-material/Email"
 import { STEPS } from "../reservations-widget.component"
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
-import { validateEmail, validatePhone } from "../../../utils"
+import { getBlockedAreas, validateEmail, validatePhone } from "../../../utils"
 import Typography from "@mui/material/Typography"
 import moment from "moment"
+import { AREAS } from "../../../constants"
 
 const inputNames = ["name", "last_name", "phone", "email", "area"]
 
 const StepTwo = ({ setCurrentStep }) => {
   const { trigger, control, getValues, watch, setValue } = useFormContext()
+  const selectedTime = watch("time")
+  const selectedDate = watch("date")
+  const blockedAreas = getBlockedAreas(moment(selectedDate), selectedTime)
   const [isBarAvailable, setIsBarAvailable] = useState(true)
+  const isRestaurantAvailable = !blockedAreas?.includes(AREAS.RESTAURANTE.value)
   const handleNext = () => {
     trigger(inputNames).then(res => {
       if (res) {
@@ -39,14 +44,21 @@ const StepTwo = ({ setCurrentStep }) => {
   useEffect(() => {
     const selectedTime = moment(getValues("time"), "H:mm")
     const minBarTime = moment("18:59", "H:mm")
-    setIsBarAvailable(selectedTime.isAfter(minBarTime))
+    setIsBarAvailable(
+      selectedTime.isAfter(minBarTime) &&
+        !blockedAreas?.includes(AREAS.BAR.value)
+    )
   }, [])
 
   useEffect(() => {
-    if (!isBarAvailable) {
-      setValue("area", "restaurante")
+    if (!isBarAvailable && isRestaurantAvailable) {
+      setValue("area", AREAS.RESTAURANTE.value)
     }
-  }, [isBarAvailable])
+
+    if (!isRestaurantAvailable && isBarAvailable) {
+      setValue("area", AREAS.BAR.value)
+    }
+  }, [isBarAvailable, isRestaurantAvailable])
 
   return (
     <S.Wrapper>
@@ -120,33 +132,34 @@ const StepTwo = ({ setCurrentStep }) => {
                   aria-label="area"
                 >
                   <S.CustomRadioButton
-                    value="restaurante"
+                    value={AREAS.RESTAURANTE.value}
                     control={<Radio />}
                     label="Restaurante"
+                    disabled={!isRestaurantAvailable}
                   />
-                  {isBarAvailable ? (
+                  <Tooltip
+                    title={
+                      isBarAvailable
+                        ? ""
+                        : "Esta área no se encuentra disponible en el horario seleccionado"
+                    }
+                  >
                     <S.CustomRadioButton
-                      value="segundo piso"
+                      value={AREAS.BAR.value}
                       control={<Radio />}
                       label="Segundo Piso"
+                      disabled={
+                        !isBarAvailable || blockedAreas?.includes("bar")
+                      }
                     />
-                  ) : (
-                    <Tooltip title="Esta área no se encuentra disponible en el horario seleccionado">
-                      <S.CustomRadioButton
-                        value="segundo piso"
-                        control={<Radio />}
-                        label="Segundo Piso"
-                        disabled
-                      />
-                    </Tooltip>
-                  )}
+                  </Tooltip>
                 </RadioGroup>
               )}
-              defaultValue="restaurante"
+              defaultValue={AREAS.RESTAURANTE.value}
               name={inputNames[4]}
               control={control}
             />
-            {area === "segundo piso" && (
+            {area === AREAS.BAR.value && (
               <Typography sx={{ marginTop: "1rem" }}>
                 <b>Requisito Obligatorio:</b> Para reservaciones en el área del
                 Segundo Piso (Bar) todos los asistentes deben de cumplir con la

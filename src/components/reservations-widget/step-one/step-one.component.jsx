@@ -5,6 +5,7 @@ import {
   Grid,
   InputAdornment,
   TextField,
+  Tooltip,
   Typography,
 } from "@mui/material"
 import WidgetSelect from "../widget-select/widget-select.component"
@@ -15,24 +16,27 @@ import AccessTimeIcon from "@mui/icons-material/AccessTime"
 import moment from "moment"
 import "moment/locale/es"
 import { useFormContext } from "react-hook-form"
-import { disableMondays, getTimeOptions } from "../../../utils"
+import { disableMondays, getBlockedAreas, getTimeOptions } from "../../../utils"
 import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment"
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider"
 import { DatePicker } from "@mui/x-date-pickers/DatePicker"
 import {
+  AREAS,
   EXCEPTIONAL_DATES,
   EXCEPTIONAL_TIMES,
   MAX_DATE,
   MIN_DATE,
   SEAT_OPTIONS,
 } from "../../../constants"
+import { getValue } from "@mui/system"
 
 const inputNames = ["seats", "date", "time"]
 
 const StepOne = ({ setCurrentStep }) => {
-  const { register, setValue, trigger } = useFormContext()
+  const { register, setValue, trigger, watch } = useFormContext()
   const [selectedDate, setSelectedDate] = useState(MIN_DATE)
   const [dateOpen, setDateOpen] = useState(false)
+  const selectedTime = watch("time")
   const isExceptionalDate = EXCEPTIONAL_DATES.includes(
     selectedDate.format("DD MMM YYYY")
   )
@@ -49,16 +53,21 @@ const StepOne = ({ setCurrentStep }) => {
   }
 
   useEffect(() => {
-    setValue("date", moment(selectedDate).format("YYYY/MM/DD"))
+    const newDate = moment(selectedDate).format("YYYY/MM/DD")
+    const currentDate = getValue("date")
+
+    if (newDate !== currentDate) {
+      setValue("date", moment(selectedDate).format("YYYY/MM/DD"))
+    }
   }, [selectedDate])
 
   useEffect(() => {
     setValue("time", timeOptions[0]?.value)
-  }, [timeOptions])
+  }, [])
 
-  // useEffect(() => {
-  //   setValue("time", moment(selectedTime).format("HH:mm:ss"))
-  // }, [selectedTime])
+  const blockedAreas = getBlockedAreas(selectedDate, selectedTime)
+  const areAllAreasBlocked =
+    blockedAreas && blockedAreas?.length === AREAS.length
 
   return (
     <S.Wrapper>
@@ -77,6 +86,7 @@ const StepOne = ({ setCurrentStep }) => {
             <DatePicker
               label="Fecha"
               inputFormat="MMM DD"
+              disableMaskedInput
               autoOk
               open={dateOpen}
               onOpen={() => setDateOpen(true)}
@@ -126,6 +136,7 @@ const StepOne = ({ setCurrentStep }) => {
         <Grid item xs={12} md>
           <Button
             fullWidth
+            disabled={areAllAreasBlocked}
             className="continueBtn"
             type="button"
             onClick={handleNext}
@@ -134,6 +145,13 @@ const StepOne = ({ setCurrentStep }) => {
             <ArrowForwardIcon />
           </Button>
         </Grid>
+        {areAllAreasBlocked && (
+          <Grid item xs={12}>
+            <Typography mt={1} variant="body2" color="error">
+              No hay mesas disponibles para la fecha y hora seleccionadas.
+            </Typography>
+          </Grid>
+        )}
       </Grid>
     </S.Wrapper>
   )

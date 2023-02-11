@@ -41,7 +41,7 @@ export const getWhatsappTemplateMsg = (templateName, data) => {
     case whatsappTemplates.RESERVATION_NEW:
       return `Nueva reservación de ${name} ${last_name} para el día ${date}.`
     case whatsappTemplates.RESERVATION_CONFIRMED:
-      return `Hola, ${name}. Tu reservación el día ${date} esta confirmada. Una vez enviada tu solicitud de reservación, deberás esperar por la confirmación según nuestra disponibilidad via WhatsApp y correo electrónico. Para retrasos o cambios comunícate con nosotros al 099 770 2994.`
+      return `Hola, ${name}. Tu reservación el día ${date} esta confirmada. Cuentas con 10 minutos de espera desde la hora de tu reservación. Para retrasos o cambios comunícate con nosotros al 099 770 2994.`
     case whatsappTemplates.RESERVATION_NOT_AVAILABLE:
       return `Hola, ${name}. No disponemos de mesas en el horario solicitado. Puedes comunicarte con nuestro equipo o visitar nuestra página web para conocer nuestra disponibilidad en próximos horarios.`
     case whatsappTemplates.RESERVATION_CANCELED:

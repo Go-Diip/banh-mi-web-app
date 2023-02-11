@@ -103,8 +103,8 @@ const ApprovedEmail = (name, lastName, date, seats, area) => {
                         <p
                           style="font-family:Arial,sans-serif; font-size: 14px; color: #111212; font-weight: 300; margin: 0; line-height: 20px; padding:0">
                           Puedes hacer una reservación en estos 3 canales: Nuestra página web www.banhmi.ec y vía WhatsApp o llamada telefónica al siguiente número:  099 770 2994. <br>
-                          Cuentas con 10 minutos de espera desde la hora de tu reservación. <br>
-                          En caso de retraso, cancelaciones o cambio de hora de tu reserva por favor notifícanos vía WhatsApp o llamada telefónica, al: 099 770 2994.  <br>
+                          Una vez enviada tu solicitud de reservación, deberas esperar por la confirmación según nuestra disponibilidad via WhatsApp y correo electrónico.. <br>
+                          <b>En caso de retraso cancelaciones o cambio de hora de tu reserva por favor notifÍcanos via WhatsApp o llamada telefónica con un mínimo de dos horas de anticipación.</b>  <br>
                           Las reservaciones solicitadas fuera de nuestros horarios de atención serán confirmadas dentro de los siguientes horarios: Martes a Sábado de 11:30 am - 10:30pm.
                         </p>
                       </td>

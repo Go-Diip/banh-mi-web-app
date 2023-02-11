@@ -20,7 +20,11 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
 import { getBlockedAreas, validateEmail, validatePhone } from "../../../utils"
 import Typography from "@mui/material/Typography"
 import moment from "moment"
-import { AREAS } from "../../../constants"
+import {
+  AREAS,
+  EXCEPTIONAL_BAR_OPEN_DATES,
+  EXCEPTIONAL_BAR_OPEN_TIMES,
+} from "../../../constants"
 
 const inputNames = ["name", "last_name", "phone", "email", "area"]
 
@@ -42,11 +46,17 @@ const StepTwo = ({ setCurrentStep }) => {
   const area = watch("area")
 
   useEffect(() => {
-    const selectedTime = moment(getValues("time"), "H:mm")
+    const selectedTimeDateFormat = moment(getValues("time"), "H:mm")
+    const isExceptionalOpenBarDate =
+      EXCEPTIONAL_BAR_OPEN_DATES.includes(selectedDate)
+    const isExceptionalOpenBarTime = EXCEPTIONAL_BAR_OPEN_TIMES.find(
+      time => time.value === selectedTime
+    )
     const minBarTime = moment("18:59", "H:mm")
     setIsBarAvailable(
-      selectedTime.isAfter(minBarTime) &&
-        !blockedAreas?.includes(AREAS.BAR.value)
+      (selectedTimeDateFormat.isAfter(minBarTime) &&
+        !blockedAreas?.includes(AREAS.BAR.value)) ||
+        (isExceptionalOpenBarTime && isExceptionalOpenBarDate)
     )
   }, [])
 

@@ -95,12 +95,9 @@ const StepThree = () => {
           </p>
           <ul style={{ paddingLeft: "1rem" }}>
             <li>
-              Una vez enviada tu solicitud de reservación deberás esperar por la
-              confirmación de tu reservación vía WhatsApp y correo electrónico
-              con la confirmación en un tiempo máximo de 10 minutos.
-            </li>
-            <li>
-              Cuentas con 10 minutos de espera desde la hora de tu reservación.
+              Una vez enviada tu solicitud de reservación, deberas esperar por
+              la confirmación según nuestra disponibilidad via WhatsApp y correo
+              electrónico.
             </li>
             <li>
               En caso de retraso, cancelaciones o cambio de hora de tu reserva

@@ -140,7 +140,7 @@ const ReservationsWidget = () => {
       )
     } else {
       setOverviewText(
-        "Hemos recibido tu solicitud de reservación. En máximo 10 minutos recibirás un mensaje vía WhatsApp y un correo electrónico con la confirmación de tu reservación."
+        "Hemos recibido tu solicitud de reservación, en breve recibirás un mensaje con el estado de tu reserva dependiendo de nuestra disponibilad,  via WhatsApp y correo electrónico."
       )
     }
     if (overviewData) {

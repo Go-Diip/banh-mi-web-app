@@ -308,7 +308,7 @@ export const BLOCKED_TIMES = [
     value: "20:00",
     label: "8:00 PM",
     date: BLOCKED_DATES[0],
-    area: AREAS.BAR.value,
+    // area: AREAS.BAR.value,
   },
   {
     value: "20:15",
@@ -326,7 +326,7 @@ export const BLOCKED_TIMES = [
     value: "20:45",
     label: "8:45 PM",
     date: BLOCKED_DATES[0],
-    area: AREAS.BAR.value,
+    // area: AREAS.BAR.value,
   },
   {
     value: "21:00",

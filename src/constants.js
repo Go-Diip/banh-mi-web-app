@@ -67,7 +67,6 @@ export const EXCEPTIONAL_DATES = [
 
 // TODO add here exceptional bar open dates and times
 export const EXCEPTIONAL_BAR_OPEN_DATES = ["2023/02/14"]
-
 export const EXCEPTIONAL_BAR_OPEN_TIMES = [
   {
     value: "12:30",

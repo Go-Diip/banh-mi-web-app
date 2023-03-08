@@ -511,12 +511,12 @@ export const getTimeOptions = date => {
     })
   }
 
-  // const selectedDate = date.format("YYYY-MM-DD")
-  // if (BLOCKED_DATES.includes(selectedDate)) {
-  //   timeOptions = timeOptions.filter(
-  //     time => !BLOCKED_TIMES.some(t => t.value === time.value)
-  //   )
-  // }
+  const selectedDate = date.format("YYYY-MM-DD")
+  if (BLOCKED_DATES.includes(selectedDate)) {
+    timeOptions = timeOptions.filter(
+      time => !BLOCKED_TIMES.some(t => t.value === time.value && !t.area)
+    )
+  }
 
   return timeOptions
 }

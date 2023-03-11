@@ -116,7 +116,7 @@ export const EXCEPTIONAL_BAR_OPEN_TIMES = [
 
 // TODO add a date here to prevent from showing this day on the calendar
 // Days restaurant will open regardless of being any day from tuesday to saturday
-export const CLOSE_DATES = ["2023-01-17"]
+export const CLOSE_DATES = ["2023-03-10"]
 
 export const MIN_DATE =
   (CURRENT_DATE.day() === 0 || CURRENT_DATE.day() === 1) &&

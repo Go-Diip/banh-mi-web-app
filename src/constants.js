@@ -285,12 +285,12 @@ export const BLOCKED_TIMES = [
   //   value: "15:00",
   //   label: "3:00 PM",
   // },
-  // {
-  //   value: "19:00",
-  //   label: "7:00 PM",
-  //   date: BLOCKED_DATES[0],
-  //   // area: AREAS.BAR.value,
-  // },
+  {
+    value: "19:00",
+    label: "7:00 PM",
+    date: BLOCKED_DATES[0],
+    // area: AREAS.BAR.value,
+  },
   {
     value: "19:15",
     label: "7:15 PM",

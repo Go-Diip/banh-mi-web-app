@@ -199,10 +199,10 @@ export const ALL_TIME_OPTIONS = [
     value: "19:30",
     label: "7:30 PM",
   },
-  // {
-  //   value: "20:00",
-  //   label: "8:00 PM",
-  // },
+  {
+    value: "20:00",
+    label: "8:00 PM",
+  },
   {
     value: "20:15",
     label: "8:15 PM",
@@ -321,12 +321,12 @@ export const BLOCKED_TIMES = [
     date: BLOCKED_DATES[0],
     // area: AREAS.BAR.value,
   },
-  {
-    value: "20:45",
-    label: "8:45 PM",
-    date: BLOCKED_DATES[0],
-    // area: AREAS.BAR.value,
-  },
+  // {
+  //   value: "20:45",
+  //   label: "8:45 PM",
+  //   date: BLOCKED_DATES[0],
+  //   // area: AREAS.BAR.value,
+  // },
   // {
   //   value: "21:00",
   //   label: "9:00 PM",

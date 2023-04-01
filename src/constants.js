@@ -199,10 +199,10 @@ export const ALL_TIME_OPTIONS = [
     value: "19:30",
     label: "7:30 PM",
   },
-  {
-    value: "20:00",
-    label: "8:00 PM",
-  },
+  // {
+  //   value: "20:00",
+  //   label: "8:00 PM",
+  // },
   {
     value: "20:15",
     label: "8:15 PM",

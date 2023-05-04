@@ -329,7 +329,7 @@ export const getFormattedReservationData = data => {
 }
 
 export const disableMondays = date => {
-  const dateString = date.format("YYYY-MM-DD ")
+  const dateString = date.format("YYYY-MM-DD")
   const isSunday = date.day() === 0
   const isMonday = date.day() === 1
   return (

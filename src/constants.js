@@ -57,13 +57,7 @@ export const AREAS = {
 export const CURRENT_DATE = moment()
 
 // Days restaurant will open regardless of being sunday or monday
-export const EXCEPTIONAL_DATES = [
-  "03 jul. 2022",
-  "10 jul. 2022",
-  "17 jul. 2022",
-  "24 jul. 2022",
-  "31 jul. 2022",
-]
+export const EXCEPTIONAL_DATES = ["2023-05-14"]
 
 // TODO add here exceptional bar open dates and times
 export const EXCEPTIONAL_BAR_OPEN_DATES = ["2023/02/14"]
@@ -359,15 +353,16 @@ export const BLOCKED_TIMES = [
   // },
 ]
 
+// ADD THE AVAILABLE TIMES FOR THE EXCEPTIONAL DAYS
 export const EXCEPTIONAL_TIMES = [
-  {
-    value: "12:30",
-    label: "12:30 PM",
-  },
-  {
-    value: "12:45",
-    label: "12:45 PM",
-  },
+  // {
+  //   value: "12:30",
+  //   label: "12:30 PM",
+  // },
+  // {
+  //   value: "12:45",
+  //   label: "12:45 PM",
+  // },
   {
     value: "13:00",
     label: "1:00 PM",
@@ -415,13 +410,5 @@ export const EXCEPTIONAL_TIMES = [
   {
     value: "15:45",
     label: "3:45 PM",
-  },
-  {
-    value: "16:00",
-    label: "4:00 PM",
-  },
-  {
-    value: "16:15",
-    label: "4:15 PM",
   },
 ]

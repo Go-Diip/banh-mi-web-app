@@ -38,7 +38,7 @@ const StepOne = ({ setCurrentStep }) => {
   const [dateOpen, setDateOpen] = useState(false)
   const selectedTime = watch("time")
   const isExceptionalDate = EXCEPTIONAL_DATES.includes(
-    selectedDate.format("DD MMM YYYY")
+    selectedDate.format("YYYY-MM-DD")
   )
   const timeOptions = isExceptionalDate
     ? EXCEPTIONAL_TIMES

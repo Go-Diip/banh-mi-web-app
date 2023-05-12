@@ -427,18 +427,6 @@ export const SATURDAY_EXCEPTIONAL_TIMES = [
     label: "1:00 PM",
   },
   {
-    value: "13:15",
-    label: "1:15 PM",
-  },
-  {
-    value: "13:30",
-    label: "1:30 PM",
-  },
-  {
-    value: "13:45",
-    label: "1:45 PM",
-  },
-  {
     value: "14:00",
     label: "2:00 PM",
   },

@@ -16,6 +16,7 @@ import {
   BLOCKED_TIMES,
   AREAS,
   BLOCKED_DATES,
+  SATURDAY_EXCEPTIONAL_TIMES,
 } from "./constants"
 
 export const isBrowser = () => typeof window !== "undefined"
@@ -505,6 +506,11 @@ export const getTimeOptions = date => {
 
   let timeOptions = ALL_TIME_OPTIONS
 
+  // If day is saturday, add saturday exceptional dates
+  if (date.day() === 6) {
+    timeOptions = SATURDAY_EXCEPTIONAL_TIMES
+  }
+
   if (isSameDay) {
     timeOptions = timeOptions.filter(time => {
       return moment(time.value, "HH:mm").isAfter(currentTime)
@@ -514,7 +520,13 @@ export const getTimeOptions = date => {
   const selectedDate = date.format("YYYY-MM-DD")
   if (BLOCKED_DATES.includes(selectedDate)) {
     timeOptions = timeOptions.filter(
-      time => !BLOCKED_TIMES.some(t => t.value === time.value && !t.area)
+      timeOption =>
+        !BLOCKED_TIMES.some(
+          blockedOption =>
+            blockedOption.value === timeOption.value &&
+            !blockedOption.area &&
+            (blockedOption.date === selectedDate || !blockedOption.date)
+        )
     )
   }
 

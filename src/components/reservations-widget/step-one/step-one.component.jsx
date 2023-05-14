@@ -111,6 +111,7 @@ const StepOne = ({ setCurrentStep }) => {
               renderInput={params => (
                 <TextField
                   className="date"
+                  onKeyDown={e => e.preventDefault()}
                   fullWidth
                   onClick={() => setDateOpen(true)}
                   {...register(inputNames[1], { required: true })}

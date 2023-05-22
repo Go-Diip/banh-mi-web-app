@@ -81,6 +81,7 @@ const ReservationsReporter = () => {
     const unsubscribe = firestore
       .collection("reservations")
       // .where("status", "==", "Pendiente")
+      // .where("last_name", "==", "Heymann")
       .orderBy("createdAt", "desc")
       // .orderBy("status", "desc")
       .limit(1000)

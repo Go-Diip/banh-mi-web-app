@@ -13,7 +13,7 @@ import { reasonOptions } from "../../reservations-widget/step-three/step-three.c
 import EmailIcon from "@mui/icons-material/Email"
 import * as S from "./reservation-dialog.styles"
 import WidgetTextField from "../../reservations-widget/widget-text-field/widget-text-field.component"
-import { disableMondays } from "../../../utils"
+import { disableMondays, getTimeOptions } from "../../../utils"
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone"
 import { FormProvider, useForm } from "react-hook-form"
 import WidgetSelect from "../../reservations-widget/widget-select/widget-select.component"
@@ -51,7 +51,9 @@ const ReservationDialog = ({
   const isExceptionalDate = EXCEPTIONAL_DATES.includes(
     selectedDate.format("DD MMM YYYY")
   )
-  const timeOptions = isExceptionalDate ? EXCEPTIONAL_TIMES : ALL_TIME_OPTIONS
+  const timeOptions = isExceptionalDate
+    ? EXCEPTIONAL_TIMES
+    : getTimeOptions(selectedDate)
   const { handleSubmit, register, setValue, getValues } = methods
   const isReady = !shouldEdit || (shouldEdit && getValues("name"))
 

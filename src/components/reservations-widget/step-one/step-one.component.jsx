@@ -63,7 +63,7 @@ const StepOne = ({ setCurrentStep }) => {
 
   useEffect(() => {
     setValue("time", timeOptions[0]?.value)
-  }, [])
+  }, [selectedDate])
 
   const blockedAreas = getBlockedAreas(selectedDate, selectedTime)
   const areAllAreasBlocked =

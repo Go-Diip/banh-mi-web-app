@@ -425,30 +425,46 @@ export const SATURDAY_EXCEPTIONAL_TIMES = [
     value: "13:00",
     label: "1:00 PM",
   },
+  // {
+  //   value: "14:00",
+  //   label: "2:00 PM",
+  // },
+  // {
+  //   value: "14:30",
+  //   label: "2:30 PM",
+  // },
   {
-    value: "14:00",
-    label: "2:00 PM",
+    value: "14:45",
+    label: "2:45 PM",
   },
   {
-    value: "14:30",
-    label: "2:30 PM",
+    value: "15:00",
+    label: "3:00 PM",
   },
   {
     value: "15:30",
     label: "3:30 PM",
   },
+  // {
+  //   value: "15:30",
+  //   label: "3:30 PM",
+  // },
+  // {
+  //   value: "16:14",
+  //   label: "4:14 PM",
+  // },
   {
-    value: "16:14",
-    label: "4:14 PM",
+    value: "16:30",
+    label: "4:30 PM",
   },
   {
     value: "17:00",
     label: "5:00 PM",
   },
-  {
-    value: "17:15",
-    label: "5:15 PM",
-  },
+  // {
+  //   value: "17:15",
+  //   label: "5:15 PM",
+  // },
   // {
   //   value: "18:00",
   //   label: "6:00 PM",

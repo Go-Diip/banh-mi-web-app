@@ -232,7 +232,7 @@ export const ALL_TIME_OPTIONS = [
 ]
 
 // TODO edit this manually everytime the restaurant requires to block times with the required day
-export const BLOCKED_DATES = ["2023-08-04"]
+export const BLOCKED_DATES = ["2023-08-17"]
 // TODO add the times with the corresponding date and area you would like to block, if the area is empty all areas will be blocked
 export const BLOCKED_TIMES = [
   // {
@@ -327,12 +327,12 @@ export const BLOCKED_TIMES = [
     // date: BLOCKED_DATES[0],
     // area: AREAS.BAR.value,
   },
-  // {
-  //   value: "21:15",
-  //   // date: BLOCKED_DATES[0],
-  //   label: "9:15 PM",
-  //   area: AREAS.BAR.value,
-  // },
+  {
+    value: "21:15",
+    // date: BLOCKED_DATES[0],
+    // label: "9:15 PM",
+    // area: AREAS.BAR.value,
+  },
   // {
   //   value: "21:30",
   //   label: "9:30 PM",

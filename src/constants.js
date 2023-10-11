@@ -232,7 +232,7 @@ export const ALL_TIME_OPTIONS = [
 ]
 
 // TODO edit this manually everytime the restaurant requires to block times with the required day
-export const BLOCKED_DATES = ["2023-08-17"]
+export const BLOCKED_DATES = ["2023-10-13", "2023-10-14"]
 // TODO add the times with the corresponding date and area you would like to block, if the area is empty all areas will be blocked
 export const BLOCKED_TIMES = [
   // {
@@ -283,74 +283,74 @@ export const BLOCKED_TIMES = [
     value: "19:00",
     label: "7:00 PM",
     // date: BLOCKED_DATES[0],
-    // area: AREAS.BAR.value,
+    area: AREAS.BAR.value,
   },
   {
     value: "19:15",
     label: "7:15 PM",
     // date: BLOCKED_DATES[0],
-    // area: AREAS.BAR.value,
+    area: AREAS.BAR.value,
   },
   {
     value: "19:30",
     label: "7:30 PM",
     // date: BLOCKED_DATES[0],
-    // area: AREAS.BAR.value,
+    area: AREAS.BAR.value,
   },
   {
     value: "20:00",
     label: "8:00 PM",
     // date: BLOCKED_DATES[0],
-    // area: AREAS.BAR.value,
+    area: AREAS.BAR.value,
   },
   {
     value: "20:15",
     label: "8:15 PM",
     // date: BLOCKED_DATES[0],
-    // area: AREAS.BAR.value,
+    area: AREAS.BAR.value,
   },
   {
     value: "20:30",
     label: "8:30 PM",
     // date: BLOCKED_DATES[0],
-    // area: AREAS.BAR.value,
+    area: AREAS.BAR.value,
   },
   {
     value: "20:45",
     label: "8:45 PM",
     // date: BLOCKED_DATES[0],
-    // area: AREAS.BAR.value,
+    area: AREAS.BAR.value,
   },
   {
     value: "21:00",
     label: "9:00 PM",
     // date: BLOCKED_DATES[0],
-    // area: AREAS.BAR.value,
+    area: AREAS.BAR.value,
   },
   {
     value: "21:15",
     // date: BLOCKED_DATES[0],
     // label: "9:15 PM",
-    // area: AREAS.BAR.value,
+    area: AREAS.BAR.value,
   },
-  // {
-  //   value: "21:30",
-  //   label: "9:30 PM",
-  //   // date: BLOCKED_DATES[0],
-  //   area: AREAS.BAR.value,
-  // },
-  // {
-  //   value: "21:45",
-  //   label: "9:45 PM",
-  //   // date: BLOCKED_DATES[0],
-  //   area: AREAS.BAR.value,
-  // },
-  // {
-  //   value: "22:00",
-  //   label: "10:00 PM",
-  //   // date: BLOCKED_DATES[0],
-  //   area: AREAS.BAR.value,
-  // },
+  {
+    value: "21:30",
+    label: "9:30 PM",
+    // date: BLOCKED_DATES[0],
+    area: AREAS.BAR.value,
+  },
+  {
+    value: "21:45",
+    label: "9:45 PM",
+    // date: BLOCKED_DATES[0],
+    area: AREAS.BAR.value,
+  },
+  {
+    value: "22:00",
+    label: "10:00 PM",
+    // date: BLOCKED_DATES[0],
+    area: AREAS.BAR.value,
+  },
 ]
 
 // ADD THE AVAILABLE TIMES FOR THE EXCEPTIONAL DAYS

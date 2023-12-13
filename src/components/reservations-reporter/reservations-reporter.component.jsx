@@ -84,7 +84,8 @@ const ReservationsReporter = () => {
       // .where("last_name", "==", "Heymann")
       .orderBy("createdAt", "desc")
       // .orderBy("status", "desc")
-      .limit(1000)
+      // TODO change limit amount here
+      .limit(600)
       .onSnapshot(snapshot => {
         const listItems = snapshot.docs.map(doc => ({
           ...doc.data(),

@@ -17,6 +17,7 @@ import {
   AREAS,
   BLOCKED_DATES,
   SATURDAY_EXCEPTIONAL_TIMES,
+  SUNDAY_EXCEPTIONAL_TIMES,
 } from "./constants"
 
 export const isBrowser = () => typeof window !== "undefined"
@@ -331,10 +332,11 @@ export const getFormattedReservationData = data => {
 
 export const disableMondays = date => {
   const dateString = date.format("YYYY-MM-DD")
-  const isSunday = date.day() === 0
+  // const isSunday = date.day() === 0
   const isMonday = date.day() === 1
   return (
-    (isSunday || isMonday || CLOSE_DATES.includes(dateString)) &&
+    // (isSunday || isMonday || CLOSE_DATES.includes(dateString)) &&
+    (isMonday || CLOSE_DATES.includes(dateString)) &&
     !EXCEPTIONAL_DATES.includes(dateString)
   )
 }
@@ -509,6 +511,10 @@ export const getTimeOptions = date => {
   // If day is saturday, add saturday exceptional dates
   if (date.day() === 6) {
     timeOptions = SATURDAY_EXCEPTIONAL_TIMES
+  }
+
+  if (date.day() === 0) {
+    timeOptions = SUNDAY_EXCEPTIONAL_TIMES
   }
 
   if (isSameDay) {

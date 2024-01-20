@@ -173,10 +173,10 @@ export const ALL_TIME_OPTIONS = [
   //   value: "18:15",
   //   label: "6:15 PM",
   // },
-  // {
-  //   value: "18:30",
-  //   label: "6:30 PM",
-  // },
+  {
+    value: "18:30",
+    label: "6:30 PM",
+  },
   // {
   //   value: "18:45",
   //   label: "6:45 PM",
@@ -551,4 +551,67 @@ export const SATURDAY_EXCEPTIONAL_TIMES = [
     value: "22:00",
     label: "10:00 PM",
   },
+]
+
+export const SUNDAY_EXCEPTIONAL_TIMES = [
+  {
+    value: "13:00",
+    label: "1:00 PM",
+  },
+  {
+    value: "13:15",
+    label: "1:15 PM",
+  },
+  {
+    value: "13:30",
+    label: "1:30 PM",
+  },
+  {
+    value: "13:45",
+    label: "1:45 PM",
+  },
+  {
+    value: "14:00",
+    label: "2:00 PM",
+  },
+  {
+    value: "14:15",
+    label: "2:15 PM",
+  },
+  {
+    value: "14:30",
+    label: "2:30 PM",
+  },
+  {
+    value: "14:45",
+    label: "2:45 PM",
+  },
+  {
+    value: "15:00",
+    label: "3:00 PM",
+  },
+  {
+    value: "15:15",
+    label: "3:15 PM",
+  },
+  {
+    value: "15:30",
+    label: "3:30 PM",
+  },
+  // {
+  //   value: "15:45",
+  //   label: "3:45 PM",
+  // },
+  // {
+  //   value: "16:00",
+  //   label: "4:00 PM",
+  // },
+  // {
+  //   value: "16:15",
+  //   label: "4:15 PM",
+  // },
+  // {
+  //   value: "16:30",
+  //   label: "4:30 PM",
+  // },
 ]

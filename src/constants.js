@@ -555,6 +555,10 @@ export const SATURDAY_EXCEPTIONAL_TIMES = [
     value: "22:00",
     label: "10:00 PM",
   },
+  {
+    value: "22:30",
+    label: "10:30 PM",
+  },
 ]
 
 export const SUNDAY_EXCEPTIONAL_TIMES = [

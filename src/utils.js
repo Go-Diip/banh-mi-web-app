@@ -335,6 +335,7 @@ export const disableMondays = date => {
   // const isSunday = date.day() === 0
   const isMonday = date.day() === 1
   return (
+    // TODO uncomment this line to enable the restaurant to be closed on sundays and mondays
     // (isSunday || isMonday || CLOSE_DATES.includes(dateString)) &&
     (isMonday || CLOSE_DATES.includes(dateString)) &&
     !EXCEPTIONAL_DATES.includes(dateString)

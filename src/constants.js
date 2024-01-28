@@ -113,7 +113,9 @@ export const EXCEPTIONAL_BAR_OPEN_TIMES = [
 export const CLOSE_DATES = ["2023-05-14"]
 
 export const MIN_DATE =
-  (CURRENT_DATE.day() === 0 || CURRENT_DATE.day() === 1) &&
+  // TODO uncomment this line to enable the restaurant to be closed on sundays and mondays
+  // (CURRENT_DATE.day() === 0 || CURRENT_DATE.day() === 1) &&
+  CURRENT_DATE.day() === 1 &&
   !EXCEPTIONAL_DATES.includes(CURRENT_DATE.format("DD MMM YYYY"))
     ? moment().day(2)
     : CURRENT_DATE

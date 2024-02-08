@@ -110,7 +110,7 @@ export const EXCEPTIONAL_BAR_OPEN_TIMES = [
 
 // TODO add a date here to prevent from showing this day on the calendar
 // Days restaurant will open regardless of being any day from tuesday to saturday
-export const CLOSE_DATES = ["2023-05-14"]
+export const CLOSE_DATES = ["2024-02-13"]
 
 export const MIN_DATE =
   // TODO uncomment this line to enable the restaurant to be closed on sundays and mondays
@@ -238,7 +238,7 @@ export const ALL_TIME_OPTIONS = [
 ]
 
 // TODO edit this manually everytime the restaurant requires to block times with the required day
-export const BLOCKED_DATES = ["2024-02-14", "2024-02-12", "2024-02-13"]
+export const BLOCKED_DATES = ["2024-02-14", "2024-02-12"]
 // TODO add the times with the corresponding date and area you would like to block, if the area is empty all areas will be blocked
 export const BLOCKED_TIMES = [
   {
@@ -247,19 +247,9 @@ export const BLOCKED_TIMES = [
     date: BLOCKED_DATES[1],
   },
   {
-    value: "12:30",
-    label: "12:30 PM",
-    date: BLOCKED_DATES[2],
-  },
-  {
     value: "12:45",
     label: "12:45 PM",
     date: BLOCKED_DATES[1],
-  },
-  {
-    value: "12:45",
-    label: "12:45 PM",
-    date: BLOCKED_DATES[2],
   },
   {
     value: "13:00",
@@ -267,19 +257,9 @@ export const BLOCKED_TIMES = [
     date: BLOCKED_DATES[1],
   },
   {
-    value: "13:00",
-    label: "1:00 PM",
-    date: BLOCKED_DATES[2],
-  },
-  {
     value: "13:15",
     label: "1:15 PM",
     date: BLOCKED_DATES[1],
-  },
-  {
-    value: "13:15",
-    label: "1:15 PM",
-    date: BLOCKED_DATES[2],
   },
   {
     value: "13:30",
@@ -287,19 +267,9 @@ export const BLOCKED_TIMES = [
     date: BLOCKED_DATES[1],
   },
   {
-    value: "13:30",
-    label: "1:30 PM",
-    date: BLOCKED_DATES[2],
-  },
-  {
     value: "13:45",
     label: "1:45 PM",
     date: BLOCKED_DATES[1],
-  },
-  {
-    value: "13:45",
-    label: "1:45 PM",
-    date: BLOCKED_DATES[2],
   },
   {
     value: "14:00",
@@ -307,19 +277,9 @@ export const BLOCKED_TIMES = [
     date: BLOCKED_DATES[1],
   },
   {
-    value: "14:00",
-    label: "2:00 PM",
-    date: BLOCKED_DATES[2],
-  },
-  {
     value: "14:15",
     label: "2:15 PM",
     date: BLOCKED_DATES[1],
-  },
-  {
-    value: "14:15",
-    label: "2:15 PM",
-    date: BLOCKED_DATES[2],
   },
   {
     value: "14:30",
@@ -327,19 +287,9 @@ export const BLOCKED_TIMES = [
     date: BLOCKED_DATES[1],
   },
   {
-    value: "14:30",
-    label: "2:30 PM",
-    date: BLOCKED_DATES[2],
-  },
-  {
     value: "14:45",
     label: "2:45 PM",
     date: BLOCKED_DATES[1],
-  },
-  {
-    value: "14:45",
-    label: "2:45 PM",
-    date: BLOCKED_DATES[2],
   },
   {
     value: "15:00",
@@ -347,19 +297,9 @@ export const BLOCKED_TIMES = [
     date: BLOCKED_DATES[1],
   },
   {
-    value: "15:00",
-    label: "3:00 PM",
-    date: BLOCKED_DATES[2],
-  },
-  {
     value: "18:00",
     label: "6:00 PM",
     date: BLOCKED_DATES[1],
-  },
-  {
-    value: "18:00",
-    label: "6:00 PM",
-    date: BLOCKED_DATES[2],
   },
   {
     value: "18:15",
@@ -367,29 +307,14 @@ export const BLOCKED_TIMES = [
     date: BLOCKED_DATES[1],
   },
   {
-    value: "18:15",
-    label: "6:15 PM",
-    date: BLOCKED_DATES[2],
-  },
-  {
     value: "18:30",
     label: "6:30 PM",
     date: BLOCKED_DATES[1],
   },
   {
-    value: "18:30",
-    label: "6:30 PM",
-    date: BLOCKED_DATES[2],
-  },
-  {
     value: "18:45",
     label: "6:45 PM",
     date: BLOCKED_DATES[1],
-  },
-  {
-    value: "18:45",
-    label: "6:45 PM",
-    date: BLOCKED_DATES[2],
   },
   {
     value: "19:00",

@@ -360,31 +360,31 @@ export const BLOCKED_TIMES = [
     label: "9:15 PM",
     area: AREAS.BAR.value,
   },
-  {
-    value: "21:30",
-    label: "9:30 PM",
-  },
-  {
-    value: "21:45",
-    label: "9:45 PM",
-    area: AREAS.BAR.value,
-  },
-  {
-    value: "22:00",
-    label: "10:00 PM",
-    area: AREAS.BAR.value,
-  },
-  {
-    value: "22:30",
-    label: "10:30 PM",
-    area: AREAS.BAR.value,
-  },
-  {
-    value: "22:00",
-    label: "10:00 PM",
-    // date: BLOCKED_DATES[0],
-    // area: AREAS.RESTAURANTE.value,
-  },
+  // {
+  //   value: "21:30",
+  //   label: "9:30 PM",
+  // },
+  // {
+  //   value: "21:45",
+  //   label: "9:45 PM",
+  //   area: AREAS.BAR.value,
+  // },
+  // {
+  //   value: "22:00",
+  //   label: "10:00 PM",
+  //   area: AREAS.BAR.value,
+  // },
+  // {
+  //   value: "22:30",
+  //   label: "10:30 PM",
+  //   area: AREAS.BAR.value,
+  // },
+  // {
+  //   value: "22:00",
+  //   label: "10:00 PM",
+  //   // date: BLOCKED_DATES[0],
+  //   // area: AREAS.RESTAURANTE.value,
+  // },
 ]
 
 // ADD THE AVAILABLE TIMES FOR THE EXCEPTIONAL DAYS

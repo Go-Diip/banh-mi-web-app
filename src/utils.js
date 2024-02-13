@@ -18,6 +18,7 @@ import {
   BLOCKED_DATES,
   SATURDAY_EXCEPTIONAL_TIMES,
   SUNDAY_EXCEPTIONAL_TIMES,
+  CURRENT_DATE,
 } from "./constants"
 
 export const isBrowser = () => typeof window !== "undefined"
@@ -340,6 +341,24 @@ export const disableMondays = date => {
     (isMonday || CLOSE_DATES.includes(dateString)) &&
     !EXCEPTIONAL_DATES.includes(dateString)
   )
+}
+
+export const getMinDate = () => {
+  if (
+    CURRENT_DATE.day() === 1 &&
+    !EXCEPTIONAL_DATES.includes(CURRENT_DATE.format("DD MMM YYYY"))
+  ) {
+    return moment().day(2)
+  }
+
+  if (
+    CLOSE_DATES.includes(CURRENT_DATE.format("YYYY-MM-DD")) ||
+    BLOCKED_DATES.includes(CURRENT_DATE.format("YYYY-MM-DD"))
+  ) {
+    return moment().add(1, "days")
+  }
+
+  return CURRENT_DATE
 }
 
 export const sendConfirmationSMS = async data => {

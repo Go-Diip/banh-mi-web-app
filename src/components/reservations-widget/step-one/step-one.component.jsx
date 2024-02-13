@@ -16,7 +16,12 @@ import AccessTimeIcon from "@mui/icons-material/AccessTime"
 import moment from "moment"
 import "moment/locale/es"
 import { useFormContext } from "react-hook-form"
-import { disableMondays, getBlockedAreas, getTimeOptions } from "../../../utils"
+import {
+  disableMondays,
+  getBlockedAreas,
+  getMinDate,
+  getTimeOptions,
+} from "../../../utils"
 import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment"
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider"
 import { DatePicker } from "@mui/x-date-pickers/DatePicker"
@@ -34,7 +39,7 @@ const inputNames = ["seats", "date", "time"]
 
 const StepOne = ({ setCurrentStep }) => {
   const { register, setValue, trigger, watch } = useFormContext()
-  const [selectedDate, setSelectedDate] = useState(MIN_DATE)
+  const [selectedDate, setSelectedDate] = useState(getMinDate())
   const [dateOpen, setDateOpen] = useState(false)
   const selectedTime = watch("time")
   const isExceptionalDate = EXCEPTIONAL_DATES.includes(
@@ -94,7 +99,7 @@ const StepOne = ({ setCurrentStep }) => {
               value={selectedDate}
               date={selectedDate}
               onChange={date => setSelectedDate(date)}
-              minDate={MIN_DATE}
+              minDate={getMinDate()}
               maxDate={MAX_DATE}
               shouldDisableDate={disableMondays}
               variant="inline"

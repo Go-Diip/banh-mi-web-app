@@ -351,10 +351,7 @@ export const getMinDate = () => {
     return moment().day(2)
   }
 
-  if (
-    CLOSE_DATES.includes(CURRENT_DATE.format("YYYY-MM-DD")) ||
-    BLOCKED_DATES.includes(CURRENT_DATE.format("YYYY-MM-DD"))
-  ) {
+  if (CLOSE_DATES.includes(CURRENT_DATE.format("YYYY-MM-DD"))) {
     return moment().add(1, "days")
   }
 

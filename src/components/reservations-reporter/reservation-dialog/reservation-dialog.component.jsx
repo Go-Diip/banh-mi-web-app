@@ -51,9 +51,7 @@ const ReservationDialog = ({
   const isExceptionalDate = EXCEPTIONAL_DATES.includes(
     selectedDate.format("DD MMM YYYY")
   )
-  const timeOptions = isExceptionalDate
-    ? EXCEPTIONAL_TIMES
-    : getTimeOptions(selectedDate)
+  const timeOptions = ALL_TIME_OPTIONS
   const { handleSubmit, register, setValue, getValues } = methods
   const isReady = !shouldEdit || (shouldEdit && getValues("name"))
 

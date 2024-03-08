@@ -238,7 +238,7 @@ export const ALL_TIME_OPTIONS = [
 ]
 
 // TODO edit this manually everytime the restaurant requires to block times with the required day
-export const BLOCKED_DATES = ["2024-02-14"]
+export const BLOCKED_DATES = ["2024-03-08"]
 // TODO add the times with the corresponding date and area you would like to block, if the area is empty all areas will be blocked
 export const BLOCKED_TIMES = [
   // {
@@ -316,50 +316,50 @@ export const BLOCKED_TIMES = [
   //   label: "6:45 PM",
   //   date: BLOCKED_DATES[1],
   // },
-  {
-    value: "19:00",
-    label: "7:00 PM",
-    area: AREAS.BAR.value,
-  },
-  {
-    value: "19:15",
-    label: "7:15 PM",
-    area: AREAS.BAR.value,
-  },
+  // {
+  //   value: "19:00",
+  //   label: "7:00 PM",
+  //   area: AREAS.BAR.value,
+  // },
+  // {
+  //   value: "19:15",
+  //   label: "7:15 PM",
+  //   area: AREAS.BAR.value,
+  // },
   {
     value: "19:30",
     label: "7:30 PM",
-    area: AREAS.BAR.value,
+    // area: AREAS.BAR.value,
   },
-  // {
-  //   value: "20:00",
-  //   label: "8:00 PM",
-  // },
+  {
+    value: "20:00",
+    label: "8:00 PM",
+  },
   {
     value: "20:15",
     label: "8:15 PM",
-    area: AREAS.BAR.value,
+    // area: AREAS.BAR.value,
   },
   {
     value: "20:30",
     label: "8:30 PM",
-    area: AREAS.BAR.value,
+    // area: AREAS.BAR.value,
   },
   {
     value: "20:45",
     label: "8:45 PM",
-    area: AREAS.BAR.value,
+    // area: AREAS.BAR.value,
   },
-  {
-    value: "21:00",
-    label: "9:00 PM",
-    area: AREAS.BAR.value,
-  },
-  {
-    value: "21:15",
-    label: "9:15 PM",
-    area: AREAS.BAR.value,
-  },
+  // {
+  //   value: "21:00",
+  //   label: "9:00 PM",
+  //   area: AREAS.BAR.value,
+  // },
+  // {
+  //   value: "21:15",
+  //   label: "9:15 PM",
+  //   area: AREAS.BAR.value,
+  // },
   // {
   //   value: "21:30",
   //   label: "9:30 PM",

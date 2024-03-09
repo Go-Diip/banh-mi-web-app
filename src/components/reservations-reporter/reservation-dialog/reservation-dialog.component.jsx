@@ -27,9 +27,8 @@ import CalendarTodayIcon from "@mui/icons-material/CalendarToday"
 import moment from "moment"
 import { STATUSES } from "../reservations-reporter.component"
 import {
-  ALL_TIME_OPTIONS,
+  ALL_TIME_OPTIONS_ADMIN,
   EXCEPTIONAL_DATES,
-  EXCEPTIONAL_TIMES,
   MAX_DATE,
   MIN_DATE,
 } from "../../../constants"
@@ -51,7 +50,7 @@ const ReservationDialog = ({
   const isExceptionalDate = EXCEPTIONAL_DATES.includes(
     selectedDate.format("DD MMM YYYY")
   )
-  const timeOptions = ALL_TIME_OPTIONS
+  const timeOptions = ALL_TIME_OPTIONS_ADMIN
   const { handleSubmit, register, setValue, getValues } = methods
   const isReady = !shouldEdit || (shouldEdit && getValues("name"))
 

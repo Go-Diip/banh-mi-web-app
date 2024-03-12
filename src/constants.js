@@ -110,7 +110,7 @@ export const EXCEPTIONAL_BAR_OPEN_TIMES = [
 
 // TODO add a date here to prevent from showing this day on the calendar
 // Days restaurant will open regardless of being any day from tuesday to saturday
-export const CLOSE_DATES = ["2024-02-12", "2024-02-13"]
+export const CLOSE_DATES = ["2024-03-17"]
 
 export const MIN_DATE =
   // TODO uncomment this line to enable the restaurant to be closed on sundays and mondays
@@ -380,7 +380,7 @@ export const ALL_TIME_OPTIONS_ADMIN = [
 ]
 
 // TODO edit this manually everytime the restaurant requires to block times with the required day
-export const BLOCKED_DATES = ["2024-03-17"]
+export const BLOCKED_DATES = ["2024-03-08"]
 // TODO add the times with the corresponding date and area you would like to block, if the area is empty all areas will be blocked
 export const BLOCKED_TIMES = [
   // {

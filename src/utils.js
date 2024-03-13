@@ -333,12 +333,11 @@ export const getFormattedReservationData = data => {
 
 export const disableMondays = date => {
   const dateString = date.format("YYYY-MM-DD")
-  // const isSunday = date.day() === 0
+  const isSunday = date.day() === 0
   const isMonday = date.day() === 1
   return (
-    // TODO uncomment this line to enable the restaurant to be closed on sundays and mondays
-    // (isSunday || isMonday || CLOSE_DATES.includes(dateString)) &&
-    (isMonday || CLOSE_DATES.includes(dateString)) &&
+    (isSunday || isMonday || CLOSE_DATES.includes(dateString)) &&
+    // (isMonday || CLOSE_DATES.includes(dateString)) &&
     !EXCEPTIONAL_DATES.includes(dateString)
   )
 }
@@ -530,9 +529,9 @@ export const getTimeOptions = date => {
     timeOptions = SATURDAY_EXCEPTIONAL_TIMES
   }
 
-  if (date.day() === 0) {
-    timeOptions = SUNDAY_EXCEPTIONAL_TIMES
-  }
+  // if (date.day() === 0) {
+  //   timeOptions = SUNDAY_EXCEPTIONAL_TIMES
+  // }
 
   if (isSameDay) {
     timeOptions = timeOptions.filter(time => {

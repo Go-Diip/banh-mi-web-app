@@ -114,8 +114,8 @@ export const CLOSE_DATES = ["2024-03-17"]
 
 export const MIN_DATE =
   // TODO uncomment this line to enable the restaurant to be closed on sundays and mondays
-  // (CURRENT_DATE.day() === 0 || CURRENT_DATE.day() === 1) &&
-  CURRENT_DATE.day() === 1 &&
+  (CURRENT_DATE.day() === 0 || CURRENT_DATE.day() === 1) &&
+  // CURRENT_DATE.day() === 1 &&
   !EXCEPTIONAL_DATES.includes(CURRENT_DATE.format("DD MMM YYYY"))
     ? moment().day(2)
     : CURRENT_DATE

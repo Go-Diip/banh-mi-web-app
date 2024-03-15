@@ -20,6 +20,8 @@ const PromoGrid = ({ images, title, menu, button }) => {
     }
   }
 
+  return null
+
   return (
     <RowGrid isSlider sliderImages={images} classSlider={"medium-slider"}>
       <S.TopWrapper id="promos-cocktails">

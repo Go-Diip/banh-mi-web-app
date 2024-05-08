@@ -57,7 +57,7 @@ export const AREAS = {
 export const CURRENT_DATE = moment()
 
 // Days restaurant will open regardless of being sunday or monday
-export const EXCEPTIONAL_DATES = ["2023-05-10"]
+export const EXCEPTIONAL_DATES = ["2024-05-12"]
 
 // TODO add here exceptional bar open dates and times
 export const EXCEPTIONAL_BAR_OPEN_DATES = ["2023/02/14"]
@@ -543,50 +543,54 @@ export const EXCEPTIONAL_TIMES = [
     value: "13:00",
     label: "1:00 PM",
   },
-  // {
-  //   value: "13:15",
-  //   label: "1:15 PM",
-  // },
-  // {
-  //   value: "13:30",
-  //   label: "1:30 PM",
-  // },
-  // {
-  //   value: "13:45",
-  //   label: "1:45 PM",
-  // },
-  // {
-  //   value: "14:00",
-  //   label: "2:00 PM",
-  // },
-  // {
-  //   value: "14:15",
-  //   label: "2:15 PM",
-  // },
-  // {
-  //   value: "14:30",
-  //   label: "2:30 PM",
-  // },
-  // {
-  //   value: "14:45",
-  //   label: "2:45 PM",
-  // },
+  {
+    value: "13:15",
+    label: "1:15 PM",
+  },
+  {
+    value: "13:30",
+    label: "1:30 PM",
+  },
+  {
+    value: "13:45",
+    label: "1:45 PM",
+  },
+  {
+    value: "14:00",
+    label: "2:00 PM",
+  },
+  {
+    value: "14:15",
+    label: "2:15 PM",
+  },
+  {
+    value: "14:30",
+    label: "2:30 PM",
+  },
+  {
+    value: "14:45",
+    label: "2:45 PM",
+  },
   {
     value: "15:00",
     label: "3:00 PM",
   },
-  // {
-  //   value: "15:15",
-  //   label: "3:15 PM",
-  // },
-  // {
-  //   value: "15:30",
-  //   label: "3:30 PM",
-  // },
-  // {
-  //   value: "15:45",
-  //   label: "3:45 PM",
-  // },
+  {
+    value: "15:15",
+    label: "3:15 PM",
+  },
+  {
+    value: "15:30",
+    label: "3:30 PM",
+  },
+  {
+    value: "15:45",
+    label: "3:45 PM",
+  },
+  {
+    value: "16:00",
+    label: "4:00 PM",
+  },
 ]
 export const SATURDAY_EXCEPTIONAL_TIMES = [
   // {

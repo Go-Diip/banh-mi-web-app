@@ -110,7 +110,7 @@ export const EXCEPTIONAL_BAR_OPEN_TIMES = [
 
 // TODO add a date here to prevent from showing this day on the calendar
 // Days restaurant will open regardless of being any day from tuesday to saturday
-export const CLOSE_DATES = ["2024-03-17"]
+export const CLOSE_DATES = ["2024-05-12"]
 
 export const MIN_DATE =
   // TODO uncomment this line to enable the restaurant to be closed on sundays and mondays

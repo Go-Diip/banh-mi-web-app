@@ -57,7 +57,7 @@ export const AREAS = {
 export const CURRENT_DATE = moment()
 
 // Days restaurant will open regardless of being sunday or monday
-export const EXCEPTIONAL_DATES = ["2024-05-12"]
+export const EXCEPTIONAL_DATES = ["2023-05-12"]
 
 // TODO add here exceptional bar open dates and times
 export const EXCEPTIONAL_BAR_OPEN_DATES = ["2023/02/14"]

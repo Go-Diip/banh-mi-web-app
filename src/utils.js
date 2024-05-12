@@ -344,7 +344,7 @@ export const disableMondays = date => {
 
 export const getMinDate = () => {
   if (
-    CURRENT_DATE.day() === 1 &&
+    (CURRENT_DATE.day() === 0 || CURRENT_DATE.day() === 1) &&
     !EXCEPTIONAL_DATES.includes(CURRENT_DATE.format("DD MMM YYYY"))
   ) {
     return moment().day(2)

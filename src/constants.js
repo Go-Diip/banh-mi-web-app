@@ -380,7 +380,7 @@ export const ALL_TIME_OPTIONS_ADMIN = [
 ]
 
 // TODO edit this manually everytime the restaurant requires to block times with the required day
-export const BLOCKED_DATES = ["2024-06-05"]
+export const BLOCKED_DATES = ["2024-06-04", "2024-06-05"]
 // TODO add the times with the corresponding date and area you would like to block, if the area is empty all areas will be blocked
 export const BLOCKED_TIMES = [
   // {

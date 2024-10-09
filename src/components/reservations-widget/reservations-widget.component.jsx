@@ -94,12 +94,15 @@ const ReservationsWidget = () => {
       "0997702994"
     )
 
-    await addToMailchimp(data.email, {
-      EMAIL: data.email,
-      NAME: data.name,
-      LAST_NAME: data.last_name,
-      PHONE: data.phone,
-    })
+    // TODO: fix this - throwing unknown error
+    // await addToMailchimp(data.email, {
+    //   EMAIL: data.email,
+    //   NAME: data.name,
+    //   LAST_NAME: data.last_name,
+    //   PHONE: data.phone,
+    // })
+
+    console.log("reservation:", "add to mailchimp")
 
     sendGtagReservationMadeEvent()
 
